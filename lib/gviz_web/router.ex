@@ -18,6 +18,7 @@ defmodule GVizWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+    get "/graph", GraphController, :index
   end
 
   # Other scopes may use custom stacks.

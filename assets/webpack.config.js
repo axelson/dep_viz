@@ -46,7 +46,8 @@ module.exports = (env, options) => {
     },
     plugins: [
       new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-      new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
+      new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
+      new CopyWebpackPlugin([{ from: 'node_modules/@hpcc-js/wasm/dist/graphvizlib.wasm', to: '../js/' }])
     ]
     .concat(devMode ? [new HardSourceWebpackPlugin()] : [])
   }
