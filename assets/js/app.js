@@ -44,20 +44,27 @@ fetch('/dot', {})
     return response.text();
   })
   .then(text => {
-    console.log('text', text)
-    const graphviz = d3.select("#graph").graphviz()
+    const graphEl = document.getElementById('graph');
+    if (graphEl) {
+      const graphviz = d3.select("#graph").graphviz()
 
-    graphviz
-      .transition(function() {
-        return d3.transition()
-                 .delay(100)
-                 .duration(1000);
-      })
-      .renderDot(text)
+      graphviz
+        .transition(function() {
+          return d3.transition()
+                  .delay(100)
+                  .duration(1000);
+        })
+        .renderDot(text)
+    }
   })
   .catch(error => {
     console.error('There has been a problem with your fetch operation:', error);
   });
+
+const forceLayout = document.getElementById('force-layout');
+if (forceLayout) {
+  console.log("force layout!")
+}
 
 // d3.select("#graph").graphviz()
 //     .renderDot('digraph  {a -> b}');
