@@ -1,0 +1,42 @@
+digraph "xref graph" {
+  "lib/gviz.ex"
+  "lib/gviz/application.ex"
+  "lib/gviz/application.ex" -> "lib/gviz_web/endpoint.ex"
+  "lib/gviz_web/endpoint.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/endpoint.ex" -> "lib/gviz_web/router.ex"
+  "lib/gviz_web/router.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/router.ex" -> "lib/gviz_web/controllers/graph_controller.ex"
+  "lib/gviz_web/controllers/graph_controller.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/controllers/graph_controller.ex" -> "lib/gviz_web/gettext.ex" [label="(compile)"]
+  "lib/gviz_web/router.ex" -> "lib/gviz_web/telemetry.ex" [label="(compile)"]
+  "lib/gviz_web/router.ex" -> "lib/gviz_web/views/layout_view.ex" [label="(compile)"]
+  "lib/gviz_web/views/layout_view.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/views/layout_view.ex" -> "lib/gviz_web/gettext.ex" [label="(compile)"]
+  "lib/gviz_web/views/layout_view.ex" -> "lib/gviz_web/router.ex"
+  "lib/gviz_web/views/layout_view.ex" -> "lib/gviz_web/views/error_helpers.ex" [label="(compile)"]
+  "lib/gviz_web/views/error_helpers.ex" -> "lib/gviz_web/gettext.ex"
+  "lib/gviz/application.ex" -> "lib/gviz_web/telemetry.ex"
+  "lib/gviz_web.ex"
+  "lib/gviz_web/channels/user_socket.ex"
+  "lib/gviz_web/controllers/graph_controller.ex"
+  "lib/gviz_web/endpoint.ex"
+  "lib/gviz_web/gettext.ex"
+  "lib/gviz_web/live/page_live.ex"
+  "lib/gviz_web/live/page_live.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/live/page_live.ex" -> "lib/gviz_web/endpoint.ex"
+  "lib/gviz_web/live/page_live.ex" -> "lib/gviz_web/gettext.ex" [label="(compile)"]
+  "lib/gviz_web/live/page_live.ex" -> "lib/gviz_web/views/error_helpers.ex" [label="(compile)"]
+  "lib/gviz_web/live/page_live.ex" -> "lib/gviz_web/views/layout_view.ex" [label="(compile)"]
+  "lib/gviz_web/router.ex"
+  "lib/gviz_web/telemetry.ex"
+  "lib/gviz_web/views/error_helpers.ex"
+  "lib/gviz_web/views/error_view.ex"
+  "lib/gviz_web/views/error_view.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/views/error_view.ex" -> "lib/gviz_web/gettext.ex" [label="(compile)"]
+  "lib/gviz_web/views/error_view.ex" -> "lib/gviz_web/views/error_helpers.ex" [label="(compile)"]
+  "lib/gviz_web/views/graph_view.ex"
+  "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web/gettext.ex" [label="(compile)"]
+  "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web/views/error_helpers.ex" [label="(compile)"]
+  "lib/gviz_web/views/layout_view.ex"
+}

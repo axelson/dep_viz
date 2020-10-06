@@ -19,6 +19,7 @@ defmodule GVizWeb.Router do
 
     live "/", PageLive, :index
     get "/graph", GraphController, :index
+    get "/dot", GraphController, :dot
   end
 
   # Other scopes may use custom stacks.

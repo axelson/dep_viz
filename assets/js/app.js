@@ -36,5 +36,28 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-d3.select("#graph").graphviz()
-    .renderDot('digraph  {a -> b}');
+fetch('/dot', {})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(text => {
+    console.log('text', text)
+    const graphviz = d3.select("#graph").graphviz()
+
+    graphviz
+      .transition(function() {
+        return d3.transition()
+                 .delay(100)
+                 .duration(1000);
+      })
+      .renderDot(text)
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+
+// d3.select("#graph").graphviz()
+//     .renderDot('digraph  {a -> b}');
