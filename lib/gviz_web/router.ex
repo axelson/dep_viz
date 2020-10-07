@@ -20,6 +20,7 @@ defmodule GVizWeb.Router do
     live "/", PageLive, :index
     get "/graph", GraphController, :index
     get "/force", GraphController, :force
+    get "/force_data", GraphController, :force_data
     get "/dot", GraphController, :dot
   end
 

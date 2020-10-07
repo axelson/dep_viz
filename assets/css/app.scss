@@ -1,6 +1,16 @@
 /* This file is for your main application css. */
 @import "../node_modules/nprogress/nprogress.css";
 
+svg.main {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+}
+
+svg line {
+  stroke: #ccc;
+}
+
 /* LiveView specific classes for your customizations */
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {

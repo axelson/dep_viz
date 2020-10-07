@@ -1,9 +1,13 @@
 defmodule GViz do
-  @moduledoc """
-  GViz keeps the contexts that define your domain
-  and business logic.
+  def sample_dot_file do
+    sample_dot_path = Path.join(:code.priv_dir(:gviz), "sample_xref_graph.dot")
+    File.read!(sample_dot_path)
+  end
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  def force_layout do
+    with {:ok, decoded} <- Dotx.decode(sample_dot_file()) do
+      decoded
+      # build a csv representing each node and edge
+    end
+  end
 end
