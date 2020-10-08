@@ -5,32 +5,29 @@ export function forceLayout(dataPromise) {
 }
 
 function render(data) {
-  console.log('data', data);
-  const nodes = data.filter(row => row.type == "node")
-  const links = data.filter(row => row.type == "edge")
-  console.log('nodes', nodes);
-  console.log('links', links);
+  const nodeData = data.filter(row => row.type == "node")
+  const linkData = data.filter(row => row.type == "edge")
 
   const width = 500, height = 500
 
-  d3.forceSimulation(nodes)
+  d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody())
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('link', d3.forceLink().links(links).id(item => item.id))
-    .on('tick', buildTicked(nodes, links));
+    .force('link', d3.forceLink().links(linkData).id(item => item.id))
+    .on('tick', buildTicked(nodeData, linkData));
 }
 
-function buildTicked(nodes, links) {
+function buildTicked(nodeData, linkData) {
   return () => {
-    updateNodes(nodes)
-    updateLinks(links)
+    updateNodes(nodeData)
+    updateLinks(linkData)
   }
 }
 
-function updateLinks(links) {
+function updateLinks(linkData) {
   var u = d3.select('.links')
     .selectAll('line')
-    .data(links)
+    .data(linkData)
 
   u.enter()
     .append('line')
@@ -51,10 +48,10 @@ function updateLinks(links) {
   u.exit().remove()
 }
 
-function updateNodes(nodes) {
+function updateNodes(nodeData) {
   var u = d3.select('svg')
     .selectAll('circle')
-    .data(nodes)
+    .data(nodeData)
 
   u.enter()
     .append('circle')
