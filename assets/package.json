@@ -9,6 +9,7 @@
   "dependencies": {
     "d3": "^5.16.0",
     "d3-graphviz": "^3.1.0",
+    "jquery": "^3.5.1",
     "nprogress": "^0.2.0",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",

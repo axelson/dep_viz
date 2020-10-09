@@ -2,13 +2,41 @@
 @import "../node_modules/nprogress/nprogress.css";
 
 svg.main {
-  width: 500px;
-  height: 500px;
+  width: 1000px;
+  height: 1000px;
   border: 1px solid black;
 }
 
 svg line {
-  stroke: #ccc;
+}
+
+#node_tooltip {
+  padding: 8px;
+  color: black;
+  background: #ccc;
+}
+#node_tooltip .inner_tooltip {
+  background-color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  padding: 15px;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 999;
+  max-width: 85%;
+}
+
+.node-type-view {
+  fill: lightblue;
+}
+
+.node-type-controller {
+  fill: blue;
+}
+
+.node-type-live {
+  fill: 'green';
 }
 
 /* LiveView specific classes for your customizations */
