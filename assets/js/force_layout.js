@@ -1,3 +1,5 @@
+import lodash from 'lodash'
+
 import { CustomTooltip } from './utils/custom_tooltip.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
@@ -11,8 +13,11 @@ export function forceLayout(dataPromise) {
 function render(data) {
   const nodeData = data.filter(row => row.type == "node")
   const linkData = data.filter(row => row.type == "edge")
+  transformData(linkData)
+  console.log('linkData', linkData);
+  console.log('nodeData', nodeData);
 
-  const width = 1000, height = 1000
+  const width = 2000, height = 1000
 
   d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody().strength(chargeStrength))
@@ -28,6 +33,18 @@ function chargeStrength(_data) {
   return -50
 }
 
+function transformData(linkData) {
+  linkData.forEach(d => {
+    if (d.label == "(compile)") {
+      d.stroke = 'red'
+    } else if (d.label == "(export)") {
+      d.stroke = 'blue'
+    } else {
+      d.stroke = '#ccc'
+    }
+  })
+}
+
 function showTooltip(data) {
   let content = "<div class=\"inner_tooltip\">"
   content += `<span class=\"file-name\">${data.id}</span><br/>`
@@ -41,7 +58,7 @@ function hideTooltip() {
 
 function buildTicked(nodeData, linkData) {
   return () => {
-    updateNodes(nodeData)
+    updateNodes(nodeData, linkData)
     updateLinks(linkData)
   }
 }
@@ -54,13 +71,7 @@ function updateLinks(linkData) {
   u.enter()
     .append('line')
     .merge(u)
-    .attr('stroke', function (d) {
-      if (d.label == "(compile)") {
-        return 'red'
-      } else {
-        return '#ccc'
-      }
-    })
+    .attr('stroke', d => d.stroke)
     .attr('x1', function(d) {
       return d.source.x
     })
@@ -77,7 +88,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData) {
+function updateNodes(nodeData, linkData) {
   var u = d3.select('svg')
     .selectAll('circle')
     .data(nodeData)
@@ -95,10 +106,66 @@ function updateNodes(nodeData) {
     })
     .on('mouseover', function (nodeDatum, _i) {
       d3.select(this).attr("r", 7)
+
+      const targets =
+            lodash.reduce(linkData, function(acc, link) {
+              if (acc[link.source.id]) {
+                acc[link.source.id].push(link.target.id)
+              } else {
+                acc[link.source.id] = [link.target.id]
+              }
+              return acc;
+            }, {});
+
+      const matched = findDownstream(nodeDatum.id, targets)
+      console.log('nodeDatum.id', nodeDatum.id);
+      console.log('matched', matched);
+
+      d3.select('svg')
+        .selectAll('circle')
+        .transition().duration(1000)
+        .style('opacity', d => {
+          if (matched[d.id]) {
+            return 1
+          } else {
+            return 0.1
+          }
+        })
+
+      d3.select('svg')
+        .selectAll('line')
+        .transition().duration(1000)
+        .style('opacity', d => {
+          if (matched[d.source.id]) {
+            return 1
+          } else {
+            return 0.1
+          }
+        })
+        .attr('stroke', d => {
+          if (matched[d.source.id]) {
+            return d.stroke
+          } else {
+            return '#ccc'
+          }
+        })
+
       showTooltip(nodeDatum)
     })
     .on('mouseout', function (_nodeDatum, _i) {
       d3.select(this).attr("r", 5)
+
+      d3.select('svg')
+        .selectAll('circle')
+        .transition().duration(1000)
+        .style('opacity', 1)
+
+      d3.select('svg')
+        .selectAll('line')
+        .transition().duration(1000)
+        .style('opacity', 1)
+        .attr('stroke', d => d.stroke)
+
       hideTooltip()
     })
 
@@ -120,4 +187,22 @@ function nodeClass(data) {
   } else {
     return ''
   }
+}
+
+function findDownstream(id, targets) {
+  return downstream(id, {}, 1, targets)
+}
+
+function downstream(id, matched, depth, targets) {
+  matched[id] = depth
+  // Push each of these onto matched, as well as their children
+  if (targets[id]) {
+    targets[id].forEach(function (dest) {
+      if (!matched[dest]) {
+        downstream(dest, matched, depth + 1, targets)
+      }
+    })
+  }
+
+  return matched
 }

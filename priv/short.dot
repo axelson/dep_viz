@@ -1,0 +1,7 @@
+digraph "xref graph" {
+  "lib/gviz/application.ex" -> "lib/gviz_web/endpoint.ex"
+  "lib/gviz_web/endpoint.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/endpoint.ex" -> "lib/gviz_web/router.ex"
+  "lib/gviz_web/router.ex" -> "lib/gviz_web.ex" [label="(compile)"]
+  "lib/gviz_web/router.ex" -> "lib/gviz_web/controllers/graph_controller.ex"
+}
