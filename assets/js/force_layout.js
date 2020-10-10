@@ -119,33 +119,19 @@ function updateNodes(nodeData, linkData) {
               return acc;
             }, {});
 
-      const matched = findDownstream(nodeDatum.id, targets)
-      console.log('nodeDatum.id', nodeDatum.id);
-      console.log('matched', matched);
+      const matched = visit(targets, nodeDatum.id)
 
       d3.select('svg')
         .selectAll('circle')
         .transition().duration(1000)
-        .style('opacity', d => {
-          if (matched[d.id]) {
-            return 1
-          } else {
-            return 0.1
-          }
-        })
+        .style('opacity', d => hoverOpacity(matched, d.id))
 
       d3.select('svg')
         .selectAll('line')
         .transition().duration(1000)
-        .style('opacity', d => {
-          if (matched[d.source.id]) {
-            return 1
-          } else {
-            return 0.1
-          }
-        })
+        .style('opacity', d => hoverOpacity(matched, d.source.id))
         .attr('stroke', d => {
-          if (matched[d.source.id]) {
+          if (d.source.id in matched) {
             return d.stroke
           } else {
             return '#ccc'
@@ -191,20 +177,38 @@ function nodeClass(data) {
   }
 }
 
-function findDownstream(id, targets) {
-  return downstream(id, {}, 1, targets)
+function hoverOpacity(visited, id) {
+  if (id in visited) {
+    return Math.max(1 - visited[id] * 0.1, 0.5)
+  } else {
+    return 0.1
+  }
 }
 
-function downstream(id, matched, depth, targets) {
-  matched[id] = depth
-  // Push each of these onto matched, as well as their children
-  if (targets[id]) {
-    targets[id].forEach(function (dest) {
-      if (!matched[dest]) {
-        downstream(dest, matched, depth + 1, targets)
+// Use breadth-first traversal to build the list of ndoes that are connected
+// this this node and their distances/depths
+function visit(graph, id) {
+  let cur = [id]
+  let next = []
+  const visited = {}
+  let depth = 0
+
+  while (cur.length > 0 || next.length > 0) {
+    const node = cur.shift()
+    visited[node] = depth;
+
+    (graph[node] || []).forEach(childNode => {
+      if (!visited[childNode]) {
+        next.push(childNode)
       }
     })
+
+    if (cur.length == 0) {
+      cur = next
+      next = []
+      depth += 1
+    }
   }
 
-  return matched
+  return visited
 }
