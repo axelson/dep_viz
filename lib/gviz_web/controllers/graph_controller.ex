@@ -12,8 +12,7 @@ defmodule GVizWeb.GraphController do
   end
 
   def force_data(conn, _params) do
-    sample_dot_path = Path.join(:code.priv_dir(:gviz), "sample_xref_graph.dot")
-    sample_dot = File.read!(sample_dot_path)
+    sample_dot = File.read!(sample_dot_path())
     graph = Dotx.decode!(sample_dot)
     headers = ["type", "id", "source", "target", "label"]
 
@@ -45,9 +44,12 @@ defmodule GVizWeb.GraphController do
   defp label(%Dotx.Edge{}), do: ''
 
   def dot(conn, _params) do
-    sample_dot_path = Path.join(:code.priv_dir(:gviz), "sample_xref_graph.dot")
-    sample_dot = File.read!(sample_dot_path)
+    sample_dot = File.read!(sample_dot_path())
 
     text(conn, sample_dot)
+  end
+
+  defp sample_dot_path do
+    Path.join(:code.priv_dir(:gviz), "short.dot")
   end
 end
