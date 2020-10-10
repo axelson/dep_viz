@@ -8,12 +8,13 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Notes
 
-## Learn more
+### Drawing directional arrows
+Used a combination of:
+* https://stackoverflow.com/questions/11121465/scaling-an-arrowhead-on-a-d3-force-layout-link-marker
+* https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Main things to remember:
+- The arrow head size is proportional to the stroke width
+- The arrow head is drawn with a svg marker element

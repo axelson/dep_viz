@@ -3,6 +3,7 @@ import lodash from 'lodash'
 import { CustomTooltip } from './utils/custom_tooltip.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
+const NODE_RADIUS = 5
 
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
@@ -72,6 +73,7 @@ function updateLinks(linkData) {
     .append('line')
     .merge(u)
     .attr('stroke', d => d.stroke)
+    .attr('marker-end', 'url(#arrowHead)')
     .attr('x1', function(d) {
       return d.source.x
     })
@@ -95,7 +97,7 @@ function updateNodes(nodeData, linkData) {
 
   u.enter()
     .append('circle')
-    .attr('r', 5)
+    .attr('r', NODE_RADIUS)
     .attr('class', nodeClass)
     .merge(u)
     .attr('cx', function(d) {
@@ -105,7 +107,7 @@ function updateNodes(nodeData, linkData) {
       return d.y
     })
     .on('mouseover', function (nodeDatum, _i) {
-      d3.select(this).attr("r", 7)
+      d3.select(this).attr("r", NODE_RADIUS + 2)
 
       const targets =
             lodash.reduce(linkData, function(acc, link) {
