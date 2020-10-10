@@ -8,7 +8,7 @@ defmodule GVizWeb.GraphController do
   end
 
   def force(conn, _params) do
-    render(conn, "force_layout.html")
+    render(conn, "force_layout.html", svg_width: 400, svg_height: 400)
   end
 
   def force_data(conn, _params) do

@@ -17,7 +17,7 @@ function render(data) {
   console.log('linkData', linkData);
   console.log('nodeData', nodeData);
 
-  const width = 2000, height = 1000
+  const width = window.svgWidth, height = window.svgHeight
 
   d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody().strength(chargeStrength))
