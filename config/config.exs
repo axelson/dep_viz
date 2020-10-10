@@ -10,8 +10,11 @@ use Mix.Config
 config :gviz,
   namespace: GViz
 
+port = String.to_integer(System.get_env("PORT") || "4000")
+
 # Configures the endpoint
 config :gviz, GVizWeb.Endpoint,
+  http: [port: port],
   url: [host: "localhost"],
   secret_key_base: "8xJzBHfqJr4addPiUqlefBIipUwmvDirioranvyHijBkSYSviZHK2WKoAjQsYTqF",
   render_errors: [view: GVizWeb.ErrorView, accepts: ~w(html json), layout: false],
