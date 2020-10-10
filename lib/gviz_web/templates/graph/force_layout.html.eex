@@ -1,4 +1,14 @@
 Force Layout
+<style>
+  svg.main {
+    width: <%= @svg_width %>px;
+    height: <%= @svg_height %>px;
+  }
+</style>
+<script>
+  window.svgWidth = <%= @svg_width %>
+  window.svgHeight = <%= @svg_height %>
+</script>
 <div id="force-layout"></div>
 <svg class="main">
   <defs>
