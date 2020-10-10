@@ -14,7 +14,8 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="Graph">Graph</a></li>
+            <li><a href="graph">dot</a></li>
+            <li><a href="force">force</a></li>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
