@@ -45,7 +45,8 @@ defmodule GViz.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:nimble_csv, "~> 1.1"},
-      {:dotx, "~> 0.3.1"}
+      {:dotx, "~> 0.3.1"},
+      {:skogsra, "~> 2.3"}
     ]
   end
 

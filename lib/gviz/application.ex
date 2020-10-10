@@ -6,6 +6,8 @@ defmodule GViz.Application do
   use Application
 
   def start(_type, _args) do
+    GViz.Configuration.preload(GVizWeb.Endpoint)
+
     children = [
       # Start the Telemetry supervisor
       GVizWeb.Telemetry,
