@@ -1,6 +1,19 @@
 /* This file is for your main application css. */
 @import "../node_modules/nprogress/nprogress.css";
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Mono Regular'), local('FiraMono-Regular'), url(/fonts/FiraMono-Regular.ttf) format('truetype');
+}
+
 @import "force_layout";
+
+body {
+  font-family: 'Fira Mono', monospace;
+}
 
 /* LiveView specific classes for your customizations */
 .phx-no-feedback.invalid-feedback,
