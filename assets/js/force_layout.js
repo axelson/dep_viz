@@ -272,6 +272,11 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   let matched = visit(targets, id)
   const compileMatched = findCompileDependencies(targetObjects, id)
 
+  console.log(`\nTouching any of these file will cause ${id} to recompile:`)
+  for (const id of Object.keys(compileMatched)) {
+    console.log(id)
+  }
+
   // Fade out non-compile dependencies nodes
   d3.select('svg')
     .selectAll('circle')
