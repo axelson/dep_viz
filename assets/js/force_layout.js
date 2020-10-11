@@ -61,11 +61,10 @@ function render(data) {
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
     .on('tick', buildTicked(nodeData, linkData, targets, targetObjects));
 
-  nodeList(nodeData, targets, targetObjects)
+  renderInfoBox(nodeData, targets, targetObjects)
 }
 
-// TODO: Rename to renderInfoBox
-function nodeList(nodeData, targets, targetObjects) {
+function renderInfoBox(nodeData, targets, targetObjects) {
   const u = d3.select('.info-box-file-list')
     .selectAll('div')
     .data(nodeData, d => d.id)
