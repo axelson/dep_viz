@@ -6,10 +6,17 @@
   position: absolute;
   top: 10px;
   left: 10px;
+
+}
+
+#info-box-input {
+  position: relative;
+  z-index: 2;
 }
 
 svg.main {
-  border: 1px solid black;
+  position: relative;
+  z-index: 1;
 }
 
 svg line {
