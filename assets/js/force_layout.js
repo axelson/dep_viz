@@ -5,6 +5,9 @@ import { CustomTooltip } from './utils/custom_tooltip.js'
 const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
 
+// const HIGHLIGHT_FORMAT = 'children'
+const HIGHLIGHT_FORMAT = 'children-compile'
+
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
     render(data)
@@ -107,6 +110,7 @@ function updateNodes(nodeData, linkData) {
       return d.y
     })
     .on('mouseover', function (nodeDatum, _i) {
+      console.log("Hovered on", nodeDatum.id)
       d3.select(this).attr("r", NODE_RADIUS + 2)
 
       const targets =
@@ -129,6 +133,9 @@ function updateNodes(nodeData, linkData) {
               }
               return acc
             }, {})
+      window.linkData = linkData
+      window.targets = targets
+      window.targetObjects = targetObjects
 
       // console.log('targets', targets);
       let matched = visit(targets, nodeDatum.id)
@@ -194,20 +201,19 @@ function nodeClass(data) {
   // }
 }
 
-function hoverOpacity(_matched, compileMatched, id) {
-  if (id in compileMatched) {
-    // return Math.max(1 - visited[id] * 0.1, 0.5)
-    return 1
-  } else {
-    return 0.1
+function hoverOpacity(matched, compileMatched, id) {
+  if (HIGHLIGHT_FORMAT == 'children-compile') {
+    return id in compileMatched ? 1 : 0.1
+  } else if (HIGHLIGHT_FORMAT == 'children') {
+    return id in matched ? 1 : 0.1
   }
 }
 
-function hoverStroke(_matched, compileMatched, d) {
-  if (d.target.id in compileMatched && d.source.id in compileMatched) {
-    return d.stroke
-  } else {
-    return '#ccc'
+function hoverStroke(matched, compileMatched, d) {
+  if (HIGHLIGHT_FORMAT == 'children-compile') {
+    return d.source.id in compileMatched ? d.stroke : '#ccc'
+  } else if (HIGHLIGHT_FORMAT == 'children') {
+    return d.source.id in matched ? d.stroke : '#ccc'
   }
 }
 
@@ -252,7 +258,6 @@ function compileDependencies(graph, id, matched, isCompileDep) {
 
   if (graph[id]) {
     graph[id].forEach(node => {
-      console.log('node', node);
       switch (node.type) {
         case 'compile':
           if (!matched[node.id]) {
