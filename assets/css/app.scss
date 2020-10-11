@@ -1,41 +1,6 @@
 /* This file is for your main application css. */
 @import "../node_modules/nprogress/nprogress.css";
-
-svg.main {
-  border: 1px solid black;
-}
-
-svg line {
-}
-
-#node_tooltip {
-  padding: 8px;
-  color: black;
-  background: rgba(204, 204, 204, 0.6)
-}
-#node_tooltip .inner_tooltip {
-  background-color: rgba(255,255,255,0.7);
-  line-height: 1.5;
-  padding: 15px;
-}
-
-.tooltip {
-  position: absolute;
-  z-index: 999;
-  max-width: 85%;
-}
-
-.node-type-view {
-  fill: lightblue;
-}
-
-.node-type-controller {
-  fill: blue;
-}
-
-.node-type-live {
-  fill: 'green';
-}
+@import "force_layout";
 
 /* LiveView specific classes for your customizations */
 .phx-no-feedback.invalid-feedback,
