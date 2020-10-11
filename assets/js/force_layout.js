@@ -6,6 +6,8 @@ import './utils/jquery_autocomplete.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
+const DEFAULT_NODE_COLOR = 'black'
+const HIGHLIGHT_NODE_COLOR = 'red'
 
 // const HIGHLIGHT_FORMAT = 'children'
 const HIGHLIGHT_FORMAT = 'children-compile'
@@ -83,7 +85,7 @@ function nodeList(nodeData) {
         if (input == '') {
           return 'black'
         } else if (d.id.indexOf(input) !== -1) {
-          return 'red'
+          return HIGHLIGHT_NODE_COLOR
         } else {
           return 'black'
         }
@@ -138,7 +140,7 @@ function chargeStrength(_data) {
 function transformData(linkData) {
   linkData.forEach(d => {
     if (d.label == "(compile)") {
-      d.stroke = 'red'
+      d.stroke = HIGHLIGHT_NODE_COLOR
     } else if (d.label == "(export)") {
       d.stroke = 'blue'
     } else {
@@ -209,7 +211,9 @@ function updateNodes(nodeData, linkData) {
     })
     .on('mouseover', function (nodeDatum, _i) {
       console.log("Hovered on", nodeDatum.id)
-      d3.select(this).attr("r", NODE_RADIUS + 2)
+      d3.select(this)
+        .attr('r', NODE_RADIUS + 2)
+        .attr('fill', HIGHLIGHT_NODE_COLOR)
 
       const targets =
             lodash.reduce(linkData, function(acc, link) {
@@ -254,7 +258,9 @@ function updateNodes(nodeData, linkData) {
       showTooltip(nodeDatum)
     })
     .on('mouseout', function (_nodeDatum, _i) {
-      d3.select(this).attr("r", 5)
+      d3.select(this)
+        .attr('r', NODE_RADIUS)
+        .attr('fill', DEFAULT_NODE_COLOR)
 
       d3.select('svg')
         .selectAll('circle')
