@@ -14,6 +14,10 @@ const TRANSITION_FAST = 500
 // const HIGHLIGHT_FORMAT = 'children'
 const HIGHLIGHT_FORMAT = 'children-compile'
 
+const vizSettings = {
+  maxLabelsToShow: 10
+}
+
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
     render(data)
@@ -80,7 +84,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
      showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
    })
    .on('mouseout', function (nodeDatum) {
-     unShowNodeCompileDeps(nodeDatum.id)
+     unShowNodeCompileDeps()
    })
 
   const $input = jQuery('#info-box-input')
@@ -180,8 +184,9 @@ function hideTooltip() {
 
 function buildTicked(nodeData, linkData, targets, targetObjects) {
   return () => {
-    updateNodes(nodeData, linkData, targets, targetObjects)
+    updateNodes(nodeData)
     updateLinks(linkData)
+    updateLabels(nodeData)
   }
 }
 
@@ -211,7 +216,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData, linkData) {
+function updateNodes(nodeData) {
   var u = d3.select('svg')
     .selectAll('circle')
     .data(nodeData)
@@ -233,11 +238,33 @@ function updateNodes(nodeData, linkData) {
 
       showTooltip(nodeDatum)
     })
-    .on('mouseout', function (nodeDatum) {
-      unShowNodeCompileDeps(nodeDatum.id)
+    .on('mouseout', function (_nodeDatum) {
+      unShowNodeCompileDeps()
 
       hideTooltip()
     })
+
+  u.exit().remove()
+}
+
+function updateLabels(nodeData) {
+  var u = d3.select('svg')
+            .selectAll('text.node-label')
+            .data(nodeData)
+
+  u.enter()
+   .append('text')
+   .attr('class', 'node-label pointer-events-none')
+   .text(d => d.id)
+   .attr('dominant-baseline', 'middle')
+   .style('font-size', 9)
+   // Labels start hidden and are only shown later (but maybe this isn't the
+   // best pattern)
+   .style('opacity', 0)
+
+  u
+   .attr('x', d => d.x + 10)
+   .attr('y', d => d.y)
 
   u.exit().remove()
 }
@@ -269,6 +296,7 @@ function nodeClass(_data) {
 }
 
 function showNodeCompileDeps(id, targets, targetObjects) {
+  const duration = TRANSITION_SLOW
   let matched = visit(targets, id)
   const compileMatched = findCompileDependencies(targetObjects, id)
 
@@ -280,7 +308,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   // Fade out non-compile dependencies nodes
   d3.select('svg')
     .selectAll('circle')
-    .transition().duration(TRANSITION_SLOW)
+    .transition().duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .style('fill', d => {
@@ -296,16 +324,29 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
     .selectAll('line')
-    .transition().duration(TRANSITION_SLOW)
+    .transition().duration(duration)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverStroke(matched, compileMatched, d))
+
+  // Show labels for nodes that will cause a recompile
+  const matchedLabels = d3.select('svg')
+    .selectAll('text.node-label')
+    .filter(d => d.id in compileMatched)
+
+  if (matchedLabels.size() <= vizSettings.maxLabelsToShow) {
+    matchedLabels
+      .transition().duration(duration)
+      .style('opacity', 1)
+  }
 }
 
-function unShowNodeCompileDeps(id) {
+function unShowNodeCompileDeps() {
+  const duration = TRANSITION_FAST
+
   // Restore the nodes
   d3.select('svg')
     .selectAll('circle')
-    .transition().duration(TRANSITION_FAST)
+    .transition().duration(duration)
     .attr('r', NODE_RADIUS)
     .style('fill', DEFAULT_NODE_COLOR)
     .style('opacity', 1)
@@ -313,9 +354,15 @@ function unShowNodeCompileDeps(id) {
   // Restore the lines
   d3.select('svg')
     .selectAll('line')
-    .transition().duration(TRANSITION_FAST)
+    .transition().duration(duration)
     .style('opacity', 1)
     .attr('stroke', d => d.stroke)
+
+  // Hide labels
+  d3.select('svg')
+    .selectAll('text.node-label')
+    .transition().duration(duration)
+    .style('opacity', 0)
 }
 
 function hoverOpacity(matched, compileMatched, id) {

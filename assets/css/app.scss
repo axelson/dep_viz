@@ -15,6 +15,10 @@ body {
   font-family: 'Fira Mono', monospace;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 /* LiveView specific classes for your customizations */
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {
