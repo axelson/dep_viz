@@ -281,13 +281,13 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   d3.select('svg')
     .selectAll('circle')
     .transition().duration(1000)
-    .style('opacity', d => hoverOpacityCompile(compileMatched, d.id))
+    .style('opacity', d => hoverOpacityCompile(compileMatched, d))
 
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
     .selectAll('line')
     .transition().duration(1000)
-    .style('opacity', d => hoverOpacityCompile(compileMatched, d.target.id))
+    .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverStroke(matched, compileMatched, d))
 }
 
@@ -321,8 +321,16 @@ function hoverOpacity(matched, compileMatched, id) {
   }
 }
 
-function hoverOpacityCompile(compileMatched, id) {
-  return id in compileMatched ? 1 : 0.1
+function hoverOpacityCompile(matched, d) {
+  if (d.id) {
+    // Node
+    return d.id in matched ? 1 : 0.1
+  } else {
+    // Link
+    const sourceMatched = d.source.id in matched
+    const targetMatched = d.target.id in matched
+    return sourceMatched && targetMatched ? 1 : 0.1
+  }
 }
 
 function hoverStroke(matched, compileMatched, d) {
