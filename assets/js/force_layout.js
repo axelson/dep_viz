@@ -25,15 +25,39 @@ function render(data) {
   console.log('linkData', linkData);
   console.log('nodeData', nodeData);
 
+  const targets =
+        lodash.reduce(linkData, function(acc, link) {
+          if (acc[link.source.id]) {
+            acc[link.source.id].push(link.target.id)
+          } else {
+            acc[link.source.id] = [link.target.id]
+          }
+          return acc;
+        }, {})
+
+  const targetObjects =
+        lodash.reduce(linkData, function (acc, link) {
+          const obj = {id: link.target.id, type: linkType(link.label)}
+          if (acc[link.source.id]) {
+            acc[link.source.id].push(obj)
+          } else {
+            acc[link.source.id] = [obj]
+          }
+          return acc
+        }, {})
+
+  window.targets = targets
+  window.targetObjects = targetObjects
+
   const width = window.svgWidth, height = window.svgHeight
 
   d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody().strength(chargeStrength))
     .force('center', d3.forceCenter(width * 0.6, height / 2))
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
-    .on('tick', buildTicked(nodeData, linkData));
+    .on('tick', buildTicked(nodeData, linkData, targets, targetObjects));
 
-  nodeList(nodeData)
+  nodeList(nodeData, targets, targetObjects)
   // initializeFilterJquery(nodeData)
 }
 
@@ -46,6 +70,20 @@ function nodeList(nodeData) {
    .append('div')
    .attr('class', 'info-box-item')
    .text(d => d.id)
+   .on('mouseover', function (nodeDatum) {
+     d3.select('svg')
+       .selectAll('circle')
+       .filter(d => d.id == nodeDatum.id)
+       .attr('r', NODE_RADIUS + 2)
+       .attr('fill', HIGHLIGHT_NODE_COLOR)
+   })
+   .on('mouseout', function (nodeDatum) {
+     d3.select('svg')
+       .selectAll('circle')
+       .filter(d => d.id == nodeDatum.id)
+       .attr('r', NODE_RADIUS)
+       .attr('fill', DEFAULT_NODE_COLOR)
+   })
 
   const $input = jQuery('#info-box-input')
   const $header = jQuery('#info-box-header')
@@ -160,9 +198,9 @@ function hideTooltip() {
   tooltip.hideTooltip()
 }
 
-function buildTicked(nodeData, linkData) {
+function buildTicked(nodeData, linkData, targets, targetObjects) {
   return () => {
-    updateNodes(nodeData, linkData)
+    updateNodes(nodeData, linkData, targets, targetObjects)
     updateLinks(linkData)
   }
 }
@@ -215,34 +253,8 @@ function updateNodes(nodeData, linkData) {
         .attr('r', NODE_RADIUS + 2)
         .attr('fill', HIGHLIGHT_NODE_COLOR)
 
-      const targets =
-            lodash.reduce(linkData, function(acc, link) {
-              if (acc[link.source.id]) {
-                acc[link.source.id].push(link.target.id)
-              } else {
-                acc[link.source.id] = [link.target.id]
-              }
-              return acc;
-            }, {})
-
-      const targetObjects =
-            lodash.reduce(linkData, function (acc, link) {
-              const obj = {id: link.target.id, type: linkType(link.label)}
-              if (acc[link.source.id]) {
-                acc[link.source.id].push(obj)
-              } else {
-                acc[link.source.id] = [obj]
-              }
-              return acc
-            }, {})
-      window.linkData = linkData
-      window.targets = targets
-      window.targetObjects = targetObjects
-
-      // console.log('targets', targets);
       let matched = visit(targets, nodeDatum.id)
       const compileMatched = findCompileDependencies(targetObjects, nodeDatum.id)
-      // console.log('compileMatched', compileMatched);
 
       d3.select('svg')
         .selectAll('circle')
