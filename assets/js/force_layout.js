@@ -66,7 +66,7 @@ function render(data) {
     .force('center', d3.forceCenter(width * 0.6, height / 2))
     // NOTE:  linkData is transformed by d3 after this point
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
-    .on('tick', buildTicked(nodeData, linkData, targets, targetObjects));
+    .on('tick', buildTicked(nodeData, linkData));
 
   renderInfoBox(nodeData, targets, targetObjects)
 }
@@ -182,7 +182,7 @@ function hideTooltip() {
   tooltip.hideTooltip()
 }
 
-function buildTicked(nodeData, linkData, targets, targetObjects) {
+function buildTicked(nodeData, linkData) {
   return () => {
     updateNodes(nodeData)
     updateLinks(linkData)
@@ -197,9 +197,9 @@ function updateLinks(linkData) {
 
   u.enter()
     .append('line')
-    .merge(u)
     .attr('stroke', d => d.stroke)
     .attr('marker-end', 'url(#arrowHead)')
+    .merge(u)
     .attr('x1', function(d) {
       return d.source.x
     })
