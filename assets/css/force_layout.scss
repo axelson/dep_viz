@@ -23,6 +23,8 @@
 }
 
 .info-box-item {
+  // We want each item to only take up it's exact width so that pointer events
+  // fall back to the SVG
   display: inline;
   &:after {
     content: "\A";
