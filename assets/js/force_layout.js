@@ -71,12 +71,21 @@ function nodeList(nodeData) {
           return 0.1
         }
       })
+      .style('fill', d => {
+        if (input == '') {
+          return 'black'
+        } else if (d.id.indexOf(input) !== -1) {
+          return 'red'
+        } else {
+          return 'black'
+        }
+      })
 
     d3.select('svg')
       .selectAll('line')
       .transition().duration(1000)
       .style('opacity', d => {
-        if (d.id.indexOf(input) !== -1) {
+        if (d.source.id.indexOf(input) !== -1) {
           return 1
         } else {
           return 0.1
