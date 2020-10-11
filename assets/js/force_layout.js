@@ -42,6 +42,7 @@ function nodeList(nodeData) {
 
   u.enter()
    .append('div')
+   .attr('class', 'info-box-item')
    .text(d => d.id)
 
   const $input = jQuery('#info-box-input')
