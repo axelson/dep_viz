@@ -9,16 +9,22 @@ Force Layout
   window.svgWidth = <%= @svg_width %>
   window.svgHeight = <%= @svg_height %>
 </script>
-<div id="force-layout"></div>
-<svg class="main">
-  <defs>
-    <marker id="arrowHead" viewBox="0 0 10 10"
-          refX="8.5" refY="2.5"
-          markerUnits="strokeWidth"
-          markerWidth="10" markerHeight="10"
-          orient="auto">
-      <path d="M 0 0 L 5 2.5 L 0 5 z" />
-    </marker>
-  </defs>
-  <g class="links"></g>
-</svg>
+
+<div class="force-layout-container">
+  <div class="info-box">
+    <input type="text" id="info-box-input">
+    <div class="info-box-file-list"></div>
+  </div>
+  <svg class="main">
+    <defs>
+      <marker id="arrowHead" viewBox="0 0 10 10"
+            refX="8.5" refY="2.5"
+            markerUnits="strokeWidth"
+            markerWidth="10" markerHeight="10"
+            orient="auto">
+        <path d="M 0 0 L 5 2.5 L 0 5 z" />
+      </marker>
+    </defs>
+    <g class="links"></g>
+  </svg>
+</div>

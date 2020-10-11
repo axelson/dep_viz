@@ -1,6 +1,8 @@
-import lodash from 'lodash'
+import lodash, { indexOf } from 'lodash'
+import jQuery from 'jquery'
 
 import { CustomTooltip } from './utils/custom_tooltip.js'
+import './utils/jquery_autocomplete.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
@@ -25,9 +27,58 @@ function render(data) {
 
   d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody().strength(chargeStrength))
-    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('center', d3.forceCenter(width * 0.6, height / 2))
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
     .on('tick', buildTicked(nodeData, linkData));
+
+  nodeList(nodeData)
+  // initializeFilterJquery(nodeData)
+}
+
+function nodeList(nodeData) {
+  const u = d3.select('.info-box-file-list')
+    .selectAll('div')
+    .data(nodeData, d => d.id)
+
+  u.enter()
+   .append('div')
+   .text(d => d.id)
+
+  const $input = jQuery('#info-box-input')
+
+  $input.bind('input', function () {
+    const input = $(this).val()
+    const u2 =
+          d3.select('.info-box-file-list')
+            .selectAll('div')
+            .data(nodeData.filter(d => {
+              return d.id.indexOf(input) !== -1
+            }), d => d.id)
+
+    u2.enter()
+      .append('div')
+      .text(d => d.id)
+
+    u2.exit().remove()
+  })
+}
+
+function initializeFilterJquery(nodeData) {
+  const $input = jQuery('#info-box-input')
+  console.log('$input', $input);
+
+  $input.bind('input', function () {
+    console.log('input!', $(this).val())
+  })
+
+  $input.autocomplete({
+    lookup: nodeData.map(d => { return {value: d.id, data: d.id} }),
+    lookupLimit: 6,
+    lookupFilter: (suggestion, originalQuery, queryLowerCase) => {
+      console.log('suggestion', suggestion);
+      return -1
+    }
+  })
 }
 
 function chargeStrength(_data) {
