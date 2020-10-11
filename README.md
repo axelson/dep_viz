@@ -18,3 +18,16 @@ Used a combination of:
 Main things to remember:
 - The arrow head size is proportional to the stroke width
 - The arrow head is drawn with a svg marker element
+
+TODO:
+- [ ] Click on a node to keep it selected
+- [ ] Show a list of files on the left
+- [ ] Allow filtering in the list of files
+
+Future:
+- Configurable node coloring based on filename prefix
+
+Ideas:
+- can you click on a node and give it gravity
+  put the selected node at the top and then the rest will hang down based on
+  how many jumps they are away
