@@ -7,6 +7,9 @@ const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
 const DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
+const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
+const TRANSITION_SLOW = 600
+const TRANSITION_FAST = 500
 
 // const HIGHLIGHT_FORMAT = 'children'
 const HIGHLIGHT_FORMAT = 'children-compile'
@@ -106,7 +109,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
 
     d3.select('svg')
       .selectAll('circle')
-      .transition().duration(1000)
+      .transition().duration(TRANSITION_SLOW)
       .style('opacity', d => {
         if (d.id.indexOf(input) !== -1) {
           return 1
@@ -126,7 +129,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
 
     d3.select('svg')
       .selectAll('line')
-      .transition().duration(1000)
+      .transition().duration(TRANSITION_SLOW)
       .style('opacity', d => {
         if (d.source.id.indexOf(input) !== -1) {
           return 1
@@ -268,46 +271,44 @@ function nodeClass(_data) {
 function showNodeCompileDeps(id, targets, targetObjects) {
   let matched = visit(targets, id)
   const compileMatched = findCompileDependencies(targetObjects, id)
-  console.log('compileMatched', compileMatched);
-
-  d3.select('svg')
-    .selectAll('circle')
-    .filter(d => d.id == id)
-    .attr('r', NODE_RADIUS + 2)
-    .attr('fill', HIGHLIGHT_NODE_COLOR)
 
   // Fade out non-compile dependencies nodes
   d3.select('svg')
     .selectAll('circle')
-    .transition().duration(1000)
+    .transition().duration(TRANSITION_SLOW)
+    .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
+    .style('fill', d => {
+      if (d.id == id) {
+        return HIGHLIGHT_NODE_COLOR
+      } else if (d.id in compileMatched) {
+        return SECONDARY_HIGHLIGHT_NODE_COLOR
+      } else {
+        return DEFAULT_NODE_COLOR
+      }
+    })
 
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
     .selectAll('line')
-    .transition().duration(1000)
+    .transition().duration(TRANSITION_SLOW)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverStroke(matched, compileMatched, d))
 }
 
 function unShowNodeCompileDeps(id) {
-  // Restore the highlighted node
+  // Restore the nodes
   d3.select('svg')
     .selectAll('circle')
-    .filter(d => d.id == id)
+    .transition().duration(TRANSITION_FAST)
     .attr('r', NODE_RADIUS)
-    .attr('fill', DEFAULT_NODE_COLOR)
-
-  // Restore all the other nodes
-  d3.select('svg')
-    .selectAll('circle')
-    .transition().duration(1000)
+    .style('fill', DEFAULT_NODE_COLOR)
     .style('opacity', 1)
 
   // Restore the lines
   d3.select('svg')
     .selectAll('line')
-    .transition().duration(1000)
+    .transition().duration(TRANSITION_FAST)
     .style('opacity', 1)
     .attr('stroke', d => d.stroke)
 }
