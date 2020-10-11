@@ -21,29 +21,33 @@ function render(data) {
   const nodeData = data.filter(row => row.type == "node")
   const linkData = data.filter(row => row.type == "edge")
   transformData(linkData)
+  window.linkData = linkData
   console.log('linkData', linkData);
   console.log('nodeData', nodeData);
 
   const targets =
         lodash.reduce(linkData, function(acc, link) {
-          if (acc[link.source.id]) {
-            acc[link.source.id].push(link.target.id)
+          if (acc[link.source]) {
+            acc[link.source].push(link.target)
           } else {
-            acc[link.source.id] = [link.target.id]
+            acc[link.source] = [link.target]
           }
           return acc;
         }, {})
 
   const targetObjects =
         lodash.reduce(linkData, function (acc, link) {
-          const obj = {id: link.target.id, type: linkType(link.label)}
-          if (acc[link.source.id]) {
-            acc[link.source.id].push(obj)
+          const obj = {id: link.target, type: linkType(link.label)}
+          if (acc[link.source]) {
+            acc[link.source].push(obj)
           } else {
-            acc[link.source.id] = [obj]
+            acc[link.source] = [obj]
           }
           return acc
         }, {})
+
+  // console.log('targets', targets);
+  // console.log('targetObjects', targetObjects);
 
   window.targets = targets
   window.targetObjects = targetObjects
@@ -53,13 +57,15 @@ function render(data) {
   d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody().strength(chargeStrength))
     .force('center', d3.forceCenter(width * 0.6, height / 2))
+    // NOTE:  linkData is transformed by d3 after this point
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
     .on('tick', buildTicked(nodeData, linkData, targets, targetObjects));
 
   nodeList(nodeData, targets, targetObjects)
 }
 
-function nodeList(nodeData) {
+// TODO: Rename to renderInfoBox
+function nodeList(nodeData, targets, targetObjects) {
   const u = d3.select('.info-box-file-list')
     .selectAll('div')
     .data(nodeData, d => d.id)
@@ -69,18 +75,10 @@ function nodeList(nodeData) {
    .attr('class', 'info-box-item')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
-     d3.select('svg')
-       .selectAll('circle')
-       .filter(d => d.id == nodeDatum.id)
-       .attr('r', NODE_RADIUS + 2)
-       .attr('fill', HIGHLIGHT_NODE_COLOR)
+     showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
    })
    .on('mouseout', function (nodeDatum) {
-     d3.select('svg')
-       .selectAll('circle')
-       .filter(d => d.id == nodeDatum.id)
-       .attr('r', NODE_RADIUS)
-       .attr('fill', DEFAULT_NODE_COLOR)
+     unShowNodeCompileDeps(nodeDatum.id)
    })
 
   const $input = jQuery('#info-box-input')
@@ -227,43 +225,14 @@ function updateNodes(nodeData, linkData) {
     .attr('cy', function(d) {
       return d.y
     })
-    .on('mouseover', function (nodeDatum, _i) {
+    .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
-      d3.select(this)
-        .attr('r', NODE_RADIUS + 2)
-        .attr('fill', HIGHLIGHT_NODE_COLOR)
-
-      let matched = visit(targets, nodeDatum.id)
-      const compileMatched = findCompileDependencies(targetObjects, nodeDatum.id)
-
-      d3.select('svg')
-        .selectAll('circle')
-        .transition().duration(1000)
-        .style('opacity', d => hoverOpacity(matched, compileMatched, d.id))
-
-      d3.select('svg')
-        .selectAll('line')
-        .transition().duration(1000)
-        .style('opacity', d => hoverOpacity(matched, compileMatched, d.target.id))
-        .attr('stroke', d => hoverStroke(matched, compileMatched, d))
+      showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
 
       showTooltip(nodeDatum)
     })
-    .on('mouseout', function (_nodeDatum, _i) {
-      d3.select(this)
-        .attr('r', NODE_RADIUS)
-        .attr('fill', DEFAULT_NODE_COLOR)
-
-      d3.select('svg')
-        .selectAll('circle')
-        .transition().duration(1000)
-        .style('opacity', 1)
-
-      d3.select('svg')
-        .selectAll('line')
-        .transition().duration(1000)
-        .style('opacity', 1)
-        .attr('stroke', d => d.stroke)
+    .on('mouseout', function (nodeDatum) {
+      unShowNodeCompileDeps(nodeDatum.id)
 
       hideTooltip()
     })
@@ -279,7 +248,7 @@ function linkType(label) {
   }
 }
 
-function nodeClass(data) {
+function nodeClass(_data) {
   return ''
   // const id = data.id
   // if (id.includes('_web')) {
@@ -297,12 +266,63 @@ function nodeClass(data) {
   // }
 }
 
+function showNodeCompileDeps(id, targets, targetObjects) {
+  let matched = visit(targets, id)
+  const compileMatched = findCompileDependencies(targetObjects, id)
+  console.log('compileMatched', compileMatched);
+
+  d3.select('svg')
+    .selectAll('circle')
+    .filter(d => d.id == id)
+    .attr('r', NODE_RADIUS + 2)
+    .attr('fill', HIGHLIGHT_NODE_COLOR)
+
+  // Fade out non-compile dependencies nodes
+  d3.select('svg')
+    .selectAll('circle')
+    .transition().duration(1000)
+    .style('opacity', d => hoverOpacityCompile(compileMatched, d.id))
+
+  // Fade and desaturate non-compile depedency lines and arrows
+  d3.select('svg')
+    .selectAll('line')
+    .transition().duration(1000)
+    .style('opacity', d => hoverOpacityCompile(compileMatched, d.target.id))
+    .attr('stroke', d => hoverStroke(matched, compileMatched, d))
+}
+
+function unShowNodeCompileDeps(id) {
+  // Restore the highlighted node
+  d3.select('svg')
+    .selectAll('circle')
+    .filter(d => d.id == id)
+    .attr('r', NODE_RADIUS)
+    .attr('fill', DEFAULT_NODE_COLOR)
+
+  // Restore all the other nodes
+  d3.select('svg')
+    .selectAll('circle')
+    .transition().duration(1000)
+    .style('opacity', 1)
+
+  // Restore the lines
+  d3.select('svg')
+    .selectAll('line')
+    .transition().duration(1000)
+    .style('opacity', 1)
+    .attr('stroke', d => d.stroke)
+}
+
 function hoverOpacity(matched, compileMatched, id) {
   if (HIGHLIGHT_FORMAT == 'children-compile') {
     return id in compileMatched ? 1 : 0.1
   } else if (HIGHLIGHT_FORMAT == 'children') {
     return id in matched ? 1 : 0.1
   }
+}
+
+function hoverOpacityCompile(compileMatched, id) {
+  return id in compileMatched ? 1 : 0.1
 }
 
 function hoverStroke(matched, compileMatched, d) {
