@@ -61,12 +61,14 @@ function render(data) {
 
   const width = window.svgWidth, height = window.svgHeight
 
-  d3.forceSimulation(nodeData)
+  const force = d3.forceSimulation(nodeData)
     .force('charge', d3.forceManyBody().strength(chargeStrength))
     .force('center', d3.forceCenter(width * 0.6, height / 2))
     // NOTE:  linkData is transformed by d3 after this point
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
-    .on('tick', buildTicked(nodeData, linkData));
+
+  force
+    .on('tick', buildTicked(nodeData, linkData, force));
 
   renderInfoBox(nodeData, targets, targetObjects)
 }
@@ -182,9 +184,9 @@ function hideTooltip() {
   tooltip.hideTooltip()
 }
 
-function buildTicked(nodeData, linkData) {
+function buildTicked(nodeData, linkData, force) {
   return () => {
-    updateNodes(nodeData)
+    updateNodes(nodeData, force)
     updateLinks(linkData)
     updateLabels(nodeData)
   }
@@ -216,7 +218,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData) {
+function updateNodes(nodeData, force) {
   var u = d3.select('svg')
     .selectAll('circle')
     .data(nodeData)
@@ -243,8 +245,29 @@ function updateNodes(nodeData) {
 
       hideTooltip()
     })
+    .call(d3.drag()
+            .on('start', dragStarted)
+            .on('drag', dragged)
+            .on('end', dragEnded))
 
   u.exit().remove()
+
+  function dragStarted(d) {
+    if (!d3.event.active) force.alphaTarget(0.3).restart()
+    d.fx = d.x
+    d.fy = d.y
+  }
+
+  function dragged(d) {
+    d.fx = d3.event.x
+    d.fy = d3.event.y
+  }
+
+  function dragEnded(d) {
+    if (!d3.event.active) force.alphaTarget(0)
+    d.fx = null
+    d.fy = null
+  }
 }
 
 function updateLabels(nodeData) {
