@@ -21,8 +21,8 @@ Main things to remember:
 
 TODO:
 - [ ] Click on a node to keep it selected
-- [ ] Show a list of files on the left
-- [ ] Allow filtering in the list of files
+- [x] Show a list of files on the left
+- [x] Allow filtering in the list of files
 
 Future:
 - Configurable node coloring based on filename prefix

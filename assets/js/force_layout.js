@@ -45,9 +45,16 @@ function nodeList(nodeData) {
    .text(d => d.id)
 
   const $input = jQuery('#info-box-input')
+  const $header = jQuery('#info-box-header')
 
   $input.bind('input', function () {
     const input = $(this).val()
+    if (input == '') {
+      $header.text('All files:')
+    } else {
+      $header.text(`Results for "${input}":`)
+    }
+
     const u2 =
           d3.select('.info-box-file-list')
             .selectAll('div')

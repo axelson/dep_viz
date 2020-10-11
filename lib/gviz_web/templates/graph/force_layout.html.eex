@@ -13,6 +13,7 @@ Force Layout
 <div class="force-layout-container">
   <div class="info-box">
     <input type="text" id="info-box-input">
+    <div id="info-box-header">All files:</div>
     <div class="info-box-file-list"></div>
   </div>
   <svg class="main">

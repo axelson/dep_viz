@@ -12,6 +12,16 @@
 #info-box-input {
   position: relative;
   z-index: 2;
+  margin-bottom: 16px;
+}
+
+#info-box-header {
+  margin-bottom: 8px;
+}
+
+.info-box-file-list {
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 svg.main {
