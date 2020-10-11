@@ -2,7 +2,6 @@ import lodash, { indexOf } from 'lodash'
 import jQuery from 'jquery'
 
 import { CustomTooltip } from './utils/custom_tooltip.js'
-import './utils/jquery_autocomplete.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
@@ -58,7 +57,6 @@ function render(data) {
     .on('tick', buildTicked(nodeData, linkData, targets, targetObjects));
 
   nodeList(nodeData, targets, targetObjects)
-  // initializeFilterJquery(nodeData)
 }
 
 function nodeList(nodeData) {
@@ -147,24 +145,6 @@ function nodeList(nodeData) {
           return '#ccc'
         }
       })
-  })
-}
-
-function initializeFilterJquery(nodeData) {
-  const $input = jQuery('#info-box-input')
-  console.log('$input', $input);
-
-  $input.bind('input', function () {
-    console.log('input!', $(this).val())
-  })
-
-  $input.autocomplete({
-    lookup: nodeData.map(d => { return {value: d.id, data: d.id} }),
-    lookupLimit: 6,
-    lookupFilter: (suggestion, originalQuery, queryLowerCase) => {
-      console.log('suggestion', suggestion);
-      return -1
-    }
   })
 }
 
