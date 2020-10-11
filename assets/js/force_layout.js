@@ -177,20 +177,21 @@ function linkType(label) {
 }
 
 function nodeClass(data) {
-  const id = data.id
-  if (id.includes('_web')) {
-    if (id.includes('_view.ex')) {
-      return 'node-type-view'
-    } else if (id.includes('_controller.ex')) {
-      return 'node-type-controller'
-    } else if (id.includes('/live/')) {
-      return 'node-type-live'
-    } else {
-      return ''
-    }
-  } else {
-    return ''
-  }
+  return ''
+  // const id = data.id
+  // if (id.includes('_web')) {
+  //   if (id.includes('_view.ex')) {
+  //     return 'node-type-view'
+  //   } else if (id.includes('_controller.ex')) {
+  //     return 'node-type-controller'
+  //   } else if (id.includes('/live/')) {
+  //     return 'node-type-live'
+  //   } else {
+  //     return ''
+  //   }
+  // } else {
+  //   return ''
+  // }
 }
 
 function hoverOpacity(_matched, compileMatched, id) {
