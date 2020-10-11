@@ -1,0 +1,1190 @@
+digraph "xref graph" {
+  "lib/hexpm/accounts/audit_log.ex"
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm/accounts/auth.ex" -> "lib/hexpm/accounts/key.ex"
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/accounts/key_permission.ex" [label="(export)"]
+  "lib/hexpm/accounts/key_permission.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/accounts/audit_log.ex"
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/accounts/key.ex"
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/accounts/organization_user.ex"
+  "lib/hexpm/accounts/organization_user.ex" -> "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/accounts/organization_user.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/audit_log.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/email.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/key.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/organization_user.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/accounts/organization_user.ex" [label="(export)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/emails/emails.ex"
+  "lib/hexpm/emails/emails.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
+  "lib/hexpm/emails/emails.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/emails/emails.ex" -> "lib/hexpm_web/views/email_view.ex" [label="(compile)"]
+  "lib/hexpm_web/views/email_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/email_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/endpoint.ex" -> "lib/hexpm_web/plug_parser.ex" [label="(compile)"]
+  "lib/hexpm_web/plug_parser.ex" -> "lib/hexpm_web/elixir_format.ex"
+  "lib/hexpm_web/elixir_format.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/utils.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/accounts/organization_user.ex"
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/ecto/changeset.ex" -> "lib/hexpm/accounts/email.ex"
+  "lib/hexpm/ecto/changeset.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/ecto/version.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/repository/package_dependant.ex"
+  "lib/hexpm/repository/package_dependant.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/package_dependant.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/package_dependant.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/package_dependant.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/repository/package_download.ex"
+  "lib/hexpm/repository/package_download.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/package_download.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/package_download.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/package_download.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/package_download.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/repository/package_metadata.ex"
+  "lib/hexpm/repository/package_metadata.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/package_metadata.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/package_metadata.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/package_metadata.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/repository/package_owner.ex" [label="(export)"]
+  "lib/hexpm/repository/package_owner.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/repository/package_owner.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/package_owner.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/package_owner.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/package_owner.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/ecto/version.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/repository/download.ex"
+  "lib/hexpm/repository/download.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/download.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/download.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/download.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/download.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/repository/release_download.ex"
+  "lib/hexpm/repository/release_download.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/release_download.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/release_download.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/release_download.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/release_download.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/repository/release_metadata.ex"
+  "lib/hexpm/repository/release_metadata.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/release_metadata.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/release_metadata.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/release_metadata.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/repository/release_retirement.ex"
+  "lib/hexpm/repository/release_retirement.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/release_retirement.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/release_retirement.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/release_retirement.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/repository/requirement.ex"
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/requirement.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/release.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm/repository/repository.ex" -> "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/repository/repository.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/repository.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/repository.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/repository.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/repository.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/repository/package.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/utils.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/utils.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm_web/plug_parser.ex" -> "lib/hexpm_web/erlang_format.ex"
+  "lib/hexpm_web/erlang_format.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/endpoint.ex" -> "lib/hexpm_web/plugs/forwarded.ex"
+  "lib/hexpm_web/endpoint.ex" -> "lib/hexpm_web/plugs/status.ex"
+  "lib/hexpm_web/endpoint.ex" -> "lib/hexpm_web/plugs/vary.ex"
+  "lib/hexpm_web/endpoint.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/router.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm/repo.ex" [label="(export)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/auth_controller.ex"
+  "lib/hexpm_web/controllers/api/auth_controller.ex" -> "lib/hexpm/accounts/key.ex"
+  "lib/hexpm_web/controllers/api/auth_controller.ex" -> "lib/hexpm/accounts/key_permission.ex"
+  "lib/hexpm_web/controllers/api/auth_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/auth_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/accounts/key.ex"
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/repository/package.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/key.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/password_reset.ex"
+  "lib/hexpm/accounts/password_reset.ex" -> "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm/accounts/password_reset.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/accounts/password_reset.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/password_reset.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/password_reset.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/password_reset.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/recovery_code.ex" [label="(export)"]
+  "lib/hexpm/accounts/recovery_code.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/recovery_code.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/recovery_code.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/session.ex"
+  "lib/hexpm/accounts/session.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/session.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/session.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/tfa.ex"
+  "lib/hexpm/accounts/tfa.ex" -> "lib/hexpm/accounts/recovery_code.ex"
+  "lib/hexpm/accounts/tfa.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/tfa.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/tfa.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/emails/emails.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/emails/mailer.ex"
+  "lib/hexpm/emails/mailer.ex" -> "lib/hexpm/application.ex"
+  "lib/hexpm/application.ex" -> "lib/hexpm/billing/report.ex"
+  "lib/hexpm/billing/report.ex" -> "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/billing/report.ex" -> "lib/hexpm/billing/billing.ex"
+  "lib/hexpm/billing/billing.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/billing/billing.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/billing/billing.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/billing/billing.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/billing/report.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/application.ex" -> "lib/hexpm/block_address/block_address.ex"
+  "lib/hexpm/block_address/block_address.ex" -> "lib/hexpm/block_address/entry.ex"
+  "lib/hexpm/block_address/entry.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/block_address/entry.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/block_address/entry.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/block_address/block_address.ex" -> "lib/hexpm/cdn/cdn.ex"
+  "lib/hexpm/block_address/block_address.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/block_address/block_address.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/application.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/application.ex" -> "lib/hexpm/throttle.ex"
+  "lib/hexpm/application.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm/application.ex" -> "lib/hexpm_web/rate_limit_pub_sub.ex"
+  "lib/hexpm_web/rate_limit_pub_sub.ex" -> "lib/hexpm_web/plugs/attack.ex"
+  "lib/hexpm_web/plugs/attack.ex" -> "lib/hexpm/block_address/block_address.ex"
+  "lib/hexpm_web/plugs/attack.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/ecto/version.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/emails/emails.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/emails/mailer.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/assets.ex"
+  "lib/hexpm/repository/assets.ex" -> "lib/hexpm/cdn/cdn.ex"
+  "lib/hexpm/repository/assets.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm/repository/assets.ex" -> "lib/hexpm/store/store.ex"
+  "lib/hexpm/store/store.ex" -> "lib/hexpm/store/gcs.ex"
+  "lib/hexpm/store/gcs.ex" -> "lib/hexpm/http.ex"
+  "lib/hexpm/store/gcs.ex" -> "lib/hexpm/store/store.ex" [label="(compile)"]
+  "lib/hexpm/store/store.ex" -> "lib/hexpm/store/local.ex"
+  "lib/hexpm/store/local.ex" -> "lib/hexpm/store/store.ex" [label="(compile)"]
+  "lib/hexpm/store/store.ex" -> "lib/hexpm/store/s3.ex"
+  "lib/hexpm/store/s3.ex" -> "lib/hexpm/store/store.ex" [label="(compile)"]
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/package_dependant.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/registry_builder.ex"
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/cdn/cdn.ex"
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/repo.ex" [label="(export)"]
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/repository/install.ex"
+  "lib/hexpm/repository/install.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/repository/install.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/repository/install.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/repository/requirement.ex"
+  "lib/hexpm/repository/registry_builder.ex" -> "lib/hexpm/store/store.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/repository/release_download.ex"
+  "lib/hexpm/repository/releases.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm/repository/repositories.ex"
+  "lib/hexpm/repository/repositories.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/repository/repositories.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/repository/repositories.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/repositories.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm/repository/repositories.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm_web/stale.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex" -> "lib/hexpm_web/views/error_view.ex"
+  "lib/hexpm_web/views/error_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/error_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/error_view.ex" -> "lib/hexpm_web/views/layout_view.ex"
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/view_helpers.ex" -> "lib/hexpm/repository/package.ex" [label="(export)"]
+  "lib/hexpm_web/views/view_helpers.ex" -> "lib/hexpm/repository/release.ex" [label="(export)"]
+  "lib/hexpm_web/views/view_helpers.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/views/view_helpers.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/view_helpers.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/layout_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/error_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/plugs/attack.ex" -> "lib/hexpm_web/rate_limit_pub_sub.ex"
+  "lib/hexpm/emails/mailer.ex" -> "lib/hexpm/throttle.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/accounts/users.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/repository/package_download.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/repository/repositories.ex"
+  "lib/hexpm/repository/packages.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/auth_helpers.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/auth_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/auth_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/docs_controller.ex"
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/store/store.ex"
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/index_controller.ex"
+  "lib/hexpm_web/controllers/api/index_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/index_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/index_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/index_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/key_controller.ex"
+  "lib/hexpm_web/controllers/api/key_controller.ex" -> "lib/hexpm/accounts/keys.ex"
+  "lib/hexpm/accounts/keys.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/accounts/keys.ex" -> "lib/hexpm/accounts/key.ex" [label="(export)"]
+  "lib/hexpm/accounts/keys.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/accounts/keys.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/accounts/keys.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/key_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/key_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/key_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/key_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/api/key_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/organization_controller.ex"
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm/accounts/audit_logs.ex"
+  "lib/hexpm/accounts/audit_logs.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_logs.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/accounts/audit_logs.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/accounts/audit_logs.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/audit_logs.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm/billing/billing.ex"
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/organization_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/organization_user_controller.ex"
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm/billing/billing.ex"
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/owner_controller.ex"
+  "lib/hexpm_web/controllers/api/owner_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/api/owner_controller.ex" -> "lib/hexpm/repository/owners.ex"
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/emails/emails.ex"
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/emails/mailer.ex"
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/repository/package_owner.ex" [label="(export)"]
+  "lib/hexpm/repository/owners.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/owner_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/owner_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/owner_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/owner_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/package_controller.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/accounts/audit_logs.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/repository/owners.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/package_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/release_controller.ex"
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm/store/store.ex"
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/api/release_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/repository_controller.ex"
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm/repository/repositories.ex"
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/repository_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/retirement_controller.ex"
+  "lib/hexpm_web/controllers/api/retirement_controller.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm_web/controllers/api/retirement_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/retirement_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/retirement_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/retirement_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/short_url_controller.ex"
+  "lib/hexpm_web/controllers/api/short_url_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/short_url_controller.ex" -> "lib/hexpm/short_urls/short_urls.ex"
+  "lib/hexpm/short_urls/short_urls.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/short_urls/short_urls.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/short_urls/short_urls.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/short_urls/short_urls.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/short_urls/short_urls.ex" -> "lib/hexpm/short_urls/short_url.ex"
+  "lib/hexpm/short_urls/short_url.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/short_urls/short_url.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/short_urls/short_url.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/short_urls/short_url.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/short_url_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/short_url_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/short_url_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/api/short_url_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/user_controller.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm/accounts/audit_logs.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/blog_controller.ex"
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm_web/views/blog_view.ex" [label="(compile)"]
+  "lib/hexpm_web/views/blog_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/blog_view.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/views/blog_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/blog_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/blog_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/blog_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/blog_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex" -> "lib/hexpm/accounts/audit_logs.ex"
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/email_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/key_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm/accounts/key.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm/accounts/keys.ex"
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/organization_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/key.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/keys.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/organization_user.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/billing/billing.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/controllers/dashboard/key_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/views/dashboard/organization_view.ex"
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm/accounts/key_permission.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/organization_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/password_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm/pwned/pwned.ex"
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/profile_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/security_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/dashboard_controller.ex"
+  "lib/hexpm_web/controllers/dashboard_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/dashboard_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/dashboard_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/dashboard_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/docs_controller.ex"
+  "lib/hexpm_web/controllers/docs_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/docs_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/docs_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/docs_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/docs_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/email_verification_controller.ex"
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/email_verification_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/feeds_controller.ex"
+  "lib/hexpm_web/controllers/feeds_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/feeds_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/feeds_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/feeds_controller.ex" -> "lib/hexpm_web/views/blog_view.ex"
+  "lib/hexpm_web/controllers/feeds_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/install_controller.ex"
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm/repository/install.ex"
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm/repository/installs.ex"
+  "lib/hexpm/repository/installs.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/repository/installs.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/repository/installs.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/installs.ex" -> "lib/hexpm/repository/install.ex"
+  "lib/hexpm/repository/installs.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/install_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/login_controller.ex"
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm/accounts/keys.ex"
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm/pwned/pwned.ex"
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/login_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/opensearch_controller.ex"
+  "lib/hexpm_web/controllers/opensearch_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/opensearch_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/opensearch_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/opensearch_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/package_controller.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/accounts/audit_logs.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/repository/owners.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/package_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/page_controller.ex"
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/page_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/password_controller.ex"
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm/pwned/pwned.ex"
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/password_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/password_reset_controller.ex"
+  "lib/hexpm_web/controllers/password_reset_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/password_reset_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/password_reset_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/password_reset_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/password_reset_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/policy_controller.ex"
+  "lib/hexpm_web/controllers/policy_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/policy_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/policy_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/policy_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/short_url_controller.ex"
+  "lib/hexpm_web/controllers/short_url_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/short_url_controller.ex" -> "lib/hexpm/short_urls/short_url.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/short_url_controller.ex" -> "lib/hexpm/short_urls/short_urls.ex"
+  "lib/hexpm_web/controllers/short_url_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/short_url_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/short_url_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/signup_controller.ex"
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/signup_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/sitemap_controller.ex"
+  "lib/hexpm_web/controllers/sitemap_controller.ex" -> "lib/hexpm/repository/sitemaps.ex"
+  "lib/hexpm/repository/sitemaps.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/repository/sitemaps.ex" -> "lib/hexpm/context.ex" [label="(compile)"]
+  "lib/hexpm/repository/sitemaps.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/sitemaps.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/sitemaps.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/sitemap_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/sitemap_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/sitemap_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/sitemap_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/test_controller.ex"
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm/store/store.ex"
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/test_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/tfa_auth_controller.ex"
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm/accounts/tfa.ex"
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm_web/controllers/login_controller.ex"
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/tfa_recovery_controller.ex"
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex" -> "lib/hexpm_web/controllers/login_controller.ex"
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/user_controller.ex"
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/controllers/user_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/version_controller.ex"
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm/repository/packages.ex"
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm/repository/releases.ex"
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm/repository/repositories.ex"
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/version_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/plugs.ex" [label="(export)"]
+  "lib/hexpm_web/plugs.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm_web/plugs.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex"
+  "lib/hexpm_web/plugs.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex"
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/plugs/attack.ex"
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/plugs/dashboard_auth.ex"
+  "lib/hexpm_web/router.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/endpoint.ex" -> "lib/hexpm_web/session.ex" [label="(compile)"]
+  "lib/hexpm_web/session.ex" -> "lib/hexpm/accounts/session.ex"
+  "lib/hexpm_web/session.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm_web/views/email_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/email_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/email_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/emails/mailer.ex"
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm/accounts/organizations.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/password_reset.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/recovery_code.ex" [label="(export)"]
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/tfa.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/accounts/user_handles.ex"
+  "lib/hexpm/accounts/user_handles.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/user_handles.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/user_handles.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/user_handles.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/repository/package_owner.ex"
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/user.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organization_user.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/organization_user.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organization_user.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/organization.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/accounts/key_permission.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/accounts/key_permission.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/key_permission.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/key_permission.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/key_permission.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/key.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/accounts/auth.ex" -> "lib/hexpm/accounts/keys.ex"
+  "lib/hexpm/accounts/auth.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/accounts/auth.ex" -> "lib/hexpm/accounts/users.ex"
+  "lib/hexpm/accounts/auth.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/accounts/auth.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/accounts/email.ex" -> "lib/hexpm_web/stale.ex" [label="(compile)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/key.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/key_permission.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/user_handles.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/ecto/changeset.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/repository/package.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/repository/package_metadata.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/repository/release.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/repository/release_metadata.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/repository/release_retirement.ex" [label="(export)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/schema.ex" [label="(compile)"]
+  "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm/accounts/audit_logs.ex"
+  "lib/hexpm/accounts/auth.ex"
+  "lib/hexpm/accounts/email.ex"
+  "lib/hexpm/accounts/key.ex"
+  "lib/hexpm/accounts/key_permission.ex"
+  "lib/hexpm/accounts/keys.ex"
+  "lib/hexpm/accounts/organization.ex"
+  "lib/hexpm/accounts/organization_user.ex"
+  "lib/hexpm/accounts/organizations.ex"
+  "lib/hexpm/accounts/password_reset.ex"
+  "lib/hexpm/accounts/recovery_code.ex"
+  "lib/hexpm/accounts/session.ex"
+  "lib/hexpm/accounts/tfa.ex"
+  "lib/hexpm/accounts/user.ex"
+  "lib/hexpm/accounts/user_handles.ex"
+  "lib/hexpm/accounts/users.ex"
+  "lib/hexpm/application.ex"
+  "lib/hexpm/billing/billing.ex"
+  "lib/hexpm/billing/hexpm.ex"
+  "lib/hexpm/billing/hexpm.ex" -> "lib/hexpm/billing/billing.ex" [label="(compile)"]
+  "lib/hexpm/billing/hexpm.ex" -> "lib/hexpm/http.ex"
+  "lib/hexpm/billing/local.ex"
+  "lib/hexpm/billing/local.ex" -> "lib/hexpm/billing/billing.ex" [label="(compile)"]
+  "lib/hexpm/billing/report.ex"
+  "lib/hexpm/block_address/block_address.ex"
+  "lib/hexpm/block_address/entry.ex"
+  "lib/hexpm/cdn/cdn.ex"
+  "lib/hexpm/cdn/fastly.ex"
+  "lib/hexpm/cdn/fastly.ex" -> "lib/hexpm/cdn/cdn.ex" [label="(compile)"]
+  "lib/hexpm/cdn/fastly.ex" -> "lib/hexpm/http.ex"
+  "lib/hexpm/cdn/fastly.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/cdn/local.ex"
+  "lib/hexpm/cdn/local.ex" -> "lib/hexpm/cdn/cdn.ex" [label="(compile)"]
+  "lib/hexpm/context.ex"
+  "lib/hexpm/ecto/changeset.ex"
+  "lib/hexpm/ecto/version.ex"
+  "lib/hexpm/emails/bamboo.ex"
+  "lib/hexpm/emails/bamboo.ex" -> "lib/hexpm/accounts/email.ex" [label="(compile)"]
+  "lib/hexpm/emails/bamboo.ex" -> "lib/hexpm/accounts/user.ex" [label="(compile)"]
+  "lib/hexpm/emails/emails.ex"
+  "lib/hexpm/emails/mailer.ex"
+  "lib/hexpm/factory.ex"
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/key.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/key_permission.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/organization.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/organization_user.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/tfa.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/user.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/accounts/user_handles.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/block_address/entry.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/fake.ex"
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/download.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/install.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/package.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/package_metadata.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/package_owner.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/release.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/release_metadata.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/repository/requirement.ex" [label="(export)"]
+  "lib/hexpm/factory.ex" -> "lib/hexpm/short_urls/short_url.ex" [label="(export)"]
+  "lib/hexpm/fake.ex"
+  "lib/hexpm/http.ex"
+  "lib/hexpm/pwned/hexpm.ex"
+  "lib/hexpm/pwned/hexpm.ex" -> "lib/hexpm/pwned/pwned.ex" [label="(compile)"]
+  "lib/hexpm/pwned/local.ex"
+  "lib/hexpm/pwned/local.ex" -> "lib/hexpm/pwned/pwned.ex" [label="(compile)"]
+  "lib/hexpm/pwned/pwned.ex"
+  "lib/hexpm/release_tasks.ex"
+  "lib/hexpm/release_tasks.ex" -> "lib/hexpm/release_tasks/check_names.ex"
+  "lib/hexpm/release_tasks/check_names.ex" -> "lib/hexpm/emails/emails.ex"
+  "lib/hexpm/release_tasks/check_names.ex" -> "lib/hexpm/emails/mailer.ex"
+  "lib/hexpm/release_tasks/check_names.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/release_tasks.ex" -> "lib/hexpm/release_tasks/stats.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repository/download.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repository/package_download.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repository/release_download.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/store/store.ex"
+  "lib/hexpm/release_tasks/stats.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm/release_tasks/check_names.ex"
+  "lib/hexpm/release_tasks/stats.ex"
+  "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/assets.ex"
+  "lib/hexpm/repository/download.ex"
+  "lib/hexpm/repository/install.ex"
+  "lib/hexpm/repository/installs.ex"
+  "lib/hexpm/repository/owners.ex"
+  "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/package_dependant.ex"
+  "lib/hexpm/repository/package_download.ex"
+  "lib/hexpm/repository/package_metadata.ex"
+  "lib/hexpm/repository/package_owner.ex"
+  "lib/hexpm/repository/packages.ex"
+  "lib/hexpm/repository/registry_builder.ex"
+  "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/release_download.ex"
+  "lib/hexpm/repository/release_metadata.ex"
+  "lib/hexpm/repository/release_retirement.ex"
+  "lib/hexpm/repository/releases.ex"
+  "lib/hexpm/repository/repositories.ex"
+  "lib/hexpm/repository/repository.ex"
+  "lib/hexpm/repository/requirement.ex"
+  "lib/hexpm/repository/resolver.ex"
+  "lib/hexpm/repository/resolver.ex" -> "lib/hexpm/repo.ex"
+  "lib/hexpm/repository/resolver.ex" -> "lib/hexpm/repository/package.ex"
+  "lib/hexpm/repository/resolver.ex" -> "lib/hexpm/repository/release.ex"
+  "lib/hexpm/repository/resolver.ex" -> "lib/hexpm/repository/requirement.ex"
+  "lib/hexpm/repository/sitemaps.ex"
+  "lib/hexpm/schema.ex"
+  "lib/hexpm/shared.ex"
+  "lib/hexpm/short_urls/short_url.ex"
+  "lib/hexpm/short_urls/short_urls.ex"
+  "lib/hexpm/store/gcs.ex"
+  "lib/hexpm/store/local.ex"
+  "lib/hexpm/store/s3.ex"
+  "lib/hexpm/store/store.ex"
+  "lib/hexpm/throttle.ex"
+  "lib/hexpm/utils.ex"
+  "lib/hexpm_web/consult_format.ex"
+  "lib/hexpm_web/consult_format.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/controllers/api/auth_controller.ex"
+  "lib/hexpm_web/controllers/api/docs_controller.ex"
+  "lib/hexpm_web/controllers/api/index_controller.ex"
+  "lib/hexpm_web/controllers/api/key_controller.ex"
+  "lib/hexpm_web/controllers/api/organization_controller.ex"
+  "lib/hexpm_web/controllers/api/organization_user_controller.ex"
+  "lib/hexpm_web/controllers/api/owner_controller.ex"
+  "lib/hexpm_web/controllers/api/package_controller.ex"
+  "lib/hexpm_web/controllers/api/release_controller.ex"
+  "lib/hexpm_web/controllers/api/repository_controller.ex"
+  "lib/hexpm_web/controllers/api/retirement_controller.ex"
+  "lib/hexpm_web/controllers/api/short_url_controller.ex"
+  "lib/hexpm_web/controllers/api/user_controller.ex"
+  "lib/hexpm_web/controllers/auth_helpers.ex"
+  "lib/hexpm_web/controllers/blog_controller.ex"
+  "lib/hexpm_web/controllers/controller_helpers.ex"
+  "lib/hexpm_web/controllers/dashboard/audit_log_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/email_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/key_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/organization_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/password_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/profile_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/security_controller.ex"
+  "lib/hexpm_web/controllers/dashboard/tfa_setup_controller.ex"
+  "lib/hexpm_web/controllers/dashboard_controller.ex"
+  "lib/hexpm_web/controllers/docs_controller.ex"
+  "lib/hexpm_web/controllers/email_verification_controller.ex"
+  "lib/hexpm_web/controllers/feeds_controller.ex"
+  "lib/hexpm_web/controllers/install_controller.ex"
+  "lib/hexpm_web/controllers/login_controller.ex"
+  "lib/hexpm_web/controllers/opensearch_controller.ex"
+  "lib/hexpm_web/controllers/package_controller.ex"
+  "lib/hexpm_web/controllers/page_controller.ex"
+  "lib/hexpm_web/controllers/password_controller.ex"
+  "lib/hexpm_web/controllers/password_reset_controller.ex"
+  "lib/hexpm_web/controllers/policy_controller.ex"
+  "lib/hexpm_web/controllers/short_url_controller.ex"
+  "lib/hexpm_web/controllers/signup_controller.ex"
+  "lib/hexpm_web/controllers/sitemap_controller.ex"
+  "lib/hexpm_web/controllers/test_controller.ex"
+  "lib/hexpm_web/controllers/tfa_auth_controller.ex"
+  "lib/hexpm_web/controllers/tfa_recovery_controller.ex"
+  "lib/hexpm_web/controllers/user_controller.ex"
+  "lib/hexpm_web/controllers/version_controller.ex"
+  "lib/hexpm_web/elixir_format.ex"
+  "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/erlang_format.ex"
+  "lib/hexpm_web/markdown_engine.ex"
+  "lib/hexpm_web/markdown_engine.ex" -> "lib/hexpm_web/views/icons.ex"
+  "lib/hexpm_web/plug_parser.ex"
+  "lib/hexpm_web/plugs.ex"
+  "lib/hexpm_web/plugs/attack.ex"
+  "lib/hexpm_web/plugs/dashboard_auth.ex"
+  "lib/hexpm_web/plugs/forwarded.ex"
+  "lib/hexpm_web/plugs/status.ex"
+  "lib/hexpm_web/plugs/vary.ex"
+  "lib/hexpm_web/rate_limit_pub_sub.ex"
+  "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/session.ex"
+  "lib/hexpm_web/stale.ex"
+  "lib/hexpm_web/views/api/audit_log_view.ex"
+  "lib/hexpm_web/views/api/audit_log_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/audit_log_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/audit_log_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/download_view.ex"
+  "lib/hexpm_web/views/api/download_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/download_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/download_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/index_view.ex"
+  "lib/hexpm_web/views/api/index_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/index_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/api/index_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/api/index_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/index_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/key_permission_view.ex"
+  "lib/hexpm_web/views/api/key_permission_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/key_permission_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/key_permission_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/key_view.ex"
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm_web/views/api/key_permission_view.ex"
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/api/key_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/organization_user_view.ex"
+  "lib/hexpm_web/views/api/organization_user_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/organization_user_view.ex" -> "lib/hexpm_web/views/api/user_view.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm/accounts/user_handles.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm/repository/package.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm/repository/repository.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm_web/views/api/audit_log_view.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/api/user_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/organization_user_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/organization_user_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/organization_view.ex"
+  "lib/hexpm_web/views/api/organization_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/organization_view.ex" -> "lib/hexpm_web/views/api/audit_log_view.ex"
+  "lib/hexpm_web/views/api/organization_view.ex" -> "lib/hexpm_web/views/api/organization_user_view.ex"
+  "lib/hexpm_web/views/api/organization_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/organization_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/api/organization_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/owner_view.ex"
+  "lib/hexpm_web/views/api/owner_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/owner_view.ex" -> "lib/hexpm_web/views/api/user_view.ex"
+  "lib/hexpm_web/views/api/owner_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/owner_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/package_view.ex"
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/api/audit_log_view.ex"
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/api/download_view.ex"
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/api/release_view.ex"
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm/repository/download.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm_web/views/api/retirement_view.ex"
+  "lib/hexpm_web/views/api/retirement_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/retirement_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/retirement_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm_web/views/api/user_view.ex"
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/api/release_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/api/retirement_view.ex"
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/api/user_view.ex"
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/api/package_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/release_view.ex"
+  "lib/hexpm_web/views/api/repository_view.ex"
+  "lib/hexpm_web/views/api/repository_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/repository_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/repository_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/retirement_view.ex"
+  "lib/hexpm_web/views/api/short_url_view.ex"
+  "lib/hexpm_web/views/api/short_url_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/short_url_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/api/short_url_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/api/user_view.ex"
+  "lib/hexpm_web/views/blog_view.ex"
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex"
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm/accounts/audit_log.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/views/shared_view.ex"
+  "lib/hexpm_web/views/shared_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/shared_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/shared_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/shared_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/audit_log_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/email_view.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm/accounts/email.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/email_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/key_view.ex"
+  "lib/hexpm_web/views/dashboard/key_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/key_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/key_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/key_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/key_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/organization_view.ex"
+  "lib/hexpm_web/views/dashboard/password_view.ex"
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/password_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/profile_view.ex"
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/views/dashboard/email_view.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/profile_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/security_view.ex"
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/security_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex"
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/dashboard/tfa_auth_setup_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/dashboard_view.ex"
+  "lib/hexpm_web/views/docs_view.ex"
+  "lib/hexpm_web/views/docs_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/docs_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/docs_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/docs_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/docs_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/email_verification_view.ex"
+  "lib/hexpm_web/views/email_verification_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/email_verification_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/email_verification_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/email_verification_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/email_verification_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/email_view.ex"
+  "lib/hexpm_web/views/emails_view.ex"
+  "lib/hexpm_web/views/emails_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/emails_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/emails_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/error_view.ex"
+  "lib/hexpm_web/views/icons.ex"
+  "lib/hexpm_web/views/layout_view.ex"
+  "lib/hexpm_web/views/login_view.ex"
+  "lib/hexpm_web/views/login_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/login_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/login_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/login_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/login_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/opensearch_view.ex"
+  "lib/hexpm_web/views/opensearch_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/opensearch_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/opensearch_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/opensearch_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/opensearch_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/package_view.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm/accounts/user.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm/repository/release_retirement.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm_web/views/shared_view.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/package_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/page_view.ex"
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm/repository/package_metadata.ex" [label="(export)"]
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm_web/views/layout_view.ex"
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/page_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/password_reset_view.ex"
+  "lib/hexpm_web/views/password_reset_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/password_reset_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/password_reset_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/password_reset_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/password_reset_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/password_view.ex"
+  "lib/hexpm_web/views/password_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/password_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/password_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/password_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/password_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/password_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/policy_view.ex"
+  "lib/hexpm_web/views/policy_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/policy_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/policy_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/shared_view.ex"
+  "lib/hexpm_web/views/signup_view.ex"
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/signup_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/sitemap_view.ex"
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm/repository/package.ex" [label="(export)"]
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm/repository/repository.ex"
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/sitemap_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/tfa_auth_view.ex"
+  "lib/hexpm_web/views/tfa_auth_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/tfa_auth_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/tfa_auth_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/tfa_auth_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/tfa_auth_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/tfa_recovery_view.ex"
+  "lib/hexpm_web/views/tfa_recovery_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/tfa_recovery_view.ex" -> "lib/hexpm_web/endpoint.ex"
+  "lib/hexpm_web/views/tfa_recovery_view.ex" -> "lib/hexpm_web/router.ex"
+  "lib/hexpm_web/views/tfa_recovery_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/tfa_recovery_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/user_view.ex"
+  "lib/hexpm_web/views/user_view.ex" -> "lib/hexpm/accounts/user_handles.ex"
+  "lib/hexpm_web/views/user_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/user_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/user_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/user_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/version_view.ex"
+  "lib/hexpm_web/views/version_view.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
+  "lib/hexpm_web/views/version_view.ex" -> "lib/hexpm/utils.ex"
+  "lib/hexpm_web/views/version_view.ex" -> "lib/hexpm_web/views/icons.ex" [label="(export)"]
+  "lib/hexpm_web/views/version_view.ex" -> "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/views/version_view.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
+  "lib/hexpm_web/views/view_helpers.ex"
+  "lib/hexpm_web/web.ex"
+}
