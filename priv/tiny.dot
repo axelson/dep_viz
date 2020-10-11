@@ -1,0 +1,3 @@
+digraph "xref graph" {
+  "lib/gviz/application.ex" -> "lib/gviz_web/endpoint.ex"
+}

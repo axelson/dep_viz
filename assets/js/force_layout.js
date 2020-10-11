@@ -117,26 +117,34 @@ function updateNodes(nodeData, linkData) {
                 acc[link.source.id] = [link.target.id]
               }
               return acc;
-            }, {});
+            }, {})
 
-      const matched = visit(targets, nodeDatum.id)
+      const targetObjects =
+            lodash.reduce(linkData, function (acc, link) {
+              const obj = {id: link.target.id, type: linkType(link.label)}
+              if (acc[link.source.id]) {
+                acc[link.source.id].push(obj)
+              } else {
+                acc[link.source.id] = [obj]
+              }
+              return acc
+            }, {})
+
+      // console.log('targets', targets);
+      let matched = visit(targets, nodeDatum.id)
+      const compileMatched = findCompileDependencies(targetObjects, nodeDatum.id)
+      // console.log('compileMatched', compileMatched);
 
       d3.select('svg')
         .selectAll('circle')
         .transition().duration(1000)
-        .style('opacity', d => hoverOpacity(matched, d.id))
+        .style('opacity', d => hoverOpacity(matched, compileMatched, d.id))
 
       d3.select('svg')
         .selectAll('line')
         .transition().duration(1000)
-        .style('opacity', d => hoverOpacity(matched, d.source.id))
-        .attr('stroke', d => {
-          if (d.source.id in matched) {
-            return d.stroke
-          } else {
-            return '#ccc'
-          }
-        })
+        .style('opacity', d => hoverOpacity(matched, compileMatched, d.target.id))
+        .attr('stroke', d => hoverStroke(matched, compileMatched, d))
 
       showTooltip(nodeDatum)
     })
@@ -160,6 +168,14 @@ function updateNodes(nodeData, linkData) {
   u.exit().remove()
 }
 
+function linkType(label) {
+  switch(label) {
+    case "(compile)": return 'compile'
+    case "(export)": return 'export'
+    default: return 'runtime'
+  }
+}
+
 function nodeClass(data) {
   const id = data.id
   if (id.includes('_web')) {
@@ -177,11 +193,20 @@ function nodeClass(data) {
   }
 }
 
-function hoverOpacity(visited, id) {
-  if (id in visited) {
-    return Math.max(1 - visited[id] * 0.1, 0.5)
+function hoverOpacity(_matched, compileMatched, id) {
+  if (id in compileMatched) {
+    // return Math.max(1 - visited[id] * 0.1, 0.5)
+    return 1
   } else {
     return 0.1
+  }
+}
+
+function hoverStroke(_matched, compileMatched, d) {
+  if (d.target.id in compileMatched && d.source.id in compileMatched) {
+    return d.stroke
+  } else {
+    return '#ccc'
   }
 }
 
@@ -198,7 +223,7 @@ function visit(graph, id) {
     visited[node] = depth;
 
     (graph[node] || []).forEach(childNode => {
-      if (!visited[childNode]) {
+      if (!(childNode in visited)) {
         next.push(childNode)
       }
     })
@@ -211,4 +236,48 @@ function visit(graph, id) {
   }
 
   return visited
+}
+
+function findCompileDependencies(graph, id) {
+  return compileDependencies(graph, id, {[id]: true}, false)
+}
+
+// Find all the files that will cause this file to recompile
+function compileDependencies(graph, id, matched, isCompileDep) {
+  // A file that has an export dependency
+  // Compilation dependencies are any dependency that is directly a compilation
+  // dependency and  any dependency of a compilation dependency
+  // Also include export depedency (but not it's children) in this analysis
+
+  if (graph[id]) {
+    graph[id].forEach(node => {
+      console.log('node', node);
+      switch (node.type) {
+        case 'compile':
+          if (!matched[node.id]) {
+            matched[node.id] = true
+            compileDependencies(graph, node.id, matched, true)
+          }
+          break
+
+        case 'export':
+          if (!matched[node.id]) {
+            matched[node.id] = true
+          }
+          break
+
+        case 'runtime':
+          if (isCompileDep && !matched[node.id]) {
+            matched[node.id] = true
+            compileDependencies(graph, node.id, matched, true)
+          }
+          break
+
+        default:
+          throw `Unhandled node type ${node.type}`
+      }
+    })
+  }
+
+  return matched
 }
