@@ -60,6 +60,36 @@ function nodeList(nodeData) {
       .text(d => d.id)
 
     u2.exit().remove()
+
+    d3.select('svg')
+      .selectAll('circle')
+      .transition().duration(1000)
+      .style('opacity', d => {
+        if (d.id.indexOf(input) !== -1) {
+          return 1
+        } else {
+          return 0.1
+        }
+      })
+
+    d3.select('svg')
+      .selectAll('line')
+      .transition().duration(1000)
+      .style('opacity', d => {
+        if (d.id.indexOf(input) !== -1) {
+          return 1
+        } else {
+          return 0.1
+        }
+      })
+      .style('stroke', d => {
+        // if (d.target.id.indexOf(input) !== -1 && d.source.id.indexOf(input) !== -1) {
+        if (d.source.id.indexOf(input) !== -1) {
+          return d.stroke
+        } else {
+          return '#ccc'
+        }
+      })
   })
 }
 
