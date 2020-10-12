@@ -1,7 +1,14 @@
-import lodash, { indexOf } from 'lodash'
+import lodash from 'lodash'
 import jQuery from 'jquery'
 
 import { CustomTooltip } from './utils/custom_tooltip.js'
+
+import {
+  findAllDependencies,
+  findCompileDependencies
+} from './force_utils.js'
+
+import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
@@ -67,6 +74,8 @@ function render(data) {
     // NOTE:  linkData is transformed by d3 after this point
     .force('link', d3.forceLink().links(linkData).id(item => item.id))
 
+  window.force = force
+
   force
     .on('tick', buildTicked(nodeData, linkData, force));
 
@@ -85,8 +94,10 @@ function renderInfoBox(nodeData, targets, targetObjects) {
    .on('mouseover', function (nodeDatum) {
      showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
    })
-   .on('mouseout', function (nodeDatum) {
-     unShowNodeCompileDeps()
+   .on('mouseout', function (_nodeDatum) {
+     if (window.vizMode !== 'focusNode') {
+      unShowNodeCompileDeps()
+     }
    })
 
   const $input = jQuery('#info-box-input')
@@ -186,7 +197,7 @@ function hideTooltip() {
 
 function buildTicked(nodeData, linkData, force) {
   return () => {
-    updateNodes(nodeData, force)
+    updateNodes(nodeData, linkData, force)
     updateLinks(linkData)
     updateLabels(nodeData)
   }
@@ -218,7 +229,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData, force) {
+function updateNodes(nodeData, linkData, force) {
   var u = d3.select('svg')
     .selectAll('circle')
     .data(nodeData)
@@ -241,7 +252,9 @@ function updateNodes(nodeData, force) {
       showTooltip(nodeDatum)
     })
     .on('mouseout', function (_nodeDatum) {
-      unShowNodeCompileDeps()
+      if (window.vizMode !== 'focusNode') {
+        unShowNodeCompileDeps()
+      }
 
       hideTooltip()
     })
@@ -249,6 +262,15 @@ function updateNodes(nodeData, force) {
             .on('start', dragStarted)
             .on('drag', dragged)
             .on('end', dragEnded))
+    .on('click', function (nodeDatum) {
+      showOnlyThisNodeAndCompileDeps(
+        nodeDatum.id,
+        force,
+        nodeData,
+        linkData,
+        targetObjects
+      )
+    })
 
   u.exit().remove()
 
@@ -271,9 +293,9 @@ function updateNodes(nodeData, force) {
 }
 
 function updateLabels(nodeData) {
-  var u = d3.select('svg')
-            .selectAll('text.node-label')
-            .data(nodeData)
+  const u = d3.select('svg')
+              .selectAll('text.node-label')
+              .data(nodeData)
 
   u.enter()
    .append('text')
@@ -320,7 +342,8 @@ function nodeClass(_data) {
 
 function showNodeCompileDeps(id, targets, targetObjects) {
   const duration = TRANSITION_SLOW
-  let matched = visit(targets, id)
+  const transitionName = 'showCompileDeps'
+  const matched = findAllDependencies(targets, id)
   const compileMatched = findCompileDependencies(targetObjects, id)
 
   console.log(`\nTouching any of these file will cause ${id} to recompile:`)
@@ -331,7 +354,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   // Fade out non-compile dependencies nodes
   d3.select('svg')
     .selectAll('circle')
-    .transition().duration(duration)
+    .transition(transitionName).duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .style('fill', d => {
@@ -347,7 +370,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
     .selectAll('line')
-    .transition().duration(duration)
+    .transition(transitionName).duration(duration)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverStroke(matched, compileMatched, d))
 
@@ -358,7 +381,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
 
   if (matchedLabels.size() <= vizSettings.maxLabelsToShow) {
     matchedLabels
-      .transition().duration(duration)
+      .transition(transitionName).duration(duration)
       .style('opacity', 1)
   }
 }
@@ -388,13 +411,15 @@ function unShowNodeCompileDeps() {
     .style('opacity', 0)
 }
 
-function hoverOpacity(matched, compileMatched, id) {
-  if (HIGHLIGHT_FORMAT == 'children-compile') {
-    return id in compileMatched ? 1 : 0.1
-  } else if (HIGHLIGHT_FORMAT == 'children') {
-    return id in matched ? 1 : 0.1
-  }
-}
+// function infoBoxShowSelectNode()
+
+// function hoverOpacity(matched, compileMatched, id) {
+//   if (HIGHLIGHT_FORMAT == 'children-compile') {
+//     return id in compileMatched ? 1 : 0.1
+//   } else if (HIGHLIGHT_FORMAT == 'children') {
+//     return id in matched ? 1 : 0.1
+//   }
+// }
 
 function hoverOpacityCompile(matched, d) {
   if (d.id) {
@@ -418,71 +443,3 @@ function hoverStroke(matched, compileMatched, d) {
 
 // Use breadth-first traversal to build the list of ndoes that are connected
 // this this node and their distances/depths
-function visit(graph, id) {
-  let cur = [id]
-  let next = []
-  const visited = {}
-  let depth = 0
-
-  while (cur.length > 0 || next.length > 0) {
-    const node = cur.shift()
-    visited[node] = depth;
-
-    (graph[node] || []).forEach(childNode => {
-      if (!(childNode in visited)) {
-        next.push(childNode)
-      }
-    })
-
-    if (cur.length == 0) {
-      cur = next
-      next = []
-      depth += 1
-    }
-  }
-
-  return visited
-}
-
-function findCompileDependencies(graph, id) {
-  return compileDependencies(graph, id, {[id]: true}, false)
-}
-
-// Find all the files that will cause this file to recompile
-function compileDependencies(graph, id, matched, isCompileDep) {
-  // A file that has an export dependency
-  // Compilation dependencies are any dependency that is directly a compilation
-  // dependency and  any dependency of a compilation dependency
-  // Also include export depedency (but not it's children) in this analysis
-
-  if (graph[id]) {
-    graph[id].forEach(node => {
-      switch (node.type) {
-        case 'compile':
-          if (!matched[node.id]) {
-            matched[node.id] = true
-            compileDependencies(graph, node.id, matched, true)
-          }
-          break
-
-        case 'export':
-          if (!matched[node.id]) {
-            matched[node.id] = true
-          }
-          break
-
-        case 'runtime':
-          if (isCompileDep && !matched[node.id]) {
-            matched[node.id] = true
-            compileDependencies(graph, node.id, matched, true)
-          }
-          break
-
-        default:
-          throw `Unhandled node type ${node.type}`
-      }
-    })
-  }
-
-  return matched
-}
