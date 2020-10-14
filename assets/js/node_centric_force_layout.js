@@ -39,15 +39,14 @@ function startForceLayout(filteredNodes, filteredLinks) {
   const width = window.svgWidth, height = window.svgHeight
 
   const force = d3.forceSimulation(filteredNodes)
-                  .force('charge', d3.forceManyBody().strength(-50))
-                  // .force('center', d3.forceCenter(width * 0.6, height / 2))
-                  .force('link', d3.forceLink().links(filteredLinks).id(d => d.id))
+                  .force('charge', d3.forceManyBody().strength(-70))
+                  .force('link', d3.forceLink().links(filteredLinks).id(d => d.id).distance(30))
                   .force('x', d3.forceX().x(width * 0.6))
                   .force('y', d3.forceY().y(d => {
                     console.log('d', d);
                     const base = height / 15
 
-                    return base + height / 15 * d.distance
+                    return base + height / 5 * d.distance
                   }))
 
   force
@@ -67,7 +66,7 @@ function buildTicked(filteredNodes, filteredLinks, force) {
 function updateNodes(filteredNodes) {
   var u = d3.select('svg')
     .selectAll('circle')
-    .data(filteredNodes)
+    .data(filteredNodes, d => d.id)
 
   u
     .attr('cx', d => d.x)

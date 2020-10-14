@@ -95,9 +95,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
      showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
    })
    .on('mouseout', function (_nodeDatum) {
-     if (window.vizMode !== 'focusNode') {
-      unShowNodeCompileDeps()
-     }
+     unShowNodeCompileDeps()
    })
 
   const $input = jQuery('#info-box-input')
@@ -169,7 +167,7 @@ function chargeStrength(_data) {
   // NOTE: It might be nice for this to be dependent on the number of connected
   // edges. By giving more strength to nodes that have many edges the clusters
   // will be a little more dispersed and hopefully easier to grok.
-  return -50
+  return -30
 }
 
 function transformData(linkData) {
@@ -232,7 +230,7 @@ function updateLinks(linkData) {
 function updateNodes(nodeData, linkData, force) {
   var u = d3.select('svg')
     .selectAll('circle')
-    .data(nodeData)
+    .data(nodeData, d => d.id)
 
   u.enter()
     .append('circle')
@@ -247,14 +245,16 @@ function updateNodes(nodeData, linkData, force) {
     })
     .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
-      showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
+      if (window.vizMode === 'focusNode') {
+        showAllDeps(nodeDatum.id, targets, targetObjects)
+      } else {
+        showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
+      }
 
       showTooltip(nodeDatum)
     })
     .on('mouseout', function (_nodeDatum) {
-      if (window.vizMode !== 'focusNode') {
-        unShowNodeCompileDeps()
-      }
+      unShowNodeCompileDeps()
 
       hideTooltip()
     })
@@ -275,17 +275,20 @@ function updateNodes(nodeData, linkData, force) {
   u.exit().remove()
 
   function dragStarted(d) {
+    if (window.vizMode === 'focusNode') return
     if (!d3.event.active) force.alphaTarget(0.3).restart()
     d.fx = d.x
     d.fy = d.y
   }
 
   function dragged(d) {
+    if (window.vizMode === 'focusNode') return
     d.fx = d3.event.x
     d.fy = d3.event.y
   }
 
   function dragEnded(d) {
+    if (window.vizMode === 'focusNode') return
     if (!d3.event.active) force.alphaTarget(0)
     d.fx = null
     d.fy = null
@@ -343,12 +346,25 @@ function nodeClass(_data) {
 function showNodeCompileDeps(id, targets, targetObjects) {
   const duration = TRANSITION_SLOW
   const transitionName = 'showCompileDeps'
-  const matched = findAllDependencies(targets, id)
   const compileMatched = findCompileDependencies(targetObjects, id)
 
   console.log(`\nTouching any of these file will cause ${id} to recompile:`)
   for (const id of Object.keys(compileMatched)) {
     console.log(id)
+  }
+
+  const highlightNode = function(d) { return d.id in compileMatched }
+
+  const nodeFill = function(d) {
+    if (d.focused) {
+      return 'highlight'
+    } else if (d.id == id) {
+      return 'highlight'
+    } else if (d.id in compileMatched) {
+      return 'secondary'
+    } else {
+      return 'default'
+    }
   }
 
   const linkClass = function(d) {
@@ -360,23 +376,16 @@ function showNodeCompileDeps(id, targets, targetObjects) {
     .selectAll('circle')
     .transition(transitionName).duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
-    .style('opacity', d => hoverOpacityCompile(compileMatched, d))
-    .style('fill', d => {
-      if (d.id == id) {
-        return HIGHLIGHT_NODE_COLOR
-      } else if (d.id in compileMatched) {
-        return SECONDARY_HIGHLIGHT_NODE_COLOR
-      } else {
-        return DEFAULT_NODE_COLOR
-      }
-    })
+    .style('opacity', d => setOpacity(highlightNode, d))
+    // .style('fill', d => hoverNodeFill(compileMatched, d, id))
+    .style('fill', d => setNodeFill(nodeFill, d))
 
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
     .selectAll('line')
     .transition(transitionName).duration(duration)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
-    .attr('stroke', d => hoverStroke(matched, compileMatched, d))
+    .attr('stroke', d => hoverLineStroke(compileMatched, d))
     .attr('class', linkClass)
 
   // Show labels for nodes that will cause a recompile
@@ -417,15 +426,65 @@ function unShowNodeCompileDeps() {
     .style('opacity', 0)
 }
 
-// function infoBoxShowSelectNode()
+function showAllDeps(id, targets, _targetObjects) {
+  const duration = TRANSITION_SLOW
 
-// function hoverOpacity(matched, compileMatched, id) {
-//   if (HIGHLIGHT_FORMAT == 'children-compile') {
-//     return id in compileMatched ? 1 : 0.1
-//   } else if (HIGHLIGHT_FORMAT == 'children') {
-//     return id in matched ? 1 : 0.1
-//   }
-// }
+  const matched = findAllDependencies(targets, id)
+
+  // Fade out non-dependencies
+  d3.select('svg')
+    .selectAll('circle')
+    .transition().duration(duration)
+    .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
+    .style('opacity', d => hoverOpacity(matched, d.id))
+    .style('fill', d => hoverNodeFill(matched, d, id))
+
+  // Fade and desaturate non-dependency lines and arrows
+  d3.select('svg')
+    .selectAll('line')
+    .transition().duration(duration)
+    .style('opacity', d => hoverOpacityCompile(matched, d))
+    .attr('stroke', d => hoverLineStroke(matched, d))
+
+  // Show labels for nodes that will cause a recompile
+  const matchedLabels = d3.select('svg')
+                          .selectAll('text.node-label')
+                          .filter(d => d.id in matched)
+
+  if (matchedLabels.size() <= vizSettings.maxLabelsToShow) {
+    matchedLabels
+      .transition().duration(duration)
+      .style('opacity', 1)
+  }
+}
+
+function hoverNodeFill(matched, d, id) {
+  if (d.focused) {
+    return HIGHLIGHT_NODE_COLOR
+  } else if (d.id == id) {
+    return HIGHLIGHT_NODE_COLOR
+  } else if (d.id in matched) {
+    return SECONDARY_HIGHLIGHT_NODE_COLOR
+  } else {
+    return DEFAULT_NODE_COLOR
+  }
+}
+
+function setNodeFill(fun, d) {
+  switch(fun(d)) {
+    case 'highlight': return HIGHLIGHT_NODE_COLOR
+    case 'secondary': return SECONDARY_HIGHLIGHT_NODE_COLOR
+    case 'default': return DEFAULT_NODE_COLOR
+  }
+}
+
+function setOpacity(fun, d) {
+  return fun(d) ? 1 : 0.1
+}
+
+function hoverOpacity(matched, id) {
+  return id in matched ? 1 : 0.1
+}
 
 function hoverOpacityCompile(matched, d) {
   if (d.id) {
@@ -439,12 +498,13 @@ function hoverOpacityCompile(matched, d) {
   }
 }
 
-function hoverStroke(matched, compileMatched, d) {
-  if (HIGHLIGHT_FORMAT == 'children-compile') {
-    return d.source.id in compileMatched ? d.stroke : '#ccc'
-  } else if (HIGHLIGHT_FORMAT == 'children') {
-    return d.source.id in matched ? d.stroke : '#ccc'
+function hoverLineStroke(matched, d) {
+  if (d.source.id in matched) {
+    return d.stroke || 'black'
+  } else {
+    return '#ccc'
   }
+  // return d.source.id in matched ? d.stroke : '#ccc'
 }
 
 // Use breadth-first traversal to build the list of ndoes that are connected
