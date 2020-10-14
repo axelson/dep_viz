@@ -69,3 +69,16 @@ svg line {
 .node-type-live {
   fill: 'green';
 }
+
+// SVG animation inspired by https://codepen.io/AmeliaBR/pen/kjnoz
+path.direction-animate, line.direction-animate {
+  stroke-dasharray: 5 1;
+  animation: movedash 1s infinite linear;
+}
+
+// Note: the specific values used here are important for the animation to not
+// appear "jumpy"
+@keyframes movedash {
+  0% {stroke-dashoffset: 12;}
+  100% {stroke-dashoffset:0;}
+}

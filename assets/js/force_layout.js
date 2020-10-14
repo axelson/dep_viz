@@ -351,6 +351,10 @@ function showNodeCompileDeps(id, targets, targetObjects) {
     console.log(id)
   }
 
+  const linkClass = function(d) {
+    return d.source.id === id ? 'direction-animate' : ''
+  }
+
   // Fade out non-compile dependencies nodes
   d3.select('svg')
     .selectAll('circle')
@@ -373,6 +377,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
     .transition(transitionName).duration(duration)
     .style('opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverStroke(matched, compileMatched, d))
+    .attr('class', linkClass)
 
   // Show labels for nodes that will cause a recompile
   const matchedLabels = d3.select('svg')
@@ -403,6 +408,7 @@ function unShowNodeCompileDeps() {
     .transition().duration(duration)
     .style('opacity', 1)
     .attr('stroke', d => d.stroke)
+    .attr('class', '')
 
   // Hide labels
   d3.select('svg')
