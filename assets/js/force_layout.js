@@ -15,6 +15,7 @@ const NODE_RADIUS = 5
 const DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
 const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
+const DEFAULT_LINE_STROKE = '#ccc'
 const TRANSITION_SLOW = 600
 const TRANSITION_FAST = 500
 
@@ -155,7 +156,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
         if (d.source.id.indexOf(input) !== -1) {
           return d.stroke
         } else {
-          return '#ccc'
+          return DEFAULT_LINE_STROKE
         }
       })
   })
@@ -175,7 +176,7 @@ function transformData(linkData) {
     } else if (d.label == "(export)") {
       d.stroke = 'blue'
     } else {
-      d.stroke = '#ccc'
+      d.stroke = DEFAULT_LINE_STROKE
     }
   })
 }
@@ -458,10 +459,6 @@ function hoverNodeOpacity(matched, d) {
   return d.id in matched ? 1 : 0.1
 }
 
-function setOpacity(fun, d) {
-  return fun(d) ? 1 : 0.1
-}
-
 function hoverOpacity(matched, id) {
   return id in matched ? 1 : 0.1
 }
@@ -480,11 +477,10 @@ function hoverOpacityCompile(matched, d) {
 
 function hoverLineStroke(matched, d) {
   if (d.source.id in matched) {
-    return d.stroke || 'black'
+    return d.stroke === DEFAULT_LINE_STROKE ? 'black' : d.stroke
   } else {
-    return '#ccc'
+    return DEFAULT_LINE_STROKE
   }
-  // return d.source.id in matched ? d.stroke : '#ccc'
 }
 
 // Use breadth-first traversal to build the list of ndoes that are connected
