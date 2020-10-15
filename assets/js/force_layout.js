@@ -18,11 +18,9 @@ const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
 const TRANSITION_SLOW = 600
 const TRANSITION_FAST = 500
 
-// const HIGHLIGHT_FORMAT = 'children'
-const HIGHLIGHT_FORMAT = 'children-compile'
-
 const vizSettings = {
-  maxLabelsToShow: 10
+  maxLabelsToShow: 10,
+  logFilesToCompile: false
 }
 
 export function forceLayout(dataPromise) {
@@ -92,7 +90,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
    .attr('class', 'info-box-item')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
-     showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
+     highlightNodeCompileDeps(nodeDatum.id, targets, targetObjects)
    })
    .on('mouseout', function (_nodeDatum) {
      unShowNodeCompileDeps()
@@ -248,7 +246,7 @@ function updateNodes(nodeData, linkData, force) {
       if (window.vizMode === 'focusNode') {
         showAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
-        showNodeCompileDeps(nodeDatum.id, targets, targetObjects)
+        highlightNodeCompileDeps(nodeDatum.id, targets, targetObjects)
       }
 
       showTooltip(nodeDatum)
@@ -343,27 +341,15 @@ function nodeClass(_data) {
   // }
 }
 
-function showNodeCompileDeps(id, targets, targetObjects) {
+function highlightNodeCompileDeps(id, _targets, targetObjects) {
   const duration = TRANSITION_SLOW
   const transitionName = 'showCompileDeps'
   const compileMatched = findCompileDependencies(targetObjects, id)
 
-  console.log(`\nTouching any of these file will cause ${id} to recompile:`)
-  for (const id of Object.keys(compileMatched)) {
-    console.log(id)
-  }
-
-  const highlightNode = function(d) { return d.id in compileMatched }
-
-  const nodeFill = function(d) {
-    if (d.focused) {
-      return 'highlight'
-    } else if (d.id == id) {
-      return 'highlight'
-    } else if (d.id in compileMatched) {
-      return 'secondary'
-    } else {
-      return 'default'
+  if (vizSettings.logFilesToCompile) {
+    console.log(`\nTouching any of these file will cause ${id} to recompile:`)
+    for (const id of Object.keys(compileMatched)) {
+      console.log(id)
     }
   }
 
@@ -376,9 +362,8 @@ function showNodeCompileDeps(id, targets, targetObjects) {
     .selectAll('circle')
     .transition(transitionName).duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
-    .style('fill-opacity', d => setOpacity(highlightNode, d))
-    // .style('fill', d => hoverNodeFill(compileMatched, d, id))
-    .style('fill', d => setNodeFill(nodeFill, d))
+    .style('fill-opacity', d => hoverNodeOpacity(compileMatched, d))
+    .style('fill', d => hoverNodeFill(compileMatched, d, id))
 
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
@@ -470,12 +455,8 @@ function hoverNodeFill(matched, d, id) {
   }
 }
 
-function setNodeFill(fun, d) {
-  switch(fun(d)) {
-    case 'highlight': return HIGHLIGHT_NODE_COLOR
-    case 'secondary': return SECONDARY_HIGHLIGHT_NODE_COLOR
-    case 'default': return DEFAULT_NODE_COLOR
-  }
+function hoverNodeOpacity(matched, d) {
+  return d.id in matched ? 1 : 0.1
 }
 
 function setOpacity(fun, d) {
