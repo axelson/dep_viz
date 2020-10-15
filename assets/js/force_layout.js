@@ -354,7 +354,7 @@ function highlightNodeCompileDeps(id, _targets, targetObjects) {
   }
 
   const linkClass = function(d) {
-    return d.source.id === id ? 'direction-animate' : ''
+    return d.source.id === id || d.target.id === id ? 'direction-animate' : ''
   }
 
   // Fade out non-compile dependencies nodes
