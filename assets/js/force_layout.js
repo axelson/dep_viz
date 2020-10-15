@@ -376,7 +376,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
     .selectAll('circle')
     .transition(transitionName).duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
-    .style('opacity', d => setOpacity(highlightNode, d))
+    .style('fill-opacity', d => setOpacity(highlightNode, d))
     // .style('fill', d => hoverNodeFill(compileMatched, d, id))
     .style('fill', d => setNodeFill(nodeFill, d))
 
@@ -384,7 +384,7 @@ function showNodeCompileDeps(id, targets, targetObjects) {
   d3.select('svg')
     .selectAll('line')
     .transition(transitionName).duration(duration)
-    .style('opacity', d => hoverOpacityCompile(compileMatched, d))
+    .style('stroke-opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverLineStroke(compileMatched, d))
     .attr('class', linkClass)
 
@@ -409,13 +409,13 @@ function unShowNodeCompileDeps() {
     .transition().duration(duration)
     .attr('r', NODE_RADIUS)
     .style('fill', DEFAULT_NODE_COLOR)
-    .style('opacity', 1)
+    .style('fill-opacity', 1)
 
   // Restore the lines
   d3.select('svg')
     .selectAll('line')
     .transition().duration(duration)
-    .style('opacity', 1)
+    .style('stroke-opacity', 1)
     .attr('stroke', d => d.stroke)
     .attr('class', '')
 
