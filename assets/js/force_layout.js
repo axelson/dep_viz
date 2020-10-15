@@ -207,7 +207,6 @@ function updateLinks(linkData) {
   u.enter()
     .append('line')
     .attr('stroke', d => d.stroke)
-    .attr('marker-end', 'url(#arrowHead)')
     .merge(u)
     .attr('x1', function(d) {
       return d.source.x
