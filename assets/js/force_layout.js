@@ -1,8 +1,6 @@
 import lodash from 'lodash'
 import jQuery from 'jquery'
 
-import { CustomTooltip } from './utils/custom_tooltip.js'
-
 import {
   findAllDependencies,
   findCompileDependencies
@@ -11,7 +9,6 @@ import {
 import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 import BrowserText from './browser_text.js'
 
-const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
 const DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
@@ -192,17 +189,6 @@ function transformData(linkData) {
   })
 }
 
-function showTooltip(data) {
-  let content = "<div class=\"inner_tooltip\">"
-  content += `<span class=\"file-name\">${data.id}</span><br/>`
-  content += "</div>"
-  tooltip.showTooltip(content, d3.event)
-}
-
-function hideTooltip() {
-  tooltip.hideTooltip()
-}
-
 function buildTicked(nodeData, linkData, force) {
   return () => {
     updateNodes(nodeData, linkData, force)
@@ -260,13 +246,9 @@ function updateNodes(nodeData, linkData, force) {
       } else {
         highlightNodeCompileDeps(nodeDatum.id, targets, targetObjects)
       }
-
-      showTooltip(nodeDatum)
     })
     .on('mouseout', function (_nodeDatum) {
       unShowNodeCompileDeps()
-
-      hideTooltip()
     })
     .call(d3.drag()
             .on('start', dragStarted)
