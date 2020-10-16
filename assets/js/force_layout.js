@@ -305,6 +305,16 @@ function updateNodes(nodeData, linkData, force) {
   }
 }
 
+function updateLabelBackgroundPos() {
+  const background = d3.select('svg')
+                       // .select('.label-backgrounds')
+                       .selectAll('rect')
+
+  background
+    .attr('x', d => d.x + 7)
+    .attr('y', d => d.y - 12)
+}
+
 export function updateLabelsPos() {
   const u = d3.select('svg')
               .selectAll('text.node-label')
@@ -317,99 +327,34 @@ export function updateLabelsPos() {
 export function updateLabels(nodeData, primaryId) {
   const u = d3.select('svg')
               .select('.labels')
-              .selectAll('text.node-label')
+              .selectAll('g')
               .data(nodeData)
 
   const enter = u.enter()
   const g = enter.append('g')
+  const fontSize = d => d.id === primaryId ? 13 : 9
 
   g
+    .filter(d => d.id === primaryId)
     .append('rect')
     .attr('width', d => {
-      const width = BrowserText.getWidth(d.id, 13, 'Fira Mono')
-      width + 30
+      const width = BrowserText.getWidth(d.id, fontSize(d), 'Fira Mono')
+      return width + 30
     })
     .attr('height', 25)
-    .style('fill', 'green')
-    .style('fill-opacity', 0.5)
+    .style('fill', 'white')
+    .style('fill-opacity', d => {
+      return d.id === primaryId ? 1 : 0
+    })
 
-  // const primaryU = entered.filter(d => d.id === primaryId)
-  // console.log('primaryU', primaryU);
-  // console.log('primaryU.empty()', primaryU.empty());
-  // primaryU.each(p => {
-  //   // console.log('p', p);
-  //   // console.log('primaryU.data()', primaryU.data());
-  //   // const text = p.id
-  //   // const width = BrowserText.getWidth(text, 13, 'Fira Mono')
-
-  //   // const sel =
-  //   //       d3.select(this)
-  //   //         .selectAll('.child')
-  //   //         .data(primaryU.data())
-
-  //   // console.log('sel', sel);
-  //   // const insert = sel.enter()
-  //   //   .append('rect')
-  //   //   .attr('width', width + 30)
-  //   //   .attr('height', 25)
-  //   //   .style('fill', 'blue')
-  //   //   .style('fill-opacity', 0.5)
-  //   // console.log('insert', insert);
-
-  //   const primaryNodeData = nodeData.filter(d => d.id === primaryId)
-
-  //   const selected = d3.select(this)
-  //   console.log('selected', selected);
-  //   const background = d3.select(this)
-  //   // .select('.label-backgrounds')
-  //         .selectAll('rect')
-  //         // .data(primaryNodeData)
-
-  //   const primaryNode = primaryNodeData[0]
-  //   if (primaryNode) {
-  //     const text = primaryNode.id
-  //     const width = BrowserText.getWidth(text, 13, 'Fira Mono')
-  //     background
-  //               .append('rect')
-  //               .attr('width', width + 30)
-  //               .attr('height', 25)
-  //               .style('fill', 'green')
-  //               .style('fill-opacity', 0.5)
-
-  //     updateLabelBackgroundPos()
-  //   }
-  // })
-
-  // const primaryNodeData = nodeData.filter(d => d.id === primaryId)
-
-  // const background = d3.select('svg')
-  //                      // .select('.label-backgrounds')
-  //                      .selectAll('rect')
-  //                      .data(primaryNodeData)
-
-  // const primaryNode = primaryNodeData[0]
-  // if (primaryNode) {
-  //   const text = primaryNode.id
-  //   const width = BrowserText.getWidth(text, 13, 'Fira Mono')
-  //   background.enter()
-  //             .append('rect')
-  //             .attr('width', width + 30)
-  //             .attr('height', 25)
-  //             .style('fill', 'green')
-  //             .style('fill-opacity', 0.5)
-
-  //   updateLabelBackgroundPos()
-  // }
-
-  // background
-  //   .exit().remove()
+  updateLabelBackgroundPos()
 
   g
    .append('text')
    .attr('class', 'node-label pointer-events-none')
    .text(d => d.id)
    .attr('dominant-baseline', 'middle')
-   .style('font-size', d => d.id == primaryId ? 13 : 9)
+   .style('font-size', fontSize)
    .merge(u)
    .attr('x', d => d.x + 10)
    .attr('y', d => d.y)
@@ -496,6 +441,7 @@ function unShowNodeCompileDeps() {
 
   // Restore the nodes
   d3.select('svg')
+    .select('.nodes')
     .selectAll('circle')
     .transition().duration(duration)
     .attr('r', NODE_RADIUS)
@@ -511,7 +457,7 @@ function unShowNodeCompileDeps() {
     .attr('class', '')
 
   // Hide labels
-  // updateLabels([])
+  updateLabels([])
 }
 
 function highlightAllDeps(id, targets, _targetObjects) {
