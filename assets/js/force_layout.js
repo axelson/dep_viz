@@ -196,7 +196,6 @@ function buildTicked(nodeData, linkData, force) {
   return () => {
     updateNodes(nodeData, linkData, force)
     updateLinks(linkData)
-    updateLabels(nodeData)
   }
 }
 
@@ -304,12 +303,8 @@ function updateLabels(nodeData) {
    .text(d => d.id)
    .attr('dominant-baseline', 'middle')
    .style('font-size', 9)
-   // Labels start hidden and are only shown later (but maybe this isn't the
-   // best pattern)
-   .style('opacity', 0)
-
-  u
-   .attr('x', d => d.x + 10)
+   .merge(u)
+    .attr('x', d => d.x + 10)
    .attr('y', d => d.y)
 
   u.exit().remove()
@@ -358,8 +353,11 @@ function highlightNodeCompileDeps(id, _targets, targetObjects) {
   }
 
   // Fade out non-compile dependencies nodes
-  d3.select('svg')
-    .selectAll('circle')
+  const nodes =
+    d3.select('svg')
+      .selectAll('circle')
+
+  nodes
     .transition(transitionName).duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
     .style('fill-opacity', d => hoverNodeOpacity(compileMatched, d))
@@ -373,19 +371,18 @@ function highlightNodeCompileDeps(id, _targets, targetObjects) {
     .attr('stroke', d => hoverLineStroke(compileMatched, d))
     .attr('class', linkClass)
 
-  // Show labels for nodes that will cause a recompile
-  const matchedLabels = d3.select('svg')
-    .selectAll('text.node-label')
-    .filter(d => d.id in compileMatched)
+  const matchedNodeData = nodes
+        .data()
+        .filter(d => d.id in compileMatched)
 
-  if (matchedLabels.size() <= vizSettings.maxLabelsToShow) {
-    matchedLabels
-      .transition(transitionName).duration(duration)
-      .style('opacity', 1)
+  if (matchedNodeData.length <= vizSettings.maxLabelsToShow) {
+    // TODO: Always show the main node label
+    updateLabels(matchedNodeData)
   }
 }
 
 function unShowNodeCompileDeps() {
+  // if (window.vizMode === 'focusNode') return
   const duration = TRANSITION_FAST
 
   // Restore the nodes
@@ -405,10 +402,7 @@ function unShowNodeCompileDeps() {
     .attr('class', '')
 
   // Hide labels
-  d3.select('svg')
-    .selectAll('text.node-label')
-    .transition().duration(duration)
-    .style('opacity', 0)
+  updateLabels([])
 }
 
 function showAllDeps(id, targets, _targetObjects) {
