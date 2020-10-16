@@ -9,6 +9,7 @@ import {
 } from './force_utils.js'
 
 import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
+import BrowserText from './browser_text.js'
 
 const tooltip = CustomTooltip("node_tooltip", 300)
 const NODE_RADIUS = 5
@@ -196,6 +197,8 @@ function buildTicked(nodeData, linkData, force) {
   return () => {
     updateNodes(nodeData, linkData, force)
     updateLinks(linkData)
+    updateLabelsPos()
+    updateLabelBackgroundPos()
   }
 }
 
@@ -292,7 +295,26 @@ function updateNodes(nodeData, linkData, force) {
   }
 }
 
-function updateLabels(nodeData) {
+function updateLabelsPos() {
+  const u = d3.select('svg')
+              .selectAll('text.node-label')
+
+  u
+    .attr('x', d => d.x + 10)
+    .attr('y', d => d.y)
+}
+
+function updateLabelBackgroundPos() {
+  const background = d3.select('svg')
+                       .select('.label-backgrounds')
+                       .selectAll('rect')
+
+  background
+    .attr('x', d => d.x - 10)
+    .attr('y', d => d.y - 10)
+}
+
+function updateLabels(nodeData, primaryId) {
   const u = d3.select('svg')
               .selectAll('text.node-label')
               .data(nodeData)
@@ -302,12 +324,36 @@ function updateLabels(nodeData) {
    .attr('class', 'node-label pointer-events-none')
    .text(d => d.id)
    .attr('dominant-baseline', 'middle')
-   .style('font-size', 9)
+   .style('font-size', d => d.id == primaryId ? 13 : 9)
    .merge(u)
     .attr('x', d => d.x + 10)
    .attr('y', d => d.y)
 
   u.exit().remove()
+
+  const primaryNodeData = nodeData.filter(d => d.id === primaryId)
+
+  const background = d3.select('svg')
+                       .select('.label-backgrounds')
+                       .selectAll('rect')
+                       .data(primaryNodeData)
+
+  const primaryNode = primaryNodeData[0]
+  if (primaryNode) {
+    const text = primaryNode.id
+    const width = BrowserText.getWidth(text, 13, 'Fira Mono')
+    background.enter()
+              .append('rect')
+              .attr('width', width + 30)
+              .attr('height', 25)
+              .style('fill', 'white')
+              .style('fill-opacity', 0.5)
+
+    updateLabelBackgroundPos()
+  }
+
+  background
+    .exit().remove()
 }
 
 function linkType(label) {
@@ -377,7 +423,7 @@ function highlightNodeCompileDeps(id, _targets, targetObjects) {
 
   if (matchedNodeData.length <= vizSettings.maxLabelsToShow) {
     // TODO: Always show the main node label
-    updateLabels(matchedNodeData)
+    updateLabels(matchedNodeData, id)
   }
 }
 

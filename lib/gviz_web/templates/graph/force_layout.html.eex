@@ -17,6 +17,7 @@ Force Layout
     <div class="info-box-file-list"></div>
   </div>
   <svg class="main">
+    <g class="label-backgrounds"></g>
     <g class="links"></g>
   </svg>
 </div>
