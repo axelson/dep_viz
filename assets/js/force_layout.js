@@ -135,7 +135,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
       .select('.nodes')
       .selectAll('circle')
       .transition().duration(TRANSITION_SLOW)
-      .style('opacity', d => {
+      .style('fill-opacity', d => {
         if (d.id.indexOf(input) !== -1) {
           return 1
         } else {
@@ -155,7 +155,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
     d3.select('svg')
       .selectAll('line')
       .transition().duration(TRANSITION_SLOW)
-      .style('opacity', d => {
+      .style('fill-opacity', d => {
         if (d.source.id.indexOf(input) !== -1) {
           return 1
         } else {
@@ -526,14 +526,14 @@ function highlightAllDeps(id, targets, _targetObjects) {
   nodes
     .transition().duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
-    .style('opacity', d => hoverOpacity(matched, d.id))
+    .style('fill-opacity', d => hoverOpacity(matched, d.id))
     .style('fill', d => hoverNodeFill(matched, d, id))
 
   // Fade and desaturate non-dependency lines and arrows
   d3.select('svg')
     .selectAll('line')
     .transition().duration(duration)
-    .style('opacity', d => hoverOpacityCompile(matched, d))
+    .style('fill-opacity', d => hoverOpacityCompile(matched, d))
     .attr('stroke', d => hoverLineStroke(matched, d))
 
   const filteredNodes =
