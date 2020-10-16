@@ -3,6 +3,11 @@ import {
   findCompileDependencies
 } from './force_utils.js'
 
+import {
+  updateLabels,
+  updateLabelsPos
+} from './force_layout.js'
+
 export function showOnlyThisNodeAndCompileDeps(id, originalForce, nodeData, linkData, targetObjects) {
   window.vizMode = 'focusNode'
   console.log('show only this node', id)
@@ -55,18 +60,19 @@ function startForceLayout(filteredNodes, filteredLinks) {
   window.force2 = force
 }
 
-function buildTicked(filteredNodes, filteredLinks, force) {
+function buildTicked(filteredNodes, filteredLinks, _force) {
   return () => {
     updateNodes(filteredNodes)
     updateLinks(filteredLinks)
-    updateLabels(filteredNodes)
+    updateLabelsPos()
   }
 }
 
 function updateNodes(filteredNodes) {
   var u = d3.select('svg')
-    .selectAll('circle')
-    .data(filteredNodes, d => d.id)
+            .select('.nodes')
+            .selectAll('circle')
+            .data(filteredNodes, d => d.id)
 
   u
     .attr('cx', d => d.x)
@@ -96,16 +102,10 @@ function updateLinks(filteredLinks) {
    .remove()
 }
 
-function updateLabels(filteredNodes) {
-  const u = d3.select('svg')
-              .selectAll('text.node-label')
-              .data(filteredNodes)
-
-  u
-  // TODO: Should try to share this offset logic somehow. Maybe we should strive
-  // to have a single updateLabels function
-    .attr('x', d => d.x + 10)
-    .attr('y', d => d.y)
-
-  u.exit().remove()
+function tickLabels(filteredNodes) {
+  if (filteredNodes.length <= 15) {
+    updateLabels(filteredNodes, id)
+  } else {
+    updateLabels(filteredNodes.filter(d => d.id === id), id)
+  }
 }
