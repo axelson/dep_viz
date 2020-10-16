@@ -86,9 +86,9 @@ function render(data) {
 
   renderInfoBox(nodeData, targets, targetObjects)
 
-  setTimeout(function() {
-    showOnlyThisNodeAndCompileDeps('lib/gviz/application.ex', force, nodeData, linkData, targetObjects)
-  }, 500)
+  // setTimeout(function() {
+  //   showOnlyThisNodeAndCompileDeps('lib/gviz/application.ex', force, nodeData, linkData, targetObjects)
+  // }, 500)
 }
 
 function renderInfoBox(nodeData, targets, targetObjects) {
