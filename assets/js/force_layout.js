@@ -307,15 +307,21 @@ export function updateLabelsPos() {
 }
 
 export function updateLabels(nodeData, primaryId) {
+  const fontSize = d => d.id === primaryId ? 13 : 9
+
   const u = d3.select('svg')
               .select('.labels')
               .selectAll('g')
               .data(nodeData)
 
   const enter = u.enter()
-  const g = enter.append('g')
-  const fontSize = d => d.id === primaryId ? 13 : 9
 
+  // Sort the primary node to be displayed last (so that it will be displayed on
+  // top of all other nodes and elements)
+  const g = enter.append('g')
+                 .sort((a, _b) => a.id === primaryId ? 1 : -1)
+
+  // Label Background
   g
     .filter(d => d.id === primaryId)
     .append('rect')
