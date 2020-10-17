@@ -174,7 +174,7 @@ function chargeStrength(_data) {
   // NOTE: It might be nice for this to be dependent on the number of connected
   // edges. By giving more strength to nodes that have many edges the clusters
   // will be a little more dispersed and hopefully easier to grok.
-  return -30
+  return -40
 }
 
 function transformData(linkData) {
