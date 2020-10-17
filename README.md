@@ -35,19 +35,32 @@ Helps you answer questions about the Elixir code base:
   * What files are most often triggered
 
 TODO:
-- [ ] Click on a node to keep it selected
-- [x] Show a list of files on the left
-- [x] Allow filtering in the list of files
 - [ ] Have a mode to show what files this file will trigger to compile
-- [x] Allow dragging
-- [ ] Only render the labels when hovering
+- [ ] When hovering a node, show compilation dependencies in info box
+- [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Allow dragging when in focused mode
-- [ ] When hovering, remove tooltip
-  - Replace with making the node label always show, and be larger for the current node
 - [ ] node centric force layout is buggy
   - [ ] transition to the layout sometimes keeps the discarded nodes for too long
-  - [ ] tooltip doesn't match node labels (labels are incorrect)
-- [ ] adding the labels appears to have negatively impacted performance
+  - Maybe need to add special handling for `unShowNodeCompileDeps` when transitioning to node-centric force layout
+  - [x] tooltip doesn't match node labels (labels are incorrect)
+- [ ] Node centric force layout is not well centered
+  - Can we apply a higher degree of force to keep it more spread out and higher up?
+- [ ] Node centric force layout always highlight the selected node
+- [ ] Node centric force layout have way to go back to normal layout
+- [ ] Use info box to show files that will be recompiled most often
+  - [ ] Calculate this not on the main thread
+  - [ ] Cache this calculation to be re-used when hovering
+
+Done:
+- [x] Show a list of files on the left
+- [x] Allow filtering in the list of files
+- [x] Allow dragging
+- [x] Only render the labels when hovering
+- [x] When hovering, remove tooltip
+  - Replace with making the node label always show, and be larger for the current node
+- [x] adding the labels appears to have negatively impacted performance
+- [x] Click on a node to keep it selected
+  - Didn't implement this in the way I was originally envisioning
 
 Future:
 - Configurable node coloring based on filename prefix
