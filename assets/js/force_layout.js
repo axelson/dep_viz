@@ -108,7 +108,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
   const $header = jQuery('#info-box-header')
 
   $input.bind('input', function () {
-    const input = $(this).val()
+    const input = jQuery(this).val()
     if (input == '') {
       $header.text('All files:')
     } else {
