@@ -1,0 +1,209 @@
+digraph "xref graph" {
+  "lib/cachex/actions/invoke.ex"
+  "lib/cachex/actions/invoke.ex" -> "lib/cachex.ex"
+  "lib/cachex.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex.ex" -> "lib/cachex/execution_error.ex"
+  "lib/cachex.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/options.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/options.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/spec.ex" -> "lib/cachex/policy/lrw.ex" [label="(compile)"]
+  "lib/cachex/policy/lrw.ex" -> "lib/cachex.ex"
+  "lib/cachex/policy/lrw.ex" -> "lib/cachex/hook.ex" [label="(compile)"]
+  "lib/cachex/policy/lrw.ex" -> "lib/cachex/policy.ex" [label="(compile)"]
+  "lib/cachex/policy.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/policy/lrw.ex" -> "lib/cachex/query.ex" [label="(compile)"]
+  "lib/cachex/query.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/policy/lrw.ex" -> "lib/cachex/services/informant.ex"
+  "lib/cachex/services/informant.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/policy/lrw.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/options.ex" -> "lib/cachex/spec/validator.ex"
+  "lib/cachex/spec/validator.ex" -> "lib/cachex/hook.ex"
+  "lib/cachex/spec/validator.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/spec/validator.ex" -> "lib/cachex/warmer.ex"
+  "lib/cachex/options.ex" -> "lib/cachex/stats.ex"
+  "lib/cachex/stats.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/stats.ex" -> "lib/cachex/hook.ex" [label="(compile)"]
+  "lib/cachex/stats.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/stats.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex.ex" -> "lib/cachex/query.ex"
+  "lib/cachex.ex" -> "lib/cachex/router.ex" [label="(compile)"]
+  "lib/cachex/router.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/router.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex.ex" -> "lib/cachex/services.ex"
+  "lib/cachex/services.ex" -> "lib/cachex/services/courier.ex"
+  "lib/cachex/services/courier.ex" -> "lib/cachex/actions.ex" [label="(compile)"]
+  "lib/cachex/actions.ex" -> "lib/cachex.ex"
+  "lib/cachex/actions.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/services/janitor.ex" -> "lib/cachex.ex"
+  "lib/cachex/services/janitor.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/services/janitor.ex" -> "lib/cachex/services/informant.ex"
+  "lib/cachex/services/janitor.ex" -> "lib/cachex/services/overseer.ex"
+  "lib/cachex/services/overseer.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/services/overseer.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/janitor.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/courier.ex" -> "lib/cachex/actions/put.ex"
+  "lib/cachex/actions/put.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/put.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/actions/put.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/actions/put.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/services/locksmith.ex" -> "lib/cachex/services/locksmith/queue.ex"
+  "lib/cachex/services/locksmith/queue.ex" -> "lib/cachex/services/locksmith.ex" [label="(compile)"]
+  "lib/cachex/services/locksmith/queue.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/locksmith.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/put.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/courier.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services.ex" -> "lib/cachex/services/incubator.ex"
+  "lib/cachex/services/incubator.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services.ex" -> "lib/cachex/services/informant.ex"
+  "lib/cachex/services.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/services.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/services.ex" -> "lib/cachex/services/locksmith/queue.ex"
+  "lib/cachex/services.ex" -> "lib/cachex/services/overseer.ex"
+  "lib/cachex/services.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex.ex" -> "lib/cachex/services/informant.ex"
+  "lib/cachex.ex" -> "lib/cachex/services/overseer.ex" [label="(compile)"]
+  "lib/cachex.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/invoke.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/invoke.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/actions/invoke.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/invoke.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/inspect.ex"
+  "lib/cachex/actions/inspect.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/actions/inspect.ex" -> "lib/cachex/query.ex"
+  "lib/cachex/actions/inspect.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/actions/inspect.ex" -> "lib/cachex/services/overseer.ex"
+  "lib/cachex/actions/inspect.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/incubator.ex"
+  "lib/cachex/errors.ex"
+  "lib/cachex/disk.ex"
+  "lib/cachex/disk.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/disk.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/disk.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/touch.ex"
+  "lib/cachex/actions/touch.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/touch.ex" -> "lib/cachex/actions/ttl.ex"
+  "lib/cachex/actions/ttl.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/ttl.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/touch.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/touch.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/policy/lrw.ex"
+  "lib/cachex/actions/fetch.ex"
+  "lib/cachex/actions/fetch.ex" -> "lib/cachex/actions/get.ex"
+  "lib/cachex/actions/get.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/get.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/fetch.ex" -> "lib/cachex/services/courier.ex"
+  "lib/cachex/actions/fetch.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/expire.ex"
+  "lib/cachex/actions/expire.ex" -> "lib/cachex.ex"
+  "lib/cachex/actions/expire.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/expire.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/expire.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/update.ex"
+  "lib/cachex/actions/update.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/update.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/update.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/janitor.ex"
+  "lib/cachex/services.ex"
+  "lib/cachex/actions/transaction.ex"
+  "lib/cachex/actions/transaction.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/transaction.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/reset.ex"
+  "lib/cachex/actions/reset.ex" -> "lib/cachex/actions/clear.ex"
+  "lib/cachex/actions/clear.ex" -> "lib/cachex/actions/size.ex"
+  "lib/cachex/actions/size.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/clear.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/clear.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/reset.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/reset.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/get_and_update.ex"
+  "lib/cachex/actions/get_and_update.ex" -> "lib/cachex.ex"
+  "lib/cachex/actions/get_and_update.ex" -> "lib/cachex/actions.ex" [label="(compile)"]
+  "lib/cachex/actions/get_and_update.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/get_and_update.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/locksmith/queue.ex"
+  "lib/cachex/actions/put_many.ex"
+  "lib/cachex/actions/put_many.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/put_many.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/actions/put_many.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/actions/put_many.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/actions/put_many.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/put_many.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/get.ex"
+  "lib/cachex/actions/load.ex"
+  "lib/cachex/actions/load.ex" -> "lib/cachex.ex"
+  "lib/cachex/actions/load.ex" -> "lib/cachex/disk.ex"
+  "lib/cachex/actions/load.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/courier.ex"
+  "lib/cachex/actions/stats.ex"
+  "lib/cachex/actions/stats.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/stats.ex" -> "lib/cachex/stats.ex"
+  "lib/cachex.ex"
+  "lib/cachex/actions/exists.ex"
+  "lib/cachex/actions/exists.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/exists.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/import.ex"
+  "lib/cachex/actions/import.ex" -> "lib/cachex.ex"
+  "lib/cachex/actions/import.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/dump.ex"
+  "lib/cachex/actions/dump.ex" -> "lib/cachex.ex"
+  "lib/cachex/actions/dump.ex" -> "lib/cachex/disk.ex"
+  "lib/cachex/actions/dump.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/application.ex"
+  "lib/cachex/application.ex" -> "lib/cachex/services.ex"
+  "lib/cachex/actions/incr.ex"
+  "lib/cachex/actions/incr.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/actions/incr.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/actions/incr.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/actions/incr.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/incr.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/informant.ex"
+  "lib/cachex/actions/ttl.ex"
+  "lib/cachex/actions/stream.ex"
+  "lib/cachex/actions/stream.ex" -> "lib/cachex/errors.ex" [label="(compile)"]
+  "lib/cachex/actions/stream.ex" -> "lib/cachex/options.ex"
+  "lib/cachex/actions/stream.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/clear.ex"
+  "lib/cachex/actions/count.ex"
+  "lib/cachex/actions/count.ex" -> "lib/cachex/query.ex"
+  "lib/cachex/actions/count.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/services/locksmith.ex"
+  "lib/cachex/warmer.ex"
+  "lib/cachex/options.ex"
+  "lib/cachex/policy.ex"
+  "lib/cachex/actions/purge.ex"
+  "lib/cachex/actions/purge.ex" -> "lib/cachex/query.ex"
+  "lib/cachex/actions/purge.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/purge.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/stats.ex"
+  "lib/cachex/actions/keys.ex"
+  "lib/cachex/actions/keys.ex" -> "lib/cachex/query.ex"
+  "lib/cachex/actions/keys.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/spec/validator.ex"
+  "lib/cachex/spec.ex"
+  "lib/cachex/actions/del.ex"
+  "lib/cachex/actions/del.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/del.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/execution_error.ex"
+  "lib/cachex/actions/empty.ex"
+  "lib/cachex/actions/empty.ex" -> "lib/cachex/actions/size.ex"
+  "lib/cachex/actions/empty.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/actions/size.ex"
+  "lib/cachex/actions/refresh.ex"
+  "lib/cachex/actions/refresh.ex" -> "lib/cachex/actions.ex"
+  "lib/cachex/actions/refresh.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/refresh.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/query.ex"
+  "lib/cachex/services/overseer.ex"
+  "lib/cachex/router.ex"
+  "lib/cachex/actions/take.ex"
+  "lib/cachex/actions/take.ex" -> "lib/cachex/services/informant.ex"
+  "lib/cachex/actions/take.ex" -> "lib/cachex/services/janitor.ex"
+  "lib/cachex/actions/take.ex" -> "lib/cachex/services/locksmith.ex"
+  "lib/cachex/actions/take.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+  "lib/cachex/hook.ex"
+  "lib/cachex/actions.ex"
+  "lib/cachex/actions/put.ex"
+  "lib/cachex/actions/export.ex"
+  "lib/cachex/actions/export.ex" -> "lib/cachex/spec.ex" [label="(compile)"]
+}

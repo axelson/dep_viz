@@ -1,0 +1,22 @@
+digraph "xref graph" {
+  "lib/codegen.ex"
+  "lib/codegen.ex" -> "lib/encode.ex"
+  "lib/encode.ex" -> "lib/codegen.ex" [label="(compile)"]
+  "lib/encode.ex" -> "lib/encoder.ex"
+  "lib/encoder.ex" -> "lib/codegen.ex"
+  "lib/encoder.ex" -> "lib/encode.ex"
+  "lib/encoder.ex" -> "lib/fragment.ex" [label="(compile)"]
+  "lib/encode.ex" -> "lib/fragment.ex"
+  "lib/decoder.ex"
+  "lib/decoder.ex" -> "lib/codegen.ex" [label="(compile)"]
+  "lib/encode.ex"
+  "lib/encoder.ex"
+  "lib/formatter.ex"
+  "lib/fragment.ex"
+  "lib/helpers.ex"
+  "lib/helpers.ex" -> "lib/codegen.ex"
+  "lib/jason.ex"
+  "lib/jason.ex" -> "lib/decoder.ex"
+  "lib/jason.ex" -> "lib/encode.ex"
+  "lib/jason.ex" -> "lib/formatter.ex"
+}

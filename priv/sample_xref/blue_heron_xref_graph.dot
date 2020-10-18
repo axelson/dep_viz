@@ -1,0 +1,252 @@
+digraph "xref graph" {
+  "lib/blue_heron.ex"
+  "lib/blue_heron.ex" -> "lib/blue_heron/context.ex" [label="(export)"]
+  "lib/blue_heron.ex" -> "lib/blue_heron/hci/transport.ex"
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/acl.ex"
+  "lib/blue_heron/acl.ex" -> "lib/blue_heron/l2_cap.ex"
+  "lib/blue_heron/l2_cap.ex" -> "lib/blue_heron/att.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/commands/write_command.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/notifications/handle_value_notification.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/requests/exchange_mtu_request.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/requests/read_by_group_type_request.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/requests/read_by_type_request.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/responses/error_response.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/responses/exchange_mtu_response.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/responses/read_by_group_type_response.ex"
+  "lib/blue_heron/att.ex" -> "lib/blue_heron/att/responses/read_by_type_response.ex"
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/le_controller/create_connection.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/create_connection.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/create_connection.ex" -> "lib/blue_heron/hci/commands/le_controller.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/create_connection.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex" -> "lib/blue_heron/hci/commands/le_controller.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/command.ex" -> "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex" -> "lib/blue_heron/hci/commands/link_policy.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_inquiry_mode.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_inquiry_mode.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_inquiry_mode.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_inquiry_mode.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_secure_connections_host_support.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_secure_connections_host_support.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_secure_connections_host_support.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_secure_connections_host_support.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/informational_parameters/read_local_version.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/informational_parameters/read_local_version.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/informational_parameters/read_local_version.ex" -> "lib/blue_heron/hci/commands/informational_parameters.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/informational_parameters/read_local_version.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/deserializable.ex" [label="(export)"]
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/le_controller/create_connection.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/event.ex" -> "lib/blue_heron/hci/events/command_complete.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/le_controller/create_connection.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex"
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/events/command_complete/return_parameters.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/command_complete.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/event.ex" -> "lib/blue_heron/hci/events/command_status.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/command_status.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/command_status.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/event.ex" -> "lib/blue_heron/hci/events/disconnection_complete.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/disconnection_complete.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/disconnection_complete.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/event.ex" -> "lib/blue_heron/hci/events/inquiry_complete.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/inquiry_complete.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/inquiry_complete.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/event.ex" -> "lib/blue_heron/hci/events/le_meta/advertising_report.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/advertising_report.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/advertising_report.ex" -> "lib/blue_heron/hci/events/le_meta.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/advertising_report.ex" -> "lib/blue_heron/hci/events/le_meta/advertising_report/device.ex"
+  "lib/blue_heron/hci/events/le_meta/advertising_report/device.ex" -> "lib/blue_heron/assigned_numbers/generic_access_profile.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/advertising_report/device.ex" -> "lib/blue_heron/data_type/manufacturer_data.ex"
+  "lib/blue_heron/data_type/manufacturer_data.ex" -> "lib/blue_heron/assigned_numbers/company_identifiers.ex" [label="(compile)"]
+  "lib/blue_heron/data_type/manufacturer_data.ex" -> "lib/blue_heron/data_type/manufacturer_data/apple.ex" [label="(compile)"]
+  "lib/blue_heron/data_type/manufacturer_data/apple.ex" -> "lib/blue_heron/data_type/manufacturer_behaviour.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/advertising_report/device.ex" -> "lib/blue_heron/hci/arrayed_data.ex"
+  "lib/blue_heron/hci/events/le_meta/advertising_report.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/event.ex" -> "lib/blue_heron/hci/events/le_meta/connection_complete.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/connection_complete.ex" -> "lib/blue_heron/hci/event.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/connection_complete.ex" -> "lib/blue_heron/hci/events/le_meta.ex" [label="(compile)"]
+  "lib/blue_heron/hci/events/le_meta/connection_complete.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/events/command_complete.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/events/command_status.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/events/disconnection_complete.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/events/inquiry_complete.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/events/le_meta/advertising_report.ex"
+  "lib/blue_heron/hci/deserializable.ex" -> "lib/blue_heron/hci/events/le_meta/connection_complete.ex"
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/events/command_complete.ex" [label="(export)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/events/command_status.ex" [label="(export)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(export)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci_dump.ex"
+  "lib/blue_heron/hci_dump.ex" -> "lib/blue_heron/hci_dump/pkt_log.ex" [label="(export)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci_dump/logger.ex" [label="(compile)"]
+  "lib/blue_heron/hci_dump/logger.ex" -> "lib/blue_heron/hci_dump.ex"
+  "lib/blue_heron/hci_dump/logger.ex" -> "lib/blue_heron/hci_dump/pkt_log.ex" [label="(export)"]
+  "lib/blue_heron/hci/transport.ex" -> "lib/blue_heron/hci_dump/pkt_log.ex" [label="(export)"]
+  "lib/blue_heron/acl.ex"
+  "lib/blue_heron/address.ex"
+  "lib/blue_heron/assigned_numbers/company_identifiers.ex"
+  "lib/blue_heron/assigned_numbers/generic_access_profile.ex"
+  "lib/blue_heron/att.ex"
+  "lib/blue_heron/att/client.ex"
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron.ex"
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/acl.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/att/commands/write_command.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/att/notifications/handle_value_notification.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/att/requests/exchange_mtu_request.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/att/responses/exchange_mtu_response.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/att/responses/read_by_group_type_response.ex" [label="(compile)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/att/responses/read_by_type_response.ex" [label="(compile)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/context.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/hci/commands/le_controller/create_connection.ex" [label="(compile)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/hci/commands/link_control/disconnect.ex" [label="(export)"]
+  "lib/blue_heron/hci/commands/link_control/disconnect.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/link_control/disconnect.ex" -> "lib/blue_heron/hci/commands/link_control.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/link_control/disconnect.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/hci/events/command_status.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/hci/events/disconnection_complete.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/hci/events/le_meta/connection_complete.ex" [label="(export)"]
+  "lib/blue_heron/att/client.ex" -> "lib/blue_heron/l2_cap.ex" [label="(export)"]
+  "lib/blue_heron/att/commands/write_command.ex"
+  "lib/blue_heron/att/notifications/handle_value_notification.ex"
+  "lib/blue_heron/att/requests/exchange_mtu_request.ex"
+  "lib/blue_heron/att/requests/read_by_group_type_request.ex"
+  "lib/blue_heron/att/requests/read_by_type_request.ex"
+  "lib/blue_heron/att/responses/error_response.ex"
+  "lib/blue_heron/att/responses/exchange_mtu_response.ex"
+  "lib/blue_heron/att/responses/read_by_group_type_response.ex"
+  "lib/blue_heron/att/responses/read_by_type_response.ex"
+  "lib/blue_heron/btsnoop.ex"
+  "lib/blue_heron/btsnoop.ex" -> "lib/blue_heron/acl.ex"
+  "lib/blue_heron/context.ex"
+  "lib/blue_heron/data_type/manufacturer_behaviour.ex"
+  "lib/blue_heron/data_type/manufacturer_data.ex"
+  "lib/blue_heron/data_type/manufacturer_data/apple.ex"
+  "lib/blue_heron/data_type/service_data.ex"
+  "lib/blue_heron/data_type/service_data.ex" -> "lib/blue_heron/assigned_numbers/generic_access_profile.ex" [label="(compile)"]
+  "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci.ex"
+  "lib/blue_heron/hci/arrayed_data.ex"
+  "lib/blue_heron/hci/command.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/read_local_name.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/reset.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/set_event_mask.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_class_of_device.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_extended_inquiry_response.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_inquiry_mode.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_local_name.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_page_timeout.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_secure_connections_host_support.ex"
+  "lib/blue_heron/hci/commands/controller_and_baseband/write_simple_pairing_mode.ex"
+  "lib/blue_heron/hci/commands/informational_parameters.ex"
+  "lib/blue_heron/hci/commands/informational_parameters/read_local_version.ex"
+  "lib/blue_heron/hci/commands/le_controller.ex"
+  "lib/blue_heron/hci/commands/le_controller/create_connection.ex"
+  "lib/blue_heron/hci/commands/le_controller/create_connection_cancel.ex"
+  "lib/blue_heron/hci/commands/le_controller/create_connection_cancel.ex" -> "lib/blue_heron/error_code.ex"
+  "lib/blue_heron/hci/commands/le_controller/create_connection_cancel.ex" -> "lib/blue_heron/hci/command.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/create_connection_cancel.ex" -> "lib/blue_heron/hci/commands/le_controller.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/create_connection_cancel.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(compile)"]
+  "lib/blue_heron/hci/commands/le_controller/set_scan_enable.ex"
+  "lib/blue_heron/hci/commands/link_control.ex"
+  "lib/blue_heron/hci/commands/link_control/disconnect.ex"
+  "lib/blue_heron/hci/commands/link_policy.ex"
+  "lib/blue_heron/hci/commands/link_policy/write_default_link_policy_settings.ex"
+  "lib/blue_heron/hci/deserializable.ex"
+  "lib/blue_heron/hci/event.ex"
+  "lib/blue_heron/hci/events/command_complete.ex"
+  "lib/blue_heron/hci/events/command_complete/return_parameters.ex"
+  "lib/blue_heron/hci/events/command_status.ex"
+  "lib/blue_heron/hci/events/disconnection_complete.ex"
+  "lib/blue_heron/hci/events/inquiry_complete.ex"
+  "lib/blue_heron/hci/events/le_meta.ex"
+  "lib/blue_heron/hci/events/le_meta/advertising_report.ex"
+  "lib/blue_heron/hci/events/le_meta/advertising_report/device.ex"
+  "lib/blue_heron/hci/events/le_meta/connection_complete.ex"
+  "lib/blue_heron/hci/serializable.ex"
+  "lib/blue_heron/hci/transport.ex"
+  "lib/blue_heron/hci/transport/null.ex"
+  "lib/blue_heron/hci/transport/null.ex" -> "lib/blue_heron/hci/serializable.ex" [label="(export)"]
+  "lib/blue_heron/hci/transport/null.ex" -> "lib/blue_heron/hci/transport.ex" [label="(compile)"]
+  "lib/blue_heron/hci_dump.ex"
+  "lib/blue_heron/hci_dump/logger.ex"
+  "lib/blue_heron/hci_dump/pkt_log.ex"
+  "lib/blue_heron/l2_cap.ex"
+  "lib/blue_heron/mix/tasks/blue_heron/generate_regression_test.ex"
+  "lib/blue_heron/mix/tasks/blue_heron/generate_regression_test.ex" -> "lib/blue_heron/acl.ex"
+  "lib/blue_heron/mix/tasks/blue_heron/generate_regression_test.ex" -> "lib/blue_heron/hci/deserializable.ex"
+  "lib/blue_heron/mix/tasks/blue_heron/generate_regression_test.ex" -> "lib/blue_heron/hci_dump.ex"
+}

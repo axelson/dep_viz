@@ -1,0 +1,402 @@
+digraph "xref graph" {
+  "lib/adoptoposs.ex"
+  "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs/accounts.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/accounts/user.ex" -> "lib/adoptoposs/accounts/settings.ex"
+  "lib/adoptoposs/accounts/user.ex" -> "lib/adoptoposs/communication/interest.ex"
+  "lib/adoptoposs/communication/interest.ex" -> "lib/adoptoposs/accounts/user.ex"
+  "lib/adoptoposs/communication/interest.ex" -> "lib/adoptoposs/submissions/project.ex"
+  "lib/adoptoposs/submissions/project.ex" -> "lib/adoptoposs/accounts/user.ex"
+  "lib/adoptoposs/submissions/project.ex" -> "lib/adoptoposs/communication/interest.ex"
+  "lib/adoptoposs/submissions/project.ex" -> "lib/adoptoposs/network/repository.ex" [label="(export)"]
+  "lib/adoptoposs/network/repository.ex" -> "lib/adoptoposs/network/repository/language.ex"
+  "lib/adoptoposs/network/repository.ex" -> "lib/adoptoposs/network/repository/user.ex"
+  "lib/adoptoposs/submissions/project.ex" -> "lib/adoptoposs/tags/tag.ex"
+  "lib/adoptoposs/tags/tag.ex" -> "lib/adoptoposs/submissions/project.ex"
+  "lib/adoptoposs/tags/tag.ex" -> "lib/adoptoposs/tags/tag_subscription.ex"
+  "lib/adoptoposs/tags/tag_subscription.ex" -> "lib/adoptoposs/accounts/user.ex"
+  "lib/adoptoposs/tags/tag_subscription.ex" -> "lib/adoptoposs/tags/tag.ex"
+  "lib/adoptoposs/submissions/project.ex" -> "lib/ecto_enums.ex" [label="(compile)"]
+  "lib/adoptoposs/accounts/user.ex" -> "lib/adoptoposs/submissions/project.ex"
+  "lib/adoptoposs/accounts/user.ex" -> "lib/adoptoposs/tags/tag_subscription.ex"
+  "lib/adoptoposs/accounts.ex" -> "lib/adoptoposs/accounts/user_from_auth.ex"
+  "lib/adoptoposs/accounts.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/accounts/settings.ex"
+  "lib/adoptoposs/accounts/user.ex"
+  "lib/adoptoposs/accounts/user_from_auth.ex"
+  "lib/adoptoposs/application.ex"
+  "lib/adoptoposs/application.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/application.ex" -> "lib/adoptoposs/scheduler.ex"
+  "lib/adoptoposs/application.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/endpoint.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/endpoint.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/controllers/auth_controller.ex"
+  "lib/adoptoposs_web/controllers/auth_controller.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/controllers/auth_controller.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/controllers/auth_controller.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/controllers/page_controller.ex"
+  "lib/adoptoposs_web/controllers/page_controller.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/controllers/page_controller.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/controllers/repo_controller.ex"
+  "lib/adoptoposs_web/controllers/repo_controller.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/controllers/repo_controller.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/controllers/repo_controller.ex" -> "lib/adoptoposs_web/live/repo_live.ex"
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs/network.ex"
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs/network/organization.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/communication/interest.ex"
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/network/repository.ex" [label="(export)"]
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/submissions/policy.ex"
+  "lib/adoptoposs/submissions/policy.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/submissions/policy.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs/submissions.ex" -> "lib/adoptoposs/tags/tag.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/live/landing_page_live.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs/communication.ex"
+  "lib/adoptoposs/communication.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/communication.ex" -> "lib/adoptoposs/communication/interest.ex" [label="(export)"]
+  "lib/adoptoposs/communication.ex" -> "lib/adoptoposs/communication/policy.ex"
+  "lib/adoptoposs/communication/policy.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/communication/policy.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs/communication.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/communication.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs/tags.ex"
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/network.ex"
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/submissions/project.ex"
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/tags/policy.ex"
+  "lib/adoptoposs/tags/policy.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs/tags/policy.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/tags/policy.ex" -> "lib/adoptoposs/tags/tag.ex" [label="(export)"]
+  "lib/adoptoposs/tags/policy.ex" -> "lib/adoptoposs/tags/tag_subscription.ex" [label="(export)"]
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/tags/tag.ex" [label="(export)"]
+  "lib/adoptoposs/tags.ex" -> "lib/adoptoposs/tags/tag_subscription.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web/views/landing_page_view.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/live/explore_live.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs/search.ex"
+  "lib/adoptoposs/search.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/search.ex" -> "lib/adoptoposs/submissions/project.ex"
+  "lib/adoptoposs/search.ex" -> "lib/adoptoposs/tags/tag.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs/tags.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web/views/explore_view.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs/tags/tag.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/live/project_component.ex"
+  "lib/adoptoposs_web/live/project_component.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_component.ex" -> "lib/adoptoposs_web/live_component.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_component.ex" -> "lib/adoptoposs_web/views/project_view.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/live/interest_component.ex"
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs/communication.ex"
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs/communication/interest.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs_web/live_component.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs_web/mailer.ex"
+  "lib/adoptoposs_web/mailer.ex" -> "lib/adoptoposs_web/email.ex"
+  "lib/adoptoposs_web/email.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/email.ex" -> "lib/adoptoposs_web/live/project_live/show.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/live/project_live/index.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex" -> "lib/adoptoposs_web/views/project_view.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex" -> "lib/adoptoposs_web/views/project_view.ex"
+  "lib/adoptoposs_web/email.ex" -> "lib/adoptoposs_web/router.ex" [label="(export)"]
+  "lib/adoptoposs_web/email.ex" -> "lib/adoptoposs_web/views/email_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/live/landing_page_live.ex"
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/error_helpers.ex" -> "lib/adoptoposs_web/gettext.ex"
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/views/interest_view.ex"
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs/communication/interest.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs_web/views/project_view.ex"
+  "lib/adoptoposs_web/views/interest_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs/network/repository.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/live/explore_live.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/live/landing_page_live.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/live/project_live/index.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/live/repo_live.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/live/settings_live.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs/search.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs/tags.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/live/settings_live.ex" -> "lib/adoptoposs_web/views/settings_view.ex"
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs/accounts/settings.ex"
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web/live/explore_live.ex"
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/settings_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/shared_view.ex" -> "lib/adoptoposs_web/views/sharing_view.ex"
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web/live/explore_live.ex"
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web/live/project_component.ex"
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/sharing_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/views/email_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/email.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/live/interest_component.ex" -> "lib/adoptoposs_web/views/interest_view.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/live/project_live/index.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/live/project_live/show.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/views/interest_view.ex"
+  "lib/adoptoposs_web/views/project_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/live/project_filters_component.ex"
+  "lib/adoptoposs_web/live/project_filters_component.ex" -> "lib/adoptoposs/search.ex"
+  "lib/adoptoposs_web/live/project_filters_component.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_filters_component.ex" -> "lib/adoptoposs_web/live_component.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/project_filters_component.ex" -> "lib/adoptoposs_web/views/explore_view.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/live/settings_live.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/explore_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/live/explore_live.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/live/project_component.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/live/settings_live.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/landing_page_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/live/settings_live.ex"
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/layout_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/live/repo_live.ex" -> "lib/adoptoposs_web/views/repo_view.ex"
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/live/project_live/index.ex"
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/live/repo_component.ex"
+  "lib/adoptoposs_web/live/repo_component.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs_web/live/repo_component.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "lib/adoptoposs_web/live/repo_component.ex" -> "lib/adoptoposs/tags.ex"
+  "lib/adoptoposs_web/live/repo_component.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/repo_component.ex" -> "lib/adoptoposs_web/live_component.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/repo_component.ex" -> "lib/adoptoposs_web/views/repo_view.ex"
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/repo_view.ex" -> "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/controllers/repo_controller.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/controllers/sharing_controller.ex"
+  "lib/adoptoposs_web/controllers/sharing_controller.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/controllers/sharing_controller.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/controllers/sharing_controller.ex" -> "lib/adoptoposs_web/live/sharing_live.ex"
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web/live_helpers.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web/live_view.ex" [label="(compile)"]
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/live/sharing_live.ex" -> "lib/adoptoposs_web/views/sharing_view.ex"
+  "lib/adoptoposs_web/controllers/sharing_controller.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/plugs/current_user.ex"
+  "lib/adoptoposs_web/plugs/current_user.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/plugs/require_login.ex"
+  "lib/adoptoposs_web/plugs/require_login.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "lib/adoptoposs_web/plugs/require_login.ex" -> "lib/adoptoposs_web/live/landing_page_live.ex"
+  "lib/adoptoposs_web/plugs/require_login.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/router.ex" -> "lib/adoptoposs_web/views/layout_view.ex" [label="(compile)"]
+  "lib/adoptoposs/communication.ex"
+  "lib/adoptoposs/communication/interest.ex"
+  "lib/adoptoposs/communication/policy.ex"
+  "lib/adoptoposs/jobs.ex"
+  "lib/adoptoposs/jobs.ex" -> "lib/adoptoposs/accounts/settings.ex"
+  "lib/adoptoposs/jobs.ex" -> "lib/adoptoposs/jobs/policy.ex"
+  "lib/adoptoposs/jobs.ex" -> "lib/adoptoposs/jobs/project_recommendations.ex"
+  "lib/adoptoposs/jobs/project_recommendations.ex" -> "lib/adoptoposs/accounts.ex"
+  "lib/adoptoposs/jobs/project_recommendations.ex" -> "lib/adoptoposs/accounts/user.ex"
+  "lib/adoptoposs/jobs/project_recommendations.ex" -> "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/jobs/project_recommendations.ex" -> "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs/jobs/project_recommendations.ex" -> "lib/adoptoposs_web/mailer.ex"
+  "lib/adoptoposs/jobs/policy.ex"
+  "lib/adoptoposs/jobs/project_recommendations.ex"
+  "lib/adoptoposs/network.ex"
+  "lib/adoptoposs/network/api.ex"
+  "lib/adoptoposs/network/api.ex" -> "lib/adoptoposs/network/organization.ex"
+  "lib/adoptoposs/network/api.ex" -> "lib/adoptoposs/network/page_info.ex"
+  "lib/adoptoposs/network/api.ex" -> "lib/adoptoposs/network/repository.ex"
+  "lib/adoptoposs/network/api/github.ex"
+  "lib/adoptoposs/network/api/github.ex" -> "lib/adoptoposs/network/api.ex" [label="(compile)"]
+  "lib/adoptoposs/network/api/github.ex" -> "lib/adoptoposs/network/organization.ex" [label="(export)"]
+  "lib/adoptoposs/network/api/github.ex" -> "lib/adoptoposs/network/page_info.ex" [label="(export)"]
+  "lib/adoptoposs/network/api/github.ex" -> "lib/adoptoposs/network/repository.ex" [label="(export)"]
+  "lib/adoptoposs/network/api/github.ex" -> "lib/adoptoposs/network/repository/language.ex" [label="(export)"]
+  "lib/adoptoposs/network/api/github.ex" -> "lib/adoptoposs/network/repository/user.ex" [label="(export)"]
+  "lib/adoptoposs/network/organization.ex"
+  "lib/adoptoposs/network/page_info.ex"
+  "lib/adoptoposs/network/repository.ex"
+  "lib/adoptoposs/network/repository/language.ex"
+  "lib/adoptoposs/network/repository/user.ex"
+  "lib/adoptoposs/repo.ex"
+  "lib/adoptoposs/scheduler.ex"
+  "lib/adoptoposs/search.ex"
+  "lib/adoptoposs/submissions.ex"
+  "lib/adoptoposs/submissions/policy.ex"
+  "lib/adoptoposs/submissions/project.ex"
+  "lib/adoptoposs/tags.ex"
+  "lib/adoptoposs/tags/loader.ex"
+  "lib/adoptoposs/tags/loader.ex" -> "lib/adoptoposs/tags/tag.ex"
+  "lib/adoptoposs/tags/policy.ex"
+  "lib/adoptoposs/tags/tag.ex"
+  "lib/adoptoposs/tags/tag_subscription.ex"
+  "lib/adoptoposs_web.ex"
+  "lib/adoptoposs_web/channels/user_socket.ex"
+  "lib/adoptoposs_web/controllers/auth_controller.ex"
+  "lib/adoptoposs_web/controllers/page_controller.ex"
+  "lib/adoptoposs_web/controllers/repo_controller.ex"
+  "lib/adoptoposs_web/controllers/sharing_controller.ex"
+  "lib/adoptoposs_web/email.ex"
+  "lib/adoptoposs_web/endpoint.ex"
+  "lib/adoptoposs_web/gettext.ex"
+  "lib/adoptoposs_web/live/explore_live.ex"
+  "lib/adoptoposs_web/live/interest_component.ex"
+  "lib/adoptoposs_web/live/landing_page_live.ex"
+  "lib/adoptoposs_web/live/project_component.ex"
+  "lib/adoptoposs_web/live/project_filters_component.ex"
+  "lib/adoptoposs_web/live/project_live/index.ex"
+  "lib/adoptoposs_web/live/project_live/show.ex"
+  "lib/adoptoposs_web/live/repo_component.ex"
+  "lib/adoptoposs_web/live/repo_live.ex"
+  "lib/adoptoposs_web/live/settings_live.ex"
+  "lib/adoptoposs_web/live/sharing_live.ex"
+  "lib/adoptoposs_web/live_component.ex"
+  "lib/adoptoposs_web/live_helpers.ex"
+  "lib/adoptoposs_web/live_view.ex"
+  "lib/adoptoposs_web/mailer.ex"
+  "lib/adoptoposs_web/plugs/current_user.ex"
+  "lib/adoptoposs_web/plugs/require_login.ex"
+  "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/auth_view.ex"
+  "lib/adoptoposs_web/views/auth_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/auth_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/auth_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/email_view.ex"
+  "lib/adoptoposs_web/views/error_helpers.ex"
+  "lib/adoptoposs_web/views/error_view.ex"
+  "lib/adoptoposs_web/views/error_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/error_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/error_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/explore_view.ex"
+  "lib/adoptoposs_web/views/interest_view.ex"
+  "lib/adoptoposs_web/views/landing_page_view.ex"
+  "lib/adoptoposs_web/views/layout_view.ex"
+  "lib/adoptoposs_web/views/page_view.ex"
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web.ex" [label="(compile)"]
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/gettext.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/live/explore_live.ex"
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/live/landing_page_live.ex"
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/live/project_live/index.ex"
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/live/settings_live.ex"
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/router.ex"
+  "lib/adoptoposs_web/views/page_view.ex" -> "lib/adoptoposs_web/views/error_helpers.ex" [label="(export)"]
+  "lib/adoptoposs_web/views/project_view.ex"
+  "lib/adoptoposs_web/views/repo_view.ex"
+  "lib/adoptoposs_web/views/settings_view.ex"
+  "lib/adoptoposs_web/views/shared_view.ex"
+  "lib/adoptoposs_web/views/sharing_view.ex"
+  "lib/ecto_enums.ex"
+  "test/support/channel_case.ex"
+  "test/support/channel_case.ex" -> "lib/adoptoposs/repo.ex"
+  "test/support/conn_case.ex"
+  "test/support/conn_case.ex" -> "lib/adoptoposs/repo.ex"
+  "test/support/data_case.ex"
+  "test/support/data_case.ex" -> "lib/adoptoposs/repo.ex"
+  "test/support/factory.ex"
+  "test/support/factory.ex" -> "lib/adoptoposs/accounts/settings.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/communication/interest.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/network/organization.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/network/page_info.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/network/repository.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/network/repository/language.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/network/repository/user.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/repo.ex"
+  "test/support/factory.ex" -> "lib/adoptoposs/submissions/project.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/tags/tag.ex" [label="(export)"]
+  "test/support/factory.ex" -> "lib/adoptoposs/tags/tag_subscription.ex" [label="(export)"]
+  "test/support/live_case.ex"
+  "test/support/network/api/github_in_memory.ex"
+  "test/support/network/api/github_in_memory.ex" -> "lib/adoptoposs/network/api.ex" [label="(compile)"]
+  "test/support/network/api/github_in_memory.ex" -> "lib/adoptoposs/network/api/github.ex"
+  "test/support/network/api/github_in_memory.ex" -> "test/support/factory.ex" [label="(export)"]
+  "test/support/test_helpers.ex"
+}

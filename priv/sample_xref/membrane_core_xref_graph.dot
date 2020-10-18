@@ -1,0 +1,810 @@
+digraph "xref graph" {
+  "lib/membrane.ex"
+  "lib/membrane.ex" -> "lib/membrane/log/router.ex"
+  "lib/membrane/log/router.ex" -> "lib/membrane/log.ex"
+  "lib/membrane/log.ex" -> "lib/membrane/log/router.ex"
+  "lib/membrane/log.ex" -> "lib/membrane/logger.ex"
+  "lib/membrane/log/router.ex" -> "lib/membrane/log/supervisor.ex"
+  "lib/membrane/log/supervisor.ex" -> "lib/membrane/log/logger.ex"
+  "lib/membrane/log/logger.ex" -> "lib/membrane/helper/genserver.ex"
+  "lib/membrane/helper/genserver.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/log/logger.ex" -> "lib/membrane/log/logger_state.ex" [label="(export)"]
+  "lib/membrane/log/logger.ex" -> "lib/membrane/time.ex"
+  "lib/membrane.ex" -> "lib/membrane/log/supervisor.ex"
+  "lib/membrane.ex" -> "lib/membrane/logger.ex"
+  "lib/membrane/bin.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/action.ex"
+  "lib/membrane/bin/action.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/child.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/child.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/bin/action.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/clock.ex" -> "lib/membrane/core/message.ex"
+  "lib/membrane/core/message.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/pad.ex" -> "lib/membrane/buffer/metric.ex"
+  "lib/membrane/buffer/metric.ex" -> "lib/membrane/buffer.ex" [label="(compile)"]
+  "lib/membrane/buffer.ex" -> "lib/membrane/payload.ex"
+  "lib/membrane/buffer/metric.ex" -> "lib/membrane/buffer/metric/byte_size.ex"
+  "lib/membrane/buffer/metric/byte_size.ex" -> "lib/membrane/buffer.ex" [label="(export)"]
+  "lib/membrane/buffer/metric/byte_size.ex" -> "lib/membrane/buffer/metric.ex" [label="(compile)"]
+  "lib/membrane/buffer/metric/byte_size.ex" -> "lib/membrane/payload.ex"
+  "lib/membrane/buffer/metric.ex" -> "lib/membrane/buffer/metric/count.ex"
+  "lib/membrane/buffer/metric/count.ex" -> "lib/membrane/buffer/metric.ex" [label="(compile)"]
+  "lib/membrane/pad.ex" -> "lib/membrane/caps/matcher.ex"
+  "lib/membrane/clock.ex" -> "lib/membrane/time.ex"
+  "lib/membrane/bin/action.ex" -> "lib/membrane/parent_spec.ex"
+  "lib/membrane/parent_spec.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/parent_spec.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/parent_spec.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/input_buffer.ex" -> "lib/membrane/buffer/metric.ex" [label="(compile)"]
+  "lib/membrane/core/input_buffer.ex" -> "lib/membrane/component_path.ex"
+  "lib/membrane/core/input_buffer.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/input_buffer.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/input_buffer.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/input_buffer.ex" -> "lib/membrane/telemetry.ex"
+  "lib/membrane/parent_spec.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/parent_spec.ex" -> "lib/membrane/pad.ex" [label="(compile)"]
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/notification.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/child_entry.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/child_entry.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/child_entry.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/sync.ex" -> "lib/membrane/time.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/core/bin/callback_context.ex" -> "lib/membrane/core/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/pad_data.ex" -> "lib/membrane/buffer/metric.ex"
+  "lib/membrane/pad_data.ex" -> "lib/membrane/caps.ex"
+  "lib/membrane/pad_data.ex" -> "lib/membrane/caps/matcher.ex"
+  "lib/membrane/pad_data.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/pad_data.ex" -> "lib/membrane/event.ex"
+  "lib/membrane/event.ex" -> "lib/membrane/event_protocol.ex"
+  "lib/membrane/pad_data.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/notification.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/other.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/other.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/pad_added.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/pad_removed.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/playback_change.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/spec_started.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/stream_mamanement.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/bin/callback_context/tick.ex"
+  "lib/membrane/bin/callback_context/tick.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/bin/callback_context/tick.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/core/element/callback_context.ex" -> "lib/membrane/core/callback_context.ex" [label="(compile)"]
+  "lib/membrane/bin/callback_context/tick.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/bin/callback_context/tick.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/callback_context/tick.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/bin/callback_context/tick.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/core/child.ex"
+  "lib/membrane/core/child.ex" -> "lib/membrane/core/bin/state.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/core/bin/linking_buffer.ex" [label="(compile)"]
+  "lib/membrane/core/bin/linking_buffer.ex" -> "lib/membrane/core/bin/state.ex"
+  "lib/membrane/core/bin/linking_buffer.ex" -> "lib/membrane/core/child/pad_model.ex"
+  "lib/membrane/core/child/pad_model.ex" -> "lib/membrane/buffer/metric.ex"
+  "lib/membrane/core/child/pad_model.ex" -> "lib/membrane/core/child.ex"
+  "lib/membrane/core/child/pad_model.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/child/pad_model.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/core/bin/linking_buffer.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/bin/linking_buffer.ex" -> "lib/membrane/pad.ex" [label="(compile)"]
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/core/child/pad_model.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/parent/children_model.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/parent/children_model.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/core/parent/children_model.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent.ex" -> "lib/membrane/core/bin/state.ex"
+  "lib/membrane/core/parent.ex" -> "lib/membrane/core/pipeline/state.ex"
+  "lib/membrane/core/pipeline/state.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/pipeline/state.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/pipeline/state.ex" -> "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/pipeline/state.ex" -> "lib/membrane/core/playback.ex" [label="(compile)"]
+  "lib/membrane/core/playback.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/pipeline/state.ex" -> "lib/membrane/core/timer.ex"
+  "lib/membrane/core/timer.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/timer.ex" -> "lib/membrane/core/message.ex" [label="(compile)"]
+  "lib/membrane/core/timer.ex" -> "lib/membrane/time.ex"
+  "lib/membrane/core/pipeline/state.ex" -> "lib/membrane/pipeline.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/callback_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/callback_handler.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/pipeline.ex" -> "lib/membrane/core/pipeline.ex"
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/component_path.ex"
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/core/parent/message_dispatcher.ex"
+  "lib/membrane/core/parent/message_dispatcher.ex" -> "lib/membrane/core/message.ex" [label="(compile)"]
+  "lib/membrane/core/parent/message_dispatcher.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/message_dispatcher.ex" -> "lib/membrane/core/parent/lifecycle_controller.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/bin/callback_context/notification.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/bin/callback_context/other.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/bin/callback_context/playback_change.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/bin/callback_context/stream_mamanement.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/bin/action_handler.ex"
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/core/callback_handler.ex" [label="(compile)"]
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/core/parent/child_life_controller.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/bin.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent/child_entry_parser.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/child_entry.ex" [label="(compile)"]
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/parent_spec.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent/child_life_controller/link_handler.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/component_path.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/bin/linking_buffer.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/child/pad_controller.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/bin/callback_context/pad_added.ex" [label="(compile)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/bin/callback_context/pad_removed.ex" [label="(compile)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/bin/action_handler.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/bin/linking_buffer.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/child/pad_spec_handler.ex"
+  "lib/membrane/core/child/pad_spec_handler.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_spec_handler.ex" -> "lib/membrane/core/child.ex"
+  "lib/membrane/core/child/pad_spec_handler.ex" -> "lib/membrane/core/child/pad_model.ex"
+  "lib/membrane/core/child/pad_spec_handler.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/core/child/pad_model.ex"
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/core/child/pad_spec_handler.ex"
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/core/element/playback_buffer.ex"
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(compile)"]
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/element/buffer_controller.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/buffer.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(compile)"]
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/buffer.ex" [label="(export)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/buffer/metric.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/caps.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/caps/matcher.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/callback_handler.ex" [label="(compile)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(export)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/element/demand_handler.ex"
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(export)"]
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/element/buffer_controller.ex"
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/element/caps_controller.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/caps.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/caps/matcher.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(compile)"]
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/core/element/state.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/element/callback_context/caps.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/caps.ex"
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/caps.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/caps_controller.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/element/demand_controller.ex"
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(compile)"]
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/core/element/state.ex"
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/element/callback_context/demand.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/demand.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/demand.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/demand.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/demand.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/demand.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/demand.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/demand_controller.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/element/event_controller.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(export)"]
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/element/state.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/events/end_of_stream.ex" [label="(export)"]
+  "lib/membrane/core/events/end_of_stream.ex" -> "lib/membrane/event_protocol.ex" [label="(compile)"]
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/events/start_of_stream.ex" [label="(export)"]
+  "lib/membrane/core/events/start_of_stream.ex" -> "lib/membrane/event_protocol.ex" [label="(compile)"]
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/element/callback_context/event.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/event.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/event.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/event.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/event.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/event.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/event.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/element/callback_context/stream_management.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/stream_management.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/stream_management.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/stream_management.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/stream_management.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/stream_management.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/stream_management.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/event.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/event_controller.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/demand_handler.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/element/lifecycle_controller.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/child/pad_controller.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(export)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/element/playback_buffer.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/playback.ex" [label="(export)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/core/playback_handler.ex" [label="(compile)"]
+  "lib/membrane/core/playback_handler.ex" -> "lib/membrane/core/component.ex"
+  "lib/membrane/core/component.ex" -> "lib/membrane.ex"
+  "lib/membrane/core/component.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/component.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/component.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/playback_handler.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/playback_handler.ex" -> "lib/membrane/playback_state.ex" [label="(compile)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/element/callback_context/other.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/other.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/other.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/other.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/other.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/other.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/other.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/element/callback_context/playback_change.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/playback_change.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/playback_change.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/playback_change.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/playback_change.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/playback_change.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/playback_change.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/lifecycle_controller.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/events/end_of_stream.ex" [label="(export)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/playback_handler.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/core/timer_controller.ex"
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/bin/callback_context/tick.ex" [label="(compile)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/component.ex" [label="(compile)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/pipeline/callback_context.ex" -> "lib/membrane/core/callback_context.ex" [label="(compile)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/core/timer.ex" [label="(export)"]
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/element/callback_context/tick.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/tick.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/tick.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/tick.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/tick.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/tick.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/tick.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/timer_controller.ex" -> "lib/membrane/pipeline/callback_context/tick.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/tick.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/callback_context/tick.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/pipeline/callback_context/tick.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/callback_context/tick.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/tick.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/element/action.ex"
+  "lib/membrane/element/action.ex" -> "lib/membrane/buffer.ex"
+  "lib/membrane/element/action.ex" -> "lib/membrane/caps.ex"
+  "lib/membrane/element/action.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/action.ex" -> "lib/membrane/event.ex"
+  "lib/membrane/element/action.ex" -> "lib/membrane/notification.ex"
+  "lib/membrane/element/action.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/event.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/notification.ex"
+  "lib/membrane/core/element/action_handler.ex" -> "lib/membrane/pad.ex" [label="(compile)"]
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/element/demand_handler.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/element/callback_context/process.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/process.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/process.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/process.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/process.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/process.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/process.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/element/callback_context/write.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/write.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/write.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/write.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/write.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/write.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/write.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/element/buffer_controller.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/element/caps_controller.ex"
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/element/demand_controller.ex"
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/element/event_controller.ex"
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/message.ex" [label="(compile)"]
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/core/playback.ex" [label="(export)"]
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/event.ex"
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element/playback_buffer.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/core/playback.ex" [label="(export)"]
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/core/timer.ex"
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/pad.ex" [label="(export)"]
+  "lib/membrane/core/element/state.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/child/pad_spec_handler.ex" -> "lib/membrane/pad.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/component.ex" [label="(compile)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/element/event_controller.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/element/playback_buffer.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/element/state.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/events/end_of_stream.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/element/callback_context/pad_added.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/pad_added.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/pad_added.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/pad_added.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/pad_added.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/pad_added.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/pad_added.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/element/callback_context/pad_removed.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/pad_removed.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/element/callback_context/pad_removed.ex" -> "lib/membrane/core/element/callback_context.ex" [label="(compile)"]
+  "lib/membrane/element/callback_context/pad_removed.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/callback_context/pad_removed.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/callback_context/pad_removed.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/element/callback_context/pad_removed.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/pad.ex" [label="(compile)"]
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/pad_data.ex"
+  "lib/membrane/core/child/pad_controller.ex" -> "lib/membrane/parent_spec.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/child/pad_model.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/core/parent/link.ex" [label="(export)"]
+  "lib/membrane/core/parent/link.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/core/parent/link.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/core/parent/link.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/parent/link.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/parent/link.ex" -> "lib/membrane/parent_spec.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/pad.ex" [label="(compile)"]
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex" -> "lib/membrane/telemetry.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent/child_life_controller/startup_handler.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/bin/callback_context/spec_started.ex" [label="(compile)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/child_entry.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/component_path.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/bin.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/bin.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/component_path.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/bin/action_handler.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/bin/linking_buffer.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/child/lifecycle_controller.ex"
+  "lib/membrane/core/child/lifecycle_controller.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/child/lifecycle_controller.ex" -> "lib/membrane/core/child.ex"
+  "lib/membrane/core/child/lifecycle_controller.ex" -> "lib/membrane/core/child/pad_model.ex" [label="(compile)"]
+  "lib/membrane/core/child/lifecycle_controller.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/child/pad_controller.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/child/pad_spec_handler.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/message.ex" [label="(compile)"]
+  "lib/membrane/core/bin.ex" -> "lib/membrane/core/parent/message_dispatcher.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/helper/genserver.ex" [label="(export)"]
+  "lib/membrane/core/bin.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/bin.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/bin.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/bin/action_handler.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/component.ex" [label="(compile)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/element.ex"
+  "lib/membrane/core/element.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/element.ex" -> "lib/membrane/component_path.ex"
+  "lib/membrane/core/element.ex" -> "lib/membrane/core/element/message_dispatcher.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/child/lifecycle_controller.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/child/pad_controller.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/element/demand_handler.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/element/lifecycle_controller.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/element/playback_buffer.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/element/state.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/message.ex" [label="(compile)"]
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/playback_handler.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/core/timer_controller.ex"
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/helper/genserver.ex" [label="(export)"]
+  "lib/membrane/core/element/message_dispatcher.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element.ex" -> "lib/membrane/core/element/state.ex"
+  "lib/membrane/core/element.ex" -> "lib/membrane/core/message.ex" [label="(compile)"]
+  "lib/membrane/core/element.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/core/element.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/element.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/parent/child_entry_parser.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/pipeline/action_handler.ex"
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/core/callback_handler.ex" [label="(compile)"]
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/core/parent/child_life_controller.ex"
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/core/parent/lifecycle_controller.ex"
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/core/timer_controller.ex"
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/pipeline/action_handler.ex" -> "lib/membrane/parent_spec.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/pipeline/callback_context/spec_started.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/spec_started.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/callback_context/spec_started.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/pipeline/callback_context/spec_started.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/callback_context/spec_started.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/spec_started.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent/clock_handler.ex"
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/core/parent/child_entry_parser.ex"
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/clock_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/parent/link.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/core/playback_handler.ex"
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/element.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/parent_spec.ex" [label="(export)"]
+  "lib/membrane/core/parent/child_life_controller.ex" -> "lib/membrane/playback_state.ex" [label="(export)"]
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/core/parent/lifecycle_controller.ex"
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/core/timer_controller.ex"
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/exceptions.ex"
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/notification.ex"
+  "lib/membrane/core/bin/action_handler.ex" -> "lib/membrane/parent_spec.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/bin/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/bin/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/component.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/pipeline/action_handler.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/core/playback_handler.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/notification.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/pipeline/callback_context/notification.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/notification.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/callback_context/notification.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/pipeline/callback_context/notification.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/callback_context/notification.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/notification.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/pipeline/callback_context/other.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/other.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/callback_context/other.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/pipeline/callback_context/other.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/callback_context/other.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/other.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/pipeline/callback_context/playback_change.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/playback_change.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/callback_context/playback_change.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/pipeline/callback_context/playback_change.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/callback_context/playback_change.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/playback_change.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/pipeline/callback_context/stream_mamanement.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/stream_mamanement.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/callback_context/stream_mamanement.ex" -> "lib/membrane/child_entry.ex"
+  "lib/membrane/pipeline/callback_context/stream_mamanement.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/callback_context/stream_mamanement.ex" -> "lib/membrane/core/pipeline/callback_context.ex" [label="(compile)"]
+  "lib/membrane/pipeline/callback_context/stream_mamanement.ex" -> "lib/membrane/playback_state.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/playback_state.ex" [label="(export)"]
+  "lib/membrane/core/parent/lifecycle_controller.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/parent/message_dispatcher.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/parent/message_dispatcher.ex" -> "lib/membrane/core/timer_controller.ex"
+  "lib/membrane/core/parent/message_dispatcher.ex" -> "lib/membrane/helper/genserver.ex" [label="(export)"]
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/core/pipeline/action_handler.ex"
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/core/pipeline/state.ex" [label="(export)"]
+  "lib/membrane/core/pipeline.ex" -> "lib/membrane/logger.ex" [label="(export)"]
+  "lib/membrane/pipeline.ex" -> "lib/membrane/core/playback_handler.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/logger.ex" [label="(compile)"]
+  "lib/membrane/pipeline.ex" -> "lib/membrane/notification.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/action.ex"
+  "lib/membrane/pipeline/action.ex" -> "lib/membrane/child.ex"
+  "lib/membrane/pipeline/action.ex" -> "lib/membrane/clock.ex"
+  "lib/membrane/pipeline/action.ex" -> "lib/membrane/parent_spec.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/callback_context/notification.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/callback_context/other.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/callback_context/playback_change.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/callback_context/spec_started.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/callback_context/stream_mamanement.ex"
+  "lib/membrane/pipeline.ex" -> "lib/membrane/pipeline/callback_context/tick.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/core/playback.ex" [label="(compile)"]
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/core/timer.ex"
+  "lib/membrane/core/bin/state.ex" -> "lib/membrane/sync.ex"
+  "lib/membrane/core/child.ex" -> "lib/membrane/core/child/pads_specs.ex"
+  "lib/membrane/core/child/pads_specs.ex" -> "lib/membrane/caps/matcher.ex"
+  "lib/membrane/core/child/pads_specs.ex" -> "lib/membrane/core/options_specs.ex"
+  "lib/membrane/core/options_specs.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/core/options_specs.ex" -> "lib/membrane/time.ex" [label="(compile)"]
+  "lib/membrane/core/child/pads_specs.ex" -> "lib/membrane/pad.ex" [label="(compile)"]
+  "lib/membrane/core/child.ex" -> "lib/membrane/core/element/state.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/core/child/pads_specs.ex" [label="(compile)"]
+  "lib/membrane/bin.ex" -> "lib/membrane/core/message.ex" [label="(export)"]
+  "lib/membrane/bin.ex" -> "lib/membrane/core/options_specs.ex" [label="(compile)"]
+  "lib/membrane/bin.ex" -> "lib/membrane/logger.ex" [label="(export)"]
+  "lib/membrane/bin.ex" -> "lib/membrane/notification.ex"
+  "lib/membrane/bin.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/bin/action.ex"
+  "lib/membrane/bin/callback_context/notification.ex"
+  "lib/membrane/bin/callback_context/other.ex"
+  "lib/membrane/bin/callback_context/pad_added.ex"
+  "lib/membrane/bin/callback_context/pad_removed.ex"
+  "lib/membrane/bin/callback_context/playback_change.ex"
+  "lib/membrane/bin/callback_context/spec_started.ex"
+  "lib/membrane/bin/callback_context/stream_mamanement.ex"
+  "lib/membrane/bin/callback_context/tick.ex"
+  "lib/membrane/buffer.ex"
+  "lib/membrane/buffer/metric.ex"
+  "lib/membrane/buffer/metric/byte_size.ex"
+  "lib/membrane/buffer/metric/count.ex"
+  "lib/membrane/caps.ex"
+  "lib/membrane/caps/matcher.ex"
+  "lib/membrane/child.ex"
+  "lib/membrane/child_entry.ex"
+  "lib/membrane/clock.ex"
+  "lib/membrane/component_path.ex"
+  "lib/membrane/core/bin.ex"
+  "lib/membrane/core/bin/action_handler.ex"
+  "lib/membrane/core/bin/callback_context.ex"
+  "lib/membrane/core/bin/linking_buffer.ex"
+  "lib/membrane/core/bin/state.ex"
+  "lib/membrane/core/callback_context.ex"
+  "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/core/child.ex"
+  "lib/membrane/core/child/lifecycle_controller.ex"
+  "lib/membrane/core/child/pad_controller.ex"
+  "lib/membrane/core/child/pad_model.ex"
+  "lib/membrane/core/child/pad_spec_handler.ex"
+  "lib/membrane/core/child/pads_specs.ex"
+  "lib/membrane/core/component.ex"
+  "lib/membrane/core/element.ex"
+  "lib/membrane/core/element/action_handler.ex"
+  "lib/membrane/core/element/buffer_controller.ex"
+  "lib/membrane/core/element/callback_context.ex"
+  "lib/membrane/core/element/caps_controller.ex"
+  "lib/membrane/core/element/demand_controller.ex"
+  "lib/membrane/core/element/demand_handler.ex"
+  "lib/membrane/core/element/event_controller.ex"
+  "lib/membrane/core/element/lifecycle_controller.ex"
+  "lib/membrane/core/element/message_dispatcher.ex"
+  "lib/membrane/core/element/playback_buffer.ex"
+  "lib/membrane/core/element/state.ex"
+  "lib/membrane/core/events/end_of_stream.ex"
+  "lib/membrane/core/events/start_of_stream.ex"
+  "lib/membrane/core/input_buffer.ex"
+  "lib/membrane/core/message.ex"
+  "lib/membrane/core/options_specs.ex"
+  "lib/membrane/core/parent.ex"
+  "lib/membrane/core/parent/child_entry_parser.ex"
+  "lib/membrane/core/parent/child_life_controller.ex"
+  "lib/membrane/core/parent/child_life_controller/link_handler.ex"
+  "lib/membrane/core/parent/child_life_controller/startup_handler.ex"
+  "lib/membrane/core/parent/children_model.ex"
+  "lib/membrane/core/parent/clock_handler.ex"
+  "lib/membrane/core/parent/lifecycle_controller.ex"
+  "lib/membrane/core/parent/link.ex"
+  "lib/membrane/core/parent/message_dispatcher.ex"
+  "lib/membrane/core/pipeline.ex"
+  "lib/membrane/core/pipeline/action_handler.ex"
+  "lib/membrane/core/pipeline/callback_context.ex"
+  "lib/membrane/core/pipeline/state.ex"
+  "lib/membrane/core/playback.ex"
+  "lib/membrane/core/playback_handler.ex"
+  "lib/membrane/core/timer.ex"
+  "lib/membrane/core/timer_controller.ex"
+  "lib/membrane/element.ex"
+  "lib/membrane/element/action.ex"
+  "lib/membrane/element/base.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/core/child.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/core/options_specs.ex" [label="(compile)"]
+  "lib/membrane/element/base.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/action.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/callback_context/event.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/callback_context/other.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/callback_context/pad_added.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/callback_context/pad_removed.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/callback_context/playback_change.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/element/callback_context/tick.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/event.ex"
+  "lib/membrane/element/base.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/base/filter.ex"
+  "lib/membrane/element/base/sink.ex"
+  "lib/membrane/element/base/source.ex"
+  "lib/membrane/element/callback_context/caps.ex"
+  "lib/membrane/element/callback_context/demand.ex"
+  "lib/membrane/element/callback_context/event.ex"
+  "lib/membrane/element/callback_context/other.ex"
+  "lib/membrane/element/callback_context/pad_added.ex"
+  "lib/membrane/element/callback_context/pad_removed.ex"
+  "lib/membrane/element/callback_context/playback_change.ex"
+  "lib/membrane/element/callback_context/process.ex"
+  "lib/membrane/element/callback_context/stream_management.ex"
+  "lib/membrane/element/callback_context/tick.ex"
+  "lib/membrane/element/callback_context/write.ex"
+  "lib/membrane/element/with_input_pads.ex"
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/caps.ex"
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/core/child/pads_specs.ex" [label="(compile)"]
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/element/callback_context/caps.ex"
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/element/callback_context/stream_management.ex"
+  "lib/membrane/element/with_input_pads.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/element/with_output_pads.ex"
+  "lib/membrane/element/with_output_pads.ex" -> "lib/membrane/buffer/metric.ex"
+  "lib/membrane/element/with_output_pads.ex" -> "lib/membrane/core/callback_handler.ex"
+  "lib/membrane/element/with_output_pads.ex" -> "lib/membrane/core/child/pads_specs.ex" [label="(compile)"]
+  "lib/membrane/element/with_output_pads.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/element/with_output_pads.ex" -> "lib/membrane/element/callback_context/demand.ex"
+  "lib/membrane/element/with_output_pads.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/event.ex"
+  "lib/membrane/event/discontinuity.ex"
+  "lib/membrane/event/discontinuity.ex" -> "lib/membrane/event_protocol.ex" [label="(compile)"]
+  "lib/membrane/event/discontinuity.ex" -> "lib/membrane/time.ex"
+  "lib/membrane/event/underrun.ex"
+  "lib/membrane/event/underrun.ex" -> "lib/membrane/event_protocol.ex" [label="(compile)"]
+  "lib/membrane/event_protocol.ex"
+  "lib/membrane/exceptions.ex"
+  "lib/membrane/filter.ex"
+  "lib/membrane/filter.ex" -> "lib/membrane/buffer.ex"
+  "lib/membrane/filter.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/filter.ex" -> "lib/membrane/element/base.ex"
+  "lib/membrane/filter.ex" -> "lib/membrane/element/callback_context/process.ex"
+  "lib/membrane/filter.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/helper/genserver.ex"
+  "lib/membrane/log.ex"
+  "lib/membrane/log/logger.ex"
+  "lib/membrane/log/logger/base.ex"
+  "lib/membrane/log/logger/base.ex" -> "lib/membrane/log/logger.ex"
+  "lib/membrane/log/logger_state.ex"
+  "lib/membrane/log/router.ex"
+  "lib/membrane/log/supervisor.ex"
+  "lib/membrane/logger.ex"
+  "lib/membrane/notification.ex"
+  "lib/membrane/pad.ex"
+  "lib/membrane/pad_data.ex"
+  "lib/membrane/parent_spec.ex"
+  "lib/membrane/payload.ex"
+  "lib/membrane/pipeline.ex"
+  "lib/membrane/pipeline/action.ex"
+  "lib/membrane/pipeline/callback_context/notification.ex"
+  "lib/membrane/pipeline/callback_context/other.ex"
+  "lib/membrane/pipeline/callback_context/playback_change.ex"
+  "lib/membrane/pipeline/callback_context/spec_started.ex"
+  "lib/membrane/pipeline/callback_context/stream_mamanement.ex"
+  "lib/membrane/pipeline/callback_context/tick.ex"
+  "lib/membrane/playback_state.ex"
+  "lib/membrane/sink.ex"
+  "lib/membrane/sink.ex" -> "lib/membrane/buffer.ex"
+  "lib/membrane/sink.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/sink.ex" -> "lib/membrane/element/base.ex"
+  "lib/membrane/sink.ex" -> "lib/membrane/element/callback_context/write.ex"
+  "lib/membrane/sink.ex" -> "lib/membrane/pad.ex"
+  "lib/membrane/source.ex"
+  "lib/membrane/sync.ex"
+  "lib/membrane/telemetry.ex"
+  "lib/membrane/testing/assertions.ex"
+  "lib/membrane/testing/event.ex"
+  "lib/membrane/testing/event.ex" -> "lib/membrane/event_protocol.ex" [label="(compile)"]
+  "lib/membrane/testing/pipeline.ex"
+  "lib/membrane/testing/pipeline.ex" -> "lib/membrane/element.ex"
+  "lib/membrane/testing/pipeline.ex" -> "lib/membrane/pad.ex" [label="(export)"]
+  "lib/membrane/testing/pipeline.ex" -> "lib/membrane/parent_spec.ex" [label="(export)"]
+  "lib/membrane/testing/pipeline.ex" -> "lib/membrane/pipeline.ex" [label="(compile)"]
+  "lib/membrane/testing/sink.ex"
+  "lib/membrane/testing/sink.ex" -> "lib/membrane/core/child/pads_specs.ex" [label="(compile)"]
+  "lib/membrane/testing/sink.ex" -> "lib/membrane/element/base.ex" [label="(compile)"]
+  "lib/membrane/testing/sink.ex" -> "lib/membrane/element/with_input_pads.ex" [label="(compile)"]
+  "lib/membrane/testing/sink.ex" -> "lib/membrane/pad.ex" [label="(export)"]
+  "lib/membrane/testing/sink.ex" -> "lib/membrane/sink.ex" [label="(compile)"]
+  "lib/membrane/testing/source.ex"
+  "lib/membrane/testing/source.ex" -> "lib/membrane/buffer.ex" [label="(export)"]
+  "lib/membrane/testing/source.ex" -> "lib/membrane/core/child/pads_specs.ex" [label="(compile)"]
+  "lib/membrane/testing/source.ex" -> "lib/membrane/element/action.ex"
+  "lib/membrane/testing/source.ex" -> "lib/membrane/element/base.ex" [label="(compile)"]
+  "lib/membrane/testing/source.ex" -> "lib/membrane/element/with_output_pads.ex" [label="(compile)"]
+  "lib/membrane/testing/source.ex" -> "lib/membrane/pad.ex" [label="(export)"]
+  "lib/membrane/testing/source.ex" -> "lib/membrane/source.ex" [label="(compile)"]
+  "lib/membrane/time.ex"
+}

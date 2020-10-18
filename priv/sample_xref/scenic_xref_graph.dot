@@ -1,0 +1,369 @@
+digraph "xref graph" {
+  "lib/mix/tasks/hash.ex"
+  "lib/mix/tasks/hash.ex" -> "lib/scenic/cache/support/hash.ex" [label="(compile)"]
+  "lib/mix/tasks/run.ex"
+  "lib/scenic.ex"
+  "lib/scenic.ex" -> "lib/scenic/cache/support/supervisor.ex"
+  "lib/scenic/cache/support/supervisor.ex" -> "lib/scenic/cache/dynamic/texture.ex"
+  "lib/scenic/cache/dynamic/texture.ex" -> "lib/scenic/cache/base.ex" [label="(compile)"]
+  "lib/scenic/cache/base.ex" -> "lib/scenic.ex" [label="(compile)"]
+  "lib/scenic/cache/support/supervisor.ex" -> "lib/scenic/cache/static/font.ex"
+  "lib/scenic/cache/static/font.ex" -> "lib/scenic/cache/base.ex" [label="(compile)"]
+  "lib/scenic/cache/static/font.ex" -> "lib/scenic/cache/support/file.ex"
+  "lib/scenic/cache/support/file.ex" -> "lib/scenic.ex"
+  "lib/scenic/cache/support/file.ex" -> "lib/scenic/cache/support/hash.ex"
+  "lib/scenic/cache/support/supervisor.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/cache/static/font_metrics.ex" -> "lib/scenic/cache/base.ex" [label="(compile)"]
+  "lib/scenic/cache/static/font_metrics.ex" -> "lib/scenic/cache/support/file.ex"
+  "lib/scenic/cache/static/font_metrics.ex" -> "lib/scenic/cache/support/hash.ex" [label="(compile)"]
+  "lib/scenic/cache/support/supervisor.ex" -> "lib/scenic/cache/static/texture.ex"
+  "lib/scenic/cache/static/texture.ex" -> "lib/scenic/cache/base.ex" [label="(compile)"]
+  "lib/scenic/cache/static/texture.ex" -> "lib/scenic/cache/support/file.ex"
+  "lib/scenic.ex" -> "lib/scenic/view_port/supervisor_top.ex"
+  "lib/scenic/view_port/supervisor_top.ex" -> "lib/scenic/view_port/config.ex"
+  "lib/scenic/view_port/config.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/view_port/config.ex" -> "lib/scenic/view_port/driver/config.ex"
+  "lib/scenic/view_port/supervisor_top.ex" -> "lib/scenic/view_port/supervisor.ex"
+  "lib/scenic/view_port/supervisor.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/view_port.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/view_port.ex" -> "lib/scenic/primitive.ex" [label="(export)"]
+  "lib/scenic/primitive.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/primitive.ex" -> "lib/scenic/primitive/style/style.ex"
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/cap.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/cap.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/clear_color.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/clear_color.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/clear_color.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/fill.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/fill.ex" -> "lib/scenic/primitive/style/paint.ex"
+  "lib/scenic/primitive/style/paint.ex" -> "lib/scenic/primitive/style/paint/box_gradient.ex"
+  "lib/scenic/primitive/style/paint/box_gradient.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/paint.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/paint.ex" -> "lib/scenic/primitive/style/paint/dynamic.ex"
+  "lib/scenic/primitive/style/paint.ex" -> "lib/scenic/primitive/style/paint/image.ex"
+  "lib/scenic/primitive/style/paint.ex" -> "lib/scenic/primitive/style/paint/linear_gradient.ex"
+  "lib/scenic/primitive/style/paint/linear_gradient.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/paint.ex" -> "lib/scenic/primitive/style/paint/radial_gradient.ex"
+  "lib/scenic/primitive/style/paint/radial_gradient.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/fill.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/font.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/font.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/font_blur.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/font_blur.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/font_size.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/font_size.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/hidden.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/hidden.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/join.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/join.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/miter_limit.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/miter_limit.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/scissor.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/scissor.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/stroke.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/stroke.ex" -> "lib/scenic/primitive/style/paint.ex"
+  "lib/scenic/primitive/style/stroke.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/text_align.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/text_align.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/text_height.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/text_height.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/style.ex" -> "lib/scenic/primitive/style/theme.ex" [label="(compile)"]
+  "lib/scenic/primitive/style/theme.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/theme.ex" -> "lib/scenic/primitive/style/style.ex" [label="(compile)"]
+  "lib/scenic/primitive.ex" -> "lib/scenic/primitive/transform/transform.ex"
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/math/matrix.ex"
+  "lib/scenic/math/matrix.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/math/vector_2.ex"
+  "lib/scenic/math/vector_2.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/math/vector_2.ex" -> "lib/scenic/math/matrix.ex"
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/primitive/transform/matrix.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/matrix.ex" -> "lib/scenic/primitive/transform/transform.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/primitive/transform/pin.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/pin.ex" -> "lib/scenic/primitive/transform/transform.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/pin.ex" -> "lib/scenic/primitive/transform/translate.ex"
+  "lib/scenic/primitive/transform/translate.ex" -> "lib/scenic/primitive/transform/transform.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/primitive/transform/rotate.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/rotate.ex" -> "lib/scenic/primitive/transform/transform.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/primitive/transform/scale.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/scale.ex" -> "lib/scenic/primitive/transform/transform.ex" [label="(compile)"]
+  "lib/scenic/primitive/transform/transform.ex" -> "lib/scenic/primitive/transform/translate.ex" [label="(compile)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/primitive/group.ex"
+  "lib/scenic/primitive/group.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/graph.ex" -> "lib/scenic/primitive.ex" [label="(export)"]
+  "lib/scenic/graph.ex" -> "lib/scenic/primitive/group.ex"
+  "lib/scenic/graph.ex" -> "lib/scenic/scene.ex"
+  "lib/scenic/scene.ex" -> "lib/scenic.ex" [label="(compile)"]
+  "lib/scenic/scene.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/scene.ex" -> "lib/scenic/primitive.ex"
+  "lib/scenic/scene.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/primitive/scene_ref.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/scene_ref.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/scene.ex" -> "lib/scenic/scene_supervisor.ex"
+  "lib/scenic/scene_supervisor.ex" -> "lib/scenic/scene.ex"
+  "lib/scenic/scene.ex" -> "lib/scenic/scenes/error.ex"
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/components.ex" [label="(export)"]
+  "lib/scenic/components.ex" -> "lib/scenic/component/button.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component.ex" -> "lib/scenic/graph.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/button.ex" -> "lib/scenic/primitive.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive.ex" [label="(export)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/arc.ex"
+  "lib/scenic/primitive/arc.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/arc.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitive/arc.ex" -> "lib/scenic/primitive/sector.ex"
+  "lib/scenic/primitive/sector.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/sector.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitive/arc.ex" -> "lib/scenic/primitive/triangle.ex"
+  "lib/scenic/primitive/triangle.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/triangle.ex" -> "lib/scenic/math/vector_2.ex"
+  "lib/scenic/primitive/triangle.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/circle.ex"
+  "lib/scenic/primitive/circle.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/circle.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/ellipse.ex"
+  "lib/scenic/primitive/ellipse.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/ellipse.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/group.ex"
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/line.ex"
+  "lib/scenic/primitive/line.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/line.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/path.ex"
+  "lib/scenic/primitive/path.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/path.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/quad.ex"
+  "lib/scenic/primitive/quad.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/quad.ex" -> "lib/scenic/math/line.ex"
+  "lib/scenic/math/line.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/math/line.ex" -> "lib/scenic/math/vector_2.ex"
+  "lib/scenic/primitive/quad.ex" -> "lib/scenic/math/vector_2.ex"
+  "lib/scenic/primitive/quad.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitive/quad.ex" -> "lib/scenic/primitive/triangle.ex"
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/rectangle.ex"
+  "lib/scenic/primitive/rectangle.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/rectangle.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/rounded_rectangle.ex"
+  "lib/scenic/primitive/rounded_rectangle.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/rounded_rectangle.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/sector.ex"
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/text.ex"
+  "lib/scenic/primitive/text.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/primitive/text.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/primitives.ex" -> "lib/scenic/primitive/triangle.ex"
+  "lib/scenic/component/button.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/button.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/components.ex" -> "lib/scenic/component/input/checkbox.ex"
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/primitive.ex"
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/checkbox.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/components.ex" -> "lib/scenic/component/input/dropdown.ex"
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/dropdown.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/components.ex" -> "lib/scenic/component/input/radio_group.ex"
+  "lib/scenic/component/input/radio_group.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/radio_group.ex" -> "lib/scenic/component/input/radio_button.ex"
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/primitive.ex"
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/primitive/group.ex"
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/radio_button.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/component/input/radio_group.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/radio_group.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/radio_group.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/radio_group.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/components.ex" -> "lib/scenic/component/input/slider.ex"
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/slider.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/components.ex" -> "lib/scenic/component/input/text_field.ex"
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/component/input/caret.ex"
+  "lib/scenic/component/input/caret.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/caret.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/caret.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/caret.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/component/input/caret.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/caret.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/component/input/text_field.ex" -> "lib/scenic/view_port/context.ex" [label="(export)"]
+  "lib/scenic/view_port/context.ex" -> "lib/scenic/graph.ex"
+  "lib/scenic/view_port/context.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/view_port/context.ex" -> "lib/scenic/math/matrix.ex"
+  "lib/scenic/view_port/context.ex" -> "lib/scenic/view_port/input.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/math/matrix.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/primitive/group.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/primitive/transform/transform.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/scene.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/view_port/context.ex"
+  "lib/scenic/view_port/input.ex" -> "lib/scenic/view_port/tables.ex"
+  "lib/scenic/view_port/tables.ex" -> "lib/utilities/map.ex"
+  "lib/scenic/components.ex" -> "lib/scenic/component/input/toggle.ex"
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/component.ex" [label="(compile)"]
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/primitive.ex"
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/primitive/group.ex"
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/component/input/toggle.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/components.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/components.ex" -> "lib/scenic/primitive.ex" [label="(export)"]
+  "lib/scenic/components.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/graph.ex" [label="(export)"]
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/primitives.ex" [label="(export)"]
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/scene.ex" [label="(compile)"]
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/scenes/error.ex" -> "lib/scenic/view_port/status.ex" [label="(export)"]
+  "lib/scenic/view_port/status.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/scene.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/scene.ex" -> "lib/scenic/view_port/context.ex" [label="(export)"]
+  "lib/scenic/scene.ex" -> "lib/scenic/view_port/tables.ex"
+  "lib/scenic/scene.ex" -> "lib/utilities/map.ex"
+  "lib/scenic/primitive/group.ex" -> "lib/scenic/primitive.ex" [label="(compile)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/config.ex" [label="(export)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/context.ex" [label="(export)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/driver.ex"
+  "lib/scenic/view_port/driver.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/view_port/driver.ex" -> "lib/scenic/view_port.ex"
+  "lib/scenic/view_port/driver.ex" -> "lib/scenic/view_port/driver/config.ex" [label="(export)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/driver/info.ex" [label="(export)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/input.ex"
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/status.ex" [label="(export)"]
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/supervisor.ex"
+  "lib/scenic/view_port.ex" -> "lib/scenic/view_port/tables.ex"
+  "lib/scenic/view_port/supervisor.ex" -> "lib/scenic/view_port/config.ex" [label="(export)"]
+  "lib/scenic/view_port/supervisor.ex" -> "lib/scenic/view_port/driver/supervisor.ex"
+  "lib/scenic.ex" -> "lib/scenic/view_port/tables.ex"
+  "lib/scenic/cache/base.ex"
+  "lib/scenic/cache/dynamic/texture.ex"
+  "lib/scenic/cache/hash.ex"
+  "lib/scenic/cache/hash.ex" -> "lib/scenic/cache/support/hash.ex"
+  "lib/scenic/cache/static/font.ex"
+  "lib/scenic/cache/static/font_metrics.ex"
+  "lib/scenic/cache/static/texture.ex"
+  "lib/scenic/cache/support/file.ex"
+  "lib/scenic/cache/support/hash.ex"
+  "lib/scenic/cache/support/supervisor.ex"
+  "lib/scenic/component.ex"
+  "lib/scenic/component/button.ex"
+  "lib/scenic/component/input/caret.ex"
+  "lib/scenic/component/input/checkbox.ex"
+  "lib/scenic/component/input/dropdown.ex"
+  "lib/scenic/component/input/radio_button.ex"
+  "lib/scenic/component/input/radio_group.ex"
+  "lib/scenic/component/input/slider.ex"
+  "lib/scenic/component/input/text_field.ex"
+  "lib/scenic/component/input/toggle.ex"
+  "lib/scenic/components.ex"
+  "lib/scenic/graph.ex"
+  "lib/scenic/math.ex"
+  "lib/scenic/math/line.ex"
+  "lib/scenic/math/matrix.ex"
+  "lib/scenic/math/matrix_utils.ex"
+  "lib/scenic/math/matrix_utils.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/math/quad.ex"
+  "lib/scenic/math/quad.ex" -> "lib/scenic/math.ex"
+  "lib/scenic/math/quad.ex" -> "lib/scenic/math/vector_2.ex"
+  "lib/scenic/math/vector_2.ex"
+  "lib/scenic/primitive.ex"
+  "lib/scenic/primitive/arc.ex"
+  "lib/scenic/primitive/circle.ex"
+  "lib/scenic/primitive/ellipse.ex"
+  "lib/scenic/primitive/group.ex"
+  "lib/scenic/primitive/line.ex"
+  "lib/scenic/primitive/path.ex"
+  "lib/scenic/primitive/quad.ex"
+  "lib/scenic/primitive/rectangle.ex"
+  "lib/scenic/primitive/rounded_rectangle.ex"
+  "lib/scenic/primitive/scene_ref.ex"
+  "lib/scenic/primitive/sector.ex"
+  "lib/scenic/primitive/style/cap.ex"
+  "lib/scenic/primitive/style/clear_color.ex"
+  "lib/scenic/primitive/style/fill.ex"
+  "lib/scenic/primitive/style/font.ex"
+  "lib/scenic/primitive/style/font_blur.ex"
+  "lib/scenic/primitive/style/font_size.ex"
+  "lib/scenic/primitive/style/hidden.ex"
+  "lib/scenic/primitive/style/join.ex"
+  "lib/scenic/primitive/style/miter_limit.ex"
+  "lib/scenic/primitive/style/paint.ex"
+  "lib/scenic/primitive/style/paint/box_gradient.ex"
+  "lib/scenic/primitive/style/paint/color.ex"
+  "lib/scenic/primitive/style/paint/dynamic.ex"
+  "lib/scenic/primitive/style/paint/image.ex"
+  "lib/scenic/primitive/style/paint/linear_gradient.ex"
+  "lib/scenic/primitive/style/paint/radial_gradient.ex"
+  "lib/scenic/primitive/style/scissor.ex"
+  "lib/scenic/primitive/style/stroke.ex"
+  "lib/scenic/primitive/style/style.ex"
+  "lib/scenic/primitive/style/text_align.ex"
+  "lib/scenic/primitive/style/text_height.ex"
+  "lib/scenic/primitive/style/theme.ex"
+  "lib/scenic/primitive/text.ex"
+  "lib/scenic/primitive/transform/matrix.ex"
+  "lib/scenic/primitive/transform/pin.ex"
+  "lib/scenic/primitive/transform/rotate.ex"
+  "lib/scenic/primitive/transform/scale.ex"
+  "lib/scenic/primitive/transform/transform.ex"
+  "lib/scenic/primitive/transform/translate.ex"
+  "lib/scenic/primitive/triangle.ex"
+  "lib/scenic/primitives.ex"
+  "lib/scenic/scene.ex"
+  "lib/scenic/scene_supervisor.ex"
+  "lib/scenic/scenes/error.ex"
+  "lib/scenic/view_port.ex"
+  "lib/scenic/view_port/config.ex"
+  "lib/scenic/view_port/context.ex"
+  "lib/scenic/view_port/driver.ex"
+  "lib/scenic/view_port/driver/config.ex"
+  "lib/scenic/view_port/driver/info.ex"
+  "lib/scenic/view_port/driver/supervisor.ex"
+  "lib/scenic/view_port/input.ex"
+  "lib/scenic/view_port/status.ex"
+  "lib/scenic/view_port/supervisor.ex"
+  "lib/scenic/view_port/supervisor_top.ex"
+  "lib/scenic/view_port/tables.ex"
+  "lib/utilities/enum.ex"
+  "lib/utilities/map.ex"
+  "lib/utilities/texture.ex"
+  "lib/utilities/texture.ex" -> "lib/scenic/primitive/style/paint/color.ex"
+}

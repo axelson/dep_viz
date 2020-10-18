@@ -1,0 +1,376 @@
+digraph "xref graph" {
+  "lib/mix/tasks/check_overuse.ex"
+  "lib/mix/tasks/check_overuse.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible/auth/user.ex" -> "lib/plausible/auth/password.ex"
+  "lib/plausible/auth/user.ex" -> "lib/plausible/billing/subscription.ex"
+  "lib/plausible/billing/subscription.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible/auth/user.ex" -> "lib/plausible/site/google_auth.ex"
+  "lib/plausible/site/google_auth.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible/site/google_auth.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible/site/schema.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible/site/schema.ex" -> "lib/plausible/site/custom_domain.ex"
+  "lib/plausible/site/custom_domain.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible/site/schema.ex" -> "lib/plausible/site/google_auth.ex"
+  "lib/plausible/site/schema.ex" -> "lib/plausible/site/membership.ex"
+  "lib/plausible/site/membership.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible/site/membership.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible/site/schema.ex" -> "lib/plausible/site/monthly_report.ex"
+  "lib/plausible/site/monthly_report.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible/site/schema.ex" -> "lib/plausible/site/weekly_report.ex"
+  "lib/plausible/site/weekly_report.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible/auth/user.ex" -> "lib/plausible/site/membership.ex"
+  "lib/mix/tasks/check_overuse.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/billing/paddle_api.ex"
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/billing/subscription.ex" [label="(export)"]
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/mailer.ex"
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/clickhouse_repo.ex" [label="(compile)"]
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/goal/schema.ex"
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/session/clickhouse_schema.ex"
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/stats/countries.ex"
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/stats/query.ex" [label="(export)"]
+  "lib/plausible/stats/clickhouse.ex" -> "lib/plausible/twitter/tweet.ex"
+  "lib/plausible/billing/billing.ex" -> "lib/plausible/stats/query.ex"
+  "lib/plausible/billing/billing.ex" -> "lib/plausible_web/email.ex"
+  "lib/plausible_web/email.ex" -> "lib/plausible_web/views/email_view.ex" [label="(compile)"]
+  "lib/plausible_web/views/email_view.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible_web/views/email_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/email_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/endpoint.ex" -> "lib/plausible_web/router.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/api/external_controller.ex"
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible/event/clickhouse_schema.ex" [label="(export)"]
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible/event/write_buffer.ex"
+  "lib/plausible/event/write_buffer.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible/event/write_buffer.ex" -> "lib/plausible/event/clickhouse_schema.ex"
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible/repo.ex"
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible/session/salts.ex"
+  "lib/plausible/session/salts.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible/session/store.ex"
+  "lib/plausible/session/store.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible/session/store.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible/session/store.ex" -> "lib/plausible/session/clickhouse_schema.ex" [label="(export)"]
+  "lib/plausible/session/store.ex" -> "lib/plausible/session/write_buffer.ex"
+  "lib/plausible/session/write_buffer.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible/session/write_buffer.ex" -> "lib/plausible/session/clickhouse_schema.ex"
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/helpers.ex" -> "lib/plausible_web/views/error_view.ex"
+  "lib/plausible_web/views/error_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/error_view.ex" -> "lib/plausible_web/router.ex"
+  "lib/plausible_web/views/error_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/views/error_view.ex" -> "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/views/layout_view.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible_web/views/layout_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/layout_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/views/layout_view.ex" -> "lib/plausible_web/router.ex"
+  "lib/plausible_web/views/layout_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/api/external_controller.ex" -> "lib/plausible_web/remote_ip.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/api/internal_controller.ex"
+  "lib/plausible_web/controllers/api/internal_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/internal_controller.ex" -> "lib/plausible/site/schema.ex" [label="(export)"]
+  "lib/plausible_web/controllers/api/internal_controller.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/plausible_web/controllers/api/internal_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/internal_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/api/paddle_controller.ex"
+  "lib/plausible_web/controllers/api/paddle_controller.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible_web/controllers/api/paddle_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/paddle_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/paddle_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/api/stats_controller.ex"
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible/google/api.ex"
+  "lib/plausible/google/api.ex" -> "lib/plausible/repo.ex"
+  "lib/plausible/google/api.ex" -> "lib/plausible/site/google_auth.ex"
+  "lib/plausible/google/api.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible/sites.ex"
+  "lib/plausible/sites.ex" -> "lib/plausible/goal/schema.ex"
+  "lib/plausible/sites.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible/sites.ex" -> "lib/plausible/site/custom_domain.ex" [label="(export)"]
+  "lib/plausible/sites.ex" -> "lib/plausible/site/membership.ex"
+  "lib/plausible/sites.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible/stats/query.ex" [label="(export)"]
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/api/stats_controller.ex" -> "lib/plausible_web/plugs/authorize_stats_plug.ex"
+  "lib/plausible_web/plugs/authorize_stats_plug.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/plugs/authorize_stats_plug.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible_web/plugs/authorize_stats_plug.ex" -> "lib/plausible/sites.ex"
+  "lib/plausible_web/plugs/authorize_stats_plug.ex" -> "lib/plausible_web/controllers/helpers.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/auth_controller.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/auth/auth.ex"
+  "lib/plausible/auth/auth.ex" -> "lib/plausible/auth/user.ex" [label="(export)"]
+  "lib/plausible/auth/auth.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible/auth/auth.ex" -> "lib/plausible/site/membership.ex"
+  "lib/plausible/auth/auth.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible/auth/auth.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/auth/password.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/auth/token.ex"
+  "lib/plausible/auth/token.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/auth/user.ex" [label="(export)"]
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/google/api.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/mailer.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/site/google_auth.ex" [label="(export)"]
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/captcha.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/email.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/plugs/require_account.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/plugs/require_logged_out.ex"
+  "lib/plausible_web/controllers/auth_controller.ex" -> "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/billing_controller.ex"
+  "lib/plausible_web/controllers/billing_controller.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible_web/controllers/billing_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/billing_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/billing_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/billing_controller.ex" -> "lib/plausible_web/plugs/require_account.ex"
+  "lib/plausible_web/controllers/billing_controller.ex" -> "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/page_controller.ex"
+  "lib/plausible_web/controllers/page_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/page_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/page_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/page_controller.ex" -> "lib/plausible_web/plugs/auto_auth_plug.ex"
+  "lib/plausible_web/plugs/auto_auth_plug.ex" -> "lib/plausible_web/controllers/auth_controller.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/site_controller.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/goal/schema.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/goals.ex"
+  "lib/plausible/goals.ex" -> "lib/plausible/goal/schema.ex" [label="(export)"]
+  "lib/plausible/goals.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/google/api.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/custom_domain.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/google_auth.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/membership.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/monthly_report.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/schema.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/shared_link.ex" [label="(export)"]
+  "lib/plausible/site/shared_link.ex" -> "lib/plausible/auth/password.ex"
+  "lib/plausible/site/shared_link.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/site/weekly_report.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/sites.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible/slack.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible_web/plugs/require_account.ex"
+  "lib/plausible_web/controllers/site_controller.ex" -> "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/stats_controller.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible/auth/password.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible/site/shared_link.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible/sites.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible/stats/query.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible_web/plugs/authorize_stats_plug.ex"
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible_web/plugs/upgrade_billing_plug.ex"
+  "lib/plausible_web/plugs/upgrade_billing_plug.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible_web/plugs/upgrade_billing_plug.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/stats_controller.ex" -> "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/tracker_controller.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/tracker_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/tracker_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/tracker_controller.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/controllers/unsubscribe_controller.ex"
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible/site/monthly_report.ex"
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible/site/schema.ex"
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible/site/weekly_report.ex"
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible_web/controllers/helpers.ex" [label="(export)"]
+  "lib/plausible_web/controllers/unsubscribe_controller.ex" -> "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/plugs/auth_plug.ex"
+  "lib/plausible_web/plugs/auth_plug.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible_web/plugs/auth_plug.ex" -> "lib/plausible/billing/subscription.ex"
+  "lib/plausible_web/plugs/auth_plug.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/plugs/firewall.ex"
+  "lib/plausible_web/plugs/firewall.ex" -> "lib/plausible_web/remote_ip.ex"
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/plugs/last_seen_plug.ex"
+  "lib/plausible_web/plugs/last_seen_plug.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible_web/plugs/last_seen_plug.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web/router.ex" -> "lib/plausible_web/plugs/session_timeout_plug.ex"
+  "lib/plausible_web/views/email_view.ex" -> "lib/plausible_web/views/auth_view.ex"
+  "lib/plausible_web/views/auth_view.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/plausible_web/views/auth_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/auth_view.ex" -> "lib/plausible_web/captcha.ex"
+  "lib/plausible_web/views/auth_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/views/auth_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/views/email_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/views/email_view.ex" -> "lib/plausible_web/views/stats_view.ex"
+  "lib/plausible_web/views/stats_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/stats_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/views/stats_view.ex" -> "lib/plausible_web/router.ex"
+  "lib/plausible_web/views/stats_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/mix/tasks/check_overuse.ex" -> "lib/plausible/billing/plans.ex"
+  "lib/mix/tasks/check_overuse.ex" -> "lib/plausible/billing/subscription.ex"
+  "lib/mix/tasks/check_overuse.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/mix/tasks/clean_clickhouse.ex"
+  "lib/mix/tasks/clean_clickhouse.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/mix/tasks/create_free_subscription.ex"
+  "lib/mix/tasks/create_free_subscription.ex" -> "lib/plausible/auth/user.ex"
+  "lib/mix/tasks/create_free_subscription.ex" -> "lib/plausible/billing/subscription.ex"
+  "lib/mix/tasks/create_free_subscription.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible.ex"
+  "lib/plausible/application.ex"
+  "lib/plausible/application.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible/application.ex" -> "lib/plausible/event/write_buffer.ex"
+  "lib/plausible/application.ex" -> "lib/plausible/repo.ex"
+  "lib/plausible/application.ex" -> "lib/plausible/session/salts.ex"
+  "lib/plausible/application.ex" -> "lib/plausible/session/store.ex"
+  "lib/plausible/application.ex" -> "lib/plausible/session/write_buffer.ex"
+  "lib/plausible/application.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible/auth/auth.ex"
+  "lib/plausible/auth/password.ex"
+  "lib/plausible/auth/token.ex"
+  "lib/plausible/auth/user.ex"
+  "lib/plausible/billing/billing.ex"
+  "lib/plausible/billing/paddle_api.ex"
+  "lib/plausible/billing/plans.ex"
+  "lib/plausible/billing/subscription.ex"
+  "lib/plausible/clickhouse_repo.ex"
+  "lib/plausible/event/clickhouse_schema.ex"
+  "lib/plausible/event/write_buffer.ex"
+  "lib/plausible/goal/schema.ex"
+  "lib/plausible/goals.ex"
+  "lib/plausible/google/api.ex"
+  "lib/plausible/mailer.ex"
+  "lib/plausible/repo.ex"
+  "lib/plausible/session/clickhouse_schema.ex"
+  "lib/plausible/session/salts.ex"
+  "lib/plausible/session/store.ex"
+  "lib/plausible/session/write_buffer.ex"
+  "lib/plausible/site/custom_domain.ex"
+  "lib/plausible/site/google_auth.ex"
+  "lib/plausible/site/membership.ex"
+  "lib/plausible/site/monthly_report.ex"
+  "lib/plausible/site/schema.ex"
+  "lib/plausible/site/shared_link.ex"
+  "lib/plausible/site/weekly_report.ex"
+  "lib/plausible/sites.ex"
+  "lib/plausible/slack.ex"
+  "lib/plausible/stats/clickhouse.ex"
+  "lib/plausible/stats/countries.ex"
+  "lib/plausible/stats/query.ex"
+  "lib/plausible/timezones.ex"
+  "lib/plausible/twitter/api.ex"
+  "lib/plausible/twitter/tweet.ex"
+  "lib/plausible_release.ex"
+  "lib/plausible_release.ex" -> "lib/plausible/auth/auth.ex"
+  "lib/plausible_release.ex" -> "lib/plausible/auth/user.ex"
+  "lib/plausible_release.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/plausible_web.ex"
+  "lib/plausible_web/captcha.ex"
+  "lib/plausible_web/controllers/api/external_controller.ex"
+  "lib/plausible_web/controllers/api/internal_controller.ex"
+  "lib/plausible_web/controllers/api/paddle_controller.ex"
+  "lib/plausible_web/controllers/api/stats_controller.ex"
+  "lib/plausible_web/controllers/auth_controller.ex"
+  "lib/plausible_web/controllers/billing_controller.ex"
+  "lib/plausible_web/controllers/helpers.ex"
+  "lib/plausible_web/controllers/page_controller.ex"
+  "lib/plausible_web/controllers/site_controller.ex"
+  "lib/plausible_web/controllers/stats_controller.ex"
+  "lib/plausible_web/controllers/tracker_controller.ex"
+  "lib/plausible_web/controllers/unsubscribe_controller.ex"
+  "lib/plausible_web/email.ex"
+  "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/plugs/auth_plug.ex"
+  "lib/plausible_web/plugs/authorize_stats_plug.ex"
+  "lib/plausible_web/plugs/auto_auth_plug.ex"
+  "lib/plausible_web/plugs/firewall.ex"
+  "lib/plausible_web/plugs/last_seen_plug.ex"
+  "lib/plausible_web/plugs/require_account.ex"
+  "lib/plausible_web/plugs/require_logged_out.ex"
+  "lib/plausible_web/plugs/session_timeout_plug.ex"
+  "lib/plausible_web/plugs/upgrade_billing_plug.ex"
+  "lib/plausible_web/remote_ip.ex"
+  "lib/plausible_web/router.ex"
+  "lib/plausible_web/views/auth_view.ex"
+  "lib/plausible_web/views/billing_view.ex"
+  "lib/plausible_web/views/billing_view.ex" -> "lib/plausible/billing/plans.ex"
+  "lib/plausible_web/views/billing_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/billing_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/views/billing_view.ex" -> "lib/plausible_web/views/auth_view.ex"
+  "lib/plausible_web/views/billing_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/views/email_view.ex"
+  "lib/plausible_web/views/error_helpers.ex"
+  "lib/plausible_web/views/error_view.ex"
+  "lib/plausible_web/views/layout_view.ex"
+  "lib/plausible_web/views/page_view.ex"
+  "lib/plausible_web/views/page_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/page_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/views/page_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/views/site_view.ex"
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible/goal/schema.ex" [label="(export)"]
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible/google/api.ex"
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible/site/google_auth.ex"
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible/timezones.ex"
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible_web/router.ex"
+  "lib/plausible_web/views/site_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/plausible_web/views/stats_view.ex"
+  "lib/plausible_web/views/unsubscribe_view.ex"
+  "lib/plausible_web/views/unsubscribe_view.ex" -> "lib/plausible_web.ex" [label="(compile)"]
+  "lib/plausible_web/views/unsubscribe_view.ex" -> "lib/plausible_web/views/error_helpers.ex" [label="(export)"]
+  "lib/workers/fetch_tweets.ex"
+  "lib/workers/fetch_tweets.ex" -> "lib/plausible/clickhouse_repo.ex"
+  "lib/workers/fetch_tweets.ex" -> "lib/plausible/event/clickhouse_schema.ex"
+  "lib/workers/fetch_tweets.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/fetch_tweets.ex" -> "lib/plausible/twitter/api.ex"
+  "lib/workers/fetch_tweets.ex" -> "lib/plausible/twitter/tweet.ex" [label="(export)"]
+  "lib/workers/provision_ssl_certificates.ex"
+  "lib/workers/provision_ssl_certificates.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/provision_ssl_certificates.ex" -> "lib/plausible/site/custom_domain.ex"
+  "lib/workers/provision_ssl_certificates.ex" -> "lib/plausible/slack.ex"
+  "lib/workers/rotate_salts.ex"
+  "lib/workers/rotate_salts.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/rotate_salts.ex" -> "lib/plausible/session/salts.ex"
+  "lib/workers/schedule_email_reports.ex"
+  "lib/workers/schedule_email_reports.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/schedule_email_reports.ex" -> "lib/plausible/site/monthly_report.ex"
+  "lib/workers/schedule_email_reports.ex" -> "lib/plausible/site/schema.ex"
+  "lib/workers/schedule_email_reports.ex" -> "lib/plausible/site/weekly_report.ex"
+  "lib/workers/schedule_email_reports.ex" -> "lib/workers/send_email_report.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible/auth/auth.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible/mailer.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/send_email_report.ex" -> "lib/plausible/site/schema.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible/sites.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible/stats/query.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible_web/email.ex"
+  "lib/workers/send_email_report.ex" -> "lib/plausible_web/endpoint.ex"
+  "lib/workers/send_check_stats_emails.ex"
+  "lib/workers/send_check_stats_emails.ex" -> "lib/plausible/auth/auth.ex"
+  "lib/workers/send_check_stats_emails.ex" -> "lib/plausible/auth/user.ex"
+  "lib/workers/send_check_stats_emails.ex" -> "lib/plausible/mailer.ex"
+  "lib/workers/send_check_stats_emails.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/send_check_stats_emails.ex" -> "lib/plausible_web/email.ex"
+  "lib/workers/send_email_report.ex"
+  "lib/workers/send_site_setup_emails.ex"
+  "lib/workers/send_site_setup_emails.ex" -> "lib/plausible/auth/user.ex"
+  "lib/workers/send_site_setup_emails.ex" -> "lib/plausible/mailer.ex"
+  "lib/workers/send_site_setup_emails.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/send_site_setup_emails.ex" -> "lib/plausible/site/schema.ex"
+  "lib/workers/send_site_setup_emails.ex" -> "lib/plausible/stats/clickhouse.ex"
+  "lib/workers/send_site_setup_emails.ex" -> "lib/plausible_web/email.ex"
+  "lib/workers/send_trial_notifications.ex"
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible/auth/auth.ex"
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible/auth/user.ex"
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible/billing/billing.ex"
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible/billing/subscription.ex"
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible/mailer.ex"
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible/repo.ex" [label="(compile)"]
+  "lib/workers/send_trial_notifications.ex" -> "lib/plausible_web/email.ex"
+}

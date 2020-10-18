@@ -33,4 +33,6 @@ npm-debug.log
 # this depending on your deployment strategy.
 /priv/static/
 
+/priv/sample_xref/extra/
+
 .env

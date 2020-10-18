@@ -1,0 +1,1732 @@
+digraph "xref graph" {
+  "lib/absinthe.ex"
+  "lib/absinthe.ex" -> "lib/absinthe/adapter.ex"
+  "lib/absinthe.ex" -> "lib/absinthe/language/document.ex"
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/argument.ex"
+  "lib/absinthe/language/argument.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/argument.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/argument.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/adapter.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/blueprint/document.ex"
+  "lib/absinthe/blueprint/document.ex" -> "lib/absinthe/blueprint/document/field.ex"
+  "lib/absinthe/blueprint/document.ex" -> "lib/absinthe/blueprint/document/fragment.ex"
+  "lib/absinthe/blueprint/document/fragment.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/blueprint/document.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/source_location.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/blueprint/type_reference/name.ex"
+  "lib/absinthe/blueprint/type_reference/name.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema/directive_definition.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/blueprint/draft.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/argument.ex"
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/boolean.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input/boolean.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/boolean.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/boolean.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/boolean.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/enum.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input/enum.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/enum.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/enum.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/enum.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input/field.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/field.ex" -> "lib/absinthe/blueprint/input/value.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/boolean.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/enum.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/float.ex"
+  "lib/absinthe/blueprint/input/float.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/float.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/float.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/float.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/integer.ex"
+  "lib/absinthe/blueprint/input/integer.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/integer.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/integer.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/integer.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/list.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/null.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/null.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/null.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/null.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/raw_value.ex" -> "lib/absinthe/blueprint/input/object.ex"
+  "lib/absinthe/blueprint/input/object.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/object.ex" -> "lib/absinthe/blueprint/input/field.ex"
+  "lib/absinthe/blueprint/input/object.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/object.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/object.ex" -> "lib/absinthe/type/input_object.ex"
+  "lib/absinthe/type/input_object.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/input_object.ex" -> "lib/absinthe/type/fetch.ex" [label="(compile)"]
+  "lib/absinthe/type/input_object.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/blueprint/input/object.ex" -> "lib/absinthe/type/non_null.ex"
+  "lib/absinthe/type/non_null.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/non_null.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/non_null.ex" -> "lib/absinthe/type/fetch.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input/list.ex" -> "lib/absinthe/type/list.ex"
+  "lib/absinthe/type/list.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/list.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/list.ex" -> "lib/absinthe/type/fetch.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/object.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/raw_value.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/string.ex"
+  "lib/absinthe/blueprint/input/string.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/string.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/string.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/string.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/input/value.ex" -> "lib/absinthe/blueprint/input/variable.ex"
+  "lib/absinthe/blueprint/input/variable.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/input/variable.ex" -> "lib/absinthe/blueprint/input/variable/use.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/variable/use.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/variable.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/variable.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/field.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/field.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/field.ex" -> "lib/absinthe/type/field.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/blueprint/schema/deprecation.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/type_reference.ex" -> "lib/absinthe/blueprint/type_reference/identifier.ex" [label="(export)"]
+  "lib/absinthe/blueprint/type_reference/identifier.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/type_reference.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/type_reference/list.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/type_reference/list.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/type_reference.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(export)"]
+  "lib/absinthe/blueprint/type_reference.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/type_reference/non_null.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/type_reference/non_null.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/type_reference.ex" -> "lib/absinthe/type/list.ex" [label="(export)"]
+  "lib/absinthe/blueprint/type_reference.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/field_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/complexity.ex"
+  "lib/absinthe/complexity.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/complexity.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/middleware.ex"
+  "lib/absinthe/middleware.ex" -> "lib/absinthe/phase/schema/introspection.ex"
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/adapter/language_conventions.ex" [label="(compile)"]
+  "lib/absinthe/adapter/language_conventions.ex" -> "lib/absinthe/adapter.ex" [label="(compile)"]
+  "lib/absinthe/adapter/language_conventions.ex" -> "lib/absinthe/utils.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/input/string.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex"
+  "lib/absinthe/blueprint/schema/enum_value_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/enum_value_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/enum_value_definition.ex" -> "lib/absinthe/blueprint/schema/deprecation.ex"
+  "lib/absinthe/blueprint/schema/enum_value_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/enum_value_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/type/enum.ex" -> "lib/absinthe/blueprint/input/enum.ex" [label="(export)"]
+  "lib/absinthe/type/enum.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/enum.ex" -> "lib/absinthe/type/enum/value.ex"
+  "lib/absinthe/type/enum/value.ex" -> "lib/absinthe/type/deprecation.ex"
+  "lib/absinthe/type/enum/value.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/type/enum.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex" -> "lib/absinthe/type/enum/value.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex" -> "lib/absinthe/type/input_object.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/type/scalar.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex"
+  "lib/absinthe/type/scalar.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/scalar.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/scalar.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/schema_declaration.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/schema_declaration.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/schema_declaration.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/schema_declaration.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/blueprint/schema/schema_declaration.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/schema_declaration.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/schema_declaration.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/schema_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/schema_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/schema_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/schema_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/blueprint/type_reference/name.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/type/argument.ex" [label="(export)"]
+  "lib/absinthe/type/argument.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/argument.ex" -> "lib/absinthe/type/deprecation.ex"
+  "lib/absinthe/type/argument.ex" -> "lib/absinthe/type/fetch.ex" [label="(compile)"]
+  "lib/absinthe/type/argument.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/union_type_definition.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/type/union.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex"
+  "lib/absinthe/type/union.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/union.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/adapter.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/blueprint/document.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/blueprint/document/fragment/named/use.ex" [label="(export)"]
+  "lib/absinthe/blueprint/document/fragment/named/use.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/blueprint/type_reference/name.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/resolution/projector.ex"
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/blueprint/document/fragment/spread.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/document/fragment/spread.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/document/fragment/spread.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/document/fragment/spread.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/type/interface.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex"
+  "lib/absinthe/type/interface.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/interface.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/type/interface.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/type/interface.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/interface.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/type/object.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex"
+  "lib/absinthe/type/object.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/object.ex" -> "lib/absinthe/type/field.ex"
+  "lib/absinthe/type/object.ex" -> "lib/absinthe/type/interface.ex"
+  "lib/absinthe/type/object.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/resolution/projector.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/resolution.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/type/union.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/type/union.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/union.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/type_reference/identifier.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/phase/schema/introspection.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/type/built_ins/directives.ex" [label="(compile)"]
+  "lib/absinthe/type/built_ins/directives.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/type/built_ins/directives.ex" -> "lib/absinthe/resolution/helpers.ex" [label="(export)"]
+  "lib/absinthe/resolution/helpers.ex" -> "lib/absinthe/middleware/async.ex"
+  "lib/absinthe/middleware/async.ex" -> "lib/absinthe/middleware.ex" [label="(compile)"]
+  "lib/absinthe/middleware/async.ex" -> "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/blueprint/execution.ex"
+  "lib/absinthe/blueprint/execution.ex" -> "lib/absinthe/blueprint/result/leaf.ex"
+  "lib/absinthe/blueprint/result/leaf.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/result/leaf.ex" -> "lib/absinthe/blueprint/document/field.ex"
+  "lib/absinthe/blueprint/result/leaf.ex" -> "lib/absinthe/blueprint/execution.ex"
+  "lib/absinthe/blueprint/result/leaf.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/execution.ex" -> "lib/absinthe/blueprint/result/list.ex"
+  "lib/absinthe/blueprint/result/list.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/result/list.ex" -> "lib/absinthe/blueprint/document/field.ex"
+  "lib/absinthe/blueprint/result/list.ex" -> "lib/absinthe/blueprint/execution.ex"
+  "lib/absinthe/blueprint/result/list.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/execution.ex" -> "lib/absinthe/blueprint/result/object.ex" [label="(export)"]
+  "lib/absinthe/blueprint/result/object.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/result/object.ex" -> "lib/absinthe/blueprint/document/field.ex"
+  "lib/absinthe/blueprint/result/object.ex" -> "lib/absinthe/blueprint/execution.ex"
+  "lib/absinthe/blueprint/result/object.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/execution.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/blueprint/result/leaf.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/blueprint/result/list.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/blueprint/result/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/plugin.ex"
+  "lib/absinthe/plugin.ex" -> "lib/absinthe/blueprint/execution.ex"
+  "lib/absinthe/plugin.ex" -> "lib/absinthe/middleware/async.ex"
+  "lib/absinthe/plugin.ex" -> "lib/absinthe/middleware/batch.ex"
+  "lib/absinthe/middleware/batch.ex" -> "lib/absinthe/middleware.ex" [label="(compile)"]
+  "lib/absinthe/middleware/batch.ex" -> "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/middleware/batch.ex" -> "lib/absinthe/plugin.ex" [label="(compile)"]
+  "lib/absinthe/middleware/batch.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/middleware/batch.ex" -> "lib/absinthe/type/field.ex"
+  "lib/absinthe/plugin.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/adapter/language_conventions.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/blueprint.ex"
+  "lib/absinthe/phase/blueprint.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/blueprint.ex" -> "lib/absinthe/blueprint/draft.ex"
+  "lib/absinthe/phase/blueprint.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/coerce_enums.ex"
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/blueprint/input/enum.ex"
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/blueprint/input/string.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/coerce_lists.ex"
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/blueprint/input/list.ex"
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex" -> "lib/absinthe/type/list.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/data.ex"
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/data.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/flag_invalid.ex"
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/normalize.ex"
+  "lib/absinthe/phase/document/arguments/normalize.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/arguments/normalize.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/normalize.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/normalize.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/normalize.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/parse.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint/input/boolean.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint/input/float.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint/input/integer.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint/input/string.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/type/input_object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/parse.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/arguments/variable_types_match.ex"
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/document.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/document/fragment/named/use.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/input/variable/use.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/document/operation.ex" -> "lib/absinthe/type/object.ex"
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/complexity/analysis.ex"
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe.ex"
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/complexity.ex"
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/complexity/analysis.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/complexity/result.ex"
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/complexity/result.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/context.ex"
+  "lib/absinthe/phase/document/context.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/context.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/current_operation.ex"
+  "lib/absinthe/phase/document/current_operation.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/current_operation.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/directives.ex"
+  "lib/absinthe/phase/document/directives.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/directives.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/phase/document/directives.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/missing_literals.ex"
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/blueprint/input/argument.ex"
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/blueprint/input/field.ex"
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/blueprint/input/generated.ex" [label="(export)"]
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/missing_literals.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/missing_variables.ex"
+  "lib/absinthe/phase/document/missing_variables.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/missing_variables.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/document/missing_variables.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/missing_variables.ex" -> "lib/absinthe/blueprint/input/generated.ex" [label="(export)"]
+  "lib/absinthe/phase/document/missing_variables.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/missing_variables.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/result.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/resolution.ex" [label="(export)"]
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/phase/document/result.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/uses.ex"
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint/document/fragment/named/use.ex"
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/blueprint/input/variable/use.ex"
+  "lib/absinthe/phase/document/uses.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/phase/document/validation/utils/message_suggestions.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex" -> "lib/absinthe/utils/suggestion.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/fields_on_correct_type.ex"
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/phase/document/validation/utils/message_suggestions.ex"
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex" -> "lib/absinthe/utils/suggestion.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/known_argument_names.ex"
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/validation/known_argument_names.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/known_directives.ex"
+  "lib/absinthe/phase/document/validation/known_directives.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/known_directives.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/known_directives.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/known_directives.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/known_directives.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/phase/validation.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/known_fragment_names.ex"
+  "lib/absinthe/phase/document/validation/known_fragment_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/known_fragment_names.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/known_fragment_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/known_fragment_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/known_fragment_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex"
+  "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/no_fragment_cycles.ex"
+  "lib/absinthe/phase/document/validation/no_fragment_cycles.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/no_fragment_cycles.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_fragment_cycles.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_fragment_cycles.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/no_fragment_cycles.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/no_undefined_variables.ex"
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/no_unused_fragments.ex"
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/no_unused_variables.ex"
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/only_one_subscription.ex"
+  "lib/absinthe/phase/document/validation/only_one_subscription.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/only_one_subscription.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/only_one_subscription.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/only_one_subscription.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/provided_an_operation.ex"
+  "lib/absinthe/phase/document/validation/provided_an_operation.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_an_operation.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/provided_an_operation.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_an_operation.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/provided_non_null_variables.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/result.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/result.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/result.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/result.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/scalar_leafs.ex"
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/type/interface.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/type/object.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex" -> "lib/absinthe/type/union.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/selected_current_operation.ex"
+  "lib/absinthe/phase/document/validation/selected_current_operation.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/selected_current_operation.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/selected_current_operation.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/selected_current_operation.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/unique_argument_names.ex"
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/blueprint/input/argument.ex"
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/unique_fragment_names.ex"
+  "lib/absinthe/phase/document/validation/unique_fragment_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/unique_fragment_names.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex"
+  "lib/absinthe/phase/document/validation/unique_fragment_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_fragment_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/unique_fragment_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/unique_input_field_names.ex"
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex" -> "lib/absinthe/blueprint/input/field.ex"
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/unique_operation_names.ex"
+  "lib/absinthe/phase/document/validation/unique_operation_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/unique_operation_names.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/phase/document/validation/unique_operation_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_operation_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/unique_operation_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/unique_variable_names.ex"
+  "lib/absinthe/phase/document/validation/unique_variable_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/unique_variable_names.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex"
+  "lib/absinthe/phase/document/validation/unique_variable_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/unique_variable_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/unique_variable_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/validation/variables_are_input_types.ex"
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/document/variables.ex"
+  "lib/absinthe/phase/document/variables.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/document/variables.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/phase/document/variables.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/variables.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/init.ex"
+  "lib/absinthe/phase/init.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/init.ex" -> "lib/absinthe/language/source.ex"
+  "lib/absinthe/phase/init.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/parse.ex"
+  "lib/absinthe/phase/parse.ex" -> "lib/absinthe/blueprint.ex" [label="(compile)"]
+  "lib/absinthe/phase/parse.ex" -> "lib/absinthe/language/document.ex" [label="(export)"]
+  "lib/absinthe/phase/parse.ex" -> "lib/absinthe/language/source.ex" [label="(export)"]
+  "lib/absinthe/phase/parse.ex" -> "lib/absinthe/lexer.ex"
+  "lib/absinthe/phase/parse.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/parse.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema.ex"
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/adapter.ex"
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/adapter/language_conventions.ex"
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/type/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/type/directive.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/introspection/kind.ex" [label="(compile)"]
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/enum_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/enum_type_definition.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/enum_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/enum_type_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/enum_type_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/directive.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(export)"]
+  "lib/absinthe/language/directive.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/directive.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/directive.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/directive.ex" -> "lib/absinthe/language/argument.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/enum_value_definition.ex" [label="(export)"]
+  "lib/absinthe/language/enum_value_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/enum_value_definition.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(export)"]
+  "lib/absinthe/language/enum_value_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/enum_value_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/enum_value_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/field.ex" [label="(export)"]
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(export)"]
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/language/argument.ex"
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/language/fragment_spread.ex"
+  "lib/absinthe/language/fragment_spread.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/language/fragment_spread.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/fragment_spread.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/fragment_spread.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/language/inline_fragment.ex"
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/language/named_type.ex"
+  "lib/absinthe/language/named_type.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/named_type.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(export)"]
+  "lib/absinthe/language/named_type.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/inline_fragment.ex" -> "lib/absinthe/language/selection_set.ex"
+  "lib/absinthe/language/selection_set.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/selection_set.ex" -> "lib/absinthe/language/field.ex"
+  "lib/absinthe/language/selection_set.ex" -> "lib/absinthe/language/fragment_spread.ex"
+  "lib/absinthe/language/selection_set.ex" -> "lib/absinthe/language/inline_fragment.ex"
+  "lib/absinthe/language/field.ex" -> "lib/absinthe/language/selection_set.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/field_definition.ex" [label="(export)"]
+  "lib/absinthe/language/field_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/field_definition.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(export)"]
+  "lib/absinthe/language/field_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/field_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/field_definition.ex" -> "lib/absinthe/language/argument.ex"
+  "lib/absinthe/language/field_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/fragment.ex" [label="(export)"]
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/language/named_type.ex"
+  "lib/absinthe/language/fragment.ex" -> "lib/absinthe/language/selection_set.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/fragment_spread.ex" [label="(export)"]
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/inline_fragment.ex" [label="(export)"]
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/input_object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/input_object_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/input_object_type_definition.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/input_object_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/input_object_type_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/input_object_type_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/input_object_type_definition.ex" -> "lib/absinthe/language/input_value_definition.ex"
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/language/enum_value.ex" [label="(export)"]
+  "lib/absinthe/language/enum_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/enum_value.ex" -> "lib/absinthe/blueprint/input/enum.ex" [label="(export)"]
+  "lib/absinthe/language/enum_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/enum_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/language/list_value.ex" [label="(export)"]
+  "lib/absinthe/language/list_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/list_value.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/language/list_value.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/language/list_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/list_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/input_value_definition.ex" -> "lib/absinthe/language/object_value.ex" [label="(export)"]
+  "lib/absinthe/language/object_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/object_value.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/language/object_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/object_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/object_value.ex" -> "lib/absinthe/language/object_field.ex"
+  "lib/absinthe/language/object_field.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/object_field.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(export)"]
+  "lib/absinthe/language/object_field.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/language/object_field.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/object_field.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/interface_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/interface_type_definition.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/interface_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/interface_type_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/interface_type_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/interface_type_definition.ex" -> "lib/absinthe/language/field_definition.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/language/field_definition.ex"
+  "lib/absinthe/language/object_type_definition.ex" -> "lib/absinthe/language/named_type.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/operation_definition.ex" [label="(export)"]
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/language/selection_set.ex"
+  "lib/absinthe/language/operation_definition.ex" -> "lib/absinthe/language/variable_definition.ex"
+  "lib/absinthe/language/variable_definition.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(export)"]
+  "lib/absinthe/language/variable_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/variable_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/variable_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/variable_definition.ex" -> "lib/absinthe/language/variable.ex"
+  "lib/absinthe/language/variable.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/variable.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/language/variable.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/variable.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/scalar_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/scalar_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/scalar_type_definition.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/scalar_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/scalar_type_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/scalar_type_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/schema_declaration.ex" [label="(export)"]
+  "lib/absinthe/language/schema_declaration.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/schema_declaration.ex" -> "lib/absinthe/blueprint/schema/schema_declaration.ex" [label="(export)"]
+  "lib/absinthe/language/schema_declaration.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/schema_declaration.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/schema_declaration.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/schema_declaration.ex" -> "lib/absinthe/language/field_definition.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/language/schema_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/schema_definition.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/language/schema_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/schema_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/schema_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/schema_definition.ex" -> "lib/absinthe/language/field_definition.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/language/union_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/union_type_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/union_type_definition.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(export)"]
+  "lib/absinthe/language/union_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/union_type_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/union_type_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/union_type_definition.ex" -> "lib/absinthe/language/named_type.ex"
+  "lib/absinthe/type/directive.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/type/list.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema.ex" -> "lib/absinthe/type/non_null.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/apply_declaration.ex"
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/blueprint/schema/schema_declaration.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex"
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/blueprint/type_reference/name.ex"
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/apply_declaration.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/arguments/data.ex"
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/data.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/arguments/normalize.ex"
+  "lib/absinthe/phase/schema/arguments/normalize.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/arguments/normalize.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/normalize.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/normalize.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/arguments/parse.ex"
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/arguments/parse.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/build.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/compile.ex"
+  "lib/absinthe/phase/schema/compile.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/directives.ex"
+  "lib/absinthe/phase/schema/directives.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/directives.ex" -> "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/phase/schema/directives.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/field_imports.ex"
+  "lib/absinthe/phase/schema/field_imports.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/field_imports.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/field_imports.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/field_imports.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/field_imports.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/field_imports.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/hydrate.ex"
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/phase/schema/hydrate.ex" -> "lib/absinthe/schema/hydrator.ex" [label="(compile)"]
+  "lib/absinthe/schema/hydrator.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/inline_functions.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/middleware.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/type/interface.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/type/object.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/type/union.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex" -> "lib/absinthe/utils.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/introspection.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/mark_referenced.ex"
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/type_reference/identifier.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/mark_referenced.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/register_triggers.ex"
+  "lib/absinthe/phase/schema/register_triggers.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/register_triggers.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/register_triggers.ex" -> "lib/absinthe/subscription.ex"
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/resolution.ex" [label="(export)"]
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/subscription/local.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/phase/document/override_root.ex"
+  "lib/absinthe/phase/document/override_root.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/phase/document/result.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/phase/subscription/subscribe_self.ex"
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/phase/document/result.ex"
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/phase/subscription/result.ex"
+  "lib/absinthe/phase/subscription/result.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/phase/telemetry.ex"
+  "lib/absinthe/phase/telemetry.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/telemetry.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/subscription.ex"
+  "lib/absinthe/phase/subscription/subscribe_self.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/phase/telemetry.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/pipeline/batch_resolver.ex"
+  "lib/absinthe/pipeline/batch_resolver.ex" -> "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/pipeline/batch_resolver.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/pipeline/batch_resolver.ex" -> "lib/absinthe/plugin.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/subscription.ex"
+  "lib/absinthe/subscription/local.ex" -> "lib/absinthe/subscription/pubsub.ex"
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/subscription/proxy.ex"
+  "lib/absinthe/subscription/proxy.ex" -> "lib/absinthe/subscription/local.ex"
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/subscription/pubsub.ex"
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/subscription/supervisor.ex"
+  "lib/absinthe/subscription/supervisor.ex" -> "lib/absinthe/subscription.ex"
+  "lib/absinthe/subscription/supervisor.ex" -> "lib/absinthe/subscription/proxy_supervisor.ex"
+  "lib/absinthe/subscription/proxy_supervisor.ex" -> "lib/absinthe/subscription/proxy.ex"
+  "lib/absinthe/subscription.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/schema/register_triggers.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/type_imports.ex"
+  "lib/absinthe/phase/schema/type_imports.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/type_imports.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/type_imports.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/type_imports.ex" -> "lib/absinthe/type/built_ins/directives.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/type_imports.ex" -> "lib/absinthe/type/built_ins/introspection.ex" [label="(compile)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/resolution.ex" [label="(compile)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/resolution/helpers.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/schema/notation.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(export)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(export)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/middleware/map_get.ex"
+  "lib/absinthe/middleware/map_get.ex" -> "lib/absinthe/middleware.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/middleware/pass_parent.ex"
+  "lib/absinthe/middleware/pass_parent.ex" -> "lib/absinthe/middleware.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/middleware/telemetry.ex"
+  "lib/absinthe/middleware/telemetry.ex" -> "lib/absinthe/middleware.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/phase/schema/introspection.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/schema/notation/error.ex"
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/type/built_ins/introspection.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/type/deprecation.ex" [label="(export)"]
+  "lib/absinthe/schema/notation.ex" -> "lib/absinthe/utils.ex" [label="(compile)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/input_object.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/list.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/object.ex"
+  "lib/absinthe/type/built_ins/introspection.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/type_imports.ex" -> "lib/absinthe/type/built_ins/scalars.ex" [label="(compile)"]
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe.ex"
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/blueprint/input/boolean.ex"
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/blueprint/input/float.ex"
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/blueprint/input/integer.ex"
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/blueprint/input/string.ex"
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/resolution/helpers.ex" [label="(export)"]
+  "lib/absinthe/type/built_ins/scalars.ex" -> "lib/absinthe/schema/notation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/default_enum_value_present.ex"
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex"
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex"
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/known_directives.ex"
+  "lib/absinthe/phase/schema/validation/known_directives.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/known_directives.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/known_directives.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/known_directives.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/known_directives.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/names_must_be_valid.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/no_circular_field_imports.ex"
+  "lib/absinthe/phase/schema/validation/no_circular_field_imports.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/no_circular_field_imports.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/no_circular_field_imports.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/no_circular_field_imports.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex"
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex"
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex"
+  "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/result.ex"
+  "lib/absinthe/phase/schema/validation/result.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/result.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/result.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/type_names_are_unique.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/schema/validation/type_references_exist.ex"
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/type_reference/name.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/subscription/subscribe_self.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/telemetry.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/phase/validation/known_type_names.ex"
+  "lib/absinthe/phase/validation/known_type_names.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/validation/known_type_names.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/validation/known_type_names.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/phase/validation/known_type_names.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/validation/known_type_names.ex" -> "lib/absinthe/phase/error.ex" [label="(export)"]
+  "lib/absinthe/phase/validation/known_type_names.ex" -> "lib/absinthe/phase/validation.ex" [label="(compile)"]
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/pipeline.ex" -> "lib/absinthe/schema/prototype.ex" [label="(compile)"]
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex"
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/plugin.ex"
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/resolution/helpers.ex" [label="(export)"]
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/schema.ex" [label="(compile)"]
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/schema/compiled.ex" [label="(compile)"]
+  "lib/absinthe/schema/compiled.ex" -> "lib/absinthe/schema/provider.ex" [label="(compile)"]
+  "lib/absinthe/schema/provider.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/schema/provider.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/schema/provider.ex" -> "lib/absinthe/type/directive.ex"
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/schema/notation.ex" [label="(compile)"]
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/schema/prototype/notation.ex" [label="(compile)"]
+  "lib/absinthe/schema/prototype.ex" -> "lib/absinthe/type/deprecation.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/resolution.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/resolution/projector.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/enum.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/list.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/non_null.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/scalar.ex" [label="(export)"]
+  "lib/absinthe/phase/document/execution/resolution.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/middleware/async.ex" -> "lib/absinthe/plugin.ex" [label="(compile)"]
+  "lib/absinthe/middleware/async.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/resolution/helpers.ex" -> "lib/absinthe/middleware/batch.ex"
+  "lib/absinthe/resolution/helpers.ex" -> "lib/absinthe/middleware/dataloader.ex"
+  "lib/absinthe/middleware/dataloader.ex" -> "lib/absinthe/middleware.ex" [label="(compile)"]
+  "lib/absinthe/middleware/dataloader.ex" -> "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/middleware/dataloader.ex" -> "lib/absinthe/plugin.ex" [label="(compile)"]
+  "lib/absinthe/middleware/dataloader.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/resolution/helpers.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/type/built_ins/directives.ex" -> "lib/absinthe/schema/notation.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/type/built_ins/introspection.ex" [label="(compile)"]
+  "lib/absinthe/schema/notation/sdl_render.ex" -> "lib/absinthe/type/built_ins/scalars.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/type/argument.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/object_type_definition.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex"
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex"
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/schema/notation.ex"
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/introspection.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/middleware.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/middleware.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/middleware.ex" -> "lib/absinthe/schema/notation.ex"
+  "lib/absinthe/middleware.ex" -> "lib/absinthe/type/built_ins/introspection.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/resolution.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/type/argument.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/type/deprecation.ex"
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/type/fetch.ex" [label="(compile)"]
+  "lib/absinthe/type/field.ex" -> "lib/absinthe/type/reference.ex"
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/float.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/integer.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/string.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input.ex" -> "lib/absinthe/blueprint/input/variable.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/directive_definition.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex"
+  "lib/absinthe/blueprint/schema/directive_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/schema/directive_definition.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/schema/directive_definition.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/schema/directive_definition.ex" -> "lib/absinthe/type/directive.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/schema_declaration.ex"
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/schema.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/schema.ex" -> "lib/absinthe/middleware.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/middleware/map_get.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/phase/schema/validation/result.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/plugin.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/schema/error.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/schema/hydrator.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/schema/manager.ex"
+  "lib/absinthe/schema/manager.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/schema/manager.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/schema/manager.ex" -> "lib/absinthe/schema/error.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/schema/notation.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/type/directive.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/type/field.ex"
+  "lib/absinthe/schema.ex" -> "lib/absinthe/type/interface.ex" [label="(export)"]
+  "lib/absinthe/schema.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/schema.ex" -> "lib/absinthe/type/union.ex" [label="(export)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/argument.ex"
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/enum.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/field.ex" [label="(export)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/input_object.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/interface.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/list.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/non_null.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/object.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/scalar.ex" [label="(compile)"]
+  "lib/absinthe/type.ex" -> "lib/absinthe/type/union.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/document/fragment.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex"
+  "lib/absinthe/blueprint/document/fragment.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex"
+  "lib/absinthe/blueprint/document.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex"
+  "lib/absinthe/blueprint/document.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex"
+  "lib/absinthe/blueprint/document.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/blueprint/document.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/blueprint/input/argument.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/blueprint/type_reference/name.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/document/field.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/input/argument.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/schema_declaration.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(export)"]
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/type.ex"
+  "lib/absinthe/blueprint/directive.ex" -> "lib/absinthe/type/directive.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/document.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/document/fragment/named/use.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/execution.ex" [label="(compile)"]
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/input/variable/use.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/transform.ex"
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/directive.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/document/field.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/document/fragment/inline.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/document/fragment/named.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/document/fragment/spread.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/document/operation.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/document/variable_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/input/argument.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/input/field.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/input/list.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/input/object.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/input/value.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/enum_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/field_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/input_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/schema_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/schema/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(compile)"]
+  "lib/absinthe/blueprint/transform.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(compile)"]
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/language/document.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/language/source.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/phase.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/blueprint.ex" -> "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/blueprint/input/argument.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/blueprint/input/argument.ex" -> "lib/absinthe/blueprint/input/value.ex"
+  "lib/absinthe/blueprint/input/argument.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/input/argument.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/blueprint/input/argument.ex" -> "lib/absinthe/type/argument.ex"
+  "lib/absinthe/language/argument.ex" -> "lib/absinthe/blueprint/input/raw_value.ex" [label="(export)"]
+  "lib/absinthe/language/argument.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/argument.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/boolean_value.ex"
+  "lib/absinthe/language/boolean_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/boolean_value.ex" -> "lib/absinthe/blueprint/input/boolean.ex" [label="(export)"]
+  "lib/absinthe/language/boolean_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/boolean_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/document.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/enum_type_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/enum_value.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/field.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/field_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/float_value.ex"
+  "lib/absinthe/language/float_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/float_value.ex" -> "lib/absinthe/blueprint/input/float.ex" [label="(export)"]
+  "lib/absinthe/language/float_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/float_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/fragment.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/fragment_spread.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/inline_fragment.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/input_object_type_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/input_value_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/int_value.ex"
+  "lib/absinthe/language/int_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/int_value.ex" -> "lib/absinthe/blueprint/input/integer.ex" [label="(export)"]
+  "lib/absinthe/language/int_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/int_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/interface_type_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/list_type.ex"
+  "lib/absinthe/language/list_type.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/list_type.ex" -> "lib/absinthe/blueprint/type_reference/list.ex" [label="(export)"]
+  "lib/absinthe/language/list_type.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/list_value.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/named_type.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/non_null_type.ex" [label="(export)"]
+  "lib/absinthe/language/non_null_type.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/non_null_type.ex" -> "lib/absinthe/blueprint/type_reference/non_null.ex" [label="(export)"]
+  "lib/absinthe/language/non_null_type.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/object_field.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/object_type_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/object_value.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/operation_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/scalar_type_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/selection_set.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/source.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/string_value.ex"
+  "lib/absinthe/language/string_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/string_value.ex" -> "lib/absinthe/blueprint/input/string.ex" [label="(export)"]
+  "lib/absinthe/language/string_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/string_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/type_extension_definition.ex"
+  "lib/absinthe/language/type_extension_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/type_extension_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/type_extension_definition.ex" -> "lib/absinthe/language/object_type_definition.ex"
+  "lib/absinthe/language/type_extension_definition.ex" -> "lib/absinthe/schema/notation/error.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/union_type_definition.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/variable.ex"
+  "lib/absinthe/language.ex" -> "lib/absinthe/language/variable_definition.ex"
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/directive_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/directive_definition.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/directive_definition.ex" -> "lib/absinthe/blueprint/schema/directive_definition.ex" [label="(export)"]
+  "lib/absinthe/language/directive_definition.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/directive_definition.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/directive_definition.ex" -> "lib/absinthe/language/argument.ex"
+  "lib/absinthe/language/directive_definition.ex" -> "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/enum_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/fragment.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/input_object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/input_value_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/interface_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/object_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/operation_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/scalar_type_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/schema_definition.ex" [label="(compile)"]
+  "lib/absinthe/language/document.ex" -> "lib/absinthe/language/union_type_definition.ex" [label="(compile)"]
+  "lib/absinthe.ex" -> "lib/absinthe/language/source.ex"
+  "lib/absinthe.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/adapter.ex"
+  "lib/absinthe/adapter/language_conventions.ex"
+  "lib/absinthe/adapter/passthrough.ex"
+  "lib/absinthe/adapter/passthrough.ex" -> "lib/absinthe/adapter.ex" [label="(compile)"]
+  "lib/absinthe/adapter/strict_language_conventions.ex"
+  "lib/absinthe/adapter/strict_language_conventions.ex" -> "lib/absinthe/adapter.ex" [label="(compile)"]
+  "lib/absinthe/adapter/strict_language_conventions.ex" -> "lib/absinthe/adapter/language_conventions.ex"
+  "lib/absinthe/adapter/underscore.ex"
+  "lib/absinthe/adapter/underscore.ex" -> "lib/absinthe/adapter.ex" [label="(compile)"]
+  "lib/absinthe/blueprint.ex"
+  "lib/absinthe/blueprint/directive.ex"
+  "lib/absinthe/blueprint/document.ex"
+  "lib/absinthe/blueprint/document/field.ex"
+  "lib/absinthe/blueprint/document/fragment.ex"
+  "lib/absinthe/blueprint/document/fragment/inline.ex"
+  "lib/absinthe/blueprint/document/fragment/named.ex"
+  "lib/absinthe/blueprint/document/fragment/named/use.ex"
+  "lib/absinthe/blueprint/document/fragment/spread.ex"
+  "lib/absinthe/blueprint/document/operation.ex"
+  "lib/absinthe/blueprint/document/variable_definition.ex"
+  "lib/absinthe/blueprint/draft.ex"
+  "lib/absinthe/blueprint/execution.ex"
+  "lib/absinthe/blueprint/input.ex"
+  "lib/absinthe/blueprint/input/argument.ex"
+  "lib/absinthe/blueprint/input/boolean.ex"
+  "lib/absinthe/blueprint/input/enum.ex"
+  "lib/absinthe/blueprint/input/field.ex"
+  "lib/absinthe/blueprint/input/float.ex"
+  "lib/absinthe/blueprint/input/generated.ex"
+  "lib/absinthe/blueprint/input/integer.ex"
+  "lib/absinthe/blueprint/input/list.ex"
+  "lib/absinthe/blueprint/input/null.ex"
+  "lib/absinthe/blueprint/input/object.ex"
+  "lib/absinthe/blueprint/input/raw_value.ex"
+  "lib/absinthe/blueprint/input/string.ex"
+  "lib/absinthe/blueprint/input/value.ex"
+  "lib/absinthe/blueprint/input/variable.ex"
+  "lib/absinthe/blueprint/input/variable/use.ex"
+  "lib/absinthe/blueprint/result/leaf.ex"
+  "lib/absinthe/blueprint/result/list.ex"
+  "lib/absinthe/blueprint/result/object.ex"
+  "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/blueprint/schema/deprecation.ex"
+  "lib/absinthe/blueprint/schema/directive_definition.ex"
+  "lib/absinthe/blueprint/schema/enum_type_definition.ex"
+  "lib/absinthe/blueprint/schema/enum_value_definition.ex"
+  "lib/absinthe/blueprint/schema/field_definition.ex"
+  "lib/absinthe/blueprint/schema/input_object_type_definition.ex"
+  "lib/absinthe/blueprint/schema/input_value_definition.ex"
+  "lib/absinthe/blueprint/schema/interface_type_definition.ex"
+  "lib/absinthe/blueprint/schema/object_type_definition.ex"
+  "lib/absinthe/blueprint/schema/scalar_type_definition.ex"
+  "lib/absinthe/blueprint/schema/schema_declaration.ex"
+  "lib/absinthe/blueprint/schema/schema_definition.ex"
+  "lib/absinthe/blueprint/schema/union_type_definition.ex"
+  "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/blueprint/transform.ex"
+  "lib/absinthe/blueprint/type_reference.ex"
+  "lib/absinthe/blueprint/type_reference/identifier.ex"
+  "lib/absinthe/blueprint/type_reference/list.ex"
+  "lib/absinthe/blueprint/type_reference/name.ex"
+  "lib/absinthe/blueprint/type_reference/non_null.ex"
+  "lib/absinthe/complexity.ex"
+  "lib/absinthe/introspection.ex"
+  "lib/absinthe/introspection.ex" -> "lib/absinthe/type/object.ex" [label="(export)"]
+  "lib/absinthe/introspection/kind.ex"
+  "lib/absinthe/language.ex"
+  "lib/absinthe/language/argument.ex"
+  "lib/absinthe/language/boolean_value.ex"
+  "lib/absinthe/language/directive.ex"
+  "lib/absinthe/language/directive_definition.ex"
+  "lib/absinthe/language/document.ex"
+  "lib/absinthe/language/enum_type_definition.ex"
+  "lib/absinthe/language/enum_value.ex"
+  "lib/absinthe/language/enum_value_definition.ex"
+  "lib/absinthe/language/field.ex"
+  "lib/absinthe/language/field_definition.ex"
+  "lib/absinthe/language/float_value.ex"
+  "lib/absinthe/language/fragment.ex"
+  "lib/absinthe/language/fragment_spread.ex"
+  "lib/absinthe/language/inline_fragment.ex"
+  "lib/absinthe/language/input_object_type_definition.ex"
+  "lib/absinthe/language/input_value_definition.ex"
+  "lib/absinthe/language/int_value.ex"
+  "lib/absinthe/language/interface_type_definition.ex"
+  "lib/absinthe/language/list_type.ex"
+  "lib/absinthe/language/list_value.ex"
+  "lib/absinthe/language/named_type.ex"
+  "lib/absinthe/language/non_null_type.ex"
+  "lib/absinthe/language/null_value.ex"
+  "lib/absinthe/language/null_value.ex" -> "lib/absinthe/blueprint/draft.ex" [label="(compile)"]
+  "lib/absinthe/language/null_value.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/language/null_value.ex" -> "lib/absinthe/blueprint/source_location.ex"
+  "lib/absinthe/language/null_value.ex" -> "lib/absinthe/language.ex"
+  "lib/absinthe/language/object_field.ex"
+  "lib/absinthe/language/object_type_definition.ex"
+  "lib/absinthe/language/object_value.ex"
+  "lib/absinthe/language/operation_definition.ex"
+  "lib/absinthe/language/scalar_type_definition.ex"
+  "lib/absinthe/language/schema_declaration.ex"
+  "lib/absinthe/language/schema_definition.ex"
+  "lib/absinthe/language/selection_set.ex"
+  "lib/absinthe/language/source.ex"
+  "lib/absinthe/language/string_value.ex"
+  "lib/absinthe/language/type_extension_definition.ex"
+  "lib/absinthe/language/union_type_definition.ex"
+  "lib/absinthe/language/variable.ex"
+  "lib/absinthe/language/variable_definition.ex"
+  "lib/absinthe/lexer.ex"
+  "lib/absinthe/logger.ex"
+  "lib/absinthe/logger.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/logger.ex" -> "lib/absinthe/language/source.ex" [label="(export)"]
+  "lib/absinthe/logger.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/absinthe/logger.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/middleware.ex"
+  "lib/absinthe/middleware/async.ex"
+  "lib/absinthe/middleware/batch.ex"
+  "lib/absinthe/middleware/dataloader.ex"
+  "lib/absinthe/middleware/map_get.ex"
+  "lib/absinthe/middleware/pass_parent.ex"
+  "lib/absinthe/middleware/telemetry.ex"
+  "lib/absinthe/phase.ex"
+  "lib/absinthe/phase/blueprint.ex"
+  "lib/absinthe/phase/debug.ex"
+  "lib/absinthe/phase/debug.ex" -> "lib/absinthe/blueprint.ex"
+  "lib/absinthe/phase/debug.ex" -> "lib/absinthe/phase.ex" [label="(compile)"]
+  "lib/absinthe/phase/document/arguments/coerce_enums.ex"
+  "lib/absinthe/phase/document/arguments/coerce_lists.ex"
+  "lib/absinthe/phase/document/arguments/data.ex"
+  "lib/absinthe/phase/document/arguments/flag_invalid.ex"
+  "lib/absinthe/phase/document/arguments/normalize.ex"
+  "lib/absinthe/phase/document/arguments/parse.ex"
+  "lib/absinthe/phase/document/arguments/variable_types_match.ex"
+  "lib/absinthe/phase/document/complexity/analysis.ex"
+  "lib/absinthe/phase/document/complexity/result.ex"
+  "lib/absinthe/phase/document/context.ex"
+  "lib/absinthe/phase/document/current_operation.ex"
+  "lib/absinthe/phase/document/directives.ex"
+  "lib/absinthe/phase/document/execution/resolution.ex"
+  "lib/absinthe/phase/document/missing_literals.ex"
+  "lib/absinthe/phase/document/missing_variables.ex"
+  "lib/absinthe/phase/document/override_root.ex"
+  "lib/absinthe/phase/document/result.ex"
+  "lib/absinthe/phase/document/uses.ex"
+  "lib/absinthe/phase/document/validation/arguments_of_correct_type.ex"
+  "lib/absinthe/phase/document/validation/fields_on_correct_type.ex"
+  "lib/absinthe/phase/document/validation/known_argument_names.ex"
+  "lib/absinthe/phase/document/validation/known_directives.ex"
+  "lib/absinthe/phase/document/validation/known_fragment_names.ex"
+  "lib/absinthe/phase/document/validation/lone_anonymous_operation.ex"
+  "lib/absinthe/phase/document/validation/no_fragment_cycles.ex"
+  "lib/absinthe/phase/document/validation/no_undefined_variables.ex"
+  "lib/absinthe/phase/document/validation/no_unused_fragments.ex"
+  "lib/absinthe/phase/document/validation/no_unused_variables.ex"
+  "lib/absinthe/phase/document/validation/only_one_subscription.ex"
+  "lib/absinthe/phase/document/validation/provided_an_operation.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_arguments.ex"
+  "lib/absinthe/phase/document/validation/provided_non_null_variables.ex"
+  "lib/absinthe/phase/document/validation/result.ex"
+  "lib/absinthe/phase/document/validation/scalar_leafs.ex"
+  "lib/absinthe/phase/document/validation/selected_current_operation.ex"
+  "lib/absinthe/phase/document/validation/unique_argument_names.ex"
+  "lib/absinthe/phase/document/validation/unique_fragment_names.ex"
+  "lib/absinthe/phase/document/validation/unique_input_field_names.ex"
+  "lib/absinthe/phase/document/validation/unique_operation_names.ex"
+  "lib/absinthe/phase/document/validation/unique_variable_names.ex"
+  "lib/absinthe/phase/document/validation/utils/message_suggestions.ex"
+  "lib/absinthe/phase/document/validation/variables_are_input_types.ex"
+  "lib/absinthe/phase/document/variables.ex"
+  "lib/absinthe/phase/error.ex"
+  "lib/absinthe/phase/init.ex"
+  "lib/absinthe/phase/parse.ex"
+  "lib/absinthe/phase/schema.ex"
+  "lib/absinthe/phase/schema/apply_declaration.ex"
+  "lib/absinthe/phase/schema/arguments/data.ex"
+  "lib/absinthe/phase/schema/arguments/normalize.ex"
+  "lib/absinthe/phase/schema/arguments/parse.ex"
+  "lib/absinthe/phase/schema/build.ex"
+  "lib/absinthe/phase/schema/compile.ex"
+  "lib/absinthe/phase/schema/directives.ex"
+  "lib/absinthe/phase/schema/field_imports.ex"
+  "lib/absinthe/phase/schema/hydrate.ex"
+  "lib/absinthe/phase/schema/inline_functions.ex"
+  "lib/absinthe/phase/schema/introspection.ex"
+  "lib/absinthe/phase/schema/mark_referenced.ex"
+  "lib/absinthe/phase/schema/populate_persistent_term.ex"
+  "lib/absinthe/phase/schema/populate_persistent_term.ex" -> "lib/absinthe/blueprint/schema/interface_type_definition.ex" [label="(export)"]
+  "lib/absinthe/phase/schema/populate_persistent_term.ex" -> "lib/absinthe/schema/persistent_term.ex"
+  "lib/absinthe/schema/persistent_term.ex" -> "lib/absinthe/phase/schema/compile.ex"
+  "lib/absinthe/schema/persistent_term.ex" -> "lib/absinthe/phase/schema/populate_persistent_term.ex"
+  "lib/absinthe/schema/persistent_term.ex" -> "lib/absinthe/schema/provider.ex" [label="(compile)"]
+  "lib/absinthe/phase/schema/register_triggers.ex"
+  "lib/absinthe/phase/schema/type_imports.ex"
+  "lib/absinthe/phase/schema/validation.ex"
+  "lib/absinthe/phase/schema/validation/default_enum_value_present.ex"
+  "lib/absinthe/phase/schema/validation/input_output_types_correctly_placed.ex"
+  "lib/absinthe/phase/schema/validation/interfaces_must_resolve_types.ex"
+  "lib/absinthe/phase/schema/validation/known_directives.ex"
+  "lib/absinthe/phase/schema/validation/names_must_be_valid.ex"
+  "lib/absinthe/phase/schema/validation/no_circular_field_imports.ex"
+  "lib/absinthe/phase/schema/validation/object_interfaces_must_be_valid.ex"
+  "lib/absinthe/phase/schema/validation/object_must_implement_interfaces.ex"
+  "lib/absinthe/phase/schema/validation/query_type_must_be_object.ex"
+  "lib/absinthe/phase/schema/validation/result.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_reserved.ex"
+  "lib/absinthe/phase/schema/validation/type_names_are_unique.ex"
+  "lib/absinthe/phase/schema/validation/type_references_exist.ex"
+  "lib/absinthe/phase/subscription/result.ex"
+  "lib/absinthe/phase/subscription/subscribe_self.ex"
+  "lib/absinthe/phase/telemetry.ex"
+  "lib/absinthe/phase/validation.ex"
+  "lib/absinthe/phase/validation/known_type_names.ex"
+  "lib/absinthe/pipeline.ex"
+  "lib/absinthe/pipeline/batch_resolver.ex"
+  "lib/absinthe/pipeline/error_result.ex"
+  "lib/absinthe/pipeline/error_result.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/plugin.ex"
+  "lib/absinthe/resolution.ex"
+  "lib/absinthe/resolution/helpers.ex"
+  "lib/absinthe/resolution/projector.ex"
+  "lib/absinthe/schema.ex"
+  "lib/absinthe/schema/compiled.ex"
+  "lib/absinthe/schema/error.ex"
+  "lib/absinthe/schema/hydrator.ex"
+  "lib/absinthe/schema/manager.ex"
+  "lib/absinthe/schema/notation.ex"
+  "lib/absinthe/schema/notation/definition.ex"
+  "lib/absinthe/schema/notation/error.ex"
+  "lib/absinthe/schema/notation/sdl.ex"
+  "lib/absinthe/schema/notation/sdl.ex" -> "lib/absinthe/blueprint.ex" [label="(export)"]
+  "lib/absinthe/schema/notation/sdl.ex" -> "lib/absinthe/blueprint/draft.ex"
+  "lib/absinthe/schema/notation/sdl.ex" -> "lib/absinthe/blueprint/schema.ex"
+  "lib/absinthe/schema/notation/sdl.ex" -> "lib/absinthe/language/source.ex"
+  "lib/absinthe/schema/notation/sdl.ex" -> "lib/absinthe/phase/parse.ex"
+  "lib/absinthe/schema/notation/sdl_render.ex"
+  "lib/absinthe/schema/persistent_term.ex"
+  "lib/absinthe/schema/prototype.ex"
+  "lib/absinthe/schema/prototype/notation.ex"
+  "lib/absinthe/schema/provider.ex"
+  "lib/absinthe/schema/rule.ex"
+  "lib/absinthe/schema/rule.ex" -> "lib/absinthe/phase/error.ex"
+  "lib/absinthe/schema/rule.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/subscription.ex"
+  "lib/absinthe/subscription/local.ex"
+  "lib/absinthe/subscription/proxy.ex"
+  "lib/absinthe/subscription/proxy_supervisor.ex"
+  "lib/absinthe/subscription/pubsub.ex"
+  "lib/absinthe/subscription/supervisor.ex"
+  "lib/absinthe/test.ex"
+  "lib/absinthe/test.ex" -> "lib/absinthe/schema.ex"
+  "lib/absinthe/type.ex"
+  "lib/absinthe/type/argument.ex"
+  "lib/absinthe/type/built_ins/directives.ex"
+  "lib/absinthe/type/built_ins/introspection.ex"
+  "lib/absinthe/type/built_ins/scalars.ex"
+  "lib/absinthe/type/built_ins/scalars/utils.ex"
+  "lib/absinthe/type/custom.ex"
+  "lib/absinthe/type/custom.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/type/custom.ex" -> "lib/absinthe/blueprint/input/string.ex" [label="(export)"]
+  "lib/absinthe/type/custom.ex" -> "lib/absinthe/resolution/helpers.ex" [label="(export)"]
+  "lib/absinthe/type/custom.ex" -> "lib/absinthe/schema/notation.ex" [label="(compile)"]
+  "lib/absinthe/type/custom.ex" -> "lib/absinthe/type/custom/decimal.ex"
+  "lib/absinthe/type/custom/decimal.ex" -> "lib/absinthe/blueprint/input/float.ex" [label="(export)"]
+  "lib/absinthe/type/custom/decimal.ex" -> "lib/absinthe/blueprint/input/integer.ex" [label="(export)"]
+  "lib/absinthe/type/custom/decimal.ex" -> "lib/absinthe/blueprint/input/null.ex" [label="(export)"]
+  "lib/absinthe/type/custom/decimal.ex" -> "lib/absinthe/blueprint/input/string.ex" [label="(export)"]
+  "lib/absinthe/type/custom/decimal.ex"
+  "lib/absinthe/type/deprecation.ex"
+  "lib/absinthe/type/directive.ex"
+  "lib/absinthe/type/enum.ex"
+  "lib/absinthe/type/enum/value.ex"
+  "lib/absinthe/type/fetch.ex"
+  "lib/absinthe/type/field.ex"
+  "lib/absinthe/type/input_object.ex"
+  "lib/absinthe/type/interface.ex"
+  "lib/absinthe/type/list.ex"
+  "lib/absinthe/type/non_null.ex"
+  "lib/absinthe/type/object.ex"
+  "lib/absinthe/type/reference.ex"
+  "lib/absinthe/type/scalar.ex"
+  "lib/absinthe/type/union.ex"
+  "lib/absinthe/utils.ex"
+  "lib/absinthe/utils/suggestion.ex"
+  "lib/mix/tasks/absinthe.schema.json.ex"
+  "lib/mix/tasks/absinthe.schema.json.ex" -> "lib/absinthe/schema.ex"
+  "lib/mix/tasks/absinthe.schema.sdl.ex"
+  "lib/mix/tasks/absinthe.schema.sdl.ex" -> "lib/absinthe/phase/schema/validation/result.ex"
+  "lib/mix/tasks/absinthe.schema.sdl.ex" -> "lib/absinthe/pipeline.ex"
+  "lib/mix/tasks/absinthe.schema.sdl.ex" -> "lib/absinthe/schema.ex"
+}
