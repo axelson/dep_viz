@@ -299,7 +299,7 @@ function updateLinks(linkData) {
   u.enter()
     .append('line')
     .attr('stroke', d => d.stroke)
-    .attr('stroke-width', 2)
+    .attr('stroke-width', 0.3)
     .merge(u)
     .attr('x1', function(d) {
       return d.source.x
