@@ -88,3 +88,7 @@ Ideas:
     envisioning. But maybe my stand-alone application can spin up a new beam
     instance that will control it's own compilation (have it's own build path)
     and avoid conflicts that way.
+
+# Glossary
+
+Compile dependency - The current file depends on this file at compile-time
