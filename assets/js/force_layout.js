@@ -10,6 +10,7 @@ import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 import BrowserText from './browser_text.js'
 
 const NODE_RADIUS = 5
+const HIGHLIGHTED_NODE_RADIUS = 7
 let DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
 const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
@@ -73,14 +74,6 @@ function render(data) {
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
-  // const targetReverseObjects =
-  //       lodash.reduce(linkData, function (acc, link) {
-  //         const obj = {id: link.source, type: linkType()}
-  //       })
-
-  // console.log('targets', targets);
-  // console.log('targetObjects', targetObjects);
-
   window.targets = targets
   window.targetObjects = targetObjects
 
@@ -126,6 +119,13 @@ function renderHighlightsBox(causeRecompileMap) {
   u.enter()
     .append('div')
     .text(d => `${d.count}: ${d.id}`)
+    .merge(u)
+    .on('mouseover', (d) => {
+      highlightFilesThisFileCausesToRecompile(d.id, causeRecompileMap)
+    })
+    .on('mouseout', (_d) => {
+      unHighlightFilesThisFileCausesToRecompile()
+    })
 }
 
 function calculateTopGetRecompiled(getsRecompiledMap) {
@@ -476,7 +476,7 @@ function highlightNodeCompileDeps(id, targetObjects) {
 
   nodes
     .transition(transitionName).duration(duration)
-    .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
+    .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
     .style('fill-opacity', d => hoverNodeOpacity(compileMatched, d))
     .style('fill', d => hoverNodeFill(compileMatched, d, id))
 
@@ -488,41 +488,55 @@ function highlightNodeCompileDeps(id, targetObjects) {
     .attr('stroke', d => hoverLineStroke(compileMatched, d))
     .attr('class', linkClass)
 
-  const matchedNodeData = nodes
-        .data()
-        .filter(d => d.id in compileMatched)
-
-  if (matchedNodeData.length <= vizSettings.maxLabelsToShow) {
-    // TODO: Always show the main node label
-    updateLabels(matchedNodeData, id)
-  } else {
-    updateLabels(matchedNodeData.filter(d => d.id === id), id)
-  }
+  showMatchingLabels(nodes, compileMatched, id)
 }
 
 function unShowNodeCompileDeps() {
   // if (window.vizMode === 'focusNode') return
-  const duration = TRANSITION_FAST
+  restoreNodes()
+  restoreLines()
+  restoreLabels()
+}
 
-  // Restore the nodes
-  d3.select('svg')
-    .select('.nodes')
-    .selectAll('circle')
+function highlightFilesThisFileCausesToRecompile(id, causeRecompileMap) {
+  const duration = TRANSITION_SLOW
+
+  if (vizSettings.logFilesToCompile) {
+    console.log(`\nTouching ${id} will cause these files to be recompiled:`)
+    causeRecompileMap[id].forEach(id => {
+      console.log(id)
+    })
+  }
+
+  const matched = {}
+  causeRecompileMap[id].forEach(id => matched[id] = true)
+
+  const nodes =
+        d3.select('svg')
+          .selectAll('circle')
+
+  // Highlight and fade nodes
+  nodes
     .transition().duration(duration)
-    .attr('r', NODE_RADIUS)
-    .style('fill', DEFAULT_NODE_COLOR)
-    .style('fill-opacity', 1)
+    .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
+    .style('fill-opacity', d => hoverOpacity(matched, d.id))
+    .style('fill', d => hoverNodeFill(matched, d, id))
 
-  // Restore the lines
+  // Highlight and fade links
   d3.select('svg')
     .selectAll('line')
     .transition().duration(duration)
-    .style('stroke-opacity', 1)
-    .attr('stroke', d => d.stroke)
-    .attr('class', '')
+    .style('stroke-opacity', d => hoverOpacityCompile(matched, d))
+    .attr('stroke', d => hoverLineStroke(matched, d))
+    .attr('class', d => hoverAnimateStroke(id, d))
 
-  // Hide labels
-  updateLabels([])
+  showMatchingLabels(nodes, matched, id)
+}
+
+function unHighlightFilesThisFileCausesToRecompile() {
+  restoreNodes()
+  restoreLines()
+  restoreLabels()
 }
 
 function highlightAllDeps(id, targets, _targetObjects) {
@@ -597,6 +611,45 @@ function hoverLineStroke(matched, d) {
   } else {
     return DEFAULT_LINE_STROKE
   }
+}
+
+function hoverAnimateStroke(id, d) {
+  return d.source.id === id || d.target.id === id ? 'direction-animate' : ''
+}
+
+function showMatchingLabels(nodes, matched, id) {
+  const matchedNodeData = nodes
+        .data()
+        .filter(d => d.id in matched)
+
+  if (matchedNodeData.length <= vizSettings.maxLabelsToShow) {
+    updateLabels(matchedNodeData, id)
+  } else {
+    updateLabels(matchedNodeData.filter(d => d.id === id), id)
+  }
+}
+
+function restoreNodes() {
+  d3.select('svg')
+    .select('.nodes')
+    .selectAll('circle')
+    .transition().duration(TRANSITION_FAST)
+    .attr('r', NODE_RADIUS)
+    .style('fill', DEFAULT_NODE_COLOR)
+    .style('fill-opacity', 1)
+}
+
+function restoreLines() {
+  d3.select('svg')
+    .selectAll('line')
+    .transition().duration(TRANSITION_FAST)
+    .style('stroke-opacity', 1)
+    .attr('stroke', d => d.stroke)
+    .attr('class', '')
+}
+
+function restoreLabels() {
+  updateLabels([])
 }
 
 // Use breadth-first traversal to build the list of ndoes that are connected
