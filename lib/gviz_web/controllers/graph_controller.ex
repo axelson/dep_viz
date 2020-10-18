@@ -8,7 +8,10 @@ defmodule GVizWeb.GraphController do
   end
 
   def force(conn, _params) do
-    render(conn, "force_layout.html", svg_width: 400, svg_height: 400)
+    # {width, height} = {600, 600}
+    {width, height} = {1000, 800}
+    # {width, height} = {2000, 1400}
+    render(conn, "force_layout.html", svg_width: width, svg_height: height)
   end
 
   def force_data(conn, _params) do
@@ -50,6 +53,13 @@ defmodule GVizWeb.GraphController do
   end
 
   defp sample_dot_path do
+    # Path.join(:code.priv_dir(:gviz), "sample_xref_graph.dot")
     Path.join(:code.priv_dir(:gviz), "short.dot")
+    # Path.join(:code.priv_dir(:gviz), "tiny.dot")
+
+    # Path.join(:code.priv_dir(:gviz), "hexpm_xref_graph.dot")
+    # Path.join(:code.priv_dir(:gviz), "language_server_xref_graph.dot")
+    # Path.join(:code.priv_dir(:gviz), "contex_xref_graph.dot")
+    # Path.join(:code.priv_dir(:gviz), "credo_xref_graph.dot")
   end
 end

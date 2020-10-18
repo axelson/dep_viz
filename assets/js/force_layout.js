@@ -60,6 +60,11 @@ function render(data) {
           return acc
         }, {})
 
+  // const targetReverseObjects =
+  //       lodash.reduce(linkData, function (acc, link) {
+  //         const obj = {id: link.source, type: linkType()}
+  //       })
+
   // console.log('targets', targets);
   // console.log('targetObjects', targetObjects);
 
@@ -80,6 +85,10 @@ function render(data) {
     .on('tick', buildTicked(nodeData, linkData, force));
 
   renderInfoBox(nodeData, targets, targetObjects)
+
+  setTimeout(function() {
+    showOnlyThisNodeAndCompileDeps('lib/gviz/application.ex', force, nodeData, linkData, targetObjects)
+  }, 500)
 }
 
 function renderInfoBox(nodeData, targets, targetObjects) {
@@ -123,6 +132,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
     u2.exit().remove()
 
     d3.select('svg')
+      .select('.nodes')
       .selectAll('circle')
       .transition().duration(TRANSITION_SLOW)
       .style('opacity', d => {
@@ -198,7 +208,6 @@ function buildTicked(nodeData, linkData, force) {
     updateNodes(nodeData, linkData, force)
     updateLinks(linkData)
     updateLabelsPos()
-    updateLabelBackgroundPos()
   }
 }
 
@@ -229,8 +238,9 @@ function updateLinks(linkData) {
 
 function updateNodes(nodeData, linkData, force) {
   var u = d3.select('svg')
-    .selectAll('circle')
-    .data(nodeData, d => d.id)
+            .select('.nodes')
+            .selectAll('circle')
+            .data(nodeData, d => d.id)
 
   u.enter()
     .append('circle')
@@ -246,7 +256,7 @@ function updateNodes(nodeData, linkData, force) {
     .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
       if (window.vizMode === 'focusNode') {
-        showAllDeps(nodeDatum.id, targets, targetObjects)
+        highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
         highlightNodeCompileDeps(nodeDatum.id, targets, targetObjects)
       }
@@ -295,7 +305,7 @@ function updateNodes(nodeData, linkData, force) {
   }
 }
 
-function updateLabelsPos() {
+export function updateLabelsPos() {
   const u = d3.select('svg')
               .selectAll('text.node-label')
 
@@ -304,56 +314,107 @@ function updateLabelsPos() {
     .attr('y', d => d.y)
 }
 
-function updateLabelBackgroundPos() {
-  const background = d3.select('svg')
-                       .select('.label-backgrounds')
-                       .selectAll('rect')
-
-  background
-    .attr('x', d => d.x - 10)
-    .attr('y', d => d.y - 10)
-}
-
-function updateLabels(nodeData, primaryId) {
+export function updateLabels(nodeData, primaryId) {
   const u = d3.select('svg')
+              .select('.labels')
               .selectAll('text.node-label')
               .data(nodeData)
 
-  u.enter()
+  const enter = u.enter()
+  const g = enter.append('g')
+
+  g
+    .append('rect')
+    .attr('width', d => {
+      const width = BrowserText.getWidth(d.id, 13, 'Fira Mono')
+      width + 30
+    })
+    .attr('height', 25)
+    .style('fill', 'green')
+    .style('fill-opacity', 0.5)
+
+  // const primaryU = entered.filter(d => d.id === primaryId)
+  // console.log('primaryU', primaryU);
+  // console.log('primaryU.empty()', primaryU.empty());
+  // primaryU.each(p => {
+  //   // console.log('p', p);
+  //   // console.log('primaryU.data()', primaryU.data());
+  //   // const text = p.id
+  //   // const width = BrowserText.getWidth(text, 13, 'Fira Mono')
+
+  //   // const sel =
+  //   //       d3.select(this)
+  //   //         .selectAll('.child')
+  //   //         .data(primaryU.data())
+
+  //   // console.log('sel', sel);
+  //   // const insert = sel.enter()
+  //   //   .append('rect')
+  //   //   .attr('width', width + 30)
+  //   //   .attr('height', 25)
+  //   //   .style('fill', 'blue')
+  //   //   .style('fill-opacity', 0.5)
+  //   // console.log('insert', insert);
+
+  //   const primaryNodeData = nodeData.filter(d => d.id === primaryId)
+
+  //   const selected = d3.select(this)
+  //   console.log('selected', selected);
+  //   const background = d3.select(this)
+  //   // .select('.label-backgrounds')
+  //         .selectAll('rect')
+  //         // .data(primaryNodeData)
+
+  //   const primaryNode = primaryNodeData[0]
+  //   if (primaryNode) {
+  //     const text = primaryNode.id
+  //     const width = BrowserText.getWidth(text, 13, 'Fira Mono')
+  //     background
+  //               .append('rect')
+  //               .attr('width', width + 30)
+  //               .attr('height', 25)
+  //               .style('fill', 'green')
+  //               .style('fill-opacity', 0.5)
+
+  //     updateLabelBackgroundPos()
+  //   }
+  // })
+
+  // const primaryNodeData = nodeData.filter(d => d.id === primaryId)
+
+  // const background = d3.select('svg')
+  //                      // .select('.label-backgrounds')
+  //                      .selectAll('rect')
+  //                      .data(primaryNodeData)
+
+  // const primaryNode = primaryNodeData[0]
+  // if (primaryNode) {
+  //   const text = primaryNode.id
+  //   const width = BrowserText.getWidth(text, 13, 'Fira Mono')
+  //   background.enter()
+  //             .append('rect')
+  //             .attr('width', width + 30)
+  //             .attr('height', 25)
+  //             .style('fill', 'green')
+  //             .style('fill-opacity', 0.5)
+
+  //   updateLabelBackgroundPos()
+  // }
+
+  // background
+  //   .exit().remove()
+
+  g
    .append('text')
    .attr('class', 'node-label pointer-events-none')
    .text(d => d.id)
    .attr('dominant-baseline', 'middle')
    .style('font-size', d => d.id == primaryId ? 13 : 9)
    .merge(u)
-    .attr('x', d => d.x + 10)
+   .attr('x', d => d.x + 10)
    .attr('y', d => d.y)
 
   u.exit().remove()
-
-  const primaryNodeData = nodeData.filter(d => d.id === primaryId)
-
-  const background = d3.select('svg')
-                       .select('.label-backgrounds')
-                       .selectAll('rect')
-                       .data(primaryNodeData)
-
-  const primaryNode = primaryNodeData[0]
-  if (primaryNode) {
-    const text = primaryNode.id
-    const width = BrowserText.getWidth(text, 13, 'Fira Mono')
-    background.enter()
-              .append('rect')
-              .attr('width', width + 30)
-              .attr('height', 25)
-              .style('fill', 'white')
-              .style('fill-opacity', 0.5)
-
-    updateLabelBackgroundPos()
-  }
-
-  background
-    .exit().remove()
 }
 
 function linkType(label) {
@@ -424,6 +485,8 @@ function highlightNodeCompileDeps(id, _targets, targetObjects) {
   if (matchedNodeData.length <= vizSettings.maxLabelsToShow) {
     // TODO: Always show the main node label
     updateLabels(matchedNodeData, id)
+  } else {
+    updateLabels(matchedNodeData.filter(d => d.id === id), id)
   }
 }
 
@@ -448,17 +511,19 @@ function unShowNodeCompileDeps() {
     .attr('class', '')
 
   // Hide labels
-  updateLabels([])
+  // updateLabels([])
 }
 
-function showAllDeps(id, targets, _targetObjects) {
+function highlightAllDeps(id, targets, _targetObjects) {
   const duration = TRANSITION_SLOW
 
   const matched = findAllDependencies(targets, id)
 
   // Fade out non-dependencies
-  d3.select('svg')
-    .selectAll('circle')
+  const nodes = d3.select('svg')
+                  .selectAll('circle')
+
+  nodes
     .transition().duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
     .style('opacity', d => hoverOpacity(matched, d.id))
@@ -471,15 +536,15 @@ function showAllDeps(id, targets, _targetObjects) {
     .style('opacity', d => hoverOpacityCompile(matched, d))
     .attr('stroke', d => hoverLineStroke(matched, d))
 
-  // Show labels for nodes that will cause a recompile
-  const matchedLabels = d3.select('svg')
-                          .selectAll('text.node-label')
-                          .filter(d => d.id in matched)
+  const filteredNodes =
+        nodes
+        .filter(d => d.id in matched)
+        .data()
 
-  if (matchedLabels.size() <= vizSettings.maxLabelsToShow) {
-    matchedLabels
-      .transition().duration(duration)
-      .style('opacity', 1)
+  if (filteredNodes.length <= vizSettings.maxLabelsToShow) {
+    updateLabels(filteredNodes, id)
+  } else {
+    updateLabels(filteredNodes.filter(d => d.id === id), id)
   }
 }
 

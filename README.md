@@ -15,6 +15,12 @@ Used a combination of:
 * https://stackoverflow.com/questions/11121465/scaling-an-arrowhead-on-a-d3-force-layout-link-marker
 * https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end
 
+Other interesting links:
+* https://gist.github.com/unixod/e932a181c1125921fa638f702376c295
+  * Some other means of using graphviz for visualizing larger graphs
+* https://github.com/magjac/d3-graphviz/issues/152
+  * Information about using webpack with d3-graphviz
+
 Main things to remember:
 - The arrow head size is proportional to the stroke width
 - The arrow head is drawn with a svg marker element
@@ -33,7 +39,15 @@ TODO:
 - [x] Show a list of files on the left
 - [x] Allow filtering in the list of files
 - [ ] Have a mode to show what files this file will trigger to compile
-- [ ] Arrow colors should match the lines
+- [x] Allow dragging
+- [ ] Only render the labels when hovering
+- [ ] Allow dragging when in focused mode
+- [ ] When hovering, remove tooltip
+  - Replace with making the node label always show, and be larger for the current node
+- [ ] node centric force layout is buggy
+  - [ ] transition to the layout sometimes keeps the discarded nodes for too long
+  - [ ] tooltip doesn't match node labels (labels are incorrect)
+- [ ] adding the labels appears to have negatively impacted performance
 
 Future:
 - Configurable node coloring based on filename prefix

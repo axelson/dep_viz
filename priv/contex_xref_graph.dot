@@ -1,0 +1,69 @@
+digraph "xref graph" {
+  "lib/chart/axis.ex"
+  "lib/chart/axis.ex" -> "lib/chart/scale.ex"
+  "lib/chart/axis.ex" -> "lib/chart/svg_sanitize.ex"
+  "lib/chart/barchart.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/axis.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/dataset.ex" [label="(struct)"]
+  "lib/chart/dataset.ex" -> "lib/chart/utils.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/legend.ex"
+  "lib/chart/legend.ex" -> "lib/chart/scale/category_colour_scale.ex" [label="(compile)"]
+  "lib/chart/legend.ex" -> "lib/chart/svg.ex" [label="(compile)"]
+  "lib/chart/svg.ex" -> "lib/chart/svg_sanitize.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/mapping.ex"
+  "lib/chart/mapping.ex" -> "lib/chart/dataset.ex" [label="(struct)"]
+  "lib/chart/barchart.ex" -> "lib/chart/scale.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/scale/category_colour_scale.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/scale/continuous_linear_scale.ex"
+  "lib/chart/scale/continuous_linear_scale.ex" -> "lib/chart/scale.ex" [label="(compile)"]
+  "lib/chart/scale/continuous_linear_scale.ex" -> "lib/chart/utils.ex"
+  "lib/chart/barchart.ex" -> "lib/chart/scale/ordinal_scale.ex" [label="(struct)"]
+  "lib/chart/scale/ordinal_scale.ex" -> "lib/chart/scale.ex" [label="(compile)"]
+  "lib/chart/barchart.ex" -> "lib/chart/svg.ex" [label="(compile)"]
+  "lib/chart/barchart.ex" -> "lib/chart/utils.ex"
+  "lib/chart/dataset.ex"
+  "lib/chart/gantt.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/axis.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/dataset.ex" [label="(struct)"]
+  "lib/chart/gantt.ex" -> "lib/chart/mapping.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/scale.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/scale/category_colour_scale.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/scale/ordinal_scale.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/scale/time_scale.ex"
+  "lib/chart/scale/time_scale.ex" -> "lib/chart/scale.ex" [label="(compile)"]
+  "lib/chart/scale/time_scale.ex" -> "lib/chart/utils.ex"
+  "lib/chart/gantt.ex" -> "lib/chart/svg.ex" [label="(compile)"]
+  "lib/chart/gantt.ex" -> "lib/chart/utils.ex"
+  "lib/chart/legend.ex"
+  "lib/chart/mapping.ex"
+  "lib/chart/plot.ex"
+  "lib/chart/plot.ex" -> "lib/chart/barchart.ex" [label="(compile)"]
+  "lib/chart/plot.ex" -> "lib/chart/dataset.ex" [label="(struct)"]
+  "lib/chart/plot.ex" -> "lib/chart/gantt.ex" [label="(compile)"]
+  "lib/chart/plot.ex" -> "lib/chart/pointplot.ex" [label="(compile)"]
+  "lib/chart/pointplot.ex" -> "lib/chart/axis.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/dataset.ex" [label="(struct)"]
+  "lib/chart/pointplot.ex" -> "lib/chart/legend.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/mapping.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/scale.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/scale/category_colour_scale.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/scale/continuous_linear_scale.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/scale/time_scale.ex"
+  "lib/chart/pointplot.ex" -> "lib/chart/svg.ex" [label="(compile)"]
+  "lib/chart/pointplot.ex" -> "lib/chart/utils.ex"
+  "lib/chart/plot.ex" -> "lib/chart/svg.ex" [label="(compile)"]
+  "lib/chart/pointplot.ex"
+  "lib/chart/scale.ex"
+  "lib/chart/scale/category_colour_scale.ex"
+  "lib/chart/scale/continuous_linear_scale.ex"
+  "lib/chart/scale/ordinal_scale.ex"
+  "lib/chart/scale/time_scale.ex"
+  "lib/chart/small.ex"
+  "lib/chart/sparkline.ex"
+  "lib/chart/sparkline.ex" -> "lib/chart/scale.ex"
+  "lib/chart/sparkline.ex" -> "lib/chart/scale/continuous_linear_scale.ex"
+  "lib/chart/svg.ex"
+  "lib/chart/svg_sanitize.ex"
+  "lib/chart/utils.ex"
+  "lib/contex.ex"
+}
