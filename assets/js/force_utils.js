@@ -52,8 +52,9 @@ export function findAllDependencies(graph, id) {
     visited[node] = depth;
 
     (graph[node] || []).forEach(childNode => {
-      if (!(childNode in visited)) {
-        next.push(childNode)
+      const id = childNode.id || childNode
+      if (!(id in visited)) {
+        next.push(id)
       }
     })
 

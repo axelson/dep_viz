@@ -41,6 +41,7 @@ Helps you answer questions about the Elixir code base:
   * What files are most often triggered
 
 TODO:
+- [x] When hover, in the info box show the outgoing dependencies
 - [ ] Have a mode to show what files this file will trigger to compile
 - [ ] When hovering a node, show compilation dependencies in info box
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown

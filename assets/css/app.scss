@@ -107,14 +107,13 @@ body {
   margin: -1rem 0 2rem;
 }
 
-.flex { display: flex; }
-
-.list-style-none { list-style: none; }
-
 nav li {
   margin: 0 4px;
 }
 
-.p-4 {
-  padding: 12px;
-}
+// Utility css
+.display-none { display: none; }
+.flex { display: flex; }
+.list-style-none { list-style: none; }
+.p-4 { padding: 12px; }
+.m-l-4 { margin-left: 12px; }

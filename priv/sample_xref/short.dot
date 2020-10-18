@@ -1,9 +1,10 @@
 digraph "xref graph" {
-  "lib/gviz/application.ex" -> "lib/gviz_web/endpoint.ex" [label="(compile)"]
   "lib/gviz_web/endpoint.ex" -> "lib/gviz_web.ex" [label="(compile)"]
   "lib/gviz_web/endpoint.ex" -> "lib/gviz_web/router.ex"
   "lib/gviz_web/router.ex" -> "lib/gviz_web.ex" [label="(compile)"]
   "lib/gviz/application.ex" -> "lib/gviz_web/controllers/graph_controller.ex"
+  "lib/gviz/application.ex" -> "lib/gviz/schemas/user.ex" [label="(export)"]
   "lib/gviz_web/controllers/graph_controller.ex" -> "lib/gviz/application.ex"
   "lib/gviz_web/controllers/graph_controller.ex" -> "lib/gviz/schemas/user.ex" [label="(export)"]
+  "lib/gviz/application.ex" -> "lib/gviz_web/endpoint.ex" [label="(compile)"]
 }

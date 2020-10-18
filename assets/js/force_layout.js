@@ -1,5 +1,6 @@
 import lodash from 'lodash'
 import jQuery from 'jquery'
+window.jQuery = jQuery
 
 import {
   findAllDependencies,
@@ -14,8 +15,11 @@ const HIGHLIGHTED_NODE_RADIUS = 7
 let DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
 const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
+
 const DEFAULT_LINE_STROKE = '#ccc'
+const COMPILE_LINE_STROKE = 'red'
 let EXPORT_LINE_STROKE = '#3a79ff'
+
 const TRANSITION_SLOW = 600
 const TRANSITION_FAST = 500
 
@@ -29,6 +33,16 @@ const vizSettings = {
   logFilesToCompile: false
 }
 
+// Data
+// targetObjects - Map from files to list of file objects w/type that they are depdendencies
+// targets - Like targetObjects but just a plain list for each file
+// causeRecompileMap - Map from files to list of files that they will cause to recompile
+// getsRecompiledMap - Map from files to count of files that will cause the file to get recompile
+//   Maybe change this a list also
+//
+// NOTE: There isn't a good reason that a function would need to take in both
+// targets and targetObjects since targets can be derived from targetObjects
+
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
     render(data)
@@ -40,8 +54,8 @@ function render(data) {
   const linkData = data.filter(row => row.type == "edge")
   transformData(linkData)
   window.linkData = linkData
-  console.log('linkData', linkData);
-  console.log('nodeData', nodeData);
+  // console.log('linkData', linkData);
+  // console.log('nodeData', nodeData);
 
   const targets =
         lodash.reduce(linkData, function(acc, link) {
@@ -92,9 +106,11 @@ function render(data) {
 
   renderInfoBox(nodeData, targets, targetObjects)
 
-  // setTimeout(function() {
-  //   showOnlyThisNodeAndCompileDeps('lib/gviz/application.ex', force, nodeData, linkData, targetObjects)
-  // }, 500)
+  setTimeout(function() {
+    // const id = 'lib/gviz/application.ex'
+    // showOnlyThisNodeAndCompileDeps(id, force, nodeData, linkData, targetObjects)
+    // showFileTree(id, targetObjects)
+  }, 500)
 }
 
 function calculateTopRecompiles(causeRecompileMap) {
@@ -148,13 +164,16 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects) {
 
   u.enter()
    .append('div')
-   .text(d => `${d.count}: ${d.id}`)
+  // Subtract 1 to not count itself
+   .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
    .on('mouseover', (d) => {
      highlightNodeCompileDeps(d.id, targetObjects)
+     showFileTree(d.id, targetObjects)
    })
    .on('mouseout', (_d) => {
      unShowNodeCompileDeps()
+     unShowFileTree()
    })
 }
 
@@ -255,7 +274,7 @@ function chargeStrength(_data) {
 function transformData(linkData) {
   linkData.forEach(d => {
     if (d.label == "(compile)") {
-      d.stroke = HIGHLIGHT_NODE_COLOR
+      d.stroke = COMPILE_LINE_STROKE
     } else if (d.label == "(export)") {
       d.stroke = EXPORT_LINE_STROKE
     } else {
@@ -322,10 +341,12 @@ function updateNodes(nodeData, linkData, force) {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
         highlightNodeCompileDeps(nodeDatum.id, targetObjects)
+        showFileTree(nodeDatum.id, targetObjects)
       }
     })
     .on('mouseout', function (_nodeDatum) {
       unShowNodeCompileDeps()
+      unShowFileTree()
     })
     .call(d3.drag()
             .on('start', dragStarted)
@@ -571,6 +592,87 @@ function highlightAllDeps(id, targets, _targetObjects) {
   } else {
     updateLabels(filteredNodes.filter(d => d.id === id), id)
   }
+}
+
+// Shows the direct depenencies of the given file id
+function showFileTree(id, targetObjects) {
+  // hide the info box file list and show the info box file tree
+  jQuery('.info-box-file-list-container').hide()
+  jQuery('.info-box-file-tree').show()
+
+  // For the current file render the file name
+  jQuery('.info-box-file-tree .current-file').text(id)
+
+  // underneath it render the name of each file it depends on and how it depends on it
+  // Sort by compile, then export, then runtime
+
+  const typeToOrder = d => {
+    switch(d.type) {
+      case 'compile': return 2
+      case 'export': return 1
+      case 'runtime': return 0
+    }
+  }
+
+  const deps = lodash.orderBy(targetObjects[id], [typeToOrder], ['desc'])
+
+  const u = d3.select('.info-box-file-tree .file-tree')
+              .selectAll('div')
+              .data(deps)
+
+  const container = u.enter()
+                     .append('div')
+                     .attr('class', 'm-l-4')
+
+  const _label =
+        container
+        .append('span')
+        .text(d => {
+          switch(d.type) {
+            case 'compile': return 'compile: '
+            case 'export': return 'export : '
+            case 'runtime': return 'runtime: '
+          }
+        })
+        .style('color', d => {
+          switch(d.type) {
+            case 'compile': return COMPILE_LINE_STROKE
+            case 'export': return EXPORT_LINE_STROKE
+            case 'runtime': return DEFAULT_NODE_COLOR
+          }
+        })
+
+  const _file =
+        container
+        .append('span')
+        .text(d => {
+          switch (d.type) {
+            case 'compile': {
+              // TODO: Have this be precomputed in the worker
+              const matched = findAllDependencies(targetObjects, d.id)
+              // Show count of files that this compile dependency depends on
+              const count = Object.keys(matched).length
+              return `${d.id} (${count})`
+            }
+
+            case 'export':
+              return d.id
+
+            case 'runtime':
+              return d.id
+          }
+        })
+}
+
+function unShowFileTree() {
+  jQuery('.info-box-file-list-container').show()
+  jQuery('.info-box-file-tree').hide()
+
+  const u = d3.select('.info-box-file-tree .file-tree')
+              .selectAll('div')
+              .data([])
+
+  u.exit().remove()
 }
 
 function hoverNodeFill(matched, d, id) {
