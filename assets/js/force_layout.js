@@ -476,7 +476,6 @@ function nodeClass(_data) {
 
 function highlightNodeCompileDeps(id, targetObjects) {
   const duration = TRANSITION_SLOW
-  const transitionName = 'showCompileDeps'
   const compileMatched = findCompileDependencies(targetObjects, id)
 
   if (vizSettings.logFilesToCompile) {
@@ -496,7 +495,7 @@ function highlightNodeCompileDeps(id, targetObjects) {
       .selectAll('circle')
 
   nodes
-    .transition(transitionName).duration(duration)
+    .transition().duration(duration)
     .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
     .style('fill-opacity', d => hoverNodeOpacity(compileMatched, d))
     .style('fill', d => hoverNodeFill(compileMatched, d, id))
@@ -504,7 +503,7 @@ function highlightNodeCompileDeps(id, targetObjects) {
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
     .selectAll('line')
-    .transition(transitionName).duration(duration)
+    .transition().duration(duration)
     .style('stroke-opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverLineStroke(compileMatched, d))
     .attr('class', linkClass)
