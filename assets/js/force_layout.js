@@ -57,6 +57,11 @@ function render(data) {
           return acc
         }, {})
 
+  if (!window.Worker) alert("ERROR: Web Workers not supported")
+
+  const worker = new Worker('js/graph_worker.js')
+  worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
+
   // const targetReverseObjects =
   //       lodash.reduce(linkData, function (acc, link) {
   //         const obj = {id: link.source, type: linkType()}
