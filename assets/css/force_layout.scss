@@ -1,4 +1,4 @@
-body {
+body.dark-mode {
   background: black;
   color: white;
 }
@@ -49,7 +49,10 @@ svg.main {
   z-index: 1;
   left: 150px;
   border: 1px solid black;
-  background: black;
+
+  body.dark-mode & {
+    background: black;
+  }
 }
 
 svg line {

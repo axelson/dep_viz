@@ -10,13 +10,18 @@ import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 import BrowserText from './browser_text.js'
 
 const NODE_RADIUS = 5
-const DEFAULT_NODE_COLOR = 'white'
+let DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
 const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
 const DEFAULT_LINE_STROKE = '#ccc'
-const EXPORT_LINE_STROKE = '#a1bfff'
+let EXPORT_LINE_STROKE = '#3a79ff'
 const TRANSITION_SLOW = 600
 const TRANSITION_FAST = 500
+
+if (jQuery('body.dark-mode').length > 0) {
+  DEFAULT_NODE_COLOR = 'white'
+  EXPORT_LINE_STROKE = '#a1bfff'
+}
 
 const vizSettings = {
   maxLabelsToShow: 10,
