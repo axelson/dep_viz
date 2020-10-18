@@ -14,7 +14,6 @@ function init(nodeData, targetObjects) {
   console.log('targetObjects', targetObjects);
   const causeRecompileMap = {}
 
-  // TODO: Clean this up and send back to the main js file
   nodeData.forEach(node => {
     const deps = findCompileDependencies(targetObjects, node.id)
     console.log('node.id', node.id);
@@ -30,7 +29,7 @@ function init(nodeData, targetObjects) {
 
   // This is working, although it's not distinguishing between export and
   // compile dependencies
-  console.log('causeRecompileMap', causeRecompileMap);
+  postMessage(causeRecompileMap)
 }
 
 // This script needs a copy of targetObjects graph

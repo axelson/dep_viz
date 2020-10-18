@@ -16,6 +16,10 @@ Force Layout
     <div id="info-box-header">All files:</div>
     <div class="info-box-file-list"></div>
   </div>
+
+  <div class="highlight-box">
+  </div>
+
   <svg class="main">
     <g class="links"></g>
     <g class="nodes"></g>

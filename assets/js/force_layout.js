@@ -10,10 +10,11 @@ import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 import BrowserText from './browser_text.js'
 
 const NODE_RADIUS = 5
-const DEFAULT_NODE_COLOR = 'black'
+const DEFAULT_NODE_COLOR = 'white'
 const HIGHLIGHT_NODE_COLOR = 'red'
 const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
 const DEFAULT_LINE_STROKE = '#ccc'
+const EXPORT_LINE_STROKE = '#a1bfff'
 const TRANSITION_SLOW = 600
 const TRANSITION_FAST = 500
 
@@ -61,6 +62,10 @@ function render(data) {
 
   const worker = new Worker('js/graph_worker.js')
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
+  worker.onmessage = e => {
+    console.log('got message', e.data)
+    renderHighlightsBox(e.data)
+  }
 
   // const targetReverseObjects =
   //       lodash.reduce(linkData, function (acc, link) {
@@ -91,6 +96,30 @@ function render(data) {
   // setTimeout(function() {
   //   showOnlyThisNodeAndCompileDeps('lib/gviz/application.ex', force, nodeData, linkData, targetObjects)
   // }, 500)
+}
+
+function topRecompiles(causeRecompileMap) {
+  const topFiles = []
+
+  for (const id of Object.keys(causeRecompileMap)) {
+    topFiles.push({id: id, count: causeRecompileMap[id].length})
+  }
+
+  return lodash.sortBy(topFiles, d => d.count).reverse()
+}
+
+function renderHighlightsBox(causeRecompileMap) {
+  const allFiles = topRecompiles(causeRecompileMap)
+  const topFiles = allFiles.slice(0, 6)
+
+  // recompile map shows which files the given id cause to recompile
+  const u = d3.select('.highlight-box')
+        .selectAll('div')
+        .data(topFiles)
+
+  u.enter()
+    .append('div')
+    .text(d => `${d.count}: ${d.id}`)
 }
 
 function renderInfoBox(nodeData, targets, targetObjects) {
@@ -187,7 +216,7 @@ function transformData(linkData) {
     if (d.label == "(compile)") {
       d.stroke = HIGHLIGHT_NODE_COLOR
     } else if (d.label == "(export)") {
-      d.stroke = 'blue'
+      d.stroke = EXPORT_LINE_STROKE
     } else {
       d.stroke = DEFAULT_LINE_STROKE
     }
@@ -210,6 +239,7 @@ function updateLinks(linkData) {
   u.enter()
     .append('line')
     .attr('stroke', d => d.stroke)
+    .attr('stroke-width', 2)
     .merge(u)
     .attr('x1', function(d) {
       return d.source.x
@@ -237,6 +267,7 @@ function updateNodes(nodeData, linkData, force) {
     .append('circle')
     .attr('r', NODE_RADIUS)
     .attr('class', nodeClass)
+    .style('fill', DEFAULT_NODE_COLOR)
     .merge(u)
     .attr('cx', function(d) {
       return d.x
