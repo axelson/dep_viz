@@ -69,7 +69,7 @@ function render(data) {
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
     renderHighlightsBox(e.data.causeRecompileMap)
-    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap)
+    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects)
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
@@ -138,7 +138,7 @@ function calculateTopGetRecompiled(getsRecompiledMap) {
   return lodash.orderBy(allFiles, ['count'], ['desc'])
 }
 
-function renderTopFilesThatGetRecompiled(getsRecompiledMap) {
+function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects) {
   const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
   const topFiles = allFiles.slice(0, 6)
 
@@ -149,6 +149,13 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap) {
   u.enter()
    .append('div')
    .text(d => `${d.count}: ${d.id}`)
+   .merge(u)
+   .on('mouseover', (d) => {
+     highlightNodeCompileDeps(d.id, targetObjects)
+   })
+   .on('mouseout', (_d) => {
+     unShowNodeCompileDeps()
+   })
 }
 
 function renderTotalFileCount(getsRecompiledMap) {
@@ -156,7 +163,7 @@ function renderTotalFileCount(getsRecompiledMap) {
   jQuery('.total-files-count').text(totalFileCount)
 }
 
-function renderInfoBox(nodeData, targets, targetObjects) {
+function renderInfoBox(nodeData, _targets, targetObjects) {
   const u = d3.select('.info-box-file-list')
     .selectAll('div')
     .data(nodeData, d => d.id)
@@ -166,7 +173,7 @@ function renderInfoBox(nodeData, targets, targetObjects) {
    .attr('class', 'info-box-item')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
-     highlightNodeCompileDeps(nodeDatum.id, targets, targetObjects)
+     highlightNodeCompileDeps(nodeDatum.id, targetObjects)
    })
    .on('mouseout', function (_nodeDatum) {
      unShowNodeCompileDeps()
@@ -314,7 +321,7 @@ function updateNodes(nodeData, linkData, force) {
       if (window.vizMode === 'focusNode') {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
-        highlightNodeCompileDeps(nodeDatum.id, targets, targetObjects)
+        highlightNodeCompileDeps(nodeDatum.id, targetObjects)
       }
     })
     .on('mouseout', function (_nodeDatum) {
@@ -446,7 +453,7 @@ function nodeClass(_data) {
   // }
 }
 
-function highlightNodeCompileDeps(id, _targets, targetObjects) {
+function highlightNodeCompileDeps(id, targetObjects) {
   const duration = TRANSITION_SLOW
   const transitionName = 'showCompileDeps'
   const compileMatched = findCompileDependencies(targetObjects, id)
