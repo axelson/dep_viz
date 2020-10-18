@@ -651,7 +651,8 @@ function showFileTree(id, targetObjects) {
               const matched = findAllDependencies(targetObjects, d.id)
               // Show count of files that this compile dependency depends on
               const count = Object.keys(matched).length
-              return `${d.id} (${count})`
+              // Subtract 1 to not include itself
+              return `${d.id} (${count - 1})`
             }
 
             case 'export':
