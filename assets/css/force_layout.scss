@@ -40,6 +40,8 @@ body.dark-mode {
   // We want each item to only take up it's exact width so that pointer events
   // fall back to the SVG
   display: inline;
+  pointer-events: auto;
+
   &:after {
     content: "\A";
     white-space: pre;

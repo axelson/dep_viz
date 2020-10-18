@@ -11,9 +11,9 @@ Force Layout
 </script>
 
 <div class="force-layout-container">
-  <div class="info-box">
+  <div class="info-box pointer-events-none">
     <div class="info-box-file-list-container">
-      <input type="text" id="info-box-input">
+      <input type="text" id="info-box-input" class="pointer-events-auto">
       <div id="info-box-header">All files:</div>
       <div class="info-box-file-list"></div>
     </div>
