@@ -13,10 +13,12 @@ onmessage = function(e) {
 function init(nodeData, targetObjects) {
   console.log('targetObjects', targetObjects);
   const causeRecompileMap = {}
+  const getsRecompiledMap = {}
 
   nodeData.forEach(node => {
     const deps = findCompileDependencies(targetObjects, node.id)
-    console.log('node.id', node.id);
+
+    getsRecompiledMap[node.id] = Object.keys(deps).length
 
     for (const depId of Object.keys(deps)) {
       if (causeRecompileMap[depId]) {
@@ -29,7 +31,10 @@ function init(nodeData, targetObjects) {
 
   // This is working, although it's not distinguishing between export and
   // compile dependencies
-  postMessage(causeRecompileMap)
+  postMessage({
+    causeRecompileMap: causeRecompileMap,
+    getsRecompiledMap: getsRecompiledMap,
+  })
 }
 
 // This script needs a copy of targetObjects graph

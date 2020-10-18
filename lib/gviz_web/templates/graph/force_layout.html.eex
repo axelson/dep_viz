@@ -18,6 +18,18 @@ Force Layout
   </div>
 
   <div class="highlight-box">
+    <div class="p-4">
+      Total files: <span class="total-files-count"></span>
+    </div>
+    <div class="p-4">
+      Files that cause the most recompiles:
+      <div class="cause-recompile-list"></div>
+    </div>
+
+    <div class="p-4">
+      Files that get recompiled most often:
+      <div class="gets-recompiled-list"></div>
+    </div>
   </div>
 
   <svg class="main">

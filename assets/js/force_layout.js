@@ -68,8 +68,9 @@ function render(data) {
   const worker = new Worker('js/graph_worker.js')
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
-    console.log('got message', e.data)
-    renderHighlightsBox(e.data)
+    renderHighlightsBox(e.data.causeRecompileMap)
+    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap)
+    renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
   // const targetReverseObjects =
@@ -103,7 +104,7 @@ function render(data) {
   // }, 500)
 }
 
-function topRecompiles(causeRecompileMap) {
+function calculateTopRecompiles(causeRecompileMap) {
   const topFiles = []
 
   for (const id of Object.keys(causeRecompileMap)) {
@@ -114,17 +115,45 @@ function topRecompiles(causeRecompileMap) {
 }
 
 function renderHighlightsBox(causeRecompileMap) {
-  const allFiles = topRecompiles(causeRecompileMap)
+  const allFiles = calculateTopRecompiles(causeRecompileMap)
   const topFiles = allFiles.slice(0, 6)
 
   // recompile map shows which files the given id cause to recompile
-  const u = d3.select('.highlight-box')
-        .selectAll('div')
-        .data(topFiles)
+  const u = d3.select('.highlight-box .cause-recompile-list')
+              .selectAll('div')
+              .data(topFiles)
 
   u.enter()
     .append('div')
     .text(d => `${d.count}: ${d.id}`)
+}
+
+function calculateTopGetRecompiled(getsRecompiledMap) {
+  const allFiles = []
+
+  for (const id of Object.keys(getsRecompiledMap)) {
+    allFiles.push({id: id, count: getsRecompiledMap[id]})
+  }
+
+  return lodash.orderBy(allFiles, ['count'], ['desc'])
+}
+
+function renderTopFilesThatGetRecompiled(getsRecompiledMap) {
+  const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
+  const topFiles = allFiles.slice(0, 6)
+
+  const u = d3.select('.highlight-box .gets-recompiled-list')
+              .selectAll('div')
+              .data(topFiles)
+
+  u.enter()
+   .append('div')
+   .text(d => `${d.count}: ${d.id}`)
+}
+
+function renderTotalFileCount(getsRecompiledMap) {
+  const totalFileCount = Object.keys(getsRecompiledMap).length
+  jQuery('.total-files-count').text(totalFileCount)
 }
 
 function renderInfoBox(nodeData, targets, targetObjects) {
