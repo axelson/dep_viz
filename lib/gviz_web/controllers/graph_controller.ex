@@ -69,8 +69,13 @@ defmodule GVizWeb.GraphController do
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "plausible_analytics_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "scenic_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "contex_xref_graph.dot"])
+
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "credo_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "credo_after_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "credo_after2_xref_graph.dot"])
+
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "absinthe_xref_graph.dot"])
+
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "blue_heron_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "cachex_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "language_server_xref_graph.dot"])

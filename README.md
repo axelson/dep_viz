@@ -25,6 +25,12 @@ Main things to remember:
 - The arrow head size is proportional to the stroke width
 - The arrow head is drawn with a svg marker element
 
+Top annoyances:
+- Hard to find the specific files that the currently highlighted node depends on
+- Hard to tell how many files are "behind" each compilation dependency
+  - i.e. if a file has 3 compilation dependencies it's hard to see how many
+    files each of those dependencies is contributing
+
 ## Meta
 
 Helps you answer questions about the Elixir code base:
@@ -47,9 +53,10 @@ TODO:
   - Can we apply a higher degree of force to keep it more spread out and higher up?
 - [ ] Node centric force layout always highlight the selected node
 - [ ] Node centric force layout have way to go back to normal layout
-- [ ] Use info box to show files that will be recompiled most often
-  - [ ] Calculate this not on the main thread
-  - [ ] Cache this calculation to be re-used when hovering
+- [ ] Show which compile-links cause the most files to be compiled
+- [ ] Create a glossary
+- [ ] Create a "score" for the repository or the file
+  - Based on the number of files that cause the top files to get recompiled
 
 Done:
 - [x] Show a list of files on the left
@@ -61,6 +68,9 @@ Done:
 - [x] adding the labels appears to have negatively impacted performance
 - [x] Click on a node to keep it selected
   - Didn't implement this in the way I was originally envisioning
+- [x] Use info box to show files that will be recompiled most often
+  - [x] Calculate this not on the main thread
+  - [x] Cache this calculation to be re-used when hovering
 
 Future:
 - Configurable node coloring based on filename prefix
