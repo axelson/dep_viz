@@ -1,0 +1,1520 @@
+digraph "xref graph" {
+  "lib/credo.ex"
+  "lib/credo.ex" -> "lib/credo/execution.ex"
+  "lib/credo/execution.ex" -> "lib/credo.ex"
+  "lib/credo/execution.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/categories/categories_command.ex"
+  "lib/credo/cli/command/categories/categories_command.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/categories/categories_command.ex" -> "lib/credo/cli/command/categories/categories_output.ex"
+  "lib/credo/cli/command/categories/categories_output.ex" -> "lib/credo/cli/command/categories/output/default.ex"
+  "lib/credo/cli/command/categories/output/default.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/output.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/output/ui.ex" -> "lib/credo/cli/output/shell.ex" [label="(compile)"]
+  "lib/credo/cli/output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/categories/output/default.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/categories/categories_output.ex" -> "lib/credo/cli/command/categories/output/json.ex"
+  "lib/credo/cli/command/categories/output/json.ex" -> "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/output/formatter/json.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/output/formatter/json.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/categories/categories_output.ex" -> "lib/credo/cli/output/format_delegator.ex" [label="(compile)"]
+  "lib/credo/cli/command/categories/categories_output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/categories/categories_command.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution/task.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/execution/execution_timing.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/diff/diff_command.ex"
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo.ex"
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/command/diff/diff_output.ex"
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/cli/command/diff/output/default.ex"
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/cli/command/diff/diff_command.ex"
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/cli/command/diff/diff_summary.ex"
+  "lib/credo/cli/command/diff/diff_summary.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/command/diff/diff_summary.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/diff/diff_summary.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/cli/sorter.ex"
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/output/default.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/source_file.ex" -> "lib/credo/code.ex"
+  "lib/credo/code.ex" -> "lib/credo/code/charlists.ex"
+  "lib/credo/code/charlists.ex" -> "lib/credo/code/interpolation_helper.ex"
+  "lib/credo/code/interpolation_helper.ex" -> "lib/credo/code.ex"
+  "lib/credo/code/interpolation_helper.ex" -> "lib/credo/code/token.ex"
+  "lib/credo/code/charlists.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/code.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/code/heredocs.ex" -> "lib/credo/code/interpolation_helper.ex"
+  "lib/credo/code/heredocs.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/code.ex" -> "lib/credo/code/sigils.ex"
+  "lib/credo/code/sigils.ex" -> "lib/credo/code/interpolation_helper.ex"
+  "lib/credo/code/sigils.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/code.ex" -> "lib/credo/code/strings.ex"
+  "lib/credo/code/strings.ex" -> "lib/credo/code/interpolation_helper.ex"
+  "lib/credo/code/strings.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/code.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/code.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/source_file.ex" -> "lib/credo/service/source_file_ast.ex"
+  "lib/credo/service/source_file_ast.ex" -> "lib/credo/service/ets_table_helper.ex" [label="(compile)"]
+  "lib/credo/source_file.ex" -> "lib/credo/service/source_file_lines.ex"
+  "lib/credo/service/source_file_lines.ex" -> "lib/credo/service/ets_table_helper.ex" [label="(compile)"]
+  "lib/credo/source_file.ex" -> "lib/credo/service/source_file_source.ex"
+  "lib/credo/service/source_file_source.ex" -> "lib/credo/service/ets_table_helper.ex" [label="(compile)"]
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/cli/command/diff/output/flycheck.ex"
+  "lib/credo/cli/command/diff/output/flycheck.ex" -> "lib/credo/cli/output/formatter/flycheck.ex"
+  "lib/credo/cli/output/formatter/flycheck.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/cli/output/formatter/flycheck.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/output/formatter/flycheck.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/output/formatter/flycheck.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/output/flycheck.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/cli/command/diff/output/json.ex"
+  "lib/credo/cli/command/diff/output/json.ex" -> "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/command/diff/output/json.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/cli/command/diff/output/oneline.ex"
+  "lib/credo/cli/command/diff/output/oneline.ex" -> "lib/credo/cli/output/formatter/oneline.ex"
+  "lib/credo/cli/output/formatter/oneline.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/cli/output/formatter/oneline.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/output/formatter/oneline.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/output/formatter/oneline.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/output/oneline.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/cli/output/format_delegator.ex" [label="(compile)"]
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/diff/diff_output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/output/shell.ex"
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/task/load_and_validate_source_files.ex"
+  "lib/credo/cli/task/load_and_validate_source_files.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/task/load_and_validate_source_files.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/task/load_and_validate_source_files.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/cli/task/load_and_validate_source_files.ex" -> "lib/credo/sources.ex"
+  "lib/credo/sources.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/sources.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/task/prepare_checks_to_run.ex"
+  "lib/credo/cli/task/prepare_checks_to_run.ex" -> "lib/credo/check/config_comment_finder.ex"
+  "lib/credo/check/config_comment_finder.ex" -> "lib/credo/check/config_comment.ex"
+  "lib/credo/check/config_comment.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/check/config_comment_finder.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/config_comment_finder.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/cli/task/prepare_checks_to_run.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/cli/task/prepare_checks_to_run.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/task/prepare_checks_to_run.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/cli/task/prepare_checks_to_run.ex" -> "lib/credo/priority.ex"
+  "lib/credo/priority.ex" -> "lib/credo/code.ex"
+  "lib/credo/priority.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/code/module.ex" -> "lib/credo/code.ex"
+  "lib/credo/code/module.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/code/module.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/priority.ex" -> "lib/credo/code/parameters.ex"
+  "lib/credo/priority.ex" -> "lib/credo/code/scope.ex"
+  "lib/credo/code/scope.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/code/scope.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/priority.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/task/run_checks.ex"
+  "lib/credo/cli/task/run_checks.ex" -> "lib/credo/check/runner.ex"
+  "lib/credo/check/runner.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/runner.ex" -> "lib/credo/check/worker.ex"
+  "lib/credo/check/runner.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/runner.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/runner.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/runner.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/runner.ex" -> "lib/credo/sources.ex"
+  "lib/credo/cli/task/run_checks.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/task/run_checks.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/cli/task/set_relevant_issues.ex"
+  "lib/credo/cli/task/set_relevant_issues.ex" -> "lib/credo/cli/filter.ex"
+  "lib/credo/cli/filter.ex" -> "lib/credo/check/config_comment.ex"
+  "lib/credo/cli/filter.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/filter.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/filter.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/cli/task/set_relevant_issues.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/task/set_relevant_issues.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/cli/command/diff/diff_command.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/explain/explain_command.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/helpers.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/helpers.ex" -> "lib/credo/code/scope.ex"
+  "lib/credo/check/helpers.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/check/helpers.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/issue_meta.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/helpers.ex" -> "lib/credo/priority.ex"
+  "lib/credo/check/helpers.ex" -> "lib/credo/service/source_file_scopes.ex"
+  "lib/credo/service/source_file_scopes.ex" -> "lib/credo/service/ets_table_helper.ex" [label="(compile)"]
+  "lib/credo/check/helpers.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/helpers.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/command/explain/explain_output.ex"
+  "lib/credo/cli/command/explain/explain_output.ex" -> "lib/credo/cli/command/explain/output/default.ex"
+  "lib/credo/cli/command/explain/output/default.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/command/explain/output/default.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/explain/output/default.ex" -> "lib/credo/code/scope.ex"
+  "lib/credo/cli/command/explain/explain_output.ex" -> "lib/credo/cli/command/explain/output/json.ex"
+  "lib/credo/cli/command/explain/output/json.ex" -> "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/command/explain/explain_output.ex" -> "lib/credo/cli/output/format_delegator.ex" [label="(compile)"]
+  "lib/credo/cli/command/explain/explain_output.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/explain/explain_output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/task/load_and_validate_source_files.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/task/prepare_checks_to_run.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/task/run_checks.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/cli/task/set_relevant_issues.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/explain/explain_command.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/gen.check.ex"
+  "lib/credo/cli/command/gen.check.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/gen.check.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/gen.check.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/gen.config.ex"
+  "lib/credo/cli/command/gen.config.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/gen.config.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/gen.config.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/help.ex"
+  "lib/credo/cli/command/help.ex" -> "lib/credo.ex"
+  "lib/credo/cli/command/help.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/help.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/help.ex" -> "lib/credo/cli/sorter.ex"
+  "lib/credo/cli/command/help.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/help.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/info/info_command.ex"
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo.ex"
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo/cli/command/info/info_output.ex"
+  "lib/credo/cli/command/info/info_output.ex" -> "lib/credo/cli/command/info/output/default.ex"
+  "lib/credo/cli/command/info/output/default.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/info/output/default.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/info/info_output.ex" -> "lib/credo/cli/command/info/output/json.ex"
+  "lib/credo/cli/command/info/output/json.ex" -> "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/command/info/output/json.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/info/info_output.ex" -> "lib/credo/cli/output/format_delegator.ex" [label="(compile)"]
+  "lib/credo/cli/command/info/info_output.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/info/info_output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo/cli/task/load_and_validate_source_files.ex"
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo/cli/task/prepare_checks_to_run.ex"
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/info/info_command.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/list/list_command.ex"
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/command/list/list_output.ex"
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/cli/command/list/output/default.ex"
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/cli/output/summary.ex"
+  "lib/credo/cli/output/summary.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/output/summary.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/output/summary.ex" -> "lib/credo/code.ex"
+  "lib/credo/cli/output/summary.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/output/summary.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/code/scope.ex"
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/list/output/default.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/cli/command/list/output/flycheck.ex"
+  "lib/credo/cli/command/list/output/flycheck.ex" -> "lib/credo/cli/output/formatter/flycheck.ex"
+  "lib/credo/cli/command/list/output/flycheck.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/cli/command/list/output/json.ex"
+  "lib/credo/cli/command/list/output/json.ex" -> "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/command/list/output/json.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/cli/command/list/output/oneline.ex"
+  "lib/credo/cli/command/list/output/oneline.ex" -> "lib/credo/cli/output/formatter/oneline.ex"
+  "lib/credo/cli/command/list/output/oneline.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/cli/output/format_delegator.ex" [label="(compile)"]
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/list/list_output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/filter.ex"
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/task/load_and_validate_source_files.ex"
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/task/prepare_checks_to_run.ex"
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/task/run_checks.ex"
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/cli/task/set_relevant_issues.ex"
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/list/list_command.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/suggest/suggest_command.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/cli/command/suggest/suggest_output.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/cli/command/suggest/output/default.ex"
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/cli/output.ex"
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/cli/output/summary.ex"
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/cli/sorter.ex"
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/cli/command/suggest/output/default.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/cli/command/suggest/output/flycheck.ex"
+  "lib/credo/cli/command/suggest/output/flycheck.ex" -> "lib/credo/cli/output/formatter/flycheck.ex"
+  "lib/credo/cli/command/suggest/output/flycheck.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/cli/command/suggest/output/json.ex"
+  "lib/credo/cli/command/suggest/output/json.ex" -> "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/command/suggest/output/json.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/cli/command/suggest/output/oneline.ex"
+  "lib/credo/cli/command/suggest/output/oneline.ex" -> "lib/credo/cli/output/formatter/oneline.ex"
+  "lib/credo/cli/command/suggest/output/oneline.ex" -> "lib/credo/execution.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/cli/output/format_delegator.ex" [label="(compile)"]
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/cli/task/load_and_validate_source_files.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/cli/task/prepare_checks_to_run.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/cli/task/run_checks.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/cli/task/set_relevant_issues.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli/command/suggest/suggest_command.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/cli/command/version.ex"
+  "lib/credo/cli/command/version.ex" -> "lib/credo.ex"
+  "lib/credo/cli/command/version.ex" -> "lib/credo/cli/command.ex" [label="(compile)"]
+  "lib/credo/cli/command/version.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command/version.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution.ex" -> "lib/credo/execution/execution_config_files.ex"
+  "lib/credo/execution/execution_config_files.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/execution/execution_issues.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/execution_issues.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/execution/execution_issues.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/execution_source_files.ex"
+  "lib/credo/execution/execution_source_files.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/execution.ex" -> "lib/credo/execution/task.ex"
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/append_default_config.ex" [label="(compile)"]
+  "lib/credo/execution/task/append_default_config.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/append_default_config.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/assign_exit_status_for_issues.ex" [label="(compile)"]
+  "lib/credo/execution/task/assign_exit_status_for_issues.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/assign_exit_status_for_issues.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/convert_cli_options_to_config.ex" [label="(compile)"]
+  "lib/credo/execution/task/convert_cli_options_to_config.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/execution/task/convert_cli_options_to_config.ex" -> "lib/credo/code.ex"
+  "lib/credo/execution/task/convert_cli_options_to_config.ex" -> "lib/credo/config_builder.ex"
+  "lib/credo/config_builder.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/config_builder.ex" -> "lib/credo/cli/options.ex" [label="(export)"]
+  "lib/credo/cli/options.ex" -> "lib/credo/priority.ex"
+  "lib/credo/config_builder.ex" -> "lib/credo/config_file.ex" [label="(export)"]
+  "lib/credo/config_file.ex" -> "lib/credo/execution.ex"
+  "lib/credo/config_file.ex" -> "lib/credo/exs_loader.ex"
+  "lib/credo/config_builder.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/convert_cli_options_to_config.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/convert_cli_options_to_config.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/determine_command.ex" [label="(compile)"]
+  "lib/credo/execution/task/determine_command.ex" -> "lib/credo/cli/options.ex" [label="(export)"]
+  "lib/credo/execution/task/determine_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/determine_command.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/initialize_plugins.ex" [label="(compile)"]
+  "lib/credo/execution/task/initialize_plugins.ex" -> "lib/credo/execution.ex"
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/parse_options.ex" [label="(compile)"]
+  "lib/credo/execution/task/parse_options.ex" -> "lib/credo/cli/options.ex"
+  "lib/credo/execution/task/parse_options.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/execution/task/parse_options.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/parse_options.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/require_requires.ex" [label="(compile)"]
+  "lib/credo/execution/task/require_requires.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/require_requires.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution/task/require_requires.ex" -> "lib/credo/sources.ex"
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/run_command.ex" [label="(compile)"]
+  "lib/credo/execution/task/run_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/run_command.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/set_default_command.ex" [label="(compile)"]
+  "lib/credo/execution/task/set_default_command.ex" -> "lib/credo/cli/filename.ex"
+  "lib/credo/execution/task/set_default_command.ex" -> "lib/credo/cli/options.ex" [label="(export)"]
+  "lib/credo/execution/task/set_default_command.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/set_default_command.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/use_colors.ex" [label="(compile)"]
+  "lib/credo/execution/task/use_colors.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/execution/task/use_colors.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/use_colors.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/validate_config.ex" [label="(compile)"]
+  "lib/credo/execution/task/validate_config.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/execution/task/validate_config.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/execution/task/validate_config.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/execution/task/validate_config.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/validate_config.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/execution.ex" -> "lib/credo/execution/task/validate_options.ex" [label="(compile)"]
+  "lib/credo/execution/task/validate_options.ex" -> "lib/credo/cli/options.ex" [label="(export)"]
+  "lib/credo/execution/task/validate_options.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/execution/task/validate_options.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/validate_options.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo.ex" -> "lib/credo/execution/task/write_debug_report.ex"
+  "lib/credo/execution/task/write_debug_report.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/execution/task/write_debug_report.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/execution/task/write_debug_report.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/execution/task/write_debug_report.ex" -> "lib/credo/execution/task.ex" [label="(compile)"]
+  "lib/credo/application.ex"
+  "lib/credo/application.ex" -> "lib/credo/cli/output/shell.ex" [label="(compile)"]
+  "lib/credo/application.ex" -> "lib/credo/service/source_file_ast.ex" [label="(compile)"]
+  "lib/credo/application.ex" -> "lib/credo/service/source_file_lines.ex" [label="(compile)"]
+  "lib/credo/application.ex" -> "lib/credo/service/source_file_scopes.ex" [label="(compile)"]
+  "lib/credo/application.ex" -> "lib/credo/service/source_file_source.ex" [label="(compile)"]
+  "lib/credo/check.ex"
+  "lib/credo/check/behaviour.ex"
+  "lib/credo/check/config_comment.ex"
+  "lib/credo/check/config_comment_finder.ex"
+  "lib/credo/check/consistency/collector.ex"
+  "lib/credo/check/consistency/collector.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/collector.ex" -> "lib/credo/issue.ex" [label="(export)"]
+  "lib/credo/check/consistency/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/exception_names.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/check/consistency/exception_names/collector.ex"
+  "lib/credo/check/consistency/exception_names/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/exception_names/collector.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/exception_names/collector.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/consistency/exception_names/collector.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/consistency/exception_names/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/exception_names/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/exception_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/exception_names/collector.ex"
+  "lib/credo/check/consistency/line_endings.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/check/consistency/line_endings/collector.ex"
+  "lib/credo/check/consistency/line_endings/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/line_endings/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/line_endings/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/line_endings.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/line_endings/collector.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/check/consistency/multi_alias_import_require_use/collector.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/multi_alias_import_require_use/collector.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/multi_alias_import_require_use.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/multi_alias_import_require_use/collector.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/check/consistency/parameter_pattern_matching/collector.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/parameter_pattern_matching/collector.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/parameter_pattern_matching.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/parameter_pattern_matching/collector.ex"
+  "lib/credo/check/consistency/space_around_operators.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/check/consistency/space_around_operators/collector.ex"
+  "lib/credo/check/consistency/space_around_operators/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/space_around_operators/collector.ex" -> "lib/credo/check/consistency/space_around_operators/space_helper.ex" [label="(export)"]
+  "lib/credo/check/consistency/space_around_operators/space_helper.ex" -> "lib/credo/code/token.ex"
+  "lib/credo/check/consistency/space_around_operators/collector.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/space_around_operators/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/space_around_operators/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/code/token_ast_correlation.ex"
+  "lib/credo/code/token_ast_correlation.ex" -> "lib/credo/code.ex"
+  "lib/credo/code/token_ast_correlation.ex" -> "lib/credo/code/token.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/space_around_operators.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/space_around_operators/collector.ex"
+  "lib/credo/check/consistency/space_around_operators/space_helper.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/check/consistency/space_in_parentheses/collector.ex"
+  "lib/credo/check/consistency/space_in_parentheses/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/space_in_parentheses/collector.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/space_in_parentheses/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/space_in_parentheses/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/space_in_parentheses.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/space_in_parentheses/collector.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/check/consistency/tabs_or_spaces/collector.ex"
+  "lib/credo/check/consistency/tabs_or_spaces/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/tabs_or_spaces/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/tabs_or_spaces/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/tabs_or_spaces.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/tabs_or_spaces/collector.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/check/consistency/unused_variable_names/collector.ex"
+  "lib/credo/check/consistency/unused_variable_names/collector.ex" -> "lib/credo/check/consistency/collector.ex" [label="(compile)"]
+  "lib/credo/check/consistency/unused_variable_names/collector.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/consistency/unused_variable_names/collector.ex" -> "lib/credo/execution.ex"
+  "lib/credo/check/consistency/unused_variable_names/collector.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/consistency/unused_variable_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/consistency/unused_variable_names/collector.ex"
+  "lib/credo/check/design/alias_usage.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/design/alias_usage.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/design/duplicated_code.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/design/duplicated_code.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/design/tag_fixme.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/check/design/tag_helper.ex"
+  "lib/credo/check/design/tag_helper.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/design/tag_helper.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/design/tag_fixme.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/design/tag_helper.ex"
+  "lib/credo/check/design/tag_todo.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/check/design/tag_helper.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/design/tag_todo.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/helpers.ex"
+  "lib/credo/check/params.ex"
+  "lib/credo/check/readability/alias_as.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/alias_as.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/alias_order.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/alias_order.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/block_pipe.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/block_pipe.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/function_names.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/function_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/impl_true.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/impl_true.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/large_numbers.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/large_numbers.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/max_line_length.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/code/strings.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/max_line_length.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/module_attribute_names.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/module_attribute_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/module_doc.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/module_doc.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/module_names.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/module_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/multi_alias.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/multi_alias.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/parentheses_in_condition.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/parentheses_in_condition.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/parentheses_on_zero_arity_defs.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/predicate_function_names.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/predicate_function_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/prefer_implicit_try.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/prefer_implicit_try.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/prefer_unquoted_atoms.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/redundant_blank_lines.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/code/charlists.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/code/sigils.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/code/strings.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/redundant_blank_lines.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/semicolons.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/semicolons.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/separate_alias_require.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/separate_alias_require.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/single_pipe.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/single_pipe.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/space_after_commas.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/code/charlists.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/code/sigils.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/code/strings.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/space_after_commas.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/specs.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/specs.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/strict_module_layout.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/strict_module_layout.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/string_sigils.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/string_sigils.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/trailing_blank_line.ex"
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/trailing_blank_line.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/trailing_white_space.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/code/heredocs.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/code/strings.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/trailing_white_space.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/unnecessary_alias_expansion.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/variable_names.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/variable_names.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/readability/with_custom_tagged_tuple.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/abc_size.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/refactor/abc_size.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/append_single_item.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/append_single_item.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/case_trivial_matches.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/case_trivial_matches.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/cond_statements.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/cond_statements.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/cyclomatic_complexity.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/refactor/cyclomatic_complexity.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/double_boolean_negation.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/double_boolean_negation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/function_arity.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/code/parameters.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/refactor/function_arity.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/long_quote_blocks.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/long_quote_blocks.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/map_into.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/map_into.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/match_in_condition.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/match_in_condition.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/module_dependencies.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/code/name.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/module_dependencies.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/negated_conditions_in_unless.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/negated_conditions_with_else.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/negated_conditions_with_else.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/negated_is_nil.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/negated_is_nil.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/nesting.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/refactor/nesting.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/perceived_complexity.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/code/module.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/severity.ex"
+  "lib/credo/check/refactor/perceived_complexity.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/pipe_chain_start.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/pipe_chain_start.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/unless_with_else.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/unless_with_else.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/variable_rebinding.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/variable_rebinding.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/refactor/with_clauses.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/refactor/with_clauses.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/runner.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/application_config_in_module_attribute.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/bool_operation_on_same_values.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/bool_operation_on_same_values.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/expensive_empty_enum_check.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/expensive_empty_enum_check.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/iex_pry.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/iex_pry.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/io_inspect.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/io_inspect.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/lazy_logging.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/lazy_logging.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/leaky_environment.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/leaky_environment.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/map_get_unsafe_pass.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/map_get_unsafe_pass.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/mix_env.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/check/params.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/mix_env.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/operation_on_same_values.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/operation_on_same_values.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/operation_with_constant_result.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/operation_with_constant_result.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/raise_inside_rescue.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/raise_inside_rescue.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unsafe_exec.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/unsafe_exec.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unsafe_to_atom.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/unsafe_to_atom.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_enum_operation.ex"
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_operation.ex" -> "lib/credo/check/warning/unused_function_return_helper.ex"
+  "lib/credo/check/warning/unused_function_return_helper.ex" -> "lib/credo/code.ex"
+  "lib/credo/check/warning/unused_function_return_helper.ex" -> "lib/credo/code/block.ex"
+  "lib/credo/check/warning/unused_function_return_helper.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_operation.ex" -> "lib/credo/issue_meta.ex"
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_enum_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_file_operation.ex"
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_file_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_function_return_helper.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_keyword_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_list_operation.ex"
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_list_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_path_operation.ex"
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_path_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_regex_operation.ex"
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_regex_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_string_operation.ex"
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_string_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_tuple_operation.ex"
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/check.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/check/behaviour.ex" [label="(compile)"]
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/check/helpers.ex"
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/check/warning/unused_operation.ex"
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/execution/execution_timing.ex"
+  "lib/credo/check/warning/unused_tuple_operation.ex" -> "lib/credo/source_file.ex" [label="(export)"]
+  "lib/credo/check/worker.ex"
+  "lib/credo/cli.ex"
+  "lib/credo/cli.ex" -> "lib/credo.ex"
+  "lib/credo/cli.ex" -> "lib/credo/application.ex"
+  "lib/credo/cli.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/cli.ex" -> "lib/credo/watcher.ex"
+  "lib/credo/watcher.ex" -> "lib/credo.ex"
+  "lib/credo/watcher.ex" -> "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/command.ex"
+  "lib/credo/cli/command/categories/categories_command.ex"
+  "lib/credo/cli/command/categories/categories_output.ex"
+  "lib/credo/cli/command/categories/output/default.ex"
+  "lib/credo/cli/command/categories/output/json.ex"
+  "lib/credo/cli/command/diff/diff_command.ex"
+  "lib/credo/cli/command/diff/diff_output.ex"
+  "lib/credo/cli/command/diff/diff_summary.ex"
+  "lib/credo/cli/command/diff/output/default.ex"
+  "lib/credo/cli/command/diff/output/flycheck.ex"
+  "lib/credo/cli/command/diff/output/json.ex"
+  "lib/credo/cli/command/diff/output/oneline.ex"
+  "lib/credo/cli/command/explain/explain_command.ex"
+  "lib/credo/cli/command/explain/explain_output.ex"
+  "lib/credo/cli/command/explain/output/default.ex"
+  "lib/credo/cli/command/explain/output/json.ex"
+  "lib/credo/cli/command/gen.check.ex"
+  "lib/credo/cli/command/gen.config.ex"
+  "lib/credo/cli/command/help.ex"
+  "lib/credo/cli/command/info/info_command.ex"
+  "lib/credo/cli/command/info/info_output.ex"
+  "lib/credo/cli/command/info/output/default.ex"
+  "lib/credo/cli/command/info/output/json.ex"
+  "lib/credo/cli/command/list/list_command.ex"
+  "lib/credo/cli/command/list/list_output.ex"
+  "lib/credo/cli/command/list/output/default.ex"
+  "lib/credo/cli/command/list/output/flycheck.ex"
+  "lib/credo/cli/command/list/output/json.ex"
+  "lib/credo/cli/command/list/output/oneline.ex"
+  "lib/credo/cli/command/suggest/output/default.ex"
+  "lib/credo/cli/command/suggest/output/flycheck.ex"
+  "lib/credo/cli/command/suggest/output/json.ex"
+  "lib/credo/cli/command/suggest/output/oneline.ex"
+  "lib/credo/cli/command/suggest/suggest_command.ex"
+  "lib/credo/cli/command/suggest/suggest_output.ex"
+  "lib/credo/cli/command/version.ex"
+  "lib/credo/cli/filename.ex"
+  "lib/credo/cli/filter.ex"
+  "lib/credo/cli/options.ex"
+  "lib/credo/cli/output.ex"
+  "lib/credo/cli/output/format_delegator.ex"
+  "lib/credo/cli/output/formatter/flycheck.ex"
+  "lib/credo/cli/output/formatter/json.ex"
+  "lib/credo/cli/output/formatter/oneline.ex"
+  "lib/credo/cli/output/shell.ex"
+  "lib/credo/cli/output/summary.ex"
+  "lib/credo/cli/output/ui.ex"
+  "lib/credo/cli/sorter.ex"
+  "lib/credo/cli/task/load_and_validate_source_files.ex"
+  "lib/credo/cli/task/prepare_checks_to_run.ex"
+  "lib/credo/cli/task/run_checks.ex"
+  "lib/credo/cli/task/set_relevant_issues.ex"
+  "lib/credo/code.ex"
+  "lib/credo/code/block.ex"
+  "lib/credo/code/charlists.ex"
+  "lib/credo/code/heredocs.ex"
+  "lib/credo/code/interpolation_helper.ex"
+  "lib/credo/code/module.ex"
+  "lib/credo/code/name.ex"
+  "lib/credo/code/parameters.ex"
+  "lib/credo/code/scope.ex"
+  "lib/credo/code/sigils.ex"
+  "lib/credo/code/strings.ex"
+  "lib/credo/code/token.ex"
+  "lib/credo/code/token_ast_correlation.ex"
+  "lib/credo/config_builder.ex"
+  "lib/credo/config_file.ex"
+  "lib/credo/execution.ex"
+  "lib/credo/execution/execution_config_files.ex"
+  "lib/credo/execution/execution_issues.ex"
+  "lib/credo/execution/execution_source_files.ex"
+  "lib/credo/execution/execution_timing.ex"
+  "lib/credo/execution/task.ex"
+  "lib/credo/execution/task/append_default_config.ex"
+  "lib/credo/execution/task/assign_exit_status_for_issues.ex"
+  "lib/credo/execution/task/convert_cli_options_to_config.ex"
+  "lib/credo/execution/task/determine_command.ex"
+  "lib/credo/execution/task/initialize_plugins.ex"
+  "lib/credo/execution/task/parse_options.ex"
+  "lib/credo/execution/task/require_requires.ex"
+  "lib/credo/execution/task/run_command.ex"
+  "lib/credo/execution/task/set_default_command.ex"
+  "lib/credo/execution/task/use_colors.ex"
+  "lib/credo/execution/task/validate_config.ex"
+  "lib/credo/execution/task/validate_options.ex"
+  "lib/credo/execution/task/write_debug_report.ex"
+  "lib/credo/exs_loader.ex"
+  "lib/credo/issue.ex"
+  "lib/credo/issue_meta.ex"
+  "lib/credo/plugin.ex"
+  "lib/credo/plugin.ex" -> "lib/credo/execution.ex" [label="(export)"]
+  "lib/credo/priority.ex"
+  "lib/credo/service/config_files.ex"
+  "lib/credo/service/config_files.ex" -> "lib/credo/service/ets_table_helper.ex" [label="(compile)"]
+  "lib/credo/service/ets_table_helper.ex"
+  "lib/credo/service/source_file_ast.ex"
+  "lib/credo/service/source_file_lines.ex"
+  "lib/credo/service/source_file_scopes.ex"
+  "lib/credo/service/source_file_source.ex"
+  "lib/credo/severity.ex"
+  "lib/credo/source_file.ex"
+  "lib/credo/sources.ex"
+  "lib/credo/test/assertions.ex"
+  "lib/credo/test/case.ex"
+  "lib/credo/test/case.ex" -> "lib/credo/test/assertions.ex"
+  "lib/credo/test/case.ex" -> "lib/credo/test/check_runner.ex"
+  "lib/credo/test/check_runner.ex" -> "lib/credo/execution.ex"
+  "lib/credo/test/check_runner.ex" -> "lib/credo/execution/execution_issues.ex"
+  "lib/credo/test/case.ex" -> "lib/credo/test/source_files.ex"
+  "lib/credo/test/source_files.ex" -> "lib/credo/source_file.ex"
+  "lib/credo/test/check_runner.ex"
+  "lib/credo/test/source_files.ex"
+  "lib/credo/watcher.ex"
+  "lib/mix/tasks/credo.ex"
+  "lib/mix/tasks/credo.ex" -> "lib/credo/cli.ex"
+  "lib/mix/tasks/credo.gen.check.ex"
+  "lib/mix/tasks/credo.gen.check.ex" -> "lib/credo/cli.ex"
+  "lib/mix/tasks/credo.gen.config.ex"
+  "lib/mix/tasks/credo.gen.config.ex" -> "lib/credo/cli.ex"
+}

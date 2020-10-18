@@ -88,6 +88,7 @@ function render(data) {
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
+  // TODO: Remove these and double-check that nothing breaks
   window.targets = targets
   window.targetObjects = targetObjects
 
