@@ -39,17 +39,25 @@ Helps you answer questions about the Elixir code base:
 * And maybe:
   * What files trigger the most other files to recompile? (can mostly see this visually)
   * What files are most often triggered
+  
+Questions:
+- How do you switch between the file list and the top stats?
+- Should an elixir project have any files that recompiled very often? Seems to
+  usually be something you don't want (although of course there are some times
+  that it is needed)
 
 TODO:
 - [x] When hover, in the info box show the outgoing dependencies
 - [ ] Have a mode to show what files this file will trigger to compile
-- [ ] When hovering a node, show compilation dependencies in info box
+  - Show the mode selector in the upper right
+- [x] When hovering a node, show compilation dependencies in info box
+- [ ] Use different colors
+  - [ ] Selected node shouldn't be same color as compile-time dependencies
+  - [ ] Files that will case this file to recompile, and files this causes to
+        recompile should be two separate colors
+- [ ] Hide node-centric force layout for now
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Allow dragging when in focused mode
-- [ ] node centric force layout is buggy
-  - [ ] transition to the layout sometimes keeps the discarded nodes for too long
-  - Maybe need to add special handling for `unShowNodeCompileDeps` when transitioning to node-centric force layout
-  - [x] tooltip doesn't match node labels (labels are incorrect)
 - [ ] Node centric force layout is not well centered
   - Can we apply a higher degree of force to keep it more spread out and higher up?
 - [ ] Node centric force layout always highlight the selected node
@@ -75,6 +83,12 @@ Done:
 
 Future:
 - Configurable node coloring based on filename prefix
+- "Live" view of a project selected interactively
+  - Maybe even launch the project via bakeware?
+- [ ] node centric force layout is buggy
+  - [ ] transition to the layout sometimes keeps the discarded nodes for too long
+  - Maybe need to add special handling for `unShowNodeCompileDeps` when transitioning to node-centric force layout
+  - [x] tooltip doesn't match node labels (labels are incorrect)
 
 Ideas:
 - can you click on a node and give it gravity
