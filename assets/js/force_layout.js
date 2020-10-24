@@ -135,6 +135,7 @@ function renderHighlightsBox(causeRecompileMap) {
 
   u.enter()
     .append('div')
+    .attr('class', 'inline-item')
     .text(d => `${d.count}: ${d.id}`)
     .merge(u)
     .on('mouseover', (d) => {
@@ -165,7 +166,8 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects) {
 
   u.enter()
    .append('div')
-  // Subtract 1 to not count itself
+    .attr('class', 'inline-item')
+    // Subtract 1 to not count itself
    .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
    .on('mouseover', (d) => {
@@ -190,7 +192,7 @@ function renderInfoBox(nodeData, _targets, targetObjects) {
 
   u.enter()
    .append('div')
-   .attr('class', 'info-box-item')
+   .attr('class', 'inline-item')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
      highlightNodeCompileDeps(nodeDatum.id, targetObjects)

@@ -1,3 +1,5 @@
+$info-box-background: rgba(255, 255, 255, 0.9);
+
 body.dark-mode {
   background: black;
   color: white;
@@ -8,10 +10,6 @@ body.dark-mode {
 }
 
 .highlight-box {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
 }
 
 .info-box {
@@ -21,9 +19,21 @@ body.dark-mode {
   z-index: 2;
   max-height: 80vh;
   overflow: hidden;
+  font-size: 12px;
+}
+
+.info-box-section-header {
+  background: $info-box-background;
+  display: inline;
+
+  &:after {
+    content: "\A";
+    white-space: pre;
+  }
 }
 
 #info-box-input {
+  width: 200px;
   margin-bottom: 16px;
 }
 
@@ -32,19 +42,26 @@ body.dark-mode {
 }
 
 .info-box-file-list {
-  font-size: 12px;
   line-height: 1.5;
 }
 
-.info-box-item {
+.inline-item {
   // We want each item to only take up it's exact width so that pointer events
   // fall back to the SVG
   display: inline;
   pointer-events: auto;
+  padding: 2px 0;
+  // Background is transparent so we can still see the graph behind the item,
+  // but partially obscured so that we can still read the text
+  background: $info-box-background;
 
   &:after {
     content: "\A";
     white-space: pre;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 
@@ -60,17 +77,6 @@ svg.main {
 }
 
 svg line {
-}
-
-#node_tooltip {
-  padding: 8px;
-  color: black;
-  background: rgba(204, 204, 204, 0.6)
-}
-#node_tooltip .inner_tooltip {
-  background-color: rgba(255,255,255,0.7);
-  line-height: 1.5;
-  padding: 15px;
 }
 
 .tooltip {
