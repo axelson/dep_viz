@@ -115,11 +115,15 @@ nav li {
 .display-none { display: none; }
 .display-inline { display: inline; }
 .display-inline-block { display: inline-block; }
+
 .flex { display: flex; }
+.flex-align-center { align-items: center; }
+
 .list-style-none { list-style: none; }
 .p-4 { padding: 12px; }
 .p-r-0 { padding-right: 0; }
 .p-l-0 { padding-left: 0; }
+.m-2 { margin: 6px; }
 .m-l-4 { margin-left: 12px; }
 .m-b-4 { margin-bottom: 12px; }
 

@@ -7,14 +7,14 @@ import {
   findCompileDependencies
 } from './force_utils.js'
 
-import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 import BrowserText from './browser_text.js'
 
 const NODE_RADIUS = 5
 const HIGHLIGHTED_NODE_RADIUS = 8
 let DEFAULT_NODE_COLOR = 'black'
-const HIGHLIGHT_NODE_COLOR = 'red'
-const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
+const HIGHLIGHT_NODE_COLOR = '#ffd300'
+const GETS_RECOMPILED_NODE_COLOR = 'red'
+const CAUSES_RECOMPILE_NODE_COLOR = '#da4bfa'
 
 const DEFAULT_LINE_STROKE = '#ccc'
 const COMPILE_LINE_STROKE = 'red'
@@ -48,6 +48,8 @@ const vizState = {
 //
 // NOTE: There isn't a good reason that a function would need to take in both
 // targets and targetObjects since targets can be derived from targetObjects
+
+initGlossary()
 
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
@@ -177,12 +179,12 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects) {
    .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
    .on('mouseover', (d) => {
-     highlightNodeCompileDeps(d.id, targetObjects)
-     showFileTree(d.id, targetObjects)
+     highlightCompileDepsOfNode(d.id, targetObjects)
+     // showFileTree(d.id, targetObjects)
    })
    .on('mouseout', (_d) => {
      unShowNodeCompileDeps()
-     unShowFileTree()
+     // unShowFileTree()
    })
 }
 
@@ -201,7 +203,7 @@ function renderInfoBox(nodeData, _targets, targetObjects) {
    .attr('class', 'inline-item')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
-     highlightNodeCompileDeps(nodeDatum.id, targetObjects)
+     highlightCompileDepsOfNode(nodeDatum.id, targetObjects)
    })
    .on('mouseout', function (_nodeDatum) {
      unShowNodeCompileDeps()
@@ -350,7 +352,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData, linkData, force) {
+function updateNodes(nodeData, _linkData, force) {
   var u = d3.select('svg')
             .select('.nodes')
             .selectAll('circle')
@@ -373,7 +375,7 @@ function updateNodes(nodeData, linkData, force) {
       if (window.vizMode === 'focusNode') {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
-        highlightNodeCompileDeps(nodeDatum.id, targetObjects)
+        highlightCompileDepsOfNode(nodeDatum.id, targetObjects)
         showFileTree(nodeDatum.id, targetObjects)
       }
     })
@@ -456,7 +458,7 @@ export function updateLabels(nodeData, primaryId) {
     .attr('height', 25)
     .style('fill', 'white')
     .style('fill-opacity', d => {
-      return d.id === primaryId ? 1 : 0
+      return d.id === primaryId ? 0.9 : 0
     })
 
   updateLabelBackgroundPos()
@@ -500,7 +502,7 @@ function nodeClass(_data) {
   // }
 }
 
-function highlightNodeCompileDeps(id, targetObjects) {
+function highlightCompileDepsOfNode(id, targetObjects) {
   const duration = TRANSITION_SLOW
   const compileMatched = findCompileDependencies(targetObjects, id)
 
@@ -524,7 +526,7 @@ function highlightNodeCompileDeps(id, targetObjects) {
     .transition().duration(duration)
     .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
     .style('fill-opacity', d => hoverNodeOpacity(compileMatched, d))
-    .style('fill', d => hoverNodeFill(compileMatched, d, id))
+    .style('fill', d => hoverNodeFill(compileMatched, d, id, CAUSES_RECOMPILE_NODE_COLOR))
 
   // Fade and desaturate non-compile depedency lines and arrows
   d3.select('svg')
@@ -566,7 +568,7 @@ function highlightFilesThisFileCausesToRecompile(id, causeRecompileMap) {
     .transition().duration(duration)
     .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
     .style('fill-opacity', d => hoverOpacity(matched, d.id))
-    .style('fill', d => hoverNodeFill(matched, d, id))
+    .style('fill', d => hoverNodeFill(matched, d, id, GETS_RECOMPILED_NODE_COLOR))
 
   // Highlight and fade links
   d3.select('svg')
@@ -598,7 +600,7 @@ function highlightAllDeps(id, targets, _targetObjects) {
     .transition().duration(duration)
     .attr('r', d => d.id == id ? NODE_RADIUS + 2 : NODE_RADIUS)
     .style('fill-opacity', d => hoverOpacity(matched, d.id))
-    .style('fill', d => hoverNodeFill(matched, d, id))
+    .style('fill', d => hoverNodeFill(matched, d, id, DEFAULT_NODE_COLOR))
 
   // Fade and desaturate non-dependency lines and arrows
   d3.select('svg')
@@ -716,13 +718,13 @@ function unShowFileTree() {
   u.exit().remove()
 }
 
-function hoverNodeFill(matched, d, id) {
+function hoverNodeFill(matched, d, id, matchedColor) {
   if (d.focused) {
     return HIGHLIGHT_NODE_COLOR
   } else if (d.id == id) {
     return HIGHLIGHT_NODE_COLOR
   } else if (d.id in matched) {
-    return SECONDARY_HIGHLIGHT_NODE_COLOR
+    return matchedColor
   } else {
     return DEFAULT_NODE_COLOR
   }
@@ -795,5 +797,7 @@ function restoreLabels() {
   updateLabels([])
 }
 
-// Use breadth-first traversal to build the list of ndoes that are connected
-// this this node and their distances/depths
+function initGlossary() {
+  jQuery('.glossary-box .causes-recompile .box').css('background', CAUSES_RECOMPILE_NODE_COLOR)
+  jQuery('.glossary-box .gets-recompiled .box').css('background', GETS_RECOMPILED_NODE_COLOR)
+}

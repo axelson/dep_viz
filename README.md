@@ -51,14 +51,14 @@ TODO:
 - [ ] Have a mode to show what files this file will trigger to compile
   - Show the mode selector in the upper right
 - [x] When hovering a node, show compilation dependencies in info box
-- [ ] Use different colors
-  - [ ] Selected node shouldn't be same color as compile-time dependencies
-  - [ ] Files that will case this file to recompile, and files this causes to
+- [x] Use different colors
+  - [x] Selected node shouldn't be same color as compile-time dependencies
+  - [x] Files that will case this file to recompile, and files this causes to
         recompile should be two separate colors
 - [x] Hide node-centric force layout for now
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Show which compile-links cause the most files to be compiled
-- [ ] Create a glossary
+- [x] Create a glossary
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
 - [ ] Force layout charge should be set based on the number of nodes

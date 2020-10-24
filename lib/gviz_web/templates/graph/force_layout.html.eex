@@ -48,6 +48,17 @@ Force Layout
     </div>
   </div>
 
+  <div class="glossary-box">
+    <div class="causes-recompile flex flex-align-center" title="If this file is changed, then the selected file will be recompiled">
+      <div class="box m-2"></div>
+      Causes Recompile
+    </div>
+    <div class="gets-recompiled flex flex-align-center" title="If the selected file is changed, then this file will be recompiled.">
+      <div class="box m-2"></div>
+      Gets Recompile
+    </div>
+  </div>
+
   <svg class="main">
     <g class="links"></g>
     <g class="nodes"></g>

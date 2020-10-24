@@ -115,6 +115,18 @@ path.direction-animate, line.direction-animate {
   100% {stroke-dashoffset:0;}
 }
 
+.glossary-box {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+
+  .box {
+    height: 8px;
+    width: 8px;
+  }
+}
+
 .tab-bar {
   display: flex;
   pointer-events: auto;
