@@ -14,6 +14,11 @@ Force Layout
   <div class="info-box pointer-events-none">
     <input type="text" id="info-box-input" class="pointer-events-auto">
 
+    <div class="tab-bar m-b-4">
+      <div class="tab active" data-name="stats">Top Stats</div>
+      <div class="tab" data-name="all-files">All files</div>
+    </div>
+
     <%# The highlight box is shown by default %>
     <div class="highlight-box">
       <div class="p-4 p-r-0 p-l-0 info-box-section-header">
@@ -30,7 +35,7 @@ Force Layout
       </div>
     </div>
 
-    <%# The file list is shown when hovering a file %>
+    <%# The file list shows the list of files in the project %>
     <div class="info-box-file-list-container">
       <div id="info-box-header" class="info-box-section-header">All files:</div>
       <div class="info-box-file-list"></div>

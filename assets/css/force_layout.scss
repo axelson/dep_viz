@@ -41,6 +41,11 @@ body.dark-mode {
   margin-bottom: 8px;
 }
 
+.info-box-file-list-container {
+  // Shown via javascript
+  display: none;
+}
+
 .info-box-file-list {
   line-height: 1.5;
 }
@@ -108,4 +113,20 @@ path.direction-animate, line.direction-animate {
 @keyframes movedash {
   0% {stroke-dashoffset: 12;}
   100% {stroke-dashoffset:0;}
+}
+
+.tab-bar {
+  display: flex;
+  pointer-events: auto;
+
+  .tab {
+    opacity: 0.7;
+    margin-right: 8px;
+    cursor: pointer;
+
+    &.active {
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
 }
