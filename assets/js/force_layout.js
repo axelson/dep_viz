@@ -107,10 +107,9 @@ function render(data) {
   const width = window.svgWidth, height = window.svgHeight
 
   const force = d3.forceSimulation(nodeData)
-    .force('charge', d3.forceManyBody().strength(chargeStrength))
-    .force('center', d3.forceCenter(width * 0.6, height / 2))
-    // NOTE:  linkData is transformed by d3 after this point
-    .force('link', d3.forceLink().links(linkData).id(item => item.id))
+                  .force('charge', d3.forceManyBody().strength(buildChargeStrength(nodeData.length)))
+                  .force('center', d3.forceCenter(width * 0.6, height / 2))
+                  .force('link', d3.forceLink().links(linkData).id(item => item.id))
 
   window.force = force
 
@@ -303,11 +302,17 @@ function renderInfoBox(nodeData, _targets, targetObjects) {
   })
 }
 
-function chargeStrength(_data) {
+function buildChargeStrength(numNodes) {
   // NOTE: It might be nice for this to be dependent on the number of connected
   // edges. By giving more strength to nodes that have many edges the clusters
   // will be a little more dispersed and hopefully easier to grok.
-  return -30
+  if (numNodes > 200) {
+    return -20
+  } else if (numNodes > 100) {
+    return -30
+  } else {
+    return -40
+  }
 }
 
 function transformData(linkData) {
