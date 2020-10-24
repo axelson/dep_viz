@@ -55,7 +55,7 @@ TODO:
   - [ ] Selected node shouldn't be same color as compile-time dependencies
   - [ ] Files that will case this file to recompile, and files this causes to
         recompile should be two separate colors
-- [ ] Hide node-centric force layout for now
+- [x] Hide node-centric force layout for now
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Show which compile-links cause the most files to be compiled
 - [ ] Create a glossary

@@ -353,14 +353,7 @@ function updateNodes(nodeData, linkData, force) {
             .on('start', dragStarted)
             .on('drag', dragged)
             .on('end', dragEnded))
-    .on('click', function (nodeDatum) {
-      showOnlyThisNodeAndCompileDeps(
-        nodeDatum.id,
-        force,
-        nodeData,
-        linkData,
-        targetObjects
-      )
+    .on('click', function (_d) {
     })
 
   u.exit().remove()
