@@ -57,12 +57,12 @@ TODO:
         recompile should be two separate colors
 - [x] Hide node-centric force layout for now
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
-- [ ] Show which compile-links cause the most files to be compiled
 - [x] Create a glossary
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
 - [ ] Force layout charge should be set based on the number of nodes
 - [x] Use a tab layout to switch between "All files" and "Top stats"
+- [x] Change the stroke width when hovering
 
 Done:
 - [x] Show a list of files on the left
@@ -91,6 +91,12 @@ Future:
   - [ ] Node centric force layout have way to go back to normal layout
   - [ ] Node centric force layout is not well centered
     - Can we apply a higher degree of force to keep it more spread out and higher up?
+- Show which compile-links cause the most files to be recompiled
+  - How difficult is this to calculate? Hard, or rather expensive because this
+    needs to be checked for ALL links, and for each link need to recalculate the
+    stats for ALL nodes. Because we cannot just check the compile dependencies,
+    need to check export and runtime deps as well (because a compile dep causes
+    transitive dependencies with runtime deps)
 
 Ideas:
 - can you click on a node and give it gravity

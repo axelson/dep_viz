@@ -11,6 +11,10 @@ import BrowserText from './browser_text.js'
 
 const NODE_RADIUS = 5
 const HIGHLIGHTED_NODE_RADIUS = 8
+
+const DEFAULT_STROKE_WIDTH = 0.3
+const HIGHLIGHTED_STROKE_WIDTH = 1.5
+
 let DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = '#ffd300'
 const GETS_RECOMPILED_NODE_COLOR = 'red'
@@ -334,7 +338,7 @@ function updateLinks(linkData) {
   u.enter()
     .append('line')
     .attr('stroke', d => d.stroke)
-    .attr('stroke-width', 0.3)
+    .attr('stroke-width', DEFAULT_STROKE_WIDTH)
     .merge(u)
     .attr('x1', function(d) {
       return d.source.x
@@ -534,6 +538,7 @@ function highlightCompileDepsOfNode(id, targetObjects) {
     .transition().duration(duration)
     .style('stroke-opacity', d => hoverOpacityCompile(compileMatched, d))
     .attr('stroke', d => hoverLineStroke(compileMatched, d))
+    .attr('stroke-width', d => hoverStrokeWidth(compileMatched, d))
     .attr('class', linkClass)
 
   showMatchingLabels(nodes, compileMatched, id)
@@ -575,6 +580,7 @@ function highlightFilesThisFileCausesToRecompile(id, causeRecompileMap) {
     .selectAll('line')
     .transition().duration(duration)
     .style('stroke-opacity', d => hoverOpacityCompile(matched, d))
+    .attr('stroke-width', d => hoverStrokeWidth(matched, d))
     .attr('stroke', d => hoverLineStroke(matched, d))
     .attr('class', d => hoverAnimateStroke(id, d))
 
@@ -734,6 +740,12 @@ function hoverNodeOpacity(matched, d) {
   return d.id in matched ? 1 : 0.1
 }
 
+function hoverStrokeWidth(matched, d) {
+  const sourceMatched = d.source.id in matched
+  const targetMatched = d.target.id in matched
+  return sourceMatched && targetMatched ? HIGHLIGHTED_STROKE_WIDTH : DEFAULT_STROKE_WIDTH
+}
+
 function hoverOpacity(matched, id) {
   return id in matched ? 1 : 0.1
 }
@@ -790,6 +802,7 @@ function restoreLines() {
     .transition().duration(TRANSITION_FAST)
     .style('stroke-opacity', 1)
     .attr('stroke', d => d.stroke)
+    .attr('stroke-width', DEFAULT_STROKE_WIDTH)
     .attr('class', '')
 }
 
