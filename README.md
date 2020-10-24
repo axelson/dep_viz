@@ -62,7 +62,7 @@ TODO:
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
 - [ ] Force layout charge should be set based on the number of nodes
-- [ ] Use a tab layout to switch between "All files" and "Top stats"
+- [x] Use a tab layout to switch between "All files" and "Top stats"
 
 Done:
 - [x] Show a list of files on the left

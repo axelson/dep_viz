@@ -23,6 +23,9 @@ let EXPORT_LINE_STROKE = '#3a79ff'
 const TRANSITION_SLOW = 600
 const TRANSITION_FAST = 500
 
+const $allFilesContainer = jQuery('.info-box-file-list-container')
+const $topStats = jQuery('.highlight-box')
+
 if (jQuery('body.dark-mode').length > 0) {
   DEFAULT_NODE_COLOR = 'white'
   EXPORT_LINE_STROKE = '#a1bfff'
@@ -31,6 +34,9 @@ if (jQuery('body.dark-mode').length > 0) {
 const vizSettings = {
   maxLabelsToShow: 10,
   logFilesToCompile: false
+}
+const vizState = {
+  infoBoxMode: 'stats'
 }
 
 // Data
@@ -204,25 +210,24 @@ function renderInfoBox(nodeData, _targets, targetObjects) {
   const $input = jQuery('#info-box-input')
   const $header = jQuery('#info-box-header')
   const $tabBar = jQuery('.tab-bar')
-  const $allFilesContainer = jQuery('.info-box-file-list-container')
-  const $topStats = jQuery('.highlight-box')
 
   $tabBar.on('click', '.tab', function () {
     const $this = jQuery(this)
     if (!$this.hasClass('active')) {
       $this.siblings().removeClass('active')
       $this.addClass('active')
-      const name = $this.data('name')
       switch ($this.data('name')) {
         case 'stats': {
           $allFilesContainer.hide()
           $topStats.show()
+          vizState.infoBoxMode = 'stats'
           break
         }
 
         case 'all-files': {
           $allFilesContainer.show()
           $topStats.hide()
+          vizState.infoBoxMode = 'all-files'
           break
         }
       }
@@ -616,8 +621,15 @@ function highlightAllDeps(id, targets, _targetObjects) {
 
 // Shows the direct depenencies of the given file id
 function showFileTree(id, targetObjects) {
-  // hide the info box file list and show the info box file tree
-  jQuery('.info-box-file-list-container').hide()
+  switch (vizState.infoBoxMode) {
+    case 'stats':
+      $topStats.hide()
+      break
+
+    case 'all-files':
+      $allFilesContainer.hide()
+  }
+
   jQuery('.info-box-file-tree').show()
 
   // For the current file render the file name
@@ -686,8 +698,16 @@ function showFileTree(id, targetObjects) {
 }
 
 function unShowFileTree() {
-  jQuery('.info-box-file-list-container').show()
   jQuery('.info-box-file-tree').hide()
+  switch (vizState.infoBoxMode) {
+    case 'stats':
+      $topStats.show()
+      break
+
+    case 'all-files':
+      $allFilesContainer.show()
+      break
+  }
 
   const u = d3.select('.info-box-file-tree .file-tree')
               .selectAll('div')
