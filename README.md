@@ -57,15 +57,12 @@ TODO:
         recompile should be two separate colors
 - [ ] Hide node-centric force layout for now
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
-- [ ] Allow dragging when in focused mode
-- [ ] Node centric force layout is not well centered
-  - Can we apply a higher degree of force to keep it more spread out and higher up?
-- [ ] Node centric force layout always highlight the selected node
-- [ ] Node centric force layout have way to go back to normal layout
 - [ ] Show which compile-links cause the most files to be compiled
 - [ ] Create a glossary
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
+- [ ] Force layout charge should be set based on the number of nodes
+- [ ] Use a tab layout to switch between "All files" and "Top stats"
 
 Done:
 - [x] Show a list of files on the left
@@ -85,10 +82,15 @@ Future:
 - Configurable node coloring based on filename prefix
 - "Live" view of a project selected interactively
   - Maybe even launch the project via bakeware?
-- [ ] node centric force layout is buggy
+- [ ] node centric force layout polish
   - [ ] transition to the layout sometimes keeps the discarded nodes for too long
   - Maybe need to add special handling for `unShowNodeCompileDeps` when transitioning to node-centric force layout
   - [x] tooltip doesn't match node labels (labels are incorrect)
+  - [ ] Allow dragging
+  - [ ] Node centric force layout always highlight the selected node
+  - [ ] Node centric force layout have way to go back to normal layout
+  - [ ] Node centric force layout is not well centered
+    - Can we apply a higher degree of force to keep it more spread out and higher up?
 
 Ideas:
 - can you click on a node and give it gravity
