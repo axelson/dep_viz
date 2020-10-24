@@ -11,7 +11,7 @@ import { showOnlyThisNodeAndCompileDeps } from './node_centric_force_layout.js'
 import BrowserText from './browser_text.js'
 
 const NODE_RADIUS = 5
-const HIGHLIGHTED_NODE_RADIUS = 7
+const HIGHLIGHTED_NODE_RADIUS = 8
 let DEFAULT_NODE_COLOR = 'black'
 const HIGHLIGHT_NODE_COLOR = 'red'
 const SECONDARY_HIGHLIGHT_NODE_COLOR = '#ffd300'
@@ -269,7 +269,7 @@ function chargeStrength(_data) {
   // NOTE: It might be nice for this to be dependent on the number of connected
   // edges. By giving more strength to nodes that have many edges the clusters
   // will be a little more dispersed and hopefully easier to grok.
-  return -40
+  return -30
 }
 
 function transformData(linkData) {
@@ -392,7 +392,7 @@ function updateLabelBackgroundPos() {
                        .selectAll('rect')
 
   background
-    .attr('x', d => d.x + 7)
+    .attr('x', d => d.x + 10)
     .attr('y', d => d.y - 12)
 }
 
@@ -443,7 +443,7 @@ export function updateLabels(nodeData, primaryId) {
    .attr('dominant-baseline', 'middle')
    .style('font-size', fontSize)
    .merge(u)
-   .attr('x', d => d.x + 10)
+   .attr('x', d => d.x + 18)
    .attr('y', d => d.y)
 
   u.exit().remove()
