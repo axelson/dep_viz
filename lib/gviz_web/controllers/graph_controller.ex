@@ -3,6 +3,10 @@ defmodule GVizWeb.GraphController do
   require Logger
   alias NimbleCSV.RFC4180, as: CSV
 
+  def readme(conn, _params) do
+    text(conn, File.read!("README.md"))
+  end
+
   def index(conn, _params) do
     render(conn, "index.html")
   end

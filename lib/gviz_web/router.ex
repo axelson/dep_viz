@@ -18,6 +18,7 @@ defmodule GVizWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+    get "/readme", GraphController, :readme
     get "/graph", GraphController, :index
     get "/force", GraphController, :force
     get "/force_data", GraphController, :force_data

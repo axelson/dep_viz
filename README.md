@@ -33,12 +33,26 @@ Top annoyances:
 
 ## Meta
 
+Core: Elixir Developers don't want to have to wait for files to be recompiled while developing
+
+Therefore, Elixir Developers want to minimize compile dependencies (especially of files that are slow to recompile)
+
 Helps you answer questions about the Elixir code base:
-* What files will cause this file to recompile
-* What files does this cause to recompile
+* Why when I change file A does it cause 100 files to recompile?
+  * Investigate: What files will **cause this** file to recompile?
+  * Investigate: What files does **this file cause** to recompile?
+
+
+* What compile dependencies do I have that I don't need (or aren't worth it)?
+
+
+* Top question: What recompilation dependencies does the code base have
 * And maybe:
   * What files trigger the most other files to recompile? (can mostly see this visually)
   * What files are most often triggered
+  
+* If we were tracking compiles of the project (store in a GenServer or file),
+  then show which files are occupying the most time spent compiling
   
 Questions:
 - How do you switch between the file list and the top stats?
@@ -63,6 +77,9 @@ TODO:
 - [ ] Force layout charge should be set based on the number of nodes
 - [x] Use a tab layout to switch between "All files" and "Top stats"
 - [x] Change the stroke width when hovering
+- [ ] Searching should filter the top stats also
+  - And maybe show the search text as well
+- [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 
 Done:
 - [x] Show a list of files on the left
