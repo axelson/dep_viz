@@ -1,3 +1,5 @@
+import { depType } from './constants.js'
+
 export function findCompileDependencies(graph, id) {
   return compileDependencies(graph, id, {[id]: true}, false)
 }

@@ -7,9 +7,9 @@ import {
   TRANSITION_FAST,
   COMPILE_LINE_STROKE,
   EXPORT_LINE_STROKE,
-  GETS_RECOMPILED_COLOR,
-  CAUSES_RECOMPILE_COLOR,
-  DEFAULT_LINE_STROKE
+  COMPILATION_DEPENDENCY_COLOR,
+  DEFAULT_LINE_STROKE,
+  EXPORT_DEPENDENCY_COLOR, RUNTIME_DEPENDENCY_COLOR
 } from './constants.js'
 
 import {
@@ -23,10 +23,11 @@ const HIGHLIGHTED_NODE_RADIUS = 8
 const DEFAULT_STROKE_WIDTH = 0.3
 const HIGHLIGHTED_STROKE_WIDTH = 1.2
 
-let DEFAULT_NODE_COLOR = 'black'
-const HIGHLIGHT_NODE_COLOR = '#ffd300'
+let DEFAULT_NODE_COLOR = '#777'
+const HIGHLIGHT_NODE_COLOR = 'black'
 
 const $topStats = jQuery('.highlight-box')
+const $allFilesContainer = jQuery('.info-box-file-list-container')
 
 export class NodeForceLayout {
   constructor(nodeData, linkData, width, height) {
@@ -50,7 +51,7 @@ export class NodeForceLayout {
   }
 
   // TODO: Change targetObjects to not need to be passed in here
-  highlightCompileDepsOfNode(id, targetObjects) {
+  highlightDependenciesOfNode(id, targetObjects) {
     const duration = TRANSITION_SLOW
     const compileMatched = findCompileDependencies(targetObjects, id)
 
@@ -131,14 +132,14 @@ export class NodeForceLayout {
       .selectAll('circle')
       .transition().duration(TRANSITION_SLOW)
       .style('fill-opacity', d => {
-        if (d.id.indexOf(input) !== -1) {
+        if (d.id.indexOf(searchText) !== -1) {
           return 1
         } else {
           return 0.1
         }
       })
       .style('fill', d => {
-        if (input == '') {
+        if (searchText == '') {
           return 'black'
         } else if (d.id.indexOf(searchText) !== -1) {
           return HIGHLIGHT_NODE_COLOR
@@ -167,7 +168,7 @@ export class NodeForceLayout {
       })
   }
 
-  highlightFilesThisFileCausesToRecompile(id, causeRecompileMap) {
+  highlightThisFilesDependencies(id, causeRecompileMap) {
     const duration = TRANSITION_SLOW
 
     if (window.vizSettings.logFilesToCompile) {
@@ -189,7 +190,7 @@ export class NodeForceLayout {
       .transition().duration(duration)
       .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
       .style('fill-opacity', d => hoverOpacity(matched, d.id))
-      .style('fill', d => hoverNodeFill(matched, d, id, GETS_RECOMPILED_COLOR))
+      .style('fill', d => hoverNodeFill(matched, d, id, COMPILATION_DEPENDENCY_COLOR))
 
     // Highlight and fade links
     d3.select('svg')
@@ -275,7 +276,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
       if (window.vizMode === 'focusNode') {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
-        nodeForceLayout.highlightCompileDepsOfNode(nodeDatum.id, targetObjects)
+        nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, targetObjects)
         // TODO: This reference is wrong
         showFileTree(nodeDatum.id, targetObjects)
       }
@@ -316,7 +317,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
 
 function hoverLineStroke(matched, d) {
   if (d.source.id in matched) {
-    return d.stroke === DEFAULT_LINE_STROKE ? 'black' : d.stroke
+    return d.stroke
   } else {
     return DEFAULT_LINE_STROKE
   }

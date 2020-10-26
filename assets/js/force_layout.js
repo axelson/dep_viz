@@ -11,11 +11,12 @@ import {
 } from './node_force_layout.js'
 
 import {
-  GETS_RECOMPILED_COLOR,
-  CAUSES_RECOMPILE_COLOR,
+  COMPILATION_DEPENDENCY_COLOR,
+  EXPORT_DEPENDENCY_COLOR,
+  RUNTIME_DEPENDENCY_COLOR,
   COMPILE_LINE_STROKE,
-  DEFAULT_LINE_STROKE,
   EXPORT_LINE_STROKE,
+  RUNTIME_LINE_STROKE
 } from './constants'
 
 const $allFilesContainer = jQuery('.info-box-file-list-container')
@@ -134,7 +135,7 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
    .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
    .on('mouseover', (d) => {
-     nodeForceLayout.highlightCompileDepsOfNode(d.id, targetObjects)
+     nodeForceLayout.highlightDependenciesOfNode(d.id, targetObjects)
      // showFileTree(d.id, targetObjects)
    })
    .on('mouseout', (_d) => {
@@ -159,7 +160,7 @@ function renderInfoBox(nodeData, _targets, targetObjects, nodeForceLayout) {
    .attr('class', 'inline-item')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
-     nodeForceLayout.highlightCompileDepsOfNode(nodeDatum.id, targetObjects)
+     nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, targetObjects)
    })
    .on('mouseout', function (_nodeDatum) {
      nodeForceLayout.unShowNodeCompileDeps()
@@ -246,7 +247,7 @@ function transformData(linkData) {
     } else if (d.label == "(export)") {
       d.stroke = EXPORT_LINE_STROKE
     } else {
-      d.stroke = DEFAULT_LINE_STROKE
+      d.stroke = RUNTIME_LINE_STROKE
     }
   })
 }
@@ -260,6 +261,7 @@ function linkType(label) {
 }
 
 function initGlossary() {
-  jQuery('.glossary-box .causes-recompile .box').css('background', CAUSES_RECOMPILE_COLOR)
-  jQuery('.glossary-box .gets-recompiled .box').css('background', GETS_RECOMPILED_COLOR)
+  jQuery('.glossary-box .compilation-dependency .box').css('background', COMPILATION_DEPENDENCY_COLOR)
+  jQuery('.glossary-box .export-dependency .box').css('background', EXPORT_DEPENDENCY_COLOR)
+  jQuery('.glossary-box .runtime-dependency .box').css('background', RUNTIME_DEPENDENCY_COLOR)
 }
