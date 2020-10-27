@@ -1,3 +1,4 @@
+import lodash from 'lodash'
 import { depType } from './constants.js'
 
 export function findCompileDependencies(graph, id) {
@@ -36,6 +37,75 @@ function compileDependencies(graph, id, matched, isCompileDep) {
 
         default:
           throw `Unhandled node type ${node.type}`
+      }
+    })
+  }
+
+  return matched
+}
+
+export function findAllDependenciesTypes(graph, id) {
+  return doFindAllDependenciesTypes(graph, id, {[id]: depType.compile}, true, false)
+}
+
+function doFindAllDependenciesTypes(graph, id, matched, topLevel, isCompileDep) {
+  // A file that has an export dependency
+  // Compilation dependencies are any dependency that is directly a compilation
+  // dependency and any dependency of a compilation dependency
+  // Also include export depedency (but not it's children) in this analysis
+
+  // If the node is already visited, then don't recurse
+  // Unless the node was visited as a runtime dependency
+  // As an optimization, start with all the compile time depdendencies
+
+  if (graph[id]) {
+    // Sort nodes by dependency type because we want to visit all compile
+    // dependencies first (so that we preferentially mark nodes as compile time
+    // depdency, because if a node is both a compile time dependency and a
+    // export/runtime dependency then we treat it as a compile time dependency)
+    const nodes = lodash.sortBy(graph[id], node => {
+      switch (node.type) {
+        case 'compile': return 0
+        case 'export': return 1
+        case 'runtime': return 2
+      }
+    })
+
+    nodes.forEach(node => {
+      if (!matched[node.id]) {
+        if (isCompileDep) {
+          matched[node.id] = depType.compile
+          doFindAllDependenciesTypes(graph, node.id, matched, false, true)
+        } else {
+          switch (node.type) {
+            case 'compile':
+              if (topLevel) {
+                matched[node.id] = depType.compile
+                doFindAllDependenciesTypes(graph, node.id, matched, false, true)
+              } else {
+                matched[node.id] = depType.runtime
+                doFindAllDependenciesTypes(graph, node.id, matched, false, false)
+              }
+              break
+
+            case 'export':
+              if (topLevel) {
+                matched[node.id] = depType.export
+              } else {
+                matched[node.id] = depType.runtime
+              }
+              doFindAllDependenciesTypes(graph, node.id, matched, false, false)
+              break
+
+            case 'runtime':
+              matched[node.id] = depType.runtime
+              doFindAllDependenciesTypes(graph, node.id, matched, false, false)
+              break
+
+            default:
+              throw `Unhandled node type ${node.type}`
+          }
+        }
       }
     })
   }

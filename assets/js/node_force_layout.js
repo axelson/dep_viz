@@ -37,7 +37,9 @@ export class NodeForceLayout {
     this.height = height
   }
 
-  initialize() {
+  initialize(dependenciesMap) {
+    this.dependenciesMap = dependenciesMap
+
     const width = this.width, height = this.height
 
     const force =
@@ -51,9 +53,11 @@ export class NodeForceLayout {
   }
 
   // TODO: Change targetObjects to not need to be passed in here
-  highlightDependenciesOfNode(id, targetObjects) {
+  highlightDependenciesOfNode(id) {
+    if (!this.dependenciesMap) return
+
+    const dependencyTypes = this.dependenciesMap[id]
     const duration = TRANSITION_SLOW
-    const compileMatched = findCompileDependencies(targetObjects, id)
 
     if (window.vizSettings.logFilesToCompile) {
       console.log(`\nTouching any of these file will cause ${id} to recompile:`)
@@ -74,19 +78,19 @@ export class NodeForceLayout {
     nodes
       .transition().duration(duration)
       .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
-      .style('fill-opacity', d => hoverNodeOpacity(compileMatched, d))
-      .style('fill', d => hoverNodeFill(compileMatched, d, id, CAUSES_RECOMPILE_COLOR))
+      .style('fill-opacity', d => hoverNodeOpacity(dependencyTypes, d))
+      .style('fill', d => hoverNodeFillNew(dependencyTypes, d, id))
 
     // Fade and desaturate non-compile depedency lines and arrows
     d3.select('svg')
       .selectAll('line')
       .transition().duration(duration)
-      .style('stroke-opacity', d => hoverOpacityCompile(compileMatched, d))
-      .attr('stroke', d => hoverLineStroke(compileMatched, d))
-      .attr('stroke-width', d => hoverStrokeWidth(compileMatched, d))
+      .style('stroke-opacity', d => hoverOpacityCompile(dependencyTypes, d))
+      .attr('stroke', d => hoverLineStroke(dependencyTypes, d))
+      .attr('stroke-width', d => hoverStrokeWidth(dependencyTypes, d))
       .attr('class', linkClass)
 
-    showMatchingLabels(nodes, compileMatched, id)
+    showMatchingLabels(nodes, dependencyTypes, id)
   }
 
   unShowNodeCompileDeps() {
@@ -276,7 +280,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
       if (window.vizMode === 'focusNode') {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else {
-        nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, targetObjects)
+        nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
         // TODO: This reference is wrong
         showFileTree(nodeDatum.id, targetObjects)
       }
@@ -373,7 +377,18 @@ function hoverNodeOpacity(matched, d) {
 function hoverStrokeWidth(matched, d) {
   const sourceMatched = d.source.id in matched
   const targetMatched = d.target.id in matched
-  return sourceMatched && targetMatched ? HIGHLIGHTED_STROKE_WIDTH : DEFAULT_STROKE_WIDTH
+  // return sourceMatched && targetMatched ? HIGHLIGHTED_STROKE_WIDTH : DEFAULT_STROKE_WIDTH
+  if (sourceMatched && targetMatched) {
+    // TODO: Extract this to a function
+    // Check if the link is a runtime dependency
+    if (d.label === '') {
+      return DEFAULT_STROKE_WIDTH
+    } else {
+      return HIGHLIGHTED_STROKE_WIDTH
+    }
+  } else {
+    return DEFAULT_STROKE_WIDTH
+  }
 }
 
 function highlightAllDeps(id, targets, _targetObjects) {
@@ -417,6 +432,23 @@ function hoverNodeFill(matched, d, id, matchedColor) {
     return HIGHLIGHT_NODE_COLOR
   } else if (d.id in matched) {
     return matchedColor
+  } else {
+    return DEFAULT_NODE_COLOR
+  }
+}
+
+function hoverNodeFillNew(dependencyTypes, d, id) {
+  if (d.focused) {
+    return HIGHLIGHT_NODE_COLOR
+  } else if (d.id == id) {
+    return HIGHLIGHT_NODE_COLOR
+  } else if (d.id in dependencyTypes) {
+    switch (dependencyTypes[d.id]) {
+      case 'compile': return COMPILATION_DEPENDENCY_COLOR
+      case 'export': return EXPORT_DEPENDENCY_COLOR
+      case 'runtime': return RUNTIME_DEPENDENCY_COLOR
+      default: throw `Unhandled node type ${dependencyTypes[d.id]}`
+    }
   } else {
     return DEFAULT_NODE_COLOR
   }

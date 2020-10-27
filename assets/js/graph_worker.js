@@ -1,7 +1,9 @@
-import { findCompileDependencies } from './force_utils'
+import {
+  findCompileDependencies,
+  findAllDependenciesTypes
+} from './force_utils'
 
 onmessage = function(e) {
-  console.log('Message received', e)
   switch (e.data.type) {
     case 'init': return init(e.data.nodeData, e.data.targetObjects)
     default:
@@ -12,12 +14,17 @@ onmessage = function(e) {
 
 function init(nodeData, targetObjects) {
   console.log('targetObjects', targetObjects);
+  const dependenciesMap = {}
+
+  // TODO: Phase these out
   const causeRecompileMap = {}
   const getsRecompiledMap = {}
 
   nodeData.forEach(node => {
     const deps = findCompileDependencies(targetObjects, node.id)
+    const dependencyTypes = findAllDependenciesTypes(targetObjects, node.id)
 
+    dependenciesMap[node.id] = dependencyTypes
     getsRecompiledMap[node.id] = Object.keys(deps).length
 
     for (const depId of Object.keys(deps)) {
@@ -34,6 +41,7 @@ function init(nodeData, targetObjects) {
   postMessage({
     causeRecompileMap: causeRecompileMap,
     getsRecompiledMap: getsRecompiledMap,
+    dependenciesMap: dependenciesMap,
   })
 }
 

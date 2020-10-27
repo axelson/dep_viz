@@ -80,13 +80,13 @@ function render(data) {
   const width = window.svgWidth, height = window.svgHeight
 
   const nodeForceLayout = new NodeForceLayout(nodeData, linkData, width, height)
-  nodeForceLayout.initialize()
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
   const worker = new Worker('js/graph_worker.js')
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
+    nodeForceLayout.initialize(e.data.dependenciesMap)
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
     renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects, nodeForceLayout)
     renderTotalFileCount(e.data.getsRecompiledMap)

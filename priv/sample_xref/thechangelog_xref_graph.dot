@@ -260,6 +260,7 @@ digraph "xref graph" {
   "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/views/episode_view.ex"
   "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/views/person_view.ex"
   "lib/changelog_web/views/person_view.ex" -> "lib/changelog/files/avatar.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog/kits/html_kit.ex"
   "lib/changelog_web/views/person_view.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
   "lib/changelog_web/views/person_view.ex" -> "lib/changelog/schema/person.ex"
   "lib/changelog_web/views/person_view.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
@@ -398,6 +399,7 @@ digraph "xref graph" {
   "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web/views/person_view.ex"
   "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web/views/time_view.ex"
   "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/views/admin/episode_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/policies/admin.ex"
   "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/policies/episode.ex"
   "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/episode/episode.ex"
   "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
@@ -530,6 +532,7 @@ digraph "xref graph" {
   "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/views/time_view.ex"
   "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/news_ad_view.ex"
   "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/news_item_comment_view.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/kits/html_kit.ex"
   "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/kits/list_kit.ex"
   "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/kits/string_kit.ex"
   "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
@@ -754,6 +757,7 @@ digraph "xref graph" {
   "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
   "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
   "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
   "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
   "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
   "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web/router.ex"
@@ -1032,6 +1036,8 @@ digraph "xref graph" {
   "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
   "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog/schema/topic.ex"
   "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/admin_layout_plug.ex"
+  "lib/changelog_web/plugs/admin_layout_plug.ex" -> "lib/changelog_web/views/layout_view.ex"
   "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/allow_framing.ex"
   "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/authenticate.ex"
   "lib/changelog_web/plugs/authenticate.ex" -> "lib/changelog/schema/person.ex"
@@ -1045,7 +1051,6 @@ digraph "xref graph" {
   "lib/changelog_web/plugs/vanity_domains.ex" -> "lib/changelog_web/controllers/redirect_controller.ex"
   "lib/changelog_web/plugs/vanity_domains.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
   "lib/changelog_web/plugs/vanity_domains.ex" -> "lib/changelog_web/views/podcast_view.ex"
-  "lib/changelog_web/router.ex" -> "lib/changelog_web/views/layout_view.ex" [label="(compile)"]
   "lib/changelog/kits/string_kit.ex" -> "lib/changelog_web/router.ex"
   "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog/schema/podcast/podcast.ex"
   "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
@@ -1280,6 +1285,7 @@ digraph "xref graph" {
   "lib/changelog_web/meta/image.ex"
   "lib/changelog_web/meta/title.ex"
   "lib/changelog_web/meta/twitter.ex"
+  "lib/changelog_web/plugs/admin_layout_plug.ex"
   "lib/changelog_web/plugs/allow_framing.ex"
   "lib/changelog_web/plugs/authenticate.ex"
   "lib/changelog_web/plugs/authorize.ex"
