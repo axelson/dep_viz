@@ -1,0 +1,1517 @@
+digraph "xref graph" {
+  "lib/changelog.ex"
+  "lib/changelog/application.ex"
+  "lib/changelog/application.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/application.ex" -> "lib/changelog/scheduler.ex"
+  "lib/changelog/application.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/endpoint.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/endpoint.ex" -> "lib/changelog_web/plugs/health_check.ex"
+  "lib/changelog_web/endpoint.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog/repo.ex" [label="(compile)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/benefit_controller.ex"
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog/policies/admins_only.ex" [label="(compile)"]
+  "lib/changelog/policies/admins_only.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog/schema/benefit.ex" [label="(export)"]
+  "lib/changelog/schema/benefit.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/benefit.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/benefit.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/benefit.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/files/avatar.ex" [label="(compile)"]
+  "lib/changelog/files/avatar.ex" -> "lib/changelog/files/file.ex" [label="(compile)"]
+  "lib/changelog/files/avatar.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/files/logo.ex" [label="(compile)"]
+  "lib/changelog/files/logo.ex" -> "lib/changelog/files/file.ex" [label="(compile)"]
+  "lib/changelog/files/logo.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/schema/benefit.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/schema/episode/episode_sponsor.ex"
+  "lib/changelog/schema/episode/episode_sponsor.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode_sponsor.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/episode/episode_sponsor.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode_sponsor.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/files/audio.ex" [label="(compile)"]
+  "lib/changelog/files/audio.ex" -> "lib/changelog/files/file.ex" [label="(compile)"]
+  "lib/changelog/files/audio.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/files/audio.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog/files/cover.ex"
+  "lib/changelog/files/cover.ex" -> "lib/changelog/files/file.ex" [label="(compile)"]
+  "lib/changelog/files/cover.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/files/cover.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog/kits/string_kit.ex"
+  "lib/changelog/kits/string_kit.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog/kits/string_kit.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/files/cover.ex" [label="(compile)"]
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog/schema/episode/episode_request.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode_request.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode_request.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode_request.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/faker.ex"
+  "lib/changelog/faker.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/files/avatar.ex" [label="(compile)"]
+  "lib/changelog/schema/person.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/episode/episode_guest.ex"
+  "lib/changelog/schema/episode/episode_guest.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode_guest.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode_guest.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode_guest.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/episode/episode_guest.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/episode/episode_host.ex"
+  "lib/changelog/schema/episode/episode_host.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode_host.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode_host.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode_host.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/episode/episode_host.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/files/image.ex" [label="(compile)"]
+  "lib/changelog/files/image.ex" -> "lib/changelog/files/file.ex" [label="(compile)"]
+  "lib/changelog/files/image.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/kits/url_kit.ex"
+  "lib/changelog/kits/url_kit.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/kits/url_kit.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog/schema/news/news_source.ex" -> "lib/changelog/files/icon.ex" [label="(compile)"]
+  "lib/changelog/files/icon.ex" -> "lib/changelog/files/file.ex" [label="(compile)"]
+  "lib/changelog/files/icon.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_source.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_source.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/news/news_source.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_source.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/news/news_source.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/kits/url_kit.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/news/news_issue.ex" [label="(export)"]
+  "lib/changelog/schema/news/news_issue.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_issue.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/news/news_issue.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_issue.ex" -> "lib/changelog/schema/news/news_issue_ad.ex"
+  "lib/changelog/schema/news/news_issue_ad.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_issue_ad.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_issue_ad.ex" -> "lib/changelog/schema/news/news_ad.ex"
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/files/image.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/schema/news/news_issue_ad.ex"
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog/schema/news/news_sponsorship.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_sponsorship.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_sponsorship.ex" -> "lib/changelog/schema/news/news_ad.ex"
+  "lib/changelog/schema/news/news_sponsorship.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_sponsorship.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog/schema/news/news_ad.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_issue_ad.ex" -> "lib/changelog/schema/news/news_issue.ex"
+  "lib/changelog/schema/news/news_issue_ad.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_issue.ex" -> "lib/changelog/schema/news/news_issue_item.ex"
+  "lib/changelog/schema/news/news_issue_item.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_issue_item.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_issue_item.ex" -> "lib/changelog/schema/news/news_issue.ex"
+  "lib/changelog/schema/news/news_issue_item.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/news/news_issue_item.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_issue.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog/schema/news/news_item_comment.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_item_comment.ex" -> "lib/changelog/kits/string_kit.ex"
+  "lib/changelog/schema/news/news_item_comment.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_item_comment.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/news/news_item_comment.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/news/news_item_comment.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/news/news_item_topic.ex"
+  "lib/changelog/schema/news/news_item_topic.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_item_topic.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_item_topic.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/news/news_item_topic.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_item_topic.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/files/icon.ex" [label="(compile)"]
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/schema/episode/episode_topic.ex"
+  "lib/changelog/schema/episode/episode_topic.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode_topic.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode_topic.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode_topic.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/episode/episode_topic.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/schema/news/news_item_topic.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/schema/post/post_topic.ex"
+  "lib/changelog/schema/post/post_topic.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/post/post_topic.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/post/post_topic.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/files/image.ex" [label="(compile)"]
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/schema/post/post_topic.ex"
+  "lib/changelog/schema/post/post.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/post/post_topic.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/post/post_topic.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog/schema/topic.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/news/news_queue.ex"
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/buffer/buffer.ex"
+  "lib/changelog/buffer/buffer.ex" -> "lib/changelog/buffer/client.ex"
+  "lib/changelog/buffer/buffer.ex" -> "lib/changelog/buffer/content.ex"
+  "lib/changelog/buffer/content.ex" -> "lib/changelog/kits/list_kit.ex"
+  "lib/changelog/buffer/content.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/buffer/content.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/buffer/content.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog/buffer/content.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog/buffer/content.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/files/image.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/kits/url_kit.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/schema/news/news_ad.ex" [label="(export)"]
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog/schema/subscription.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/subscription.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/subscription.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/subscription.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog/schema/subscription.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
+  "lib/changelog/schema/subscription.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/helpers/public_helpers.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog_web/helpers/public_helpers.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/helpers/shared_helpers.ex" -> "lib/changelog/kits/list_kit.ex"
+  "lib/changelog_web/helpers/shared_helpers.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog/files/audio.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog/github/source.ex"
+  "lib/changelog/github/source.ex" -> "lib/changelog/kits/string_kit.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog/kits/list_kit.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/meta/description.ex" [label="(export)"]
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/live_view.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog/icecast.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog/files/avatar.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/views/shared_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/shared_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/shared_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/shared_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/shared_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/person_view.ex" -> "lib/craisin/subscriber.ex"
+  "lib/craisin/subscriber.ex" -> "lib/craisin/craisin.ex" [label="(export)"]
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/live_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/news_source_view.ex"
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog/files/icon.ex"
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/news_source_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/page_view.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog/schema/sponsor_style.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/views/newsletter_view.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/views/sponsor_view.ex"
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog/files/avatar.ex"
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog/files/logo.ex"
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/sponsor_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/page_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog/files/image.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog/kits/list_kit.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/post_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/meta/description.ex" -> "lib/changelog_web/views/topic_view.ex"
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog/files/icon.ex"
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/topic_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/meta/title.ex" [label="(export)"]
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/auth_view.ex"
+  "lib/changelog_web/views/auth_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/auth_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/auth_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/auth_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/auth_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/episode_request_view.ex"
+  "lib/changelog_web/views/episode_request_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/episode_request_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/episode_request_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/episode_request_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/live_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/news_source_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/page_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/search_view.ex"
+  "lib/changelog_web/views/search_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/search_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/search_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/search_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/search_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/search_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/meta/title.ex" -> "lib/changelog_web/views/topic_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/views/layout_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog/policies/admin.ex"
+  "lib/changelog/policies/admin.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog/policies/admins_only.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog/policies/news/news_item.ex"
+  "lib/changelog/policies/news/news_item.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog/policies/person.ex"
+  "lib/changelog/policies/person.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog/policies/podcast.ex"
+  "lib/changelog/policies/podcast.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog/policies/post.ex"
+  "lib/changelog/policies/post.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/admin_title.ex" [label="(export)"]
+  "lib/changelog_web/meta/admin_title.ex" -> "lib/changelog_web/views/admin/page_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/helpers/admin_helpers.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/helpers/admin_helpers.ex" -> "lib/changelog_web/helpers/shared_helpers.ex"
+  "lib/changelog_web/helpers/admin_helpers.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/views/admin/episode_request_view.ex"
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog/policies/episode.ex"
+  "lib/changelog/policies/episode.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog/policies/episode_request.ex"
+  "lib/changelog/policies/episode_request.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/episode_request_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/views/admin/episode_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/policies/episode.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog/schema/episode/episode_stat.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode_stat.ex" -> "lib/changelog/kits/agent_kit.ex"
+  "lib/changelog/schema/episode/episode_stat.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode_stat.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode_stat.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
+  "lib/changelog/schema/episode/episode_stat.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/countries.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/views/admin/episode_request_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/views/admin/podcast_view.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog/policies/episode.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog/policies/podcast.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/views/admin/news_item_view.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog/policies/admins_only.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog/policies/news/news_item.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/views/admin/news_sponsorship_view.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog/kits/list_kit.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog/schema/news/news_ad.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web/views/admin/news_ad_view.ex"
+  "lib/changelog_web/views/admin/news_ad_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_ad_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_ad_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_ad_view.ex" -> "lib/changelog_web/views/news_ad_view.ex"
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog/files/image.ex"
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog/schema/news/news_ad.ex"
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/news_ad_view.ex" -> "lib/changelog_web/views/sponsor_view.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/views/admin/newsletter_view.ex"
+  "lib/changelog_web/views/admin/newsletter_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/newsletter_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/newsletter_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/newsletter_view.ex" -> "lib/changelog_web/views/newsletter_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/meta/admin_title.ex" -> "lib/changelog_web/views/admin/person_view.ex"
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web/views/admin/episode_view.ex"
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web/views/admin/news_item_view.ex"
+  "lib/changelog_web/views/admin/person_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/apple.ex" [label="(export)"]
+  "lib/changelog_web/meta/apple.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/canonical_url.ex" [label="(export)"]
+  "lib/changelog_web/meta/canonical_url.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/description.ex" [label="(export)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/feeds.ex" [label="(export)"]
+  "lib/changelog_web/meta/feeds.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/meta/feeds.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/meta/feeds.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/image.ex" [label="(export)"]
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/news_source_view.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/page_view.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/meta/image.ex" -> "lib/changelog_web/views/topic_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/title.ex" [label="(export)"]
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/meta/twitter.ex" [label="(export)"]
+  "lib/changelog_web/meta/twitter.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/meta/twitter.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/meta/twitter.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/meta/twitter.ex" -> "lib/changelog_web/views/page_view.ex"
+  "lib/changelog_web/meta/twitter.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/meta/twitter.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/layout_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/views/sponsor_view.ex"
+  "lib/changelog_web/views/episode_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/news_ad_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/news_item_comment_view.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/kits/list_kit.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/kits/string_kit.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web/views/layout_view.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/news_source_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/news_item_view.ex" -> "lib/changelog_web/views/topic_view.ex"
+  "lib/changelog/buffer/buffer.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/notifier.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/mailer.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog/notifier.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/notifier.ex" -> "lib/changelog/schema/news/news_item_comment.ex" [label="(export)"]
+  "lib/changelog/notifier.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/slack/client.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog/slack/messages.ex"
+  "lib/changelog/slack/messages.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog/slack/messages.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog/notifier.ex" -> "lib/changelog_web/email.ex"
+  "lib/changelog_web/email.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/email.ex" -> "lib/changelog/schema/person.ex" [label="(compile)"]
+  "lib/changelog_web/email.ex" -> "lib/changelog_web/views/email_view.ex" [label="(compile)"]
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog/faker.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/views/auth_view.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/views/news_item_comment_view.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/email_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/email.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/email.ex" -> "lib/changelog_web/views/layout_view.ex"
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_queue.ex" -> "lib/changelog/search.ex"
+  "lib/changelog/search.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/search.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/news_item.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/podcast/podcast_host.ex"
+  "lib/changelog/schema/podcast/podcast_host.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/podcast/podcast_host.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/podcast/podcast_host.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/podcast/podcast_host.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/schema/podcast/podcast_host.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/person.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog/schema/episode/episode_request.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/schema/episode/episode_request.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/podcast/podcast_host.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/podcast/podcast_topic.ex"
+  "lib/changelog/schema/podcast/podcast_topic.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/podcast/podcast_topic.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/podcast/podcast_topic.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/schema/podcast/podcast_topic.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/podcast/podcast_topic.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/podcast/podcast.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/podcast_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/notifier.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/regexp.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/episode/episode_guest.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/episode/episode_host.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/episode/episode_sponsor.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/episode/episode_topic.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog/transcripts/parser.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog/schema/episode/episode.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog/schema/episode/episode_sponsor.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/episode/episode_sponsor.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog/schema/sponsor.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/plugs/authorize.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/plugs/conn.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/plugs/response_cache.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog/cache.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/cache.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog/cache.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
+  "lib/changelog/cache.ex" -> "lib/changelog/schema/post/post.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/benefit_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/episode_controller.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/github/puller.ex"
+  "lib/changelog/github/puller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog/github/puller.ex" -> "lib/changelog/github/source.ex"
+  "lib/changelog/github/puller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/github/puller.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog/github/puller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/github/puller.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/github/pusher.ex"
+  "lib/changelog/github/pusher.ex" -> "lib/changelog/github/client.ex"
+  "lib/changelog/github/pusher.ex" -> "lib/changelog/github/source.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/github/source.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/policies/episode.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/episode/episode_guest.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/episode/episode_host.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/episode/episode_topic.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/news/episode_news_item.ex"
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog/search.ex"
+  "lib/changelog/schema/news/episode_news_item.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/news/news_queue.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/episode_request_controller.ex"
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog/policies/episode_request.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/mailer_preview_controller.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog_web/email.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/news_issue_controller.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/policies/news/news_issue.ex" [label="(compile)"]
+  "lib/changelog/policies/news/news_issue.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/schema/news/news_issue.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/schema/news/news_issue_ad.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/schema/news/news_issue_item.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/news_item_comment_controller.ex"
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog/policies/admins_only.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/news_item_controller.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/kits/html_kit.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/kits/url_kit.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/policies/news/news_item.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/schema/news/news_queue.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog/search.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex"
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog/policies/subscription.ex" [label="(compile)"]
+  "lib/changelog/policies/subscription.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/news_source_controller.ex"
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog/policies/admins_only.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog/schema/news/news_source.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_source_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex"
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog/policies/news/news_sponsorship.ex" [label="(compile)"]
+  "lib/changelog/policies/news/news_sponsorship.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog/schema/news/news_sponsorship.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/page_controller.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/newsletters.ex"
+  "lib/changelog/newsletters.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog/newsletters.ex" -> "lib/craisin/list.ex"
+  "lib/craisin/list.ex" -> "lib/craisin/craisin.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/policies/admin.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/page_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/person_controller.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/mailer.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/policies/person.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog/slack/client.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog_web/email.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/person_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/podcast_controller.ex"
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog/policies/podcast.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/podcast_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex"
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog/policies/subscription.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/post_controller.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/policies/post.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/schema/news/news_queue.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/schema/news/post_news_item.ex"
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog/hashid.ex"
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog/schema/schema.ex" [label="(compile)"]
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog/search.ex"
+  "lib/changelog/schema/news/post_news_item.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog/schema/post/post.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/post_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/search_controller.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/policies/search.ex" [label="(compile)"]
+  "lib/changelog/policies/search.ex" -> "lib/changelog/policies/default.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/search_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/sponsor_controller.ex"
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog/policies/admins_only.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog/schema/episode/episode_sponsor.ex"
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog/schema/sponsor.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/admin/topic_controller.ex"
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog/policies/admins_only.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog/schema/topic.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/admin/topic_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/api_controller.ex"
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/api_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/auth_controller.ex"
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog/mailer.ex"
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog_web/email.ex"
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog_web/plugs/require_guest.ex"
+  "lib/changelog_web/plugs/require_guest.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/auth_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/benefit_controller.ex"
+  "lib/changelog_web/controllers/benefit_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/benefit_controller.ex" -> "lib/changelog/schema/benefit.ex"
+  "lib/changelog_web/controllers/benefit_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/benefit_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/benefit_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/benefit_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/episode_controller.ex"
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/episode_request_controller.ex"
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog/schema/episode/episode_request.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog_web/plugs/require_user.ex"
+  "lib/changelog_web/plugs/require_user.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/episode_request_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/feed_controller.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/kits/agent_kit.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/feed_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/github_controller.ex"
+  "lib/changelog_web/controllers/github_controller.ex" -> "lib/changelog/github/puller.ex"
+  "lib/changelog_web/controllers/github_controller.ex" -> "lib/changelog/github/source.ex"
+  "lib/changelog_web/controllers/github_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/github_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/github_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/github_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/home_controller.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog/slack/client.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog_web/plugs/require_user.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/home_controller.ex" -> "lib/craisin/subscriber.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/json_feed_controller.ex"
+  "lib/changelog_web/controllers/json_feed_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/json_feed_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/json_feed_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/json_feed_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/json_feed_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/live_controller.ex"
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog/icecast.ex"
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/live_controller.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/news_ad_controller.ex"
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog/schema/news/news_ad.ex"
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_ad_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/news_issue_controller.ex"
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog/schema/news/news_issue.ex"
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_issue_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/news_item_comment_controller.ex"
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog/notifier.ex"
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog/schema/news/news_item_comment.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog_web/plugs/require_user.ex"
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_comment_controller.ex" -> "lib/changelog_web/views/news_item_comment_view.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/news_item_controller.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog_web/plugs/require_user.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/news_source_controller.ex"
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/news_source_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/page_controller.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/newsletters.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog/schema/sponsor_story.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog_web/plugs/require_guest.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/controllers/page_controller.ex" -> "lib/craisin/client.ex"
+  "lib/craisin/client.ex" -> "lib/craisin/craisin.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/person_controller.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/mailer.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/newsletters.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog_web/email.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog_web/plugs/require_guest.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/controllers/person_controller.ex" -> "lib/craisin/subscriber.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/podcast_controller.ex"
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/podcast_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/post_controller.ex"
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/post_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/search_controller.ex"
+  "lib/changelog_web/controllers/search_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/search_controller.ex" -> "lib/changelog/search.ex"
+  "lib/changelog_web/controllers/search_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/search_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/search_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/slack_controller.ex"
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/slack/client.ex"
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/slack/countdown.ex"
+  "lib/changelog/slack/countdown.ex" -> "lib/changelog/icecast.ex"
+  "lib/changelog/slack/countdown.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/slack/countdown.ex" -> "lib/changelog/slack/response.ex" [label="(export)"]
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/slack/messages.ex"
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog/slack/tasks.ex"
+  "lib/changelog/slack/tasks.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/slack/tasks.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog/slack/tasks.ex" -> "lib/changelog/slack/client.ex"
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/slack_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/controllers/topic_controller.ex"
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog_web/plugs/conn.ex" [label="(export)"]
+  "lib/changelog_web/controllers/topic_controller.ex" -> "lib/changelog_web/plugs/response_cache.ex" [label="(export)"]
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/allow_framing.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/authenticate.ex"
+  "lib/changelog_web/plugs/authenticate.ex" -> "lib/changelog/schema/person.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/load_podcasts.ex"
+  "lib/changelog_web/plugs/load_podcasts.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/plugs/turbolinks.ex"
+  "lib/changelog_web/router.ex" -> "lib/changelog_web/views/layout_view.ex" [label="(compile)"]
+  "lib/changelog/buffer/buffer.ex"
+  "lib/changelog/buffer/client.ex"
+  "lib/changelog/buffer/content.ex"
+  "lib/changelog/cache.ex"
+  "lib/changelog/faker.ex"
+  "lib/changelog/files/audio.ex"
+  "lib/changelog/files/avatar.ex"
+  "lib/changelog/files/cover.ex"
+  "lib/changelog/files/file.ex"
+  "lib/changelog/files/icon.ex"
+  "lib/changelog/files/image.ex"
+  "lib/changelog/files/logo.ex"
+  "lib/changelog/github/client.ex"
+  "lib/changelog/github/puller.ex"
+  "lib/changelog/github/pusher.ex"
+  "lib/changelog/github/source.ex"
+  "lib/changelog/hashid.ex"
+  "lib/changelog/icecast.ex"
+  "lib/changelog/kits/agent_kit.ex"
+  "lib/changelog/kits/html_kit.ex"
+  "lib/changelog/kits/list_kit.ex"
+  "lib/changelog/kits/string_kit.ex"
+  "lib/changelog/kits/url_kit.ex"
+  "lib/changelog/mailer.ex"
+  "lib/changelog/newsletters.ex"
+  "lib/changelog/notifier.ex"
+  "lib/changelog/policies/admin.ex"
+  "lib/changelog/policies/admins_only.ex"
+  "lib/changelog/policies/default.ex"
+  "lib/changelog/policies/episode.ex"
+  "lib/changelog/policies/episode_request.ex"
+  "lib/changelog/policies/news/news_issue.ex"
+  "lib/changelog/policies/news/news_item.ex"
+  "lib/changelog/policies/news/news_sponsorship.ex"
+  "lib/changelog/policies/person.ex"
+  "lib/changelog/policies/podcast.ex"
+  "lib/changelog/policies/post.ex"
+  "lib/changelog/policies/search.ex"
+  "lib/changelog/policies/subscription.ex"
+  "lib/changelog/regexp.ex"
+  "lib/changelog/repo.ex"
+  "lib/changelog/scheduler.ex"
+  "lib/changelog/schema/benefit.ex"
+  "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/schema/episode/episode_guest.ex"
+  "lib/changelog/schema/episode/episode_host.ex"
+  "lib/changelog/schema/episode/episode_request.ex"
+  "lib/changelog/schema/episode/episode_sponsor.ex"
+  "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/changelog/schema/episode/episode_topic.ex"
+  "lib/changelog/schema/factory.ex"
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/benefit.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode_guest.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode_host.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode_request.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode_sponsor.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode_stat.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/episode/episode_topic.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_ad.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_issue.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_issue_ad.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_item_comment.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_item_topic.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_queue.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_source.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/news/news_sponsorship.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/podcast/podcast.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/post/post.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/post/post_topic.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/sponsor.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/subscription.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog/schema/topic.ex" [label="(export)"]
+  "lib/changelog/schema/factory.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog/schema/news/episode_news_item.ex"
+  "lib/changelog/schema/news/news_ad.ex"
+  "lib/changelog/schema/news/news_issue.ex"
+  "lib/changelog/schema/news/news_issue_ad.ex"
+  "lib/changelog/schema/news/news_issue_item.ex"
+  "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog/schema/news/news_item_comment.ex"
+  "lib/changelog/schema/news/news_item_topic.ex"
+  "lib/changelog/schema/news/news_queue.ex"
+  "lib/changelog/schema/news/news_source.ex"
+  "lib/changelog/schema/news/news_sponsorship.ex"
+  "lib/changelog/schema/news/post_news_item.ex"
+  "lib/changelog/schema/person.ex"
+  "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/schema/podcast/podcast_host.ex"
+  "lib/changelog/schema/podcast/podcast_topic.ex"
+  "lib/changelog/schema/post/post.ex"
+  "lib/changelog/schema/post/post_topic.ex"
+  "lib/changelog/schema/schema.ex"
+  "lib/changelog/schema/sponsor.ex"
+  "lib/changelog/schema/sponsor_story.ex"
+  "lib/changelog/schema/sponsor_style.ex"
+  "lib/changelog/schema/subscription.ex"
+  "lib/changelog/schema/topic.ex"
+  "lib/changelog/search.ex"
+  "lib/changelog/slack/client.ex"
+  "lib/changelog/slack/countdown.ex"
+  "lib/changelog/slack/messages.ex"
+  "lib/changelog/slack/response.ex"
+  "lib/changelog/slack/slack.ex"
+  "lib/changelog/slack/tasks.ex"
+  "lib/changelog/stats/analyzer.ex"
+  "lib/changelog/stats/entry.ex"
+  "lib/changelog/stats/parser.ex"
+  "lib/changelog/stats/parser.ex" -> "lib/changelog/stats/entry.ex" [label="(export)"]
+  "lib/changelog/stats/s3.ex"
+  "lib/changelog/stats/stats.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/cache.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/schema/episode/episode_stat.ex" [label="(export)"]
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/stats/analyzer.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/stats/parser.ex"
+  "lib/changelog/stats/stats.ex" -> "lib/changelog/stats/s3.ex"
+  "lib/changelog/transcripts/parser.ex"
+  "lib/changelog_web.ex"
+  "lib/changelog_web/channels/user_socket.ex"
+  "lib/changelog_web/controllers/admin/benefit_controller.ex"
+  "lib/changelog_web/controllers/admin/episode_controller.ex"
+  "lib/changelog_web/controllers/admin/episode_request_controller.ex"
+  "lib/changelog_web/controllers/admin/mailer_preview_controller.ex"
+  "lib/changelog_web/controllers/admin/news_issue_controller.ex"
+  "lib/changelog_web/controllers/admin/news_item_comment_controller.ex"
+  "lib/changelog_web/controllers/admin/news_item_controller.ex"
+  "lib/changelog_web/controllers/admin/news_item_subscription_controller.ex"
+  "lib/changelog_web/controllers/admin/news_source_controller.ex"
+  "lib/changelog_web/controllers/admin/news_sponsorship_controller.ex"
+  "lib/changelog_web/controllers/admin/page_controller.ex"
+  "lib/changelog_web/controllers/admin/person_controller.ex"
+  "lib/changelog_web/controllers/admin/podcast_controller.ex"
+  "lib/changelog_web/controllers/admin/podcast_subscription_controller.ex"
+  "lib/changelog_web/controllers/admin/post_controller.ex"
+  "lib/changelog_web/controllers/admin/search_controller.ex"
+  "lib/changelog_web/controllers/admin/sponsor_controller.ex"
+  "lib/changelog_web/controllers/admin/topic_controller.ex"
+  "lib/changelog_web/controllers/api_controller.ex"
+  "lib/changelog_web/controllers/auth.ex"
+  "lib/changelog_web/controllers/auth_controller.ex"
+  "lib/changelog_web/controllers/benefit_controller.ex"
+  "lib/changelog_web/controllers/episode_controller.ex"
+  "lib/changelog_web/controllers/episode_request_controller.ex"
+  "lib/changelog_web/controllers/feed_controller.ex"
+  "lib/changelog_web/controllers/github_controller.ex"
+  "lib/changelog_web/controllers/home_controller.ex"
+  "lib/changelog_web/controllers/json_feed_controller.ex"
+  "lib/changelog_web/controllers/live_controller.ex"
+  "lib/changelog_web/controllers/news_ad_controller.ex"
+  "lib/changelog_web/controllers/news_issue_controller.ex"
+  "lib/changelog_web/controllers/news_item_comment_controller.ex"
+  "lib/changelog_web/controllers/news_item_controller.ex"
+  "lib/changelog_web/controllers/news_source_controller.ex"
+  "lib/changelog_web/controllers/page_controller.ex"
+  "lib/changelog_web/controllers/person_controller.ex"
+  "lib/changelog_web/controllers/podcast_controller.ex"
+  "lib/changelog_web/controllers/post_controller.ex"
+  "lib/changelog_web/controllers/search_controller.ex"
+  "lib/changelog_web/controllers/slack_controller.ex"
+  "lib/changelog_web/controllers/topic_controller.ex"
+  "lib/changelog_web/countries.ex"
+  "lib/changelog_web/email.ex"
+  "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/helpers/admin_helpers.ex"
+  "lib/changelog_web/helpers/public_helpers.ex"
+  "lib/changelog_web/helpers/shared_helpers.ex"
+  "lib/changelog_web/meta/admin_title.ex"
+  "lib/changelog_web/meta/apple.ex"
+  "lib/changelog_web/meta/canonical_url.ex"
+  "lib/changelog_web/meta/description.ex"
+  "lib/changelog_web/meta/feeds.ex"
+  "lib/changelog_web/meta/image.ex"
+  "lib/changelog_web/meta/title.ex"
+  "lib/changelog_web/meta/twitter.ex"
+  "lib/changelog_web/plugs/allow_framing.ex"
+  "lib/changelog_web/plugs/authenticate.ex"
+  "lib/changelog_web/plugs/authorize.ex"
+  "lib/changelog_web/plugs/conn.ex"
+  "lib/changelog_web/plugs/health_check.ex"
+  "lib/changelog_web/plugs/load_podcasts.ex"
+  "lib/changelog_web/plugs/require_guest.ex"
+  "lib/changelog_web/plugs/require_user.ex"
+  "lib/changelog_web/plugs/response_cache.ex"
+  "lib/changelog_web/plugs/turbolinks.ex"
+  "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/benefit_view.ex"
+  "lib/changelog_web/views/admin/benefit_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/benefit_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/benefit_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/benefit_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/episode_request_view.ex"
+  "lib/changelog_web/views/admin/episode_view.ex"
+  "lib/changelog_web/views/admin/mailer_preview_view.ex"
+  "lib/changelog_web/views/admin/mailer_preview_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/mailer_preview_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/mailer_preview_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/mailer_preview_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_ad_view.ex"
+  "lib/changelog_web/views/admin/news_issue_view.ex"
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog/schema/news/news_ad.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog/schema/news/news_issue.ex"
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_issue_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_item_comment_view.ex"
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog_web/views/news_item_comment_view.ex"
+  "lib/changelog_web/views/admin/news_item_comment_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex"
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog/faker.ex"
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_item_subscription_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/news_item_view.ex"
+  "lib/changelog_web/views/admin/news_source_view.ex"
+  "lib/changelog_web/views/admin/news_source_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/news_source_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_source_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/news_source_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/news_source_view.ex" -> "lib/changelog_web/views/news_source_view.ex"
+  "lib/changelog_web/views/admin/news_sponsorship_view.ex"
+  "lib/changelog_web/views/admin/newsletter_view.ex"
+  "lib/changelog_web/views/admin/page_view.ex"
+  "lib/changelog_web/views/admin/person_view.ex"
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex"
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog/faker.ex"
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/podcast_subscription_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/podcast_view.ex"
+  "lib/changelog_web/views/admin/post_view.ex"
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog/policies/post.ex"
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/admin/post_view.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog/faker.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog/repo.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog/schema/episode/episode_sponsor.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/episode_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/news_item_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/news_source_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/person_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/post_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/sponsor_view.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog/schema/sponsor.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/views/admin/news_sponsorship_view.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/views/sponsor_view.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/admin/search_view.ex" -> "lib/changelog_web/views/admin/topic_view.ex"
+  "lib/changelog_web/views/admin/topic_view.ex" -> "lib/changelog/schema/topic.ex"
+  "lib/changelog_web/views/admin/topic_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/admin/topic_view.ex" -> "lib/changelog_web/helpers/admin_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/topic_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/admin/topic_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/admin/topic_view.ex" -> "lib/changelog_web/views/topic_view.ex"
+  "lib/changelog_web/views/admin/sponsor_view.ex"
+  "lib/changelog_web/views/admin/topic_view.ex"
+  "lib/changelog_web/views/api_view.ex"
+  "lib/changelog_web/views/api_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/api_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/api_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/auth_view.ex"
+  "lib/changelog_web/views/benefit_view.ex"
+  "lib/changelog_web/views/benefit_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/benefit_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/benefit_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/benefit_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/benefit_view.ex" -> "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/views/email_view.ex"
+  "lib/changelog_web/views/episode_request_view.ex"
+  "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/error_helpers.ex"
+  "lib/changelog_web/views/error_view.ex"
+  "lib/changelog_web/views/error_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/error_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/error_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/error_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/error_view.ex" -> "lib/changelog_web/views/layout_view.ex"
+  "lib/changelog_web/views/feed_view.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog/schema/post/post.ex" [label="(export)"]
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/feed_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/home_view.ex"
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog/newsletters.ex"
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/home_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/json_feed_view.ex"
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog/schema/episode/episode.ex" [label="(export)"]
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog/schema/post/post.ex" [label="(export)"]
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web/views/episode_view.ex"
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/json_feed_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/layout_view.ex"
+  "lib/changelog_web/views/live_view.ex"
+  "lib/changelog_web/views/news_ad_view.ex"
+  "lib/changelog_web/views/news_issue_view.ex"
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog/schema/news/news_ad.ex" [label="(export)"]
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web.ex" [label="(compile)"]
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/helpers/public_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/helpers/shared_helpers.ex" [label="(export)"]
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/router.ex"
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/views/sponsor_view.ex"
+  "lib/changelog_web/views/news_issue_view.ex" -> "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/news_item_comment_view.ex"
+  "lib/changelog_web/views/news_item_view.ex"
+  "lib/changelog_web/views/news_source_view.ex"
+  "lib/changelog_web/views/newsletter_view.ex"
+  "lib/changelog_web/views/page_view.ex"
+  "lib/changelog_web/views/person_view.ex"
+  "lib/changelog_web/views/podcast_view.ex"
+  "lib/changelog_web/views/post_view.ex"
+  "lib/changelog_web/views/search_view.ex"
+  "lib/changelog_web/views/shared_view.ex"
+  "lib/changelog_web/views/sponsor_view.ex"
+  "lib/changelog_web/views/time_view.ex"
+  "lib/changelog_web/views/topic_view.ex"
+  "lib/craisin/campaign.ex"
+  "lib/craisin/campaign.ex" -> "lib/craisin/craisin.ex" [label="(export)"]
+  "lib/craisin/client.ex"
+  "lib/craisin/craisin.ex"
+  "lib/craisin/list.ex"
+  "lib/craisin/subscriber.ex"
+  "lib/mix/tasks/algolia.ex"
+  "lib/mix/tasks/algolia.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/algolia.ex" -> "lib/changelog/schema/news/news_item.ex"
+  "lib/mix/tasks/algolia.ex" -> "lib/changelog/search.ex"
+  "lib/mix/tasks/news/historic.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog/kits/url_kit.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog/schema/news/news_item.ex" [label="(export)"]
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog/schema/person.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog/schema/post/post.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog_web/endpoint.ex"
+  "lib/mix/tasks/news/historic.ex" -> "lib/changelog_web/router.ex"
+  "lib/mix/tasks/people/avatars.ex"
+  "lib/mix/tasks/people/avatars.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/people/avatars.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/mix/tasks/people/avatars.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/mix/tasks/people/avatars.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/mix/tasks/people/no_spam.ex"
+  "lib/mix/tasks/people/no_spam.ex" -> "lib/changelog/newsletters.ex"
+  "lib/mix/tasks/people/no_spam.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/people/no_spam.ex" -> "lib/changelog/schema/person.ex"
+  "lib/mix/tasks/people/no_spam.ex" -> "lib/craisin/subscriber.ex"
+  "lib/mix/tasks/people/subscriptions.ex"
+  "lib/mix/tasks/people/subscriptions.ex" -> "lib/changelog/faker.ex"
+  "lib/mix/tasks/people/subscriptions.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/people/subscriptions.ex" -> "lib/changelog/schema/person.ex" [label="(export)"]
+  "lib/mix/tasks/people/subscriptions.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/mix/tasks/people/subscriptions.ex" -> "lib/changelog/schema/subscription.ex"
+  "lib/mix/tasks/people/subscriptions.ex" -> "lib/changelog_web/views/person_view.ex"
+  "lib/mix/tasks/show_notes.ex"
+  "lib/mix/tasks/show_notes.ex" -> "lib/changelog/github/pusher.ex"
+  "lib/mix/tasks/show_notes.ex" -> "lib/changelog/github/source.ex"
+  "lib/mix/tasks/show_notes.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/show_notes.ex" -> "lib/changelog/schema/episode/episode.ex"
+  "lib/mix/tasks/slack.ex"
+  "lib/mix/tasks/slack.ex" -> "lib/changelog/slack/tasks.ex"
+  "lib/mix/tasks/stats/missing.ex"
+  "lib/mix/tasks/stats/missing.ex" -> "lib/changelog/repo.ex"
+  "lib/mix/tasks/stats/missing.ex" -> "lib/changelog/schema/episode/episode_stat.ex"
+  "lib/mix/tasks/stats/missing.ex" -> "lib/changelog/schema/podcast/podcast.ex"
+  "lib/mix/tasks/stats/process.ex"
+  "lib/mix/tasks/stats/process.ex" -> "lib/changelog/stats/stats.ex"
+}
