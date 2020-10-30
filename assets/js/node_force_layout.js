@@ -1,6 +1,6 @@
 import lodash from 'lodash'
 import jQuery from 'jquery'
-import BrowserText from './browser_text.js'
+import BrowserText from './utils/browser_text.js'
 
 import {
   TRANSITION_SLOW,
@@ -13,8 +13,7 @@ import {
 } from './constants.js'
 
 import {
-  findAllDependencies,
-  findCompileDependencies,
+  findAllDependencies
 } from './force_utils.js'
 
 export const NODE_RADIUS = 5
