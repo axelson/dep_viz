@@ -72,6 +72,8 @@ TODO:
 - [ ] When hovering over top stats, ensure that the view mode switches appropriately
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 - [ ] Have a setting to not highlight runtime dependencies?
+- [ ] Parse `.dot` file in js without sending to server
+- [ ] Deploy to a server
 
 Done:
 - [x] Show a list of files on the left
