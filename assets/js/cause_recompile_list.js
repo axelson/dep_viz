@@ -19,7 +19,7 @@ export class CauseRecompileList {
 
     u.enter()
      .append('div')
-     .attr('class', 'inline-item')
+     .attr('class', 'inline-item hover-bold')
      .text(d => `${d.count}: ${d.id}`)
      .merge(u)
      .on('mouseover', (d) => {

@@ -1,5 +1,6 @@
 /* This file is for your main application css. */
 @import "../node_modules/nprogress/nprogress.css";
+@import "force_layout";
 
 // https://fonts.google.com/specimen/Fira+Mono
 @font-face {
@@ -11,9 +12,6 @@
 }
 
 // https://fonts.google.com/specimen/Fira+Sans
-
-
-@import "force_layout";
 @font-face {
   font-family: 'Fira Sans';
   font-style: normal;
@@ -22,6 +20,14 @@
   src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(/fonts/fira_sans/FiraSans-Regular.ttf) format('truetype');
 }
 
+// Semi-bold
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Fira Sans SemiBold'), local('FiraSans-SemiBold'), url(/fonts/fira_sans/FiraSans-SemiBold.ttf) format('truetype');
+}
 body {
   font-family: 'Fira Sans', sans-serif;
 }
@@ -144,3 +150,5 @@ nav li {
 
 .pointer-events-none { pointer-events: none; }
 .pointer-events-auto { pointer-events: auto; }
+
+.hover-bold:hover { font-weight: 600 }

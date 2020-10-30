@@ -78,11 +78,17 @@ TODO:
 - [x] Add mode selector
 - [x] Implement hover mode to see which files depend on the current file
 - [x] when in hover mode ancestors render the compile line that causes the highlighted file to compile
+- [ ] Add "dependers" and "dependees" to the view mode switcher
+- [x] Top stats: bold the current stat
+- [ ] Add updated info box hover mode for dependers view
+- [ ] Add updated info box hover mode for dependees view
+- [ ] Show the info box under the top stats list
 - [ ] Change the selected node to the new style
 - [ ] Click the selected node to keep it selected, and then be able to toggle the view mode
   - [ ] Also be able to see the route, or all routes between the selected file and the hovered file
     - Shortest route only?
 - [ ] Add the updated key
+- [ ] When hovering over top stats, ensure that the view mode switches appropriately
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 
 Done:

@@ -138,7 +138,7 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
 
   u.enter()
    .append('div')
-    .attr('class', 'inline-item')
+    .attr('class', 'inline-item hover-bold')
     // Subtract 1 to not count itself
    .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
@@ -165,7 +165,7 @@ function renderInfoBox(nodeData, _targets, targetObjects, nodeForceLayout) {
 
   u.enter()
    .append('div')
-   .attr('class', 'inline-item')
+   .attr('class', 'inline-item hover-bold')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
      nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, targetObjects)
