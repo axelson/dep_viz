@@ -57,29 +57,10 @@ Questions:
   that it is needed)
 
 TODO:
-- [x] When hover, in the info box show the outgoing dependencies
-- [ ] Have a mode to show what files this file will trigger to compile
-  - Show the mode selector in the upper right
-- [x] When hovering a node, show compilation dependencies in info box
-- [x] Use different colors
-  - [x] Selected node shouldn't be same color as compile-time dependencies
-  - [x] Files that will case this file to recompile, and files this causes to
-        recompile should be two separate colors
-- [x] Hide node-centric force layout for now
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
-- [x] Create a glossary
-- [ ] Create a "score" for the repository or the file
-  - Based on the number of files that cause the top files to get recompiled
-- [ ] Force layout charge should be set based on the number of nodes
-- [x] Use a tab layout to switch between "All files" and "Top stats"
-- [x] Change the stroke width when hovering
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
-- [x] Add mode selector
-- [x] Implement hover mode to see which files depend on the current file
-- [x] when in hover mode ancestors render the compile line that causes the highlighted file to compile
 - [ ] Add "dependers" and "dependees" to the view mode switcher
-- [x] Top stats: bold the current stat
 - [ ] Add updated info box hover mode for dependers view
 - [ ] Add updated info box hover mode for dependees view
 - [ ] Show the info box under the top stats list
@@ -90,6 +71,7 @@ TODO:
 - [ ] Add the updated key
 - [ ] When hovering over top stats, ensure that the view mode switches appropriately
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
+- [ ] Have a setting to not highlight runtime dependencies?
 
 Done:
 - [x] Show a list of files on the left
@@ -104,6 +86,27 @@ Done:
 - [x] Use info box to show files that will be recompiled most often
   - [x] Calculate this not on the main thread
   - [x] Cache this calculation to be re-used when hovering
+- [x] When hover, in the info box show the outgoing dependencies
+- [x] Have a mode to show what files this file will trigger to compile
+  - Show the mode selector in the upper right
+- [x] When hovering a node, show compilation dependencies in info box
+- [x] Use different colors
+  - [x] Selected node shouldn't be same color as compile-time dependencies
+  - [x] Files that will case this file to recompile, and files this causes to
+        recompile should be two separate colors
+- [x] Hide node-centric force layout for now
+- [x] Create a glossary
+- [x] Force layout charge should be set based on the number of nodes
+- [x] Use a tab layout to switch between "All files" and "Top stats"
+- [x] Change the stroke width when hovering
+- [x] Add mode selector
+- [x] Implement hover mode to see which files depend on the current file
+- [x] when in hover mode ancestors render the compile line that causes the highlighted file to compile
+- [x] Top stats: bold the current stat
+
+Maybe:
+- [ ] Create a "score" for the repository or the file
+  - Based on the number of files that cause the top files to get recompiled
 
 Future:
 - Configurable node coloring based on filename prefix
