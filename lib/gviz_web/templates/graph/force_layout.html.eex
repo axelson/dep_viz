@@ -67,5 +67,6 @@ Force Layout
     <g class="links"></g>
     <g class="nodes"></g>
     <g class="labels"></g>
+    <g class="mode-switcher"></g>
   </svg>
 </div>

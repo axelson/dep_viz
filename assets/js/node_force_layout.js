@@ -17,13 +17,13 @@ import {
   findCompileDependencies,
 } from './force_utils.js'
 
-const NODE_RADIUS = 5
+export const NODE_RADIUS = 5
 const HIGHLIGHTED_NODE_RADIUS = 8
 
 const DEFAULT_STROKE_WIDTH = 0.3
 const HIGHLIGHTED_STROKE_WIDTH = 1.2
 
-let DEFAULT_NODE_COLOR = '#777'
+export let DEFAULT_NODE_COLOR = '#777'
 const HIGHLIGHT_NODE_COLOR = 'black'
 
 const $topStats = jQuery('.highlight-box')
@@ -37,8 +37,9 @@ export class NodeForceLayout {
     this.height = height
   }
 
-  initialize(dependenciesMap) {
+  initialize(dependenciesMap, causeRecompileMap) {
     this.dependenciesMap = dependenciesMap
+    this.causeRecompileMap = causeRecompileMap
 
     const width = this.width, height = this.height
 
@@ -73,6 +74,7 @@ export class NodeForceLayout {
     // Fade out non-compile dependencies nodes
     const nodes =
           d3.select('svg')
+            .select('.nodes')
             .selectAll('circle')
 
     nodes
@@ -172,8 +174,9 @@ export class NodeForceLayout {
       })
   }
 
-  highlightThisFilesDependencies(id, causeRecompileMap) {
+  highlightThisFilesDependencies(id) {
     const duration = TRANSITION_SLOW
+    const causeRecompileMap = this.causeRecompileMap
 
     if (window.vizSettings.logFilesToCompile) {
       console.log(`\nTouching ${id} will cause these files to be recompiled:`)
@@ -187,6 +190,7 @@ export class NodeForceLayout {
 
     const nodes =
           d3.select('svg')
+            .select('.nodes')
             .selectAll('circle')
 
     // Highlight and fade nodes
@@ -194,7 +198,7 @@ export class NodeForceLayout {
       .transition().duration(duration)
       .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
       .style('fill-opacity', d => hoverOpacity(matched, d.id))
-      .style('fill', d => hoverNodeFill(matched, d, id, COMPILATION_DEPENDENCY_COLOR))
+      .style('fill', d => hoverNodeFill(matched, d, id, DEFAULT_NODE_COLOR))
 
     // Highlight and fade links
     d3.select('svg')
@@ -277,12 +281,15 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
     })
     .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
-      if (window.vizMode === 'focusNode') {
+      const viewMode = window.vizState.viewMode
+      if (viewMode === 'focusNode') {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
-      } else {
+      } else if (viewMode === 'deps') {
         nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
         // TODO: This reference is wrong
         showFileTree(nodeDatum.id, targetObjects)
+      } else if (viewMode === 'ancestors') {
+        nodeForceLayout.highlightThisFilesDependencies(nodeDatum.id)
       }
     })
     .on('mouseout', function (_nodeDatum) {
@@ -398,6 +405,7 @@ function highlightAllDeps(id, targets, _targetObjects) {
 
   // Fade out non-dependencies
   const nodes = d3.select('svg')
+                  .select('.nodes')
                   .selectAll('circle')
 
   nodes
@@ -516,7 +524,7 @@ export function updateLabels(nodeData, primaryId) {
 
 function updateLabelBackgroundPos() {
   const background = d3.select('svg')
-                       // .select('.label-backgrounds')
+                       .select('.labels')
                        .selectAll('rect')
 
   background

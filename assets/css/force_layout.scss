@@ -142,3 +142,12 @@ path.direction-animate, line.direction-animate {
     }
   }
 }
+
+.mode-switcher .explain-text-container {
+  opacity: 0;
+  transition: opacity ease-in-out 0.3s;
+}
+
+.mode-switcher .controls:hover .explain-text-container {
+  opacity: 1
+}

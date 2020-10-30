@@ -11,12 +11,16 @@ import {
 } from './node_force_layout.js'
 
 import {
+  initializeModeSwitcher
+} from './mode_switcher.js'
+
+import {
   COMPILATION_DEPENDENCY_COLOR,
   EXPORT_DEPENDENCY_COLOR,
   RUNTIME_DEPENDENCY_COLOR,
   COMPILE_LINE_STROKE,
   EXPORT_LINE_STROKE,
-  RUNTIME_LINE_STROKE
+  RUNTIME_LINE_STROKE,
 } from './constants'
 
 const $allFilesContainer = jQuery('.info-box-file-list-container')
@@ -27,7 +31,9 @@ window.vizSettings = {
   logFilesToCompile: false
 }
 window.vizState = {
-  infoBoxMode: 'stats'
+  infoBoxMode: 'stats',
+  // Mode is either 'deps' or 'ancestors'
+  viewMode: 'deps'
 }
 
 // Data
@@ -86,7 +92,7 @@ function render(data) {
   const worker = new Worker('js/graph_worker.js')
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
-    nodeForceLayout.initialize(e.data.dependenciesMap)
+    nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap)
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
     renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects, nodeForceLayout)
     renderTotalFileCount(e.data.getsRecompiledMap)
@@ -97,6 +103,8 @@ function render(data) {
   window.targetObjects = targetObjects
 
   renderInfoBox(nodeData, targets, targetObjects, nodeForceLayout)
+
+  initializeModeSwitcher(width, height)
 
   setTimeout(function() {
     // const id = 'lib/gviz/application.ex'

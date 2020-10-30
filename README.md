@@ -1,4 +1,4 @@
-# GViz
+# DepViz
 
 To start your Phoenix server:
 
@@ -10,11 +10,6 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Notes
 
-### Drawing directional arrows
-Used a combination of:
-* https://stackoverflow.com/questions/11121465/scaling-an-arrowhead-on-a-d3-force-layout-link-marker
-* https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end
-
 Other interesting links:
 * https://gist.github.com/unixod/e932a181c1125921fa638f702376c295
   * Some other means of using graphviz for visualizing larger graphs
@@ -25,11 +20,12 @@ Main things to remember:
 - The arrow head size is proportional to the stroke width
 - The arrow head is drawn with a svg marker element
 
-Top annoyances:
+Top annoyances with current implementation:
 - Hard to find the specific files that the currently highlighted node depends on
 - Hard to tell how many files are "behind" each compilation dependency
   - i.e. if a file has 3 compilation dependencies it's hard to see how many
     files each of those dependencies is contributing
+  - Or hard to tell which files are behind the compilation dependency
 
 ## Meta
 
@@ -79,6 +75,10 @@ TODO:
 - [x] Change the stroke width when hovering
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
+- [x] Add mode selector
+- [x] Implement hover mode to see which files depend on the current file
+- [ ] when in hover mode ancestors render the compile line that causes the highlighted file to compile
+- [ ] Add the updated key
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 
 Done:
@@ -131,3 +131,10 @@ Ideas:
 # Glossary
 
 Compile dependency - The current file depends on this file at compile-time
+
+## Other Notes
+
+### Drawing directional arrows
+Used a combination of:
+* https://stackoverflow.com/questions/11121465/scaling-an-arrowhead-on-a-d3-force-layout-link-marker
+* https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end
