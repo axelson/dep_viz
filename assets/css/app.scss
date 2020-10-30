@@ -1,17 +1,32 @@
 /* This file is for your main application css. */
 @import "../node_modules/nprogress/nprogress.css";
 
+// https://fonts.google.com/specimen/Fira+Mono
 @font-face {
   font-family: 'Fira Mono';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Fira Mono Regular'), local('FiraMono-Regular'), url(/fonts/FiraMono-Regular.ttf) format('truetype');
+  src: local('Fira Mono Regular'), local('FiraMono-Regular'), url(/fonts/fira_mono/FiraMono-Regular.ttf) format('truetype');
 }
 
+// https://fonts.google.com/specimen/Fira+Sans
+
+
 @import "force_layout";
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(/fonts/fira_sans/FiraSans-Regular.ttf) format('truetype');
+}
 
 body {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body .monospace {
   font-family: 'Fira Mono', monospace;
 }
 

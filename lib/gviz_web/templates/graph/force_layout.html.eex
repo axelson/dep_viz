@@ -26,25 +26,25 @@ Force Layout
       </div>
       <div class="p-4 p-r-0 p-l-0">
         <div class="info-box-section-header">Files that cause the most recompiles:</div>
-        <div class="cause-recompile-list"></div>
+        <div class="cause-recompile-list monospace"></div>
       </div>
 
       <div class="p-4 p-r-0 p-l-0">
         <div class="info-box-section-header">Files that get recompiled most often:</div>
-        <div class="gets-recompiled-list"></div>
+        <div class="gets-recompiled-list monospace"></div>
       </div>
     </div>
 
     <%# The file list shows the list of files in the project %>
     <div class="info-box-file-list-container">
       <div id="info-box-header" class="info-box-section-header">All files:</div>
-      <div class="info-box-file-list"></div>
+      <div class="info-box-file-list monospace"></div>
     </div>
 
     <%# The file tree is shown on hover %>
     <div class="info-box-file-tree display-none">
       <div class="current-file"></div>
-      <div class="file-tree"></div>
+      <div class="file-tree monospace"></div>
     </div>
   </div>
 
