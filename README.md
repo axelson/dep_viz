@@ -77,7 +77,11 @@ TODO:
   - And maybe show the search text as well
 - [x] Add mode selector
 - [x] Implement hover mode to see which files depend on the current file
-- [ ] when in hover mode ancestors render the compile line that causes the highlighted file to compile
+- [x] when in hover mode ancestors render the compile line that causes the highlighted file to compile
+- [ ] Change the selected node to the new style
+- [ ] Click the selected node to keep it selected, and then be able to toggle the view mode
+  - [ ] Also be able to see the route, or all routes between the selected file and the hovered file
+    - Shortest route only?
 - [ ] Add the updated key
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 

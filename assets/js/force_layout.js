@@ -252,10 +252,13 @@ function transformData(linkData) {
   linkData.forEach(d => {
     if (d.label == "(compile)") {
       d.stroke = COMPILE_LINE_STROKE
+      d.dependencyType = 'compile'
     } else if (d.label == "(export)") {
       d.stroke = EXPORT_LINE_STROKE
+      d.dependencyType = 'export'
     } else {
       d.stroke = RUNTIME_LINE_STROKE
+      d.dependencyType = 'runtime'
     }
   })
 }

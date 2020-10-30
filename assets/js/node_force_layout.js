@@ -53,7 +53,6 @@ export class NodeForceLayout {
       .on('tick', buildTicked(this.nodeData, this.linkData, force, this));
   }
 
-  // TODO: Change targetObjects to not need to be passed in here
   highlightDependenciesOfNode(id) {
     if (!this.dependenciesMap) return
 
@@ -174,7 +173,7 @@ export class NodeForceLayout {
       })
   }
 
-  highlightThisFilesDependencies(id) {
+  highlightFilesThatDependOnSelectedFile(id) {
     const duration = TRANSITION_SLOW
     const causeRecompileMap = this.causeRecompileMap
 
@@ -186,7 +185,25 @@ export class NodeForceLayout {
     }
 
     const matched = {}
-    causeRecompileMap[id].forEach(id => matched[id] = true)
+    const matchedLinks = {}
+    causeRecompileMap[id].forEach(nodeId => {
+      matched[nodeId] = true
+
+      // For all compile dependencies of the current node
+      const deps = targetObjects[nodeId] || []
+      deps.forEach(dep => {
+        if (dep.type === 'compile') {
+          // Check if `id` is in list of dependencies
+          // NOTE: This is not very performant
+          const allDeps = findAllDependencies(targetObjects, dep.id)
+          if (id in allDeps) {
+            matchedLinks[nodeId + ',' + dep.id] = true
+          }
+        } else if (dep.type === 'export' && dep.id === id) {
+          matchedLinks[nodeId + ',' + dep.id] = true
+        }
+      })
+    })
 
     const nodes =
           d3.select('svg')
@@ -200,14 +217,34 @@ export class NodeForceLayout {
       .style('fill-opacity', d => hoverOpacity(matched, d.id))
       .style('fill', d => hoverNodeFill(matched, d, id, DEFAULT_NODE_COLOR))
 
+    const strokeOpacity = d => {
+      const key = d.source.id + ',' + d.target.id
+      return key in matchedLinks ? 1 : 0.1
+    }
+
+    const strokeWidth = d => {
+      const key = d.source.id + ',' + d.target.id
+      return key in matchedLinks ? HIGHLIGHTED_STROKE_WIDTH : DEFAULT_STROKE_WIDTH
+    }
+
+    const stroke = d => {
+      const key = d.source.id + ',' + d.target.id
+      return key in matchedLinks ? d.stroke : DEFAULT_LINE_STROKE
+    }
+
+    const className = d => {
+      const key = d.source.id + ',' + d.target.id
+      return key in matchedLinks ? 'direction-animate' : ''
+    }
+
     // Highlight and fade links
     d3.select('svg')
       .selectAll('line')
       .transition().duration(duration)
-      .style('stroke-opacity', d => hoverOpacityCompile(matched, d))
-      .attr('stroke-width', d => hoverStrokeWidth(matched, d))
-      .attr('stroke', d => hoverLineStroke(matched, d))
-      .attr('class', d => hoverAnimateStroke(id, d))
+      .style('stroke-opacity', strokeOpacity)
+      .attr('stroke-width', strokeWidth)
+      .attr('stroke', stroke)
+      .attr('class', className)
 
     showMatchingLabels(nodes, matched, id)
   }
@@ -289,7 +326,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
         // TODO: This reference is wrong
         showFileTree(nodeDatum.id, targetObjects)
       } else if (viewMode === 'ancestors') {
-        nodeForceLayout.highlightThisFilesDependencies(nodeDatum.id)
+        nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id)
       }
     })
     .on('mouseout', function (_nodeDatum) {
