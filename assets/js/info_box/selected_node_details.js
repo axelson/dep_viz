@@ -45,7 +45,10 @@ export class SelectedNodeDetails {
     const deps = lodash.orderBy(this.targetObjects[id], [typeToOrder], ['desc'])
 
     this.renderSelectedHeader(id, deps)
+    this.renderDirectDependenciesList(id, deps)
+  }
 
+  renderDirectDependenciesList(_id, deps) {
     const u = d3.select('.info-box-file-tree .file-tree')
                 .selectAll('tr')
                 .data(deps)
