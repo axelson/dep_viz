@@ -15,8 +15,8 @@ Force Layout
     <input type="text" id="info-box-input" class="pointer-events-auto">
 
     <div class="tab-bar m-b-4">
-      <div class="tab active" data-name="stats">Top Stats</div>
-      <div class="tab" data-name="all-files">All files</div>
+      <div class="tab active" data-name="all-files">All files</div>
+      <div class="tab" data-name="stats">Top Stats</div>
     </div>
 
     <%# The highlight box is shown by default %>
