@@ -78,6 +78,7 @@ TODO:
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox
+- [x] Selected node + hover is not restoring stroke colors
 - [ ] Add the updated key
 - [ ] Make the all files view the default
 - [ ] When hovering over top stats, ensure that the view mode switches appropriately

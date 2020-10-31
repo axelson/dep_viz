@@ -158,7 +158,7 @@ export class NodeForceLayout {
           return 0.1
         }
       })
-      .style('stroke', d => {
+      .attr('stroke', d => {
         // if (d.target.id.indexOf(searchText) !== -1 && d.source.id.indexOf(searchText) !== -1) {
         if (d.source.id.indexOf(searchText) !== -1) {
           return d.stroke
@@ -274,7 +274,7 @@ export class NodeForceLayout {
       .selectAll('line')
       .transition().duration(TRANSITION_FAST)
       .style('stroke-opacity', d => onPath(d) ? 1 : 0.1)
-      .style('stroke', d => onPath(d) ? d.stroke : DEFAULT_LINE_STROKE)
+      .attr('stroke', d => onPath(d) ? d.stroke : DEFAULT_LINE_STROKE)
       .attr('class', d => onPath(d) ? 'direction-animate' : '')
 
     showMatchingLabels(nodes, matches, targetId)
