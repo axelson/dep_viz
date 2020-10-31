@@ -64,6 +64,7 @@ TODO:
 - [ ] Add updated info box hover mode for dependers view
 - [x] Add updated info box hover mode for dependees view
 - [x] Show the info box under the top stats list
+- [x] "Has a dependency on these files" should show the total count (compile time)
 - [ ] Change the selected node to the new style
 - [ ] Click the selected node to keep it selected, and then be able to toggle the view mode
   - [ ] Also be able to see the route, or all routes between the selected file and the hovered file

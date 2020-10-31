@@ -15,8 +15,7 @@ import {
 } from './mode_switcher.js'
 
 import {
-  infoBoxShowSelectedFilesDependencies,
-  unShowFileTree
+  SelectedNodeDetails
 } from './info_box/selected_node_details.js'
 
 import {
@@ -91,13 +90,16 @@ function render(data) {
   const width = window.svgWidth, height = window.svgHeight
 
   const nodeForceLayout = new NodeForceLayout(nodeData, linkData, width, height)
+  const selectedNodeDetails = new SelectedNodeDetails(targetObjects)
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
   const worker = new Worker('js/graph_worker.js')
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
-    nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap)
+    nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails)
+    selectedNodeDetails.initialize(e.data.dependenciesMap)
+
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
     renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects, nodeForceLayout)
     renderTotalFileCount(e.data.getsRecompiledMap)
@@ -114,7 +116,7 @@ function render(data) {
   setTimeout(function() {
     // const id = 'lib/demo_dep/a.ex'
     // showOnlyThisNodeAndCompileDeps(id, force, nodeData, linkData, targetObjects)
-    // infoBoxShowSelectedFilesDependencies(id, targetObjects)
+    // selectedNodeDetails.infoBoxShowSelectedFilesDependencies(id)
   }, 500)
 }
 
@@ -133,7 +135,7 @@ function calculateTopGetRecompiled(getsRecompiledMap) {
   return lodash.orderBy(allFiles, ['count'], ['desc'])
 }
 
-function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeForceLayout) {
+function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeForceLayout, selectedNodeDetails) {
   const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
   const topFiles = allFiles.slice(0, 6)
 
@@ -149,11 +151,11 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
    .merge(u)
    .on('mouseover', (d) => {
      nodeForceLayout.highlightDependenciesOfNode(d.id, targetObjects)
-     infoBoxShowSelectedFilesDependencies(d.id, targetObjects, false)
+     selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id, false)
    })
    .on('mouseout', (_d) => {
      nodeForceLayout.unShowNodeCompileDeps()
-     unShowFileTree(false)
+     selectedNodeDetails.unShowFileTree(false)
    })
 }
 

@@ -12,11 +12,6 @@ import {
   findAllDependencies
 } from './force_utils.js'
 
-import {
-  infoBoxShowSelectedFilesDependencies,
-  unShowFileTree
-} from './info_box/selected_node_details.js'
-
 export const NODE_RADIUS = 5
 const HIGHLIGHTED_NODE_RADIUS = 8
 
@@ -34,7 +29,7 @@ export class NodeForceLayout {
     this.height = height
   }
 
-  initialize(dependenciesMap, causeRecompileMap) {
+  initialize(dependenciesMap, causeRecompileMap, selectedNodeDetails) {
     this.dependenciesMap = dependenciesMap
     this.causeRecompileMap = causeRecompileMap
 
@@ -47,7 +42,7 @@ export class NodeForceLayout {
             .force('link', d3.forceLink().links(this.linkData).id(item => item.id))
 
   force
-      .on('tick', buildTicked(this.nodeData, this.linkData, force, this));
+      .on('tick', buildTicked(this.nodeData, this.linkData, force, this, selectedNodeDetails));
   }
 
   highlightDependenciesOfNode(id) {
@@ -260,10 +255,10 @@ function buildChargeStrength(numNodes) {
   }
 }
 
-function buildTicked(nodeData, linkData, force, nodeForceLayout) {
+function buildTicked(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails) {
   console.log('nodeData', nodeData);
   return () => {
-    updateNodes(nodeData, linkData, force, nodeForceLayout)
+    updateNodes(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails)
     updateLinks(linkData)
     updateLabelsPos()
   }
@@ -295,7 +290,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
+function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDetails) {
   var u = d3.select('svg.main')
             .select('.nodes')
             .selectAll('circle')
@@ -320,15 +315,14 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
         highlightAllDeps(nodeDatum.id, targets, targetObjects)
       } else if (viewMode === 'deps') {
         nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
-        // TODO: This reference is wrong
-        infoBoxShowSelectedFilesDependencies(nodeDatum.id, targetObjects)
+        selectedNodeDetails.infoBoxShowSelectedFilesDependencies(nodeDatum.id)
       } else if (viewMode === 'ancestors') {
         nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id)
       }
     })
     .on('mouseout', function (_nodeDatum) {
       nodeForceLayout.unShowNodeCompileDeps()
-      unShowFileTree()
+      selectedNodeDetails.unShowFileTree()
     })
     .call(d3.drag()
             .on('start', dragStarted)
