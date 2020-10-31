@@ -1,5 +1,6 @@
 /* This file is for your main application css. */
 @import "../node_modules/nprogress/nprogress.css";
+@import "colors";
 @import "force_layout";
 
 // https://fonts.google.com/specimen/Fira+Mono
@@ -139,7 +140,7 @@ nav li {
 }
 
 // Utility css
-.compile-red { color: #d32a3a; }
+.compile-red { color: $compile-red; }
 
 .display-none { display: none; }
 .display-inline { display: inline; }

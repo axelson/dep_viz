@@ -4,6 +4,7 @@ export const TRANSITION_FAST = 500
 // TODO: Remove this color
 export const CAUSES_RECOMPILE_COLOR = '#da4bfa'
 
+// NOTE: Keep these colors in sync with colors.scss
 export const COMPILATION_DEPENDENCY_COLOR = '#d32a3a'
 export const EXPORT_DEPENDENCY_COLOR = '#0092b1'
 export const RUNTIME_DEPENDENCY_COLOR = '#8b9f3e'
