@@ -166,7 +166,7 @@ function doHideStatsAndFiles() {
 function renderSelectNodeIndicator() {
   const data = [true]
 
-  const g = d3.select('svg.selected-node-indicator')
+  const g = d3.select('.info-box-file-tree svg.selected-node-indicator')
               .selectAll('.selected-node')
               .data(data)
               .enter()

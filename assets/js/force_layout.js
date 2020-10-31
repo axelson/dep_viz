@@ -10,6 +10,7 @@ import {ModeSwitcher} from './mode_switcher.js'
 import {SelectedNodeDetails} from './info_box/selected_node_details.js'
 
 import { findPaths } from './force_utils.js'
+import { renderGlossary } from './glossary.js'
 
 import {
   COMPILATION_DEPENDENCY_COLOR,
@@ -109,6 +110,7 @@ function render(data) {
   window.targetObjects = targetObjects
 
   renderInfoBox(nodeData, targets, targetObjects, nodeForceLayout)
+  renderGlossary()
 
   findPaths(targetObjects, 'lib/demo_dep/a.ex', 'lib/demo_dep/b_runtime/c_runtime.ex')
   setTimeout(function() {

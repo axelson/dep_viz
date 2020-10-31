@@ -159,7 +159,16 @@ path.direction-animate, line.direction-animate {
   opacity: 1
 }
 
-svg.selected-node-indicator {
+svg.selected-node-indicator, svg.file-indicator {
   width: 20px;
   height: 20px;
+}
+
+svg.line-indicator {
+  width: 40px;
+  height: 20px;
+}
+
+.key-box table tr td:first-child {
+  width: 50px;
 }

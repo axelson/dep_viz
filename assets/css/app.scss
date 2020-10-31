@@ -139,8 +139,14 @@ nav li {
   margin: 0 4px;
 }
 
+div.rule {
+  border-bottom: 1px solid $ui-purple;
+  width: 100%;
+}
+
 // Utility css
 .compile-red { color: $compile-red; }
+.ui-purple { color: $ui-purple; }
 
 .display-none { display: none; }
 .display-inline { display: inline; }
@@ -158,6 +164,7 @@ nav li {
 .m-r-2 { margin-right: 6px; }
 .m-r-4 { margin-right: 12px; }
 .m-b-4 { margin-bottom: 12px; }
+.m-b-6 { margin-bottom: 18px; }
 .m-t-2 { margin-top: 6px; }
 .m-t-4 { margin-top: 12px; }
 

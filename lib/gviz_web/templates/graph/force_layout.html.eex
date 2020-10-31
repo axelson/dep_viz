@@ -54,17 +54,48 @@ Force Layout
   </div>
 
   <div class="glossary-box">
-    <div class="compilation-dependency flex flex-align-center">
-      <div class="box m-2"></div>
-      Compilation Dependency
+    <div class="rule m-b-4"></div>
+
+    <div class="key-box m-b-6">
+      <div class="bold ui-purple m-b-4">KEY</div>
+      <table>
+        <tr>
+          <td>
+            <svg class="file-indicator"></svg>
+          </td>
+          <td>file</td>
+        </tr>
+        <tr>
+          <td>
+            <svg class="selected-node-indicator"></svg>
+          </td>
+          <td>selected file</td>
+        </tr>
+        <tr>
+          <td>
+            <svg class="line-indicator"></svg>
+          </td>
+          <td>relationship</td>
+        </tr>
+      </table>
     </div>
-    <div class="export-dependency flex flex-align-center">
-      <div class="box m-2"></div>
-      Export Dependency
-    </div>
-    <div class="runtime-dependency flex flex-align-center">
-      <div class="box m-2"></div>
-      Runtime Dependency
+
+    <div class="rule m-b-4"></div>
+
+    <div class="m-b-4">
+      <div class="bold ui-purple m-b-2">DEPENDENCY TYPES</div>
+      <div class="compilation-dependency flex flex-align-center">
+        <div class="box m-2"></div>
+        compile
+      </div>
+      <div class="export-dependency flex flex-align-center">
+        <div class="box m-2"></div>
+        export
+      </div>
+      <div class="runtime-dependency flex flex-align-center">
+        <div class="box m-2"></div>
+        runtime
+      </div>
     </div>
   </div>
 
