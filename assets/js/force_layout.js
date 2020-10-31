@@ -6,17 +6,9 @@ import {
   CauseRecompileList
 } from './cause_recompile_list.js'
 
-import {
-  NodeForceLayout
-} from './node_force_layout.js'
-
-import {
-  initializeModeSwitcher
-} from './mode_switcher.js'
-
-import {
-  SelectedNodeDetails
-} from './info_box/selected_node_details.js'
+import {NodeForceLayout} from './node_force_layout.js'
+import {ModeSwitcher} from './mode_switcher.js'
+import {SelectedNodeDetails} from './info_box/selected_node_details.js'
 
 import { findPaths } from './force_utils.js'
 
@@ -96,6 +88,7 @@ function render(data) {
 
   const nodeForceLayout = new NodeForceLayout(nodeData, linkData, width, height)
   const selectedNodeDetails = new SelectedNodeDetails(targetObjects)
+  const modeSwitcher = new ModeSwitcher(width)
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
@@ -104,6 +97,7 @@ function render(data) {
   worker.onmessage = e => {
     nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails)
     selectedNodeDetails.initialize(e.data.dependenciesMap)
+    modeSwitcher.initialize()
 
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
     renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects, nodeForceLayout)
@@ -115,8 +109,6 @@ function render(data) {
   window.targetObjects = targetObjects
 
   renderInfoBox(nodeData, targets, targetObjects, nodeForceLayout)
-
-  initializeModeSwitcher(width, height)
 
   findPaths(targetObjects, 'lib/demo_dep/a.ex', 'lib/demo_dep/b_runtime/c_runtime.ex')
   setTimeout(function() {

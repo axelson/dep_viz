@@ -14,7 +14,17 @@ import {
 const OPACITY_FADED = 0.3
 const TRANSITION_SPEED = 250
 
-export function initializeModeSwitcher(width, _height) {
+export class ModeSwitcher {
+  constructor(width) {
+    this.width = width
+  }
+
+  initialize() {
+    initializeModeSwitcher(this.width)
+  }
+}
+
+function initializeModeSwitcher(width) {
   const data = [window.vizState]
   renderModeSwitcher(width, data)
 }
@@ -26,7 +36,7 @@ function toggleMode() {
   renderModeSwitcher(window.svgWidth, [window.vizState])
 }
 
-export function renderModeSwitcher(width, data) {
+function renderModeSwitcher(width, data) {
   const u = d3.select('svg.main .mode-switcher')
               .selectAll('.controls')
               .data(data)
