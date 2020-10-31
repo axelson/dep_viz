@@ -156,7 +156,7 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
    .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
    .on('mouseover', (d) => {
-     nodeForceLayout.highlightDependenciesOfNode(d.id, targetObjects)
+     nodeForceLayout.highlightDependenciesOfNode(d.id, true)
      selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id, false)
    })
    .on('mouseout', (_d) => {
@@ -181,7 +181,7 @@ function renderInfoBox(nodeData, _targets, targetObjects, nodeForceLayout) {
    .attr('class', 'inline-item hover-bold')
    .text(d => d.id)
    .on('mouseover', function (nodeDatum) {
-     nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, targetObjects)
+     nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, true)
    })
    .on('mouseout', function (_nodeDatum) {
      nodeForceLayout.unShowNodeCompileDeps()

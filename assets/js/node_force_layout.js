@@ -46,7 +46,7 @@ export class NodeForceLayout {
       .on('tick', buildTicked(this.nodeData, this.linkData, force, this, selectedNodeDetails));
   }
 
-  highlightDependenciesOfNode(id) {
+  highlightDependenciesOfNode(id, showLabels) {
     if (!this.dependenciesMap) return
 
     const dependencyTypes = this.dependenciesMap[id]
@@ -84,7 +84,9 @@ export class NodeForceLayout {
       .attr('stroke-width', d => hoverStrokeWidth(dependencyTypes, d))
       .attr('class', linkClass)
 
-    showMatchingLabels(nodes, dependencyTypes, id)
+    if (showLabels) {
+      showMatchingLabels(nodes, dependencyTypes, id)
+    }
   }
 
   unShowNodeCompileDeps() {
@@ -166,7 +168,7 @@ export class NodeForceLayout {
       })
   }
 
-  highlightFilesThatDependOnSelectedFile(id) {
+  highlightFilesThatDependOnSelectedFile(id, showLabels) {
     const duration = TRANSITION_SLOW
     const causeRecompileMap = this.causeRecompileMap
 
@@ -239,19 +241,22 @@ export class NodeForceLayout {
       .attr('stroke', stroke)
       .attr('class', className)
 
-    showMatchingLabels(nodes, matched, id)
+    if (showLabels) {
+      showMatchingLabels(nodes, matched, id)
+    }
   }
 
   highlightPathsToFile(targetObjects, sourceId, targetId) {
     // Should probably change findPaths instead
-    const nodes = findPaths(targetObjects, sourceId, targetId) || []
+    const files = findPaths(targetObjects, sourceId, targetId) || []
     const matches = {}
-    nodes.forEach(node => matches[node] = true)
+    files.forEach(id => matches[id] = true)
 
-    d3.select('svg.main')
+    const nodes = d3.select('svg.main')
       .select('.nodes')
       .selectAll('circle')
-      // .filter(d => nodes.indexOf(d.id) !== -1)
+
+    nodes
       .transition().duration(TRANSITION_FAST)
       .style('fill-opacity', d => d.id in matches ? 1 : 0.1)
 
@@ -261,6 +266,8 @@ export class NodeForceLayout {
       .transition().duration(TRANSITION_FAST)
       .style('stroke-opacity', d => d.source.id in matches && d.target.id in matches ? 1 : 0.1)
       .style('stroke', d => d.source.id in matches && d.target.id in matches ? d.stroke : DEFAULT_LINE_STROKE)
+
+    showMatchingLabels(nodes, matches, targetId)
   }
 }
 
@@ -337,19 +344,28 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
       if (selectedNode === null) {
         const viewMode = window.vizState.viewMode
         if (viewMode === 'deps') {
-          nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
+          nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, true)
           selectedNodeDetails.infoBoxShowSelectedFilesDependencies(nodeDatum.id)
         } else if (viewMode === 'ancestors') {
-          nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id)
+          nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id, true)
         }
       } else {
         nodeForceLayout.highlightPathsToFile(targetObjects, selectedNode, nodeDatum.id)
       }
     })
     .on('mouseout', function (_nodeDatum) {
-      if (window.vizState.selectedNode === null) {
+      const {selectedNode, viewMode} = window.vizState
+      if (selectedNode === null) {
+        // TODO: Support ancestors mode here
         nodeForceLayout.unShowNodeCompileDeps()
         selectedNodeDetails.unShowFileTree()
+      } else {
+        if (viewMode === 'deps') {
+          updateLabels([])
+          nodeForceLayout.highlightDependenciesOfNode(selectedNode, false)
+          selectedNodeDetails.infoBoxShowSelectedFilesDependencies(selectedNode)
+        }
+        // TODO: add ancestors here too
       }
     })
     .call(d3.drag()
@@ -585,9 +601,6 @@ export function updateLabels(nodeData, primaryId) {
    .attr('y', d => d.y)
 
   u.exit()
-   .attr('opacity', 1)
-   .transition().duration(TRANSITION_SLOW)
-   .attr('opacity', 0)
    .remove()
 }
 

@@ -70,14 +70,22 @@ TODO:
   - [x] Also be able to see the route, or all routes between the selected file and the hovered file
     - Shortest route only?
     - Shortest route bold, others less bold, elide parts that are not part
-  - [ ] The label for the selected node should go away (instead just rely on the info box)
+  - [x] The label for the selected node should go away (instead just rely on the info box)
+- [x] The selected node label is dissapearing on hover
+- [x] Selected node + hover: Reset the colors on mouseout
+- [x] Selected node + hover: Show the labels for every highlighted node
+- [ ] Selected node + hover: Show the compile path
+  - Should this depend on the view mode?
+- [ ] Selected node + hover: show the files in the path in the infobox
 - [ ] Add the updated key
+- [ ] Make the all files view the default
 - [ ] When hovering over top stats, ensure that the view mode switches appropriately
-- [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Parse `.dot` file in js without sending to server
 - [ ] Deploy to a server
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
+- [ ] Highlight two-way dependencies somehow
+- [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 
 Done:
 - [x] Show a list of files on the left

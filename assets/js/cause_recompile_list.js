@@ -24,7 +24,7 @@ export class CauseRecompileList {
      .merge(u)
      .on('mouseover', (d) => {
        // TODO: This needs to be fixed
-       this.nodeForceLayout.highlightFilesThatDependOnSelectedFile(d.id, this.causeRecompileMap)
+       this.nodeForceLayout.highlightFilesThatDependOnSelectedFile(d.id, true)
      })
      .on('mouseout', (_d) => {
        this.nodeForceLayout.unHighlightFilesThisFileCausesToRecompile()
