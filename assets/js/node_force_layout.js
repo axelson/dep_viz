@@ -71,7 +71,7 @@ export class NodeForceLayout {
 
     // Fade out non-compile dependencies nodes
     const nodes =
-          d3.select('svg')
+          d3.select('svg.main')
             .select('.nodes')
             .selectAll('circle')
 
@@ -82,7 +82,7 @@ export class NodeForceLayout {
       .style('fill', d => hoverNodeFillNew(dependencyTypes, d, id))
 
     // Fade and desaturate non-compile depedency lines and arrows
-    d3.select('svg')
+    d3.select('svg.main')
       .selectAll('line')
       .transition().duration(duration)
       .style('stroke-opacity', d => hoverOpacityCompile(dependencyTypes, d))
@@ -101,7 +101,7 @@ export class NodeForceLayout {
   }
 
   restoreNodes() {
-    d3.select('svg')
+    d3.select('svg.main')
       .select('.nodes')
       .selectAll('circle')
       .transition().duration(TRANSITION_FAST)
@@ -111,7 +111,7 @@ export class NodeForceLayout {
   }
 
   restoreLines() {
-    d3.select('svg')
+    d3.select('svg.main')
       .selectAll('line')
       .transition().duration(TRANSITION_FAST)
       .style('stroke-opacity', 1)
@@ -131,7 +131,7 @@ export class NodeForceLayout {
   }
 
   filterHighlightSearch(searchText) {
-    d3.select('svg')
+    d3.select('svg.main')
       .select('.nodes')
       .selectAll('circle')
       .transition().duration(TRANSITION_SLOW)
@@ -152,7 +152,7 @@ export class NodeForceLayout {
         }
       })
 
-    d3.select('svg')
+    d3.select('svg.main')
       .selectAll('line')
       .transition().duration(TRANSITION_SLOW)
       .style('fill-opacity', d => {
@@ -205,7 +205,7 @@ export class NodeForceLayout {
     })
 
     const nodes =
-          d3.select('svg')
+          d3.select('svg.main')
             .select('.nodes')
             .selectAll('circle')
 
@@ -237,7 +237,7 @@ export class NodeForceLayout {
     }
 
     // Highlight and fade links
-    d3.select('svg')
+    d3.select('svg.main')
       .selectAll('line')
       .transition().duration(duration)
       .style('stroke-opacity', strokeOpacity)
@@ -298,7 +298,7 @@ function updateLinks(linkData) {
 }
 
 function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
-  var u = d3.select('svg')
+  var u = d3.select('svg.main')
             .select('.nodes')
             .selectAll('circle')
             .data(nodeData, d => d.id)
@@ -405,7 +405,7 @@ function nodeClass(_data) {
 }
 
 function updateLabelsPos() {
-  const u = d3.select('svg')
+  const u = d3.select('svg.main')
               .selectAll('text.node-label')
 
   u
@@ -440,7 +440,7 @@ function highlightAllDeps(id, targets, _targetObjects) {
   const matched = findAllDependencies(targets, id)
 
   // Fade out non-dependencies
-  const nodes = d3.select('svg')
+  const nodes = d3.select('svg.main')
                   .select('.nodes')
                   .selectAll('circle')
 
@@ -451,7 +451,7 @@ function highlightAllDeps(id, targets, _targetObjects) {
     .style('fill', d => hoverNodeFill(matched, d, id, DEFAULT_NODE_COLOR))
 
   // Fade and desaturate non-dependency lines and arrows
-  d3.select('svg')
+  d3.select('svg.main')
     .selectAll('line')
     .transition().duration(duration)
     .style('fill-opacity', d => hoverOpacityCompile(matched, d))
@@ -517,7 +517,7 @@ function hoverOpacityCompile(matched, d) {
 export function updateLabels(nodeData, primaryId) {
   const fontSize = d => d.id === primaryId ? 13 : 9
 
-  const u = d3.select('svg')
+  const u = d3.select('svg.main')
               .select('.labels')
               .selectAll('g')
               .data(nodeData)
@@ -559,7 +559,7 @@ export function updateLabels(nodeData, primaryId) {
 }
 
 function updateLabelBackgroundPos() {
-  const background = d3.select('svg')
+  const background = d3.select('svg.main')
                        .select('.labels')
                        .selectAll('rect')
 

@@ -69,7 +69,7 @@ function buildTicked(filteredNodes, filteredLinks, _force) {
 }
 
 function updateNodes(filteredNodes) {
-  var u = d3.select('svg')
+  var u = d3.select('svg.main')
             .select('.nodes')
             .selectAll('circle')
             .data(filteredNodes, d => d.id)
@@ -85,7 +85,7 @@ function updateNodes(filteredNodes) {
 }
 
 function updateLinks(filteredLinks) {
-  var u = d3.select('svg')
+  var u = d3.select('svg.main')
             .select('.links')
             .selectAll('line')
             .data(filteredLinks)

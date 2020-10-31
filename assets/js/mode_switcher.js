@@ -27,7 +27,7 @@ function toggleMode() {
 }
 
 export function renderModeSwitcher(width, data) {
-  const u = d3.select('svg .mode-switcher')
+  const u = d3.select('svg.main .mode-switcher')
               .selectAll('.controls')
               .data(data)
 
