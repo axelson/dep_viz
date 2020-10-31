@@ -46,7 +46,7 @@ function renderHeader(g) {
    .attr('text-anchor', 'middle')
    .style('dominant-baseline', 'central')
    .style('user-select', 'none')
-   .text('View Mode')
+   .text('VIEW MODE')
 }
 
 function renderExplainTextSection(g, u) {
