@@ -15,6 +15,10 @@ import {
 } from './mode_switcher.js'
 
 import {
+  infoBoxShowSelectedFilesDependencies
+} from './info_box/selected_node_details.js'
+
+import {
   COMPILATION_DEPENDENCY_COLOR,
   EXPORT_DEPENDENCY_COLOR,
   RUNTIME_DEPENDENCY_COLOR,

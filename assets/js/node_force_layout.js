@@ -1,12 +1,8 @@
-import lodash from 'lodash'
-import jQuery from 'jquery'
 import BrowserText from './utils/browser_text.js'
 
 import {
   TRANSITION_SLOW,
   TRANSITION_FAST,
-  COMPILE_LINE_STROKE,
-  EXPORT_LINE_STROKE,
   COMPILATION_DEPENDENCY_COLOR,
   DEFAULT_LINE_STROKE,
   EXPORT_DEPENDENCY_COLOR, RUNTIME_DEPENDENCY_COLOR
@@ -16,6 +12,11 @@ import {
   findAllDependencies
 } from './force_utils.js'
 
+import {
+  infoBoxShowSelectedFilesDependencies,
+  unShowFileTree
+} from './info_box/selected_node_details.js'
+
 export const NODE_RADIUS = 5
 const HIGHLIGHTED_NODE_RADIUS = 8
 
@@ -24,9 +25,6 @@ const HIGHLIGHTED_STROKE_WIDTH = 1.2
 
 export let DEFAULT_NODE_COLOR = '#777'
 const HIGHLIGHT_NODE_COLOR = 'black'
-
-const $topStats = jQuery('.highlight-box')
-const $allFilesContainer = jQuery('.info-box-file-list-container')
 
 export class NodeForceLayout {
   constructor(nodeData, linkData, width, height) {
@@ -566,101 +564,4 @@ function updateLabelBackgroundPos() {
   background
     .attr('x', d => d.x + 10)
     .attr('y', d => d.y - 12)
-}
-
-// Shows the direct depenencies of the given file id
-function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
-  switch (window.vizState.infoBoxMode) {
-    case 'stats':
-      $topStats.hide()
-      break
-
-    case 'all-files':
-      $allFilesContainer.hide()
-  }
-
-  jQuery('.info-box-file-tree').show()
-
-  // For the current file render the file name
-  jQuery('.info-box-file-tree .current-file').text(id)
-
-  // underneath it render the name of each file it depends on and how it depends on it
-  // Sort by compile, then export, then runtime
-
-  const typeToOrder = d => {
-    switch(d.type) {
-      case 'compile': return 2
-      case 'export': return 1
-      case 'runtime': return 0
-    }
-  }
-
-  const deps = lodash.orderBy(targetObjects[id], [typeToOrder], ['desc'])
-
-  const u = d3.select('.info-box-file-tree .file-tree')
-              .selectAll('div')
-              .data(deps)
-
-  const container = u.enter()
-                     .append('div')
-                     .attr('class', 'm-l-4')
-
-  const _label =
-        container
-        .append('span')
-        .text(d => {
-          switch(d.type) {
-            case 'compile': return 'compile: '
-            case 'export': return 'export : '
-            case 'runtime': return 'runtime: '
-          }
-        })
-        .style('color', d => {
-          switch(d.type) {
-            case 'compile': return COMPILE_LINE_STROKE
-            case 'export': return EXPORT_LINE_STROKE
-            case 'runtime': return DEFAULT_NODE_COLOR
-          }
-        })
-
-  const _file =
-        container
-        .append('span')
-        .text(d => {
-          switch (d.type) {
-            case 'compile': {
-              // TODO: Have this be precomputed in the worker
-              const matched = findAllDependencies(targetObjects, d.id)
-              // Show count of files that this compile dependency depends on
-              const count = Object.keys(matched).length
-              // Subtract 1 to not include itself
-              return `${d.id} (${count - 1})`
-            }
-
-            case 'export':
-              return d.id
-
-            case 'runtime':
-              return d.id
-          }
-        })
-}
-
-function unShowFileTree() {
-  jQuery('.info-box-file-tree').hide()
-  switch (window.vizState.infoBoxMode) {
-    case 'stats':
-      $topStats.show()
-      break
-
-    case 'all-files':
-      $allFilesContainer.show()
-      break
-  }
-
-  const u = d3.select('.info-box-file-tree .file-tree')
-              .selectAll('div')
-              .data([])
-
-  u.exit().remove()
 }
