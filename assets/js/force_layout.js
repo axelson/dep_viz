@@ -160,7 +160,7 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
      selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id, false)
    })
    .on('mouseout', (_d) => {
-     nodeForceLayout.unShowNodeCompileDeps()
+     nodeForceLayout.restoreGraph()
      selectedNodeDetails.unShowFileTree(false)
    })
 }
@@ -184,7 +184,7 @@ function renderInfoBox(nodeData, _targets, targetObjects, nodeForceLayout) {
      nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, true)
    })
    .on('mouseout', function (_nodeDatum) {
-     nodeForceLayout.unShowNodeCompileDeps()
+     nodeForceLayout.restoreGraph()
    })
 
   const $input = jQuery('#info-box-input')

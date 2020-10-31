@@ -89,8 +89,7 @@ export class NodeForceLayout {
     }
   }
 
-  unShowNodeCompileDeps() {
-    // if (window.vizMode === 'focusNode') return
+  restoreGraph() {
     this.restoreNodes()
     this.restoreLines()
     this.restoreLabels()
@@ -370,7 +369,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
     .on('mouseout', function (_nodeDatum) {
       const {selectedNode, viewMode} = window.vizState
       if (selectedNode === null) {
-        nodeForceLayout.unShowNodeCompileDeps()
+        nodeForceLayout.restoreGraph()
         selectedNodeDetails.unShowFileTree()
       } else {
         if (viewMode === 'deps') {
@@ -391,7 +390,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
       console.log('clicked on', d.id)
       if (window.vizState.selectedNode) {
         window.vizState.selectedNode = null
-        nodeForceLayout.unShowNodeCompileDeps()
+        nodeForceLayout.restoreGraph()
         selectedNodeDetails.unShowFileTree()
       } else {
         window.vizState.selectedNode = d.id
