@@ -149,9 +149,6 @@ export function findAllDependencies(graph, id) {
 // Implemented with breadth-first search
 export function findPaths(graph, sourceId, targetId) {
   let depth = 0
-  console.log('graph', graph);
-  console.log('sourceId', sourceId);
-  console.log('targetId', targetId);
   const visited = {}
   let cur = new TinyQueue([{id: sourceId, depth: depth}], d => d.depth)
   let next = new TinyQueue([], d => d.depth)
@@ -175,15 +172,12 @@ export function findPaths(graph, sourceId, targetId) {
     depth += 1
   }
 
-  console.log('hmm')
-
   const shortest = calculateShortestPath(visited, sourceId, targetId)
-  console.log('shortest', shortest);
   return shortest
 }
 
 function calculateShortestPath(visited, sourceId, targetId) {
-  const nodesInPath = []
+  const nodesInPath = [targetId]
   let next = targetId
   while (next !== sourceId) {
     const node = visited[next]
@@ -194,6 +188,5 @@ function calculateShortestPath(visited, sourceId, targetId) {
     next = parentId
   }
 
-  nodesInPath.push(targetId)
-  return nodesInPath
+  return nodesInPath.reverse()
 }

@@ -260,13 +260,22 @@ export class NodeForceLayout {
       .transition().duration(TRANSITION_FAST)
       .style('fill-opacity', d => d.id in matches ? 1 : 0.1)
 
+    const onPath = d => {
+      if (d.source.id in matches) {
+        const index = files.indexOf(d.source.id)
+        return files.indexOf(d.target.id) == index + 1
+      } else {
+        return false
+      }
+    }
+
     d3.select('svg.main')
       .select('.links')
       .selectAll('line')
       .transition().duration(TRANSITION_FAST)
-      .style('stroke-opacity', d => d.source.id in matches && d.target.id in matches ? 1 : 0.1)
-      .style('stroke', d => d.source.id in matches && d.target.id in matches ? d.stroke : DEFAULT_LINE_STROKE)
-      .attr('class', d => d.source.id in matches && d.target.id in matches ? 'direction-animate' : '')
+      .style('stroke-opacity', d => onPath(d) ? 1 : 0.1)
+      .style('stroke', d => onPath(d) ? d.stroke : DEFAULT_LINE_STROKE)
+      .attr('class', d => onPath(d) ? 'direction-animate' : '')
 
     showMatchingLabels(nodes, matches, targetId)
   }
