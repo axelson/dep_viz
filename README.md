@@ -75,7 +75,7 @@ TODO:
 - [x] Selected node + hover: Reset the colors on mouseout
 - [x] Selected node + hover: Show the labels for every highlighted node
 - [x] Selected node + hover: Show the labels only for the shortest path (i.e. don't show the backwards path)
-- [ ] Selected node + hover: Handle view mode toggled
+- [x] Selected node + hover: Handle view mode toggled
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox

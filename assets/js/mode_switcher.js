@@ -19,24 +19,33 @@ export class ModeSwitcher {
     this.width = width
   }
 
-  initialize() {
-    initializeModeSwitcher(this.width)
+  initialize(nodeForceLayout, selectedNodeDetails) {
+    this.nodeForceLayout = nodeForceLayout
+    this.selectedNodeDetails = selectedNodeDetails
+
+    const data = [window.vizState]
+    renderModeSwitcher(this.width, data, nodeForceLayout, selectedNodeDetails)
   }
 }
 
-function initializeModeSwitcher(width) {
-  const data = [window.vizState]
-  renderModeSwitcher(width, data)
-}
-
-function toggleMode() {
+function toggleMode(nodeForceLayout, selectedNodeDetails) {
+  const selectedNode = window.vizState.selectedNode
   const newViewMode = window.vizState.viewMode === 'deps' ? 'ancestors' : 'deps'
   window.vizState.viewMode = newViewMode
 
   renderModeSwitcher(window.svgWidth, [window.vizState])
+
+  if (selectedNode) {
+    if (newViewMode === 'deps') {
+      nodeForceLayout.highlightDependenciesOfNode(selectedNode, false)
+      selectedNodeDetails.infoBoxShowSelectedFilesDependencies(selectedNode)
+    } else if (newViewMode === 'ancestors') {
+      nodeForceLayout.highlightFilesThatDependOnSelectedFile(selectedNode, false)
+    }
+  }
 }
 
-function renderModeSwitcher(width, data) {
+function renderModeSwitcher(width, data, nodeForceLayout, selectedNodeDetails) {
   const u = d3.select('svg.main .mode-switcher')
               .selectAll('.controls')
               .data(data)
@@ -49,7 +58,7 @@ function renderModeSwitcher(width, data) {
   renderBg(g)
 
   renderHeader(g, u)
-  renderSlider(g, u)
+  renderSlider(g, u, nodeForceLayout, selectedNodeDetails)
   renderNodes(g, u)
   renderExplainTextSection(g, u)
 }
@@ -190,7 +199,7 @@ function renderDot(dots, u, baseY, x, className) {
   }
 }
 
-function renderSlider(g, u) {
+function renderSlider(g, u, nodeForceLayout, selectedNodeDetails) {
   const sliderWidth = 100, sliderHeight = 20
 
   const _sliderBg = g
@@ -202,7 +211,7 @@ function renderSlider(g, u) {
         .attr('width', 100)
         .attr('height', sliderHeight)
         .style('cursor', 'pointer')
-        .on('click', toggleMode)
+        .on('click', _d => toggleMode(nodeForceLayout, selectedNodeDetails))
 
   const sliderX = (d) => d.viewMode === 'ancestors' ? -sliderWidth / 2 : 0
 

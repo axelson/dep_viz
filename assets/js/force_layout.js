@@ -97,7 +97,7 @@ function render(data) {
   worker.onmessage = e => {
     nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails)
     selectedNodeDetails.initialize(e.data.dependenciesMap)
-    modeSwitcher.initialize()
+    modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
 
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
     renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects, nodeForceLayout)
