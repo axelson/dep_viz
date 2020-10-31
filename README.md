@@ -66,9 +66,11 @@ TODO:
 - [x] Show the info box under the top stats list
 - [x] "Has a dependency on these files" should show the total count (compile time)
 - [ ] Change the selected node to the new style
-- [ ] Click the selected node to keep it selected, and then be able to toggle the view mode
-  - [ ] Also be able to see the route, or all routes between the selected file and the hovered file
+- [x] Click the selected node to keep it selected, and then be able to toggle the view mode
+  - [x] Also be able to see the route, or all routes between the selected file and the hovered file
     - Shortest route only?
+    - Shortest route bold, others less bold, elide parts that are not part
+  - [ ] The label for the selected node should go away (instead just rely on the info box)
 - [ ] Add the updated key
 - [ ] When hovering over top stats, ensure that the view mode switches appropriately
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout

@@ -9,7 +9,8 @@ import {
 } from './constants.js'
 
 import {
-  findAllDependencies
+  findAllDependencies,
+  findPaths
 } from './force_utils.js'
 
 export const NODE_RADIUS = 5
@@ -240,6 +241,27 @@ export class NodeForceLayout {
 
     showMatchingLabels(nodes, matched, id)
   }
+
+  highlightPathsToFile(targetObjects, sourceId, targetId) {
+    // Should probably change findPaths instead
+    const nodes = findPaths(targetObjects, sourceId, targetId) || []
+    const matches = {}
+    nodes.forEach(node => matches[node] = true)
+
+    d3.select('svg.main')
+      .select('.nodes')
+      .selectAll('circle')
+      // .filter(d => nodes.indexOf(d.id) !== -1)
+      .transition().duration(TRANSITION_FAST)
+      .style('fill-opacity', d => d.id in matches ? 1 : 0.1)
+
+    d3.select('svg.main')
+      .select('.links')
+      .selectAll('line')
+      .transition().duration(TRANSITION_FAST)
+      .style('stroke-opacity', d => d.source.id in matches && d.target.id in matches ? 1 : 0.1)
+      .style('stroke', d => d.source.id in matches && d.target.id in matches ? d.stroke : DEFAULT_LINE_STROKE)
+  }
 }
 
 function buildChargeStrength(numNodes) {
@@ -310,13 +332,18 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
     })
     .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
-      if (window.vizState.selectedNode !== null) return
-      const viewMode = window.vizState.viewMode
-      if (viewMode === 'deps') {
-        nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
-        selectedNodeDetails.infoBoxShowSelectedFilesDependencies(nodeDatum.id)
-      } else if (viewMode === 'ancestors') {
-        nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id)
+
+      const selectedNode = window.vizState.selectedNode
+      if (selectedNode === null) {
+        const viewMode = window.vizState.viewMode
+        if (viewMode === 'deps') {
+          nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
+          selectedNodeDetails.infoBoxShowSelectedFilesDependencies(nodeDatum.id)
+        } else if (viewMode === 'ancestors') {
+          nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id)
+        }
+      } else {
+        nodeForceLayout.highlightPathsToFile(targetObjects, selectedNode, nodeDatum.id)
       }
     })
     .on('mouseout', function (_nodeDatum) {

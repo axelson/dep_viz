@@ -1,4 +1,6 @@
 import lodash from 'lodash'
+import TinyQueue from 'tinyqueue'
+
 import { depType } from './constants.js'
 
 export function findCompileDependencies(graph, id) {
@@ -138,4 +140,60 @@ export function findAllDependencies(graph, id) {
   }
 
   return visited
+}
+
+// Returns an object that is hash map of links
+// If the link is on the shortest path the value is 2
+// If the link is not on the shortest path, the value is 1
+//
+// Implemented with breadth-first search
+export function findPaths(graph, sourceId, targetId) {
+  let depth = 0
+  console.log('graph', graph);
+  console.log('sourceId', sourceId);
+  console.log('targetId', targetId);
+  const visited = {}
+  let cur = new TinyQueue([{id: sourceId, depth: depth}], d => d.depth)
+  let next = new TinyQueue([], d => d.depth)
+
+  while (cur.length > 0 || next.length > 0) {
+    const node = cur.pop()
+    visited[node.id] = {depth: depth, node: node.id, parent: node.parent}
+
+    const deps = graph[node.id] || []
+    deps.forEach(childNode => {
+      if(!(childNode.id in visited)) {
+        next.push({id: childNode.id, parent: node.id, depth: depth + 1})
+      }
+    })
+
+    if (cur.length === 0) {
+      cur = next
+      next = new TinyQueue([], d => d.depth)
+    }
+
+    depth += 1
+  }
+
+  console.log('hmm')
+
+  const shortest = calculateShortestPath(visited, sourceId, targetId)
+  console.log('shortest', shortest);
+  return shortest
+}
+
+function calculateShortestPath(visited, sourceId, targetId) {
+  const nodesInPath = []
+  let next = targetId
+  while (next !== sourceId) {
+    const node = visited[next]
+    if (!node) return null
+    const parentId = node.parent
+
+    nodesInPath.push(parentId)
+    next = parentId
+  }
+
+  nodesInPath.push(targetId)
+  return nodesInPath
 }

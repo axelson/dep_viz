@@ -18,6 +18,8 @@ import {
   SelectedNodeDetails
 } from './info_box/selected_node_details.js'
 
+import { findPaths } from './force_utils.js'
+
 import {
   COMPILATION_DEPENDENCY_COLOR,
   EXPORT_DEPENDENCY_COLOR,
@@ -116,6 +118,7 @@ function render(data) {
 
   initializeModeSwitcher(width, height)
 
+  findPaths(targetObjects, 'lib/demo_dep/a.ex', 'lib/demo_dep/b_runtime/c_runtime.ex')
   setTimeout(function() {
     // const id = 'lib/demo_dep/a.ex'
     // showOnlyThisNodeAndCompileDeps(id, force, nodeData, linkData, targetObjects)
