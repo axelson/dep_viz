@@ -2,13 +2,8 @@ import lodash from 'lodash'
 import jQuery from 'jquery'
 window.jQuery = jQuery
 
-import {
-  CauseRecompileList
-} from './cause_recompile_list.js'
-
-import {
-  GetsRecompiledList
-} from './gets_recompiled_list.js'
+import {CauseRecompileList} from './info_box/top_stats/cause_recompile_list.js'
+import {GetsRecompiledList} from './info_box/top_stats/gets_recompiled_list.js'
 
 import {NodeForceLayout} from './node_force_layout.js'
 import {ModeSwitcher} from './mode_switcher.js'
