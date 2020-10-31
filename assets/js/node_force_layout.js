@@ -266,6 +266,7 @@ export class NodeForceLayout {
       .transition().duration(TRANSITION_FAST)
       .style('stroke-opacity', d => d.source.id in matches && d.target.id in matches ? 1 : 0.1)
       .style('stroke', d => d.source.id in matches && d.target.id in matches ? d.stroke : DEFAULT_LINE_STROKE)
+      .attr('class', d => d.source.id in matches && d.target.id in matches ? 'direction-animate' : '')
 
     showMatchingLabels(nodes, matches, targetId)
   }
@@ -340,7 +341,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
     .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
 
-      const selectedNode = window.vizState.selectedNode
+      const {selectedNode, viewMode} = window.vizState
       if (selectedNode === null) {
         const viewMode = window.vizState.viewMode
         if (viewMode === 'deps') {
@@ -350,13 +351,16 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
           nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id, true)
         }
       } else {
-        nodeForceLayout.highlightPathsToFile(targetObjects, selectedNode, nodeDatum.id)
+        if (viewMode === 'deps') {
+          nodeForceLayout.highlightPathsToFile(targetObjects, selectedNode, nodeDatum.id)
+        } else if (viewMode === 'ancestors') {
+          nodeForceLayout.highlightPathsToFile(targetObjects, nodeDatum.id, selectedNode)
+        }
       }
     })
     .on('mouseout', function (_nodeDatum) {
       const {selectedNode, viewMode} = window.vizState
       if (selectedNode === null) {
-        // TODO: Support ancestors mode here
         nodeForceLayout.unShowNodeCompileDeps()
         selectedNodeDetails.unShowFileTree()
       } else {
@@ -364,8 +368,10 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
           updateLabels([])
           nodeForceLayout.highlightDependenciesOfNode(selectedNode, false)
           selectedNodeDetails.infoBoxShowSelectedFilesDependencies(selectedNode)
+        } else if (viewMode === 'ancestors') {
+          updateLabels([])
+          nodeForceLayout.highlightFilesThatDependOnSelectedFile(selectedNode, false)
         }
-        // TODO: add ancestors here too
       }
     })
     .call(d3.drag()
