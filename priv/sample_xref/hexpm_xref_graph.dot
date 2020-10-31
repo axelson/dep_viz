@@ -274,8 +274,12 @@ digraph "xref graph" {
   "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
   "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/store/store.ex"
   "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm/utils.ex"
-  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(compile)"]
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex" [label="(export)"]
   "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/controllers/controller_helpers.ex" [label="(export)"]
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/plugs/authorized.ex"
+  "lib/hexpm_web/plugs/authorized.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex"
+  "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/plugs/maybe_authorize.ex"
+  "lib/hexpm_web/plugs/maybe_authorize.ex" -> "lib/hexpm_web/controllers/auth_helpers.ex"
   "lib/hexpm_web/controllers/api/docs_controller.ex" -> "lib/hexpm_web/web.ex" [label="(compile)"]
   "lib/hexpm_web/router.ex" -> "lib/hexpm_web/controllers/api/index_controller.ex"
   "lib/hexpm_web/controllers/api/index_controller.ex" -> "lib/hexpm/shared.ex" [label="(compile)"]
@@ -914,8 +918,10 @@ digraph "xref graph" {
   "lib/hexpm_web/plug_parser.ex"
   "lib/hexpm_web/plugs.ex"
   "lib/hexpm_web/plugs/attack.ex"
+  "lib/hexpm_web/plugs/authorized.ex"
   "lib/hexpm_web/plugs/dashboard_auth.ex"
   "lib/hexpm_web/plugs/forwarded.ex"
+  "lib/hexpm_web/plugs/maybe_authorize.ex"
   "lib/hexpm_web/plugs/status.ex"
   "lib/hexpm_web/plugs/vary.ex"
   "lib/hexpm_web/rate_limit_pub_sub.ex"
