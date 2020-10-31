@@ -3,7 +3,12 @@ import {
 } from '../node_force_layout.js'
 
 export function renderSelectedNode(g, cx, cy) {
-  console.log('NODE_RADIUS', NODE_RADIUS);
+  g.append('circle')
+   .attr('class', `dot`)
+   .attr('r', NODE_RADIUS)
+   .attr('cx', cx)
+   .attr('cy', cy)
+   .attr('fill', 'black')
 
   g.append('circle')
    .attr('r', NODE_RADIUS + 3)

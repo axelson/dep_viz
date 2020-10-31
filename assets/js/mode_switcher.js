@@ -167,17 +167,16 @@ function renderArrow(dots, baseY, x, className) {
 }
 
 function renderDot(dots, u, baseY, x, className) {
-  dots
-    .append('circle')
-    .attr('class', `dot ${className}`)
-    .attr('r', NODE_RADIUS)
-    .attr('cx', x)
-    .attr('cy', baseY)
-    .attr('fill', className === 'center' ? 'black': DEFAULT_NODE_COLOR)
-    .attr('fill-opacity', className === 'left' ? OPACITY_FADED : 1)
-
   if (className === 'center') {
     renderSelectedNode(dots, x, baseY)
+  } else {
+    dots.append('circle')
+        .attr('class', `dot ${className}`)
+        .attr('r', NODE_RADIUS)
+        .attr('cx', x)
+        .attr('cy', baseY)
+        .attr('fill', className === 'center' ? 'black': DEFAULT_NODE_COLOR)
+        .attr('fill-opacity', className === 'left' ? OPACITY_FADED : 1)
   }
 }
 

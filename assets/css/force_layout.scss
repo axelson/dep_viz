@@ -151,3 +151,8 @@ path.direction-animate, line.direction-animate {
 .mode-switcher .controls:hover .explain-text-container {
   opacity: 1
 }
+
+svg.selected-node-indicator {
+  width: 20px;
+  height: 20px;
+}

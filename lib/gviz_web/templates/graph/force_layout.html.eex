@@ -43,8 +43,12 @@ Force Layout
 
     <%# The file tree is shown on hover %>
     <div class="info-box-file-tree display-none">
-      <div class="current-file text-large m-b-4"></div>
-      <div class="file-tree monospace"></div>
+      <div class="flex flex-align-center m-b-4">
+        <svg class="selected-node-indicator m-r-2"></svg>
+        <div class="current-file text-large"></div>
+      </div>
+      <div>&#8230; has a dependency on these files:</div>
+      <table class="file-tree m-t-2"></table>
     </div>
   </div>
 

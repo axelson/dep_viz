@@ -29,16 +29,21 @@
   src: local('Fira Sans SemiBold'), local('FiraSans-SemiBold'), url(/fonts/fira_sans/FiraSans-SemiBold.ttf) format('truetype');
 }
 
+// italic
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Sans Italic'), local('FiraSans-Italic'), url(/fonts/fira_sans/FiraSans-Italic.ttf) format('truetype');
+}
+
 body {
   font-family: 'Fira Sans', sans-serif;
 }
 
 body .monospace {
   font-family: 'Fira Mono', monospace;
-}
-
-.pointer-events-none {
-  pointer-events: none;
 }
 
 /* LiveView specific classes for your customizations */
@@ -134,6 +139,8 @@ nav li {
 }
 
 // Utility css
+.compile-red { color: #d32a3a; }
+
 .display-none { display: none; }
 .display-inline { display: inline; }
 .display-inline-block { display: inline-block; }
@@ -147,12 +154,17 @@ nav li {
 .p-l-0 { padding-left: 0; }
 .m-2 { margin: 6px; }
 .m-l-4 { margin-left: 12px; }
+.m-r-2 { margin-right: 6px; }
+.m-r-4 { margin-right: 12px; }
 .m-b-4 { margin-bottom: 12px; }
+.m-t-2 { margin-top: 6px; }
+.m-t-4 { margin-top: 12px; }
 
 .pointer-events-none { pointer-events: none; }
 .pointer-events-auto { pointer-events: auto; }
 
 .hover-bold:hover { font-weight: 600; }
 .bold { font-weight: 600; }
+.italic { font-style: italic; }
 
 .text-large { font-size: 16px; }

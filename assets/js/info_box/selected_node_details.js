@@ -3,7 +3,8 @@ import lodash from 'lodash'
 
 import {
   COMPILE_LINE_STROKE,
-  EXPORT_LINE_STROKE
+  EXPORT_LINE_STROKE,
+  RUNTIME_LINE_STROKE
 } from '../constants.js'
 
 import {
@@ -11,6 +12,7 @@ import {
 } from '../node_force_layout.js'
 
 import { findAllDependencies } from '../force_utils.js'
+import { renderSelectedNode } from '../utils/render_utils.js'
 
 const $topStats = jQuery('.highlight-box')
 const $allFilesContainer = jQuery('.info-box-file-list-container')
@@ -44,53 +46,54 @@ export function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
 
   const deps = lodash.orderBy(targetObjects[id], [typeToOrder], ['desc'])
 
+  renderSelectNodeIndicator()
+
   const u = d3.select('.info-box-file-tree .file-tree')
-              .selectAll('div')
+              .selectAll('tr')
               .data(deps)
 
   const container = u.enter()
-                     .append('div')
-                     .attr('class', 'm-l-4')
+                     .append('tr')
+                     .attr('class', '')
 
   const _label =
         container
-        .append('span')
+        .append('td')
         .text(d => {
           switch(d.type) {
-            case 'compile': return 'compile: '
-            case 'export': return 'export : '
-            case 'runtime': return 'runtime: '
+            case 'compile': return 'compile'
+            case 'export': return 'export '
+            case 'runtime': return 'runtime'
           }
         })
         .style('color', d => {
           switch(d.type) {
             case 'compile': return COMPILE_LINE_STROKE
             case 'export': return EXPORT_LINE_STROKE
-            case 'runtime': return DEFAULT_NODE_COLOR
+            case 'runtime': return RUNTIME_LINE_STROKE
           }
         })
+        .attr('class', 'm-r-4')
+        .style('vertical-align', 'top')
 
-  const _file =
+  const file =
         container
-        .append('span')
-        .text(d => {
-          switch (d.type) {
-            case 'compile': {
-              // TODO: Have this be precomputed in the worker
-              const matched = findAllDependencies(targetObjects, d.id)
-              // Show count of files that this compile dependency depends on
-              const count = Object.keys(matched).length
-              // Subtract 1 to not include itself
-              return `${d.id} (${count - 1})`
-            }
+        .append('td')
 
-            case 'export':
-              return d.id
+  file.append('div')
+      .text(d => d.id)
+      .attr('class', 'monospace')
 
-            case 'runtime':
-              return d.id
-          }
-        })
+  const compileContainers = file.filter(d => d.type === 'compile')
+                   compileContainers.append('div')
+                                    .attr('class', 'italic')
+                   .html(d => {
+                     const matched = findAllDependencies(targetObjects, d.id)
+                     // Show count of files that this compile dependency depends on
+                     const count = Object.keys(matched).length
+                     // Subtract 1 to not include itself
+                     return `this causes a compile dependency on <span class="compile-red">${count - 1}</span> files`
+                   })
 }
 
 export function unShowFileTree() {
@@ -110,4 +113,15 @@ export function unShowFileTree() {
               .data([])
 
   u.exit().remove()
+}
+
+function renderSelectNodeIndicator() {
+  const data = [true]
+
+  const g = d3.select('svg.selected-node-indicator')
+    .selectAll('.selected-node')
+    .data(data)
+    .enter()
+
+  renderSelectedNode(g, 10, 10)
 }
