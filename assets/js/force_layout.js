@@ -36,8 +36,11 @@ window.vizSettings = {
 }
 window.vizState = {
   infoBoxMode: 'stats',
+
   // Mode is either 'deps' or 'ancestors'
-  viewMode: 'deps'
+  viewMode: 'deps',
+
+  selectedNode: null,
 }
 
 // Data

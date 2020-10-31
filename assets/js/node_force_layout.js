@@ -310,10 +310,9 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
     })
     .on('mouseover', function (nodeDatum) {
       console.log("Hovered on", nodeDatum.id)
+      if (window.vizState.selectedNode !== null) return
       const viewMode = window.vizState.viewMode
-      if (viewMode === 'focusNode') {
-        highlightAllDeps(nodeDatum.id, targets, targetObjects)
-      } else if (viewMode === 'deps') {
+      if (viewMode === 'deps') {
         nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
         selectedNodeDetails.infoBoxShowSelectedFilesDependencies(nodeDatum.id)
       } else if (viewMode === 'ancestors') {
@@ -321,14 +320,25 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
       }
     })
     .on('mouseout', function (_nodeDatum) {
-      nodeForceLayout.unShowNodeCompileDeps()
-      selectedNodeDetails.unShowFileTree()
+      if (window.vizState.selectedNode === null) {
+        nodeForceLayout.unShowNodeCompileDeps()
+        selectedNodeDetails.unShowFileTree()
+      }
     })
     .call(d3.drag()
             .on('start', dragStarted)
             .on('drag', dragged)
             .on('end', dragEnded))
-    .on('click', function (_d) {
+    .on('click', function (d) {
+      console.log('clicked on', d.id)
+      if (window.vizState.selectedNode) {
+        window.vizState.selectedNode = null
+        nodeForceLayout.unShowNodeCompileDeps()
+        selectedNodeDetails.unShowFileTree()
+      } else {
+        window.vizState.selectedNode = d.id
+        updateLabels([])
+      }
     })
 
   u.exit().remove()
@@ -547,7 +557,11 @@ export function updateLabels(nodeData, primaryId) {
    .attr('x', d => d.x + 18)
    .attr('y', d => d.y)
 
-  u.exit().remove()
+  u.exit()
+   .attr('opacity', 1)
+   .transition().duration(TRANSITION_SLOW)
+   .attr('opacity', 0)
+   .remove()
 }
 
 function updateLabelBackgroundPos() {
