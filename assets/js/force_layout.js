@@ -100,7 +100,7 @@ function render(data) {
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
 
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
-    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, targetObjects, nodeForceLayout)
+    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails)
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
@@ -133,7 +133,7 @@ function calculateTopGetRecompiled(getsRecompiledMap) {
   return lodash.orderBy(allFiles, ['count'], ['desc'])
 }
 
-function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeForceLayout, selectedNodeDetails) {
+function renderTopFilesThatGetRecompiled(getsRecompiledMap, nodeForceLayout, selectedNodeDetails) {
   const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
   const topFiles = allFiles.slice(0, 6)
 
