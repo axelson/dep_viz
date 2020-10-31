@@ -82,7 +82,7 @@ TODO:
 - [x] Selected node + hover is not restoring stroke colors
 - [ ] Add the updated key
 - [ ] Make the all files view the default
-- [ ] When hovering over top stats, ensure that the view mode switches appropriately
+- [x] When hovering over top stats, ensure that the view mode switches appropriately
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Parse `.dot` file in js without sending to server
 - [ ] Deploy to a server

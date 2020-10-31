@@ -26,6 +26,12 @@ export class ModeSwitcher {
     const data = [window.vizState]
     renderModeSwitcher(this.width, data, nodeForceLayout, selectedNodeDetails)
   }
+
+  getViewMode() { return window.vizState.viewMode }
+
+  toggle() {
+    toggleMode(this.nodeForceLayout, this.selectedNodeDetails)
+  }
 }
 
 function toggleMode(nodeForceLayout, selectedNodeDetails) {

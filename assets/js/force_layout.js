@@ -99,8 +99,8 @@ function render(data) {
     selectedNodeDetails.initialize(e.data.dependenciesMap)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
 
-    renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout)
-    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails)
+    renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
+    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
@@ -118,8 +118,8 @@ function render(data) {
   }, 500)
 }
 
-function renderHighlightsBox(causeRecompileMap, nodeForceLayout) {
-  const causeRecompileList = new CauseRecompileList(causeRecompileMap, nodeForceLayout)
+function renderHighlightsBox(causeRecompileMap, nodeForceLayout, modeSwitcher) {
+  const causeRecompileList = new CauseRecompileList(causeRecompileMap, nodeForceLayout, modeSwitcher)
   causeRecompileList.initialize()
 }
 
@@ -133,7 +133,10 @@ function calculateTopGetRecompiled(getsRecompiledMap) {
   return lodash.orderBy(allFiles, ['count'], ['desc'])
 }
 
-function renderTopFilesThatGetRecompiled(getsRecompiledMap, nodeForceLayout, selectedNodeDetails) {
+// TODO: Break this out into another class/file
+let modeSwitcherInitialMode = null
+const EXPECTED_VIEW_MODE = 'deps'
+function renderTopFilesThatGetRecompiled(getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher) {
   const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
   const topFiles = allFiles.slice(0, 6)
 
@@ -148,10 +151,22 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, nodeForceLayout, sel
    .text(d => `${d.count - 1}: ${d.id}`)
    .merge(u)
    .on('mouseover', (d) => {
+     const viewMode = modeSwitcher.getViewMode()
+
+     if (viewMode !== EXPECTED_VIEW_MODE) {
+       modeSwitcherInitialMode = viewMode
+       modeSwitcher.toggle()
+     }
+
      nodeForceLayout.highlightDependenciesOfNode(d.id, true)
      selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id, false)
    })
    .on('mouseout', (_d) => {
+     if (modeSwitcherInitialMode) {
+       modeSwitcherInitialMode = null
+       modeSwitcher.toggle()
+     }
+
      nodeForceLayout.restoreGraph()
      selectedNodeDetails.unShowFileTree(false)
    })

@@ -1,12 +1,17 @@
 import lodash from 'lodash'
 
+const EXPECTED_VIEW_MODE = 'ancestors'
+
 // Manages the list that shows which files in the graph cause the most other
 // files to recompile
 export class CauseRecompileList {
-  constructor(causeRecompileMap, nodeForceLayout) {
+  constructor(causeRecompileMap, nodeForceLayout, modeSwitcher) {
     this.causeRecompileMap = causeRecompileMap
     this.nodeForceLayout = nodeForceLayout
+    this.modeSwitcher = modeSwitcher
     this.allFiles = calculateTopRecompiles(causeRecompileMap)
+
+    this.modeSwitcherInitialMode = null
   }
 
   initialize() {
@@ -23,14 +28,24 @@ export class CauseRecompileList {
      .text(d => `${d.count}: ${d.id}`)
      .merge(u)
      .on('mouseover', (d) => {
-       // TODO: This needs to be fixed
+       const viewMode = this.modeSwitcher.getViewMode()
+
+       if (viewMode !== EXPECTED_VIEW_MODE) {
+         this.modeSwitcherInitialMode = viewMode
+         this.modeSwitcher.toggle()
+       }
+
        this.nodeForceLayout.highlightFilesThatDependOnSelectedFile(d.id, true)
      })
      .on('mouseout', (_d) => {
+       if (this.modeSwitcherInitialMode) {
+         this.modeSwitcherInitialMode = null
+         this.modeSwitcher.toggle()
+       }
+
        this.nodeForceLayout.unHighlightFilesThisFileCausesToRecompile()
      })
   }
-
 }
 
 function calculateTopRecompiles(causeRecompileMap) {
