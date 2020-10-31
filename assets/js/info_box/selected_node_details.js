@@ -7,18 +7,14 @@ import {
   RUNTIME_LINE_STROKE
 } from '../constants.js'
 
-import {
-  DEFAULT_NODE_COLOR
-} from '../node_force_layout.js'
-
 import { findAllDependencies } from '../force_utils.js'
 import { renderSelectedNode } from '../utils/render_utils.js'
 
 const $topStats = jQuery('.highlight-box')
 const $allFilesContainer = jQuery('.info-box-file-list-container')
+let selectedNodeRendered = false
 
-// Shows the direct depenencies of the given file id
-export function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
+function doHideStatsAndFiles() {
   switch (window.vizState.infoBoxMode) {
     case 'stats':
       $topStats.hide()
@@ -27,6 +23,11 @@ export function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
     case 'all-files':
       $allFilesContainer.hide()
   }
+}
+
+// Shows the direct depenencies of the given file id
+export function infoBoxShowSelectedFilesDependencies(id, targetObjects, hideStatsAndFiles = true) {
+  if (hideStatsAndFiles) doHideStatsAndFiles()
 
   jQuery('.info-box-file-tree').show()
 
@@ -46,7 +47,16 @@ export function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
 
   const deps = lodash.orderBy(targetObjects[id], [typeToOrder], ['desc'])
 
-  renderSelectNodeIndicator()
+  if (deps.length > 0) {
+    jQuery('.info-box-file-tree .info-line').text('… has a dependency on these files:')
+  } else {
+    jQuery('.info-box-file-tree .info-line').text('… has no dependencies')
+  }
+
+  if (!selectedNodeRendered) {
+    renderSelectNodeIndicator()
+    selectedNodeRendered = true
+  }
 
   const u = d3.select('.info-box-file-tree .file-tree')
               .selectAll('tr')
@@ -85,8 +95,8 @@ export function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
       .attr('class', 'monospace')
 
   const compileContainers = file.filter(d => d.type === 'compile')
-                   compileContainers.append('div')
-                                    .attr('class', 'italic')
+  compileContainers.append('div')
+                   .attr('class', 'italic')
                    .html(d => {
                      const matched = findAllDependencies(targetObjects, d.id)
                      // Show count of files that this compile dependency depends on
@@ -96,20 +106,23 @@ export function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
                    })
 }
 
-export function unShowFileTree() {
-  jQuery('.info-box-file-tree').hide()
-  switch (window.vizState.infoBoxMode) {
-    case 'stats':
-      $topStats.show()
-      break
+export function unShowFileTree(hideStatsAndFiles = true) {
+   jQuery('.info-box-file-tree').hide()
 
-    case 'all-files':
-      $allFilesContainer.show()
-      break
+  if (hideStatsAndFiles) {
+    switch (window.vizState.infoBoxMode) {
+      case 'stats':
+        $topStats.show()
+        break
+
+      case 'all-files':
+        $allFilesContainer.show()
+        break
+    }
   }
 
   const u = d3.select('.info-box-file-tree .file-tree')
-              .selectAll('div')
+              .selectAll('tr')
               .data([])
 
   u.exit().remove()

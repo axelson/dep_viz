@@ -15,7 +15,8 @@ import {
 } from './mode_switcher.js'
 
 import {
-  infoBoxShowSelectedFilesDependencies
+  infoBoxShowSelectedFilesDependencies,
+  unShowFileTree
 } from './info_box/selected_node_details.js'
 
 import {
@@ -111,7 +112,7 @@ function render(data) {
   initializeModeSwitcher(width, height)
 
   setTimeout(function() {
-    // const id = 'lib/gviz/application.ex'
+    // const id = 'lib/demo_dep/a.ex'
     // showOnlyThisNodeAndCompileDeps(id, force, nodeData, linkData, targetObjects)
     // infoBoxShowSelectedFilesDependencies(id, targetObjects)
   }, 500)
@@ -148,11 +149,11 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
    .merge(u)
    .on('mouseover', (d) => {
      nodeForceLayout.highlightDependenciesOfNode(d.id, targetObjects)
-     // infoBoxShowSelectedFilesDependencies(d.id, targetObjects)
+     infoBoxShowSelectedFilesDependencies(d.id, targetObjects, false)
    })
    .on('mouseout', (_d) => {
      nodeForceLayout.unShowNodeCompileDeps()
-     // unShowFileTree()
+     unShowFileTree(false)
    })
 }
 

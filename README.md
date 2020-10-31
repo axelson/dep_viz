@@ -62,8 +62,8 @@ TODO:
   - And maybe show the search text as well
 - [x] Add "dependers" and "dependees" to the view mode switcher
 - [ ] Add updated info box hover mode for dependers view
-- [ ] Add updated info box hover mode for dependees view
-- [ ] Show the info box under the top stats list
+- [x] Add updated info box hover mode for dependees view
+- [x] Show the info box under the top stats list
 - [ ] Change the selected node to the new style
 - [ ] Click the selected node to keep it selected, and then be able to toggle the view mode
   - [ ] Also be able to see the route, or all routes between the selected file and the hovered file
@@ -74,6 +74,7 @@ TODO:
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Parse `.dot` file in js without sending to server
 - [ ] Deploy to a server
+- [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
 
 Done:
 - [x] Show a list of files on the left

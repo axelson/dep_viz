@@ -47,7 +47,7 @@ Force Layout
         <svg class="selected-node-indicator m-r-2"></svg>
         <div class="current-file text-large"></div>
       </div>
-      <div>&#8230; has a dependency on these files:</div>
+      <div class="info-line"></div>
       <table class="file-tree m-t-2"></table>
     </div>
   </div>
