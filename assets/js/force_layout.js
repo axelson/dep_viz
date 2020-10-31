@@ -109,7 +109,7 @@ function render(data) {
   setTimeout(function() {
     // const id = 'lib/gviz/application.ex'
     // showOnlyThisNodeAndCompileDeps(id, force, nodeData, linkData, targetObjects)
-    // showFileTree(id, targetObjects)
+    // infoBoxShowSelectedFilesDependencies(id, targetObjects)
   }, 500)
 }
 
@@ -144,7 +144,7 @@ function renderTopFilesThatGetRecompiled(getsRecompiledMap, targetObjects, nodeF
    .merge(u)
    .on('mouseover', (d) => {
      nodeForceLayout.highlightDependenciesOfNode(d.id, targetObjects)
-     // showFileTree(d.id, targetObjects)
+     // infoBoxShowSelectedFilesDependencies(d.id, targetObjects)
    })
    .on('mouseout', (_d) => {
      nodeForceLayout.unShowNodeCompileDeps()

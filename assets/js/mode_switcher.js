@@ -7,6 +7,10 @@ import {
   NODE_RADIUS
 } from './node_force_layout.js'
 
+import {
+  renderSelectedNode
+} from './utils/render_utils.js'
+
 const OPACITY_FADED = 0.3
 const TRANSITION_SPEED = 250
 
@@ -173,14 +177,7 @@ function renderDot(dots, u, baseY, x, className) {
     .attr('fill-opacity', className === 'left' ? OPACITY_FADED : 1)
 
   if (className === 'center') {
-    dots
-      .append('circle')
-      .attr('r', NODE_RADIUS + 3)
-      .attr('stroke', 'black')
-      .attr('stroke-width', 1.5)
-      .attr('cx', x)
-      .attr('cy', baseY)
-      .attr('fill', 'none')
+    renderSelectedNode(dots, x, baseY)
   }
 }
 

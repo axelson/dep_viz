@@ -323,7 +323,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout) {
       } else if (viewMode === 'deps') {
         nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id)
         // TODO: This reference is wrong
-        showFileTree(nodeDatum.id, targetObjects)
+        infoBoxShowSelectedFilesDependencies(nodeDatum.id, targetObjects)
       } else if (viewMode === 'ancestors') {
         nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id)
       }
@@ -569,7 +569,7 @@ function updateLabelBackgroundPos() {
 }
 
 // Shows the direct depenencies of the given file id
-function showFileTree(id, targetObjects) {
+function infoBoxShowSelectedFilesDependencies(id, targetObjects) {
   switch (window.vizState.infoBoxMode) {
     case 'stats':
       $topStats.hide()

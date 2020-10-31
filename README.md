@@ -60,7 +60,7 @@ TODO:
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
-- [ ] Add "dependers" and "dependees" to the view mode switcher
+- [x] Add "dependers" and "dependees" to the view mode switcher
 - [ ] Add updated info box hover mode for dependers view
 - [ ] Add updated info box hover mode for dependees view
 - [ ] Show the info box under the top stats list

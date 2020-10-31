@@ -43,7 +43,7 @@ Force Layout
 
     <%# The file tree is shown on hover %>
     <div class="info-box-file-tree display-none">
-      <div class="current-file"></div>
+      <div class="current-file text-large m-b-4"></div>
       <div class="file-tree monospace"></div>
     </div>
   </div>
