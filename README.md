@@ -85,6 +85,7 @@ TODO:
 - [ ] Add the updated key
 - [ ] Make the all files view the default
 - [x] When hovering over top stats, ensure that the view mode switches appropriately
+- [ ] When in "Top Stats" mode: make all the top stats files highlighted
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Parse `.dot` file in js without sending to server
 - [ ] Deploy to a server

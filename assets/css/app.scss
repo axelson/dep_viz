@@ -40,11 +40,34 @@
 }
 
 body {
+  margin: 0;
   font-family: 'Fira Sans', sans-serif;
 }
 
 body .monospace {
   font-family: 'Fira Mono', monospace;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: $ui-purple;
+  color: white;
+  padding: 16px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.6em;
+  }
+
+  a {
+    color: white;
+    &:hover { color: white }
+  }
+}
+
+nav > ul {
+  margin: 0;
 }
 
 /* LiveView specific classes for your customizations */

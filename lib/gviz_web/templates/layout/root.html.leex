@@ -13,12 +13,15 @@
     <header>
       <section class="container">
         <nav role="navigation">
+          <div class="flex flex-align-center">
+            <h1 class="m-r-4">DepView</h1>
+            <div>
+              A visual tool to understand Elixir recompilation.
+            </div>
+          </div>
           <ul class="flex list-style-none">
             <li><a href="graph">dot</a></li>
             <li><a href="force">force</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
           </ul>
         </nav>
       </section>
