@@ -19,8 +19,9 @@ export class SelectedNodeDetails {
     this.targetObjects = targetObjects
   }
 
-  initialize(dependenciesMap) {
+  initialize(dependenciesMap, nodeForceLayout) {
     this.dependenciesMap = dependenciesMap
+    this.nodeForceLayout = nodeForceLayout
   }
 
   infoBoxShowSelectedFilesDependencies(id, hideStatsAndFiles = true) {
@@ -83,7 +84,13 @@ export class SelectedNodeDetails {
 
     file.append('div')
         .text(d => d.id)
-        .attr('class', 'monospace')
+        .attr('class', 'monospace pointer-events-auto')
+        .on('mouseover', d => {
+          this.nodeForceLayout.highlightSingleNode(d.id)
+        })
+        .on('mouseout', _d => {
+          this.nodeForceLayout.unHighlightSingleNode()
+        })
 
     const compileContainers = file.filter(d => d.type === 'compile')
     compileContainers.append('div')

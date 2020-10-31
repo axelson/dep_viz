@@ -12,6 +12,7 @@ import {
   findAllDependencies,
   findPaths
 } from './force_utils.js'
+import { renderSelectedNodeWithData } from './utils/render_utils.js'
 
 export const NODE_RADIUS = 5
 const HIGHLIGHTED_NODE_RADIUS = 8
@@ -23,9 +24,10 @@ export let DEFAULT_NODE_COLOR = '#777'
 const HIGHLIGHT_NODE_COLOR = 'black'
 
 export class NodeForceLayout {
-  constructor(nodeData, linkData, width, height) {
+  constructor(nodeData, linkData, targetObjects, width, height) {
     this.nodeData = nodeData
     this.linkData = linkData
+    this.targetObjects = targetObjects
     this.width = width
     this.height = height
   }
@@ -33,6 +35,7 @@ export class NodeForceLayout {
   initialize(dependenciesMap, causeRecompileMap, selectedNodeDetails) {
     this.dependenciesMap = dependenciesMap
     this.causeRecompileMap = causeRecompileMap
+    this.selectedNodeDetails = selectedNodeDetails
 
     const width = this.width, height = this.height
 
@@ -86,6 +89,26 @@ export class NodeForceLayout {
 
     if (showLabels) {
       showMatchingLabels(nodes, dependencyTypes, id)
+    }
+  }
+
+  // Reconstruct graph, returning the highlighting and such based on the
+  // currently selected node if applicable
+  reconstructGraph() {
+    const {selectedNode, viewMode} = window.vizState
+
+    if (selectedNode) {
+      if (viewMode === 'deps') {
+        updateLabels([])
+        this.highlightDependenciesOfNode(selectedNode, false)
+      } else if (viewMode === 'ancestors') {
+        updateLabels([])
+        this.highlightFilesThatDependOnSelectedFile(selectedNode, false)
+      }
+    } else {
+      this.restoreGraph()
+      // FIXME: Should this really be controlled from here?
+      this.selectedNodeDetails.unShowFileTree()
     }
   }
 
@@ -165,6 +188,32 @@ export class NodeForceLayout {
           return DEFAULT_LINE_STROKE
         }
       })
+  }
+
+  highlightSingleNode(id) {
+    const nodes = d3.select('svg.main')
+                    .select('.nodes')
+                    .selectAll('circle')
+
+    const selectedNodes = nodes.filter(d => d.id === id)
+
+    d3.select('svg.main')
+      .select('.selected-nodes')
+      .selectAll('circle')
+      .data(selectedNodes.data())
+      .enter()
+      .call(renderSelectedNodeWithData)
+  }
+
+  unHighlightSingleNode() {
+    d3.select('svg.main')
+      .select('.selected-nodes')
+      .selectAll('circle')
+      .data([])
+      .exit()
+      .remove()
+
+    this.reconstructGraph()
   }
 
   highlightFilesThatDependOnSelectedFile(id, showLabels) {
@@ -367,20 +416,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
       }
     })
     .on('mouseout', function (_nodeDatum) {
-      const {selectedNode, viewMode} = window.vizState
-      if (selectedNode === null) {
-        nodeForceLayout.restoreGraph()
-        selectedNodeDetails.unShowFileTree()
-      } else {
-        if (viewMode === 'deps') {
-          updateLabels([])
-          nodeForceLayout.highlightDependenciesOfNode(selectedNode, false)
-          selectedNodeDetails.infoBoxShowSelectedFilesDependencies(selectedNode)
-        } else if (viewMode === 'ancestors') {
-          updateLabels([])
-          nodeForceLayout.highlightFilesThatDependOnSelectedFile(selectedNode, false)
-        }
-      }
+      nodeForceLayout.reconstructGraph()
     })
     .call(d3.drag()
             .on('start', dragStarted)

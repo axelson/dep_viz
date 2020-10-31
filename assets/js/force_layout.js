@@ -85,7 +85,7 @@ function render(data) {
 
   const width = window.svgWidth, height = window.svgHeight
 
-  const nodeForceLayout = new NodeForceLayout(nodeData, linkData, width, height)
+  const nodeForceLayout = new NodeForceLayout(nodeData, linkData, targetObjects, width, height)
   const selectedNodeDetails = new SelectedNodeDetails(targetObjects)
   const modeSwitcher = new ModeSwitcher(width)
   const getsRecompiledList = new GetsRecompiledList()
@@ -96,7 +96,7 @@ function render(data) {
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
     nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails)
-    selectedNodeDetails.initialize(e.data.dependenciesMap)
+    selectedNodeDetails.initialize(e.data.dependenciesMap, nodeForceLayout)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
     getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
 
