@@ -80,6 +80,7 @@ TODO:
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox
 - [x] Selected node + hover is not restoring stroke colors
+- [ ] Update info box for ancestors mode
 - [ ] Add the updated key
 - [ ] Make the all files view the default
 - [x] When hovering over top stats, ensure that the view mode switches appropriately

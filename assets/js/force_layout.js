@@ -6,6 +6,10 @@ import {
   CauseRecompileList
 } from './cause_recompile_list.js'
 
+import {
+  GetsRecompiledList
+} from './gets_recompiled_list.js'
+
 import {NodeForceLayout} from './node_force_layout.js'
 import {ModeSwitcher} from './mode_switcher.js'
 import {SelectedNodeDetails} from './info_box/selected_node_details.js'
@@ -89,6 +93,7 @@ function render(data) {
   const nodeForceLayout = new NodeForceLayout(nodeData, linkData, width, height)
   const selectedNodeDetails = new SelectedNodeDetails(targetObjects)
   const modeSwitcher = new ModeSwitcher(width)
+  const getsRecompiledList = new GetsRecompiledList()
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
@@ -98,9 +103,9 @@ function render(data) {
     nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails)
     selectedNodeDetails.initialize(e.data.dependenciesMap)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
+    getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
 
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
-    renderTopFilesThatGetRecompiled(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
@@ -121,55 +126,6 @@ function render(data) {
 function renderHighlightsBox(causeRecompileMap, nodeForceLayout, modeSwitcher) {
   const causeRecompileList = new CauseRecompileList(causeRecompileMap, nodeForceLayout, modeSwitcher)
   causeRecompileList.initialize()
-}
-
-function calculateTopGetRecompiled(getsRecompiledMap) {
-  const allFiles = []
-
-  for (const id of Object.keys(getsRecompiledMap)) {
-    allFiles.push({id: id, count: getsRecompiledMap[id]})
-  }
-
-  return lodash.orderBy(allFiles, ['count'], ['desc'])
-}
-
-// TODO: Break this out into another class/file
-let modeSwitcherInitialMode = null
-const EXPECTED_VIEW_MODE = 'deps'
-function renderTopFilesThatGetRecompiled(getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher) {
-  const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
-  const topFiles = allFiles.slice(0, 6)
-
-  const u = d3.select('.highlight-box .gets-recompiled-list')
-              .selectAll('div')
-              .data(topFiles)
-
-  u.enter()
-   .append('div')
-    .attr('class', 'inline-item hover-bold')
-    // Subtract 1 to not count itself
-   .text(d => `${d.count - 1}: ${d.id}`)
-   .merge(u)
-   .on('mouseover', (d) => {
-     const viewMode = modeSwitcher.getViewMode()
-
-     if (viewMode !== EXPECTED_VIEW_MODE) {
-       modeSwitcherInitialMode = viewMode
-       modeSwitcher.toggle()
-     }
-
-     nodeForceLayout.highlightDependenciesOfNode(d.id, true)
-     selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id, false)
-   })
-   .on('mouseout', (_d) => {
-     if (modeSwitcherInitialMode) {
-       modeSwitcherInitialMode = null
-       modeSwitcher.toggle()
-     }
-
-     nodeForceLayout.restoreGraph()
-     selectedNodeDetails.unShowFileTree(false)
-   })
 }
 
 function renderTotalFileCount(getsRecompiledMap) {
