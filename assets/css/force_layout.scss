@@ -16,8 +16,8 @@ body.dark-mode {
 
 .info-box {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0px;
+  left: 20px;
   z-index: 2;
   max-height: 80vh;
   overflow: hidden;
@@ -35,12 +35,26 @@ body.dark-mode {
 }
 
 #info-box-input {
-  width: 200px;
+  width: 300px;
   margin-bottom: 16px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  outline-width: 0;
+
+  &::placeholder {
+    color: #ccc;
+  }
 }
 
 #info-box-header {
   margin-bottom: 8px;
+}
+
+.info-box-section-header {
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  line-height: 1.6;
 }
 
 .info-box-file-list-container {
@@ -60,7 +74,7 @@ body.dark-mode {
   // fall back to the SVG
   display: inline;
   pointer-events: auto;
-  padding: 2px 0;
+  line-height: 1.4;
   // Background is transparent so we can still see the graph behind the item,
   // but partially obscured so that we can still read the text
   background: $info-box-background;
@@ -79,7 +93,7 @@ svg.main {
   position: relative;
   z-index: 1;
   left: 150px;
-  // border: 1px solid black;
+  // border: 1px solid #eee;
 
   body.dark-mode & {
     background: black;
@@ -120,11 +134,19 @@ path.direction-animate, line.direction-animate {
   100% {stroke-dashoffset:0;}
 }
 
+.ui-header {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: $ui-purple;
+}
+
 .glossary-box {
   position: absolute;
   z-index: 2;
-  top: 10px;
+  top: 0px;
   right: 10px;
+  font-size: 12px;
 
   .box {
     height: 8px;
@@ -153,6 +175,14 @@ path.direction-animate, line.direction-animate {
   }
 }
 
+.project-name {
+  font-size: 2.4em;
+}
+
+.explain-text {
+  font-size: 14px;
+}
+
 .mode-switcher .explain-text-container {
   opacity: 0;
   transition: opacity ease-in-out 0.3s;
@@ -168,10 +198,19 @@ svg.selected-node-indicator, svg.file-indicator {
 }
 
 svg.line-indicator {
+  width: 20px;
+  height: 20px;
+}
+
+svg.dep-type-indicator {
   width: 40px;
   height: 20px;
 }
 
 .key-box table tr td:first-child {
+  width: 30px;
+}
+
+.dep-box table tr td:first-child {
   width: 50px;
 }

@@ -47,8 +47,6 @@ window.vizState = {
 // NOTE: There isn't a good reason that a function would need to take in both
 // targets and targetObjects since targets can be derived from targetObjects
 
-initGlossary()
-
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
     render(data)
@@ -242,10 +240,4 @@ function linkType(label) {
     case "(export)": return 'export'
     default: return 'runtime'
   }
-}
-
-function initGlossary() {
-  jQuery('.glossary-box .compilation-dependency .box').css('background', COMPILATION_DEPENDENCY_COLOR)
-  jQuery('.glossary-box .export-dependency .box').css('background', EXPORT_DEPENDENCY_COLOR)
-  jQuery('.glossary-box .runtime-dependency .box').css('background', RUNTIME_DEPENDENCY_COLOR)
 }

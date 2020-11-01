@@ -53,17 +53,22 @@ nav {
   justify-content: space-between;
   background: $ui-purple;
   color: white;
-  padding: 16px;
+  padding: 12px;
+  padding-left: 20px;
 
   h1 {
     margin: 0;
-    font-size: 1.6em;
+    font-size: 1.2em;
   }
 
   a {
     color: white;
     &:hover { color: white }
   }
+}
+
+main.container {
+  padding-top: 12px;
 }
 
 nav > ul {
@@ -163,7 +168,8 @@ nav li {
 }
 
 div.rule {
-  border-bottom: 1px solid $ui-purple;
+  border-bottom: 2px solid $ui-purple;
+  opacity: 50%;
   width: 100%;
 }
 
@@ -186,6 +192,7 @@ div.rule {
 .m-l-4 { margin-left: 12px; }
 .m-r-2 { margin-right: 6px; }
 .m-r-4 { margin-right: 12px; }
+.m-b-2 { margin-bottom: 6px; }
 .m-b-4 { margin-bottom: 12px; }
 .m-b-6 { margin-bottom: 18px; }
 .m-t-2 { margin-top: 6px; }

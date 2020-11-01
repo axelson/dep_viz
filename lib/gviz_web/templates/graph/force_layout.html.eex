@@ -1,4 +1,3 @@
-Force Layout
 <style>
   svg.main {
     width: <%= @svg_width %>px;
@@ -12,18 +11,27 @@ Force Layout
 
 <div class="force-layout-container">
   <div class="info-box pointer-events-none">
-    <input type="text" id="info-box-input" class="pointer-events-auto">
+    <div class="project-name m-b-2">
+      Absinthe
+    </div>
+    <div class="m-b-4">
+      Total Files:
+      <span class="total-files-count"></span>
+    </div>
+
+    <input
+      type="text"
+      id="info-box-input"
+      class="pointer-events-auto"
+      placeholder="file search...">
 
     <div class="tab-bar m-b-4">
       <div class="tab active" data-name="all-files">All files</div>
       <div class="tab" data-name="stats">Top Stats</div>
     </div>
 
-    <%# The highlight box is shown by default %>
+    <%# The highlight box is not shown by default %>
     <div class="highlight-box">
-      <div class="p-4 p-r-0 p-l-0 info-box-section-header">
-        Total files: <span class="total-files-count"></span>
-      </div>
       <div class="p-4 p-r-0 p-l-0">
         <div class="info-box-section-header">Files that cause the most recompiles:</div>
         <div class="cause-recompile-list monospace"></div>
@@ -56,8 +64,8 @@ Force Layout
   <div class="glossary-box">
     <div class="rule m-b-4"></div>
 
-    <div class="key-box m-b-6">
-      <div class="bold ui-purple m-b-4">KEY</div>
+    <div class="key-box m-b-4">
+      <div class="ui-header m-b-4">Key</div>
       <table>
         <tr>
           <td>
@@ -82,20 +90,29 @@ Force Layout
 
     <div class="rule m-b-4"></div>
 
-    <div class="m-b-4">
-      <div class="bold ui-purple m-b-2">DEPENDENCY TYPES</div>
-      <div class="compilation-dependency flex flex-align-center">
-        <div class="box m-2"></div>
-        compile
-      </div>
-      <div class="export-dependency flex flex-align-center">
-        <div class="box m-2"></div>
-        export
-      </div>
-      <div class="runtime-dependency flex flex-align-center">
-        <div class="box m-2"></div>
-        runtime
-      </div>
+    <div class="dep-box m-b-4">
+      <div class="ui-header m-b-4">Dependency Types</div>
+
+      <table>
+        <tr>
+          <td>
+            <svg class="dep-type-indicator compile"></svg>
+          </td>
+          <td>compile</td>
+        </tr>
+        <tr>
+          <td>
+            <svg class="dep-type-indicator export"></svg>
+          </td>
+          <td>export</td>
+        </tr>
+        <tr>
+          <td>
+            <svg class="dep-type-indicator runtime"></svg>
+          </td>
+          <td>runtime</td>
+        </tr>
+      </table>
     </div>
   </div>
 

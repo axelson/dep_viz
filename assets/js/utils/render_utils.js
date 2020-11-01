@@ -1,21 +1,19 @@
-import { DEFAULT_LINE_STROKE } from '../constants.js'
 import {
-  DEFAULT_NODE_COLOR,
   NODE_RADIUS
 } from '../node_force_layout.js'
 
-export function renderNode(g, cx, cy) {
+export function renderNode(g, cx, cy, fill) {
   g.append('circle')
    .attr('class', `dot`)
-   .attr('r', NODE_RADIUS + 3)
+   .attr('r', NODE_RADIUS)
    .attr('cx', cx)
    .attr('cy', cy)
-   .attr('fill', DEFAULT_NODE_COLOR)
+   .attr('fill', fill)
 }
 
-export function renderLink(g, x1, y1, x2, y2) {
+export function renderLink(g, x1, y1, x2, y2, stroke) {
   g.append('line')
-   .attr('stroke', DEFAULT_LINE_STROKE)
+   .attr('stroke', stroke)
    .attr('x1', x1)
    .attr('x2', x2)
    .attr('y1', y1)

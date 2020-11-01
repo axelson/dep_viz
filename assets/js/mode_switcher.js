@@ -71,6 +71,7 @@ function renderModeSwitcher(width, data, nodeForceLayout, selectedNodeDetails) {
 
 function renderHeader(g) {
   g.append('text')
+   .attr('class', 'ui-header')
    .attr('fill', UI_PURPLE_COLOR)
    .attr('text-anchor', 'middle')
    .style('dominant-baseline', 'central')
@@ -219,7 +220,7 @@ function renderSlider(g, u, nodeForceLayout, selectedNodeDetails) {
         .style('cursor', 'pointer')
         .on('click', _d => toggleMode(nodeForceLayout, selectedNodeDetails))
 
-  const sliderX = (d) => d.viewMode === 'ancestors' ? -sliderWidth / 2 : 0
+  const sliderX = (d) => d.viewMode === 'ancestors' ? -sliderWidth / 2 : sliderWidth * -0.12
 
   const _slider = g
         .append('rect')
@@ -228,7 +229,7 @@ function renderSlider(g, u, nodeForceLayout, selectedNodeDetails) {
         .attr('x', sliderX)
         .attr('y', 15)
         .attr('rx', sliderHeight / 2)
-        .attr('width', sliderWidth * 0.55)
+        .attr('width', sliderWidth * 0.62)
         .attr('height', sliderHeight)
         .style('pointer-events', 'none')
 
