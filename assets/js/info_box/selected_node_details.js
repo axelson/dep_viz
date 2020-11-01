@@ -1,14 +1,8 @@
 import jQuery from 'jquery'
 import lodash from 'lodash'
 
-import {
-  COMPILE_LINE_STROKE,
-  EXPORT_LINE_STROKE,
-  RUNTIME_LINE_STROKE
-} from '../constants.js'
-
 import { findAllDependencies } from '../force_utils.js'
-import { renderSelectedNode } from '../utils/render_utils.js'
+import { colorFromDepType, renderSelectedNode } from '../utils/render_utils.js'
 
 const $topStats = jQuery('.highlight-box')
 const $allFilesContainer = jQuery('.info-box-file-list-container')
@@ -75,13 +69,7 @@ export class SelectedNodeDetails {
               case 'runtime': return 'runtime'
             }
           })
-          .style('color', d => {
-            switch(d.type) {
-              case 'compile': return COMPILE_LINE_STROKE
-              case 'export': return EXPORT_LINE_STROKE
-              case 'runtime': return RUNTIME_LINE_STROKE
-            }
-          })
+          .style('color', d => colorFromDepType(d.type))
           .attr('class', 'm-r-4')
           .style('vertical-align', 'top')
 

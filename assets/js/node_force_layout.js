@@ -77,7 +77,11 @@ export class NodeForceLayout {
       .transition().duration(duration)
       .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
       .style('fill-opacity', d => hoverNodeOpacity(dependencyTypes, d))
-      .style('fill', d => hoverNodeFillNew(dependencyTypes, d, id))
+      .style('fill', d => {
+        const fill = hoverNodeFillNew(dependencyTypes, d, id)
+        d.tempFill = fill
+        return fill
+      })
 
     // Fade and desaturate non-compile depedency lines and arrows
     d3.select('svg.main')
@@ -204,7 +208,7 @@ export class NodeForceLayout {
       .selectAll('circle')
       .data(selectedNodes.data())
       .enter()
-      .call(renderSelectedNodeWithData)
+      .call(renderSelectedNodeWithData, 'auto')
   }
 
   unHighlightSingleNode() {
