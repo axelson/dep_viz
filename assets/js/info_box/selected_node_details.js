@@ -12,6 +12,7 @@ import { renderSelectedNode } from '../utils/render_utils.js'
 
 const $topStats = jQuery('.highlight-box')
 const $allFilesContainer = jQuery('.info-box-file-list-container')
+const $selectedFileTabHeader = jQuery('.tab-bar .tab[data-name="selected-file"]')
 let selectedNodeRendered = false
 
 export class SelectedNodeDetails {
@@ -27,6 +28,8 @@ export class SelectedNodeDetails {
   infoBoxShowSelectedFilesDependencies(id, hideStatsAndFiles = true) {
     if (hideStatsAndFiles) doHideStatsAndFiles()
 
+    // This should be a call into the TabBar instance
+    $selectedFileTabHeader.show()
     jQuery('.info-box-file-tree').show()
 
     // For the current file render the file name
@@ -134,7 +137,7 @@ export class SelectedNodeDetails {
 
     if (hideStatsAndFiles) {
       switch (window.vizState.infoBoxMode) {
-        case 'stats':
+        case 'top-stats':
           $topStats.show()
           break
 
@@ -154,7 +157,7 @@ export class SelectedNodeDetails {
 
 function doHideStatsAndFiles() {
   switch (window.vizState.infoBoxMode) {
-    case 'stats':
+    case 'top-stats':
       $topStats.hide()
       break
 

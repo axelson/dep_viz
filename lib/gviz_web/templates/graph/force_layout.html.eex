@@ -26,8 +26,9 @@
       placeholder="file search...">
 
     <div class="tab-bar m-b-4">
-      <div class="tab active" data-name="all-files">All files</div>
-      <div class="tab" data-name="stats">Top Stats</div>
+      <div class="tab active" data-name="all-files">All Files</div>
+      <div class="tab" data-name="top-stats">Top Stats</div>
+      <div class="tab display-none" data-name="selected-file">Selected File</div>
     </div>
 
     <%# The highlight box is not shown by default %>

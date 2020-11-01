@@ -2,6 +2,7 @@ import lodash from 'lodash'
 import jQuery from 'jquery'
 window.jQuery = jQuery
 
+import {TabBar} from './info_box/tab_bar.js'
 import {CauseRecompileList} from './info_box/top_stats/cause_recompile_list.js'
 import {GetsRecompiledList} from './info_box/top_stats/gets_recompiled_list.js'
 
@@ -13,23 +14,18 @@ import { findPaths } from './force_utils.js'
 import { renderGlossary } from './glossary.js'
 
 import {
-  COMPILATION_DEPENDENCY_COLOR,
-  EXPORT_DEPENDENCY_COLOR,
-  RUNTIME_DEPENDENCY_COLOR,
   COMPILE_LINE_STROKE,
   EXPORT_LINE_STROKE,
   RUNTIME_LINE_STROKE,
 } from './constants'
-
-const $allFilesContainer = jQuery('.info-box-file-list-container')
-const $topStats = jQuery('.highlight-box')
 
 window.vizSettings = {
   maxLabelsToShow: 10,
   logFilesToCompile: false
 }
 window.vizState = {
-  infoBoxMode: 'stats',
+  // Either 'all-files', 'top-stats', or 'selected-file'
+  infoBoxMode: 'all-files',
 
   // Mode is either 'deps' or 'ancestors'
   viewMode: 'deps',
@@ -88,16 +84,18 @@ function render(data) {
   const selectedNodeDetails = new SelectedNodeDetails(targetObjects)
   const modeSwitcher = new ModeSwitcher(width)
   const getsRecompiledList = new GetsRecompiledList()
+  const tabBar = new TabBar()
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
   const worker = new Worker('js/graph_worker.js')
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
-    nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails)
+    nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails, tabBar)
     selectedNodeDetails.initialize(e.data.dependenciesMap, nodeForceLayout)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
     getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
+    tabBar.initialize(nodeForceLayout)
 
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
     renderTotalFileCount(e.data.getsRecompiledMap)
@@ -147,30 +145,6 @@ function renderInfoBox(nodeData, _targets, targetObjects, nodeForceLayout) {
 
   const $input = jQuery('#info-box-input')
   const $header = jQuery('#info-box-header')
-  const $tabBar = jQuery('.tab-bar')
-
-  $tabBar.on('click', '.tab', function () {
-    const $this = jQuery(this)
-    if (!$this.hasClass('active')) {
-      $this.siblings().removeClass('active')
-      $this.addClass('active')
-      switch ($this.data('name')) {
-        case 'stats': {
-          $allFilesContainer.hide()
-          $topStats.show()
-          window.vizState.infoBoxMode = 'stats'
-          break
-        }
-
-        case 'all-files': {
-          $allFilesContainer.show()
-          $topStats.hide()
-          window.vizState.infoBoxMode = 'all-files'
-          break
-        }
-      }
-    }
-  })
 
   $input.bind('input', function () {
     const input = jQuery(this).val()

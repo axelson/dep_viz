@@ -32,10 +32,11 @@ export class NodeForceLayout {
     this.height = height
   }
 
-  initialize(dependenciesMap, causeRecompileMap, selectedNodeDetails) {
+  initialize(dependenciesMap, causeRecompileMap, selectedNodeDetails, tabBar) {
     this.dependenciesMap = dependenciesMap
     this.causeRecompileMap = causeRecompileMap
     this.selectedNodeDetails = selectedNodeDetails
+    this.tabBar = tabBar
 
     const width = this.width, height = this.height
 
@@ -46,7 +47,7 @@ export class NodeForceLayout {
             .force('link', d3.forceLink().links(this.linkData).id(item => item.id))
 
   force
-      .on('tick', buildTicked(this.nodeData, this.linkData, force, this, selectedNodeDetails));
+      .on('tick', buildTicked(this.nodeData, this.linkData, force, this, selectedNodeDetails, this.tabBar));
   }
 
   highlightDependenciesOfNode(id, showLabels) {
@@ -342,10 +343,10 @@ function buildChargeStrength(numNodes) {
   }
 }
 
-function buildTicked(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails) {
+function buildTicked(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails, tabBar) {
   console.log('nodeData', nodeData);
   return () => {
-    updateNodes(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails)
+    updateNodes(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails, tabBar)
     updateLinks(linkData)
     updateLabelsPos()
   }
@@ -377,7 +378,7 @@ function updateLinks(linkData) {
   u.exit().remove()
 }
 
-function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDetails) {
+function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDetails, tabBar) {
   var u = d3.select('svg.main')
             .select('.nodes')
             .selectAll('circle')
@@ -404,6 +405,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
         if (viewMode === 'deps') {
           nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, true)
           selectedNodeDetails.infoBoxShowSelectedFilesDependencies(nodeDatum.id)
+          tabBar.switchTab('selected-file')
         } else if (viewMode === 'ancestors') {
           nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id, true)
         }
@@ -416,6 +418,12 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
       }
     })
     .on('mouseout', function (_nodeDatum) {
+      const {selectedNode} = window.vizState
+
+      if (selectedNode === null) {
+        tabBar.restorePreviousTab()
+      }
+
       nodeForceLayout.reconstructGraph()
     })
     .call(d3.drag()

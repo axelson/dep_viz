@@ -57,12 +57,16 @@ Questions:
   that it is needed)
 
 TODO:
-- [ ] All files view default fix
+- [ ] Change the selected node to the new style
+- [ ] When in highlight individual file mode from roll over, use selected file
+      style but in the color of the node
+- [x] All files view default fix
+  - Selected file view should replace all files view
+- [ ] Replace file-tree naming with selected file
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
 - [ ] Add updated info box hover mode for dependers view
-- [ ] Change the selected node to the new style
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox
@@ -70,8 +74,6 @@ TODO:
 - [ ] Update info box for ancestors mode
 - [ ] Add the updated key
 - [ ] Add "Selected File" tab when in selected file mode
-- [ ] When in highlight individual file mode from roll over, use selected file
-      style but in the color of the node
 - [ ] When in "Top Stats" mode: make all the top stats files highlighted
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Parse `.dot` file in js without sending to server
