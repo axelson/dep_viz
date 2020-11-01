@@ -12,9 +12,10 @@ defmodule GVizWeb.GraphController do
   end
 
   def force(conn, _params) do
-    # {width, height} = {600, 600}
+    # {width, height} = {800, 600}
     {width, height} = {1000, 800}
-    # {width, height} = {2000, 1400}
+    # {width, height} = {1200, 1000}
+    # {width, height} = {2000, 1300}
     render(conn, "force_layout.html", svg_width: width, svg_height: height)
   end
 
@@ -58,17 +59,24 @@ defmodule GVizWeb.GraphController do
 
   defp sample_dot_path do
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "tiny.dot"])
-    Path.join(:code.priv_dir(:gviz), ["sample_xref/", "short.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "short.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "gviz_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "sample_xref_graph.dot"])
 
     # Applications
+    # before
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "thechangelog_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "thechangelog_xref_graph_my_fix.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "thechangelog_xref_graph_before.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "thechangelog_xref_graph_after.dot"])
+
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "hexpm_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "adoptoss_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "ash_example_xref_graph.dot"])
 
     # Libraries and Tools
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "jason_xref_graph.dot"])
-    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "membrane_core_xref_graph.dot"])
+    Path.join(:code.priv_dir(:gviz), ["sample_xref/", "membrane_core_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "phoenix_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "plausible_analytics_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "scenic_xref_graph.dot"])
