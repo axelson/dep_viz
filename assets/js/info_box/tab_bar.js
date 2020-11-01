@@ -12,8 +12,9 @@ export class TabBar {
     this.previousTab = null
   }
 
-  initialize(nodeForceLayout) {
+  initialize(nodeForceLayout, selectedNodeDetails) {
     this.nodeForceLayout = nodeForceLayout
+    this.selectedNodeDetails = selectedNodeDetails
 
     const that = this
     $tabBar.on('click', '.tab', function () {
@@ -43,6 +44,10 @@ export class TabBar {
         $topStats.show()
         $selectedFileTabHeader.hide()
 
+        // NOTE: In the future this will show the top stats mode
+        this.nodeForceLayout.restoreGraph()
+        this.selectedNodeDetails.hide()
+
         break
       }
 
@@ -50,6 +55,9 @@ export class TabBar {
         $allFilesContainer.show()
         $topStats.hide()
         $selectedFileTabHeader.hide()
+
+        this.nodeForceLayout.restoreGraph()
+        this.selectedNodeDetails.hide()
 
         break
       }
@@ -65,9 +73,7 @@ export class TabBar {
   }
 
   restorePreviousTab() {
-    console.log('this.previousTab', this.previousTab);
     if (this.previousTab) {
-      console.log('restore!')
       this.switchTab(this.previousTab)
     }
   }

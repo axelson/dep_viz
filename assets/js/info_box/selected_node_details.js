@@ -25,6 +25,10 @@ export class SelectedNodeDetails {
     this.nodeForceLayout = nodeForceLayout
   }
 
+  hide() {
+    jQuery('.info-box-file-tree').hide()
+  }
+
   infoBoxShowSelectedFilesDependencies(id, hideStatsAndFiles = true) {
     if (hideStatsAndFiles) doHideStatsAndFiles()
 
@@ -133,7 +137,7 @@ export class SelectedNodeDetails {
 
   // Shows the direct depenencies of the given file id
   unShowFileTree(hideStatsAndFiles = true) {
-    jQuery('.info-box-file-tree').hide()
+    this.hide()
 
     if (hideStatsAndFiles) {
       switch (window.vizState.infoBoxMode) {

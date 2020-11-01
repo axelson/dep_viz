@@ -95,7 +95,7 @@ function render(data) {
     selectedNodeDetails.initialize(e.data.dependenciesMap, nodeForceLayout)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
     getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
-    tabBar.initialize(nodeForceLayout)
+    tabBar.initialize(nodeForceLayout, selectedNodeDetails)
 
     renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
     renderTotalFileCount(e.data.getsRecompiledMap)

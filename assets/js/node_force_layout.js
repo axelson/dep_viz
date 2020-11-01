@@ -114,6 +114,7 @@ export class NodeForceLayout {
   }
 
   restoreGraph() {
+    window.vizState.selectedNode = null
     this.restoreNodes()
     this.restoreLines()
     this.restoreLabels()

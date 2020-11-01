@@ -60,6 +60,7 @@ TODO:
 - [ ] Change the selected node to the new style
 - [ ] When in highlight individual file mode from roll over, use selected file
       style but in the color of the node
+- [x] Selected file when switching away should reset the node force layout
 - [x] All files view default fix
   - Selected file view should replace all files view
 - [ ] Replace file-tree naming with selected file
