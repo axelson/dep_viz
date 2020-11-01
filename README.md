@@ -57,34 +57,18 @@ Questions:
   that it is needed)
 
 TODO:
+- [ ] All files view default fix
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
-- [x] Add "dependers" and "dependees" to the view mode switcher
 - [ ] Add updated info box hover mode for dependers view
-- [x] Add updated info box hover mode for dependees view
-- [x] Show the info box under the top stats list
-- [x] "Has a dependency on these files" should show the total count (compile time)
 - [ ] Change the selected node to the new style
-- [x] Click the selected node to keep it selected, and then be able to toggle the view mode
-  - [x] Also be able to see the route, or all routes between the selected file and the hovered file
-    - Shortest route only?
-    - Shortest route bold, others less bold, elide parts that are not part
-  - [x] The label for the selected node should go away (instead just rely on the info box)
-- [x] The selected node label is dissapearing on hover
-- [x] Selected node + hover: Reset the colors on mouseout
-- [x] Selected node + hover: Show the labels for every highlighted node
-- [x] Selected node + hover: Show the labels only for the shortest path (i.e. don't show the backwards path)
-- [x] Selected node + hover: Handle view mode toggled
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox
-- [x] Selected node + hover is not restoring stroke colors
 - [ ] Selected node + hover over file tree: highlight the node hovered
 - [ ] Update info box for ancestors mode
 - [ ] Add the updated key
-- [x] Make the all files view the default
-- [x] When hovering over top stats, ensure that the view mode switches appropriately
 - [ ] Add "Selected File" tab when in selected file mode
 - [ ] When in highlight individual file mode from roll over, use selected file
       style but in the color of the node
@@ -126,6 +110,23 @@ Done:
 - [x] Implement hover mode to see which files depend on the current file
 - [x] when in hover mode ancestors render the compile line that causes the highlighted file to compile
 - [x] Top stats: bold the current stat
+- [x] Add "dependers" and "dependees" to the view mode switcher
+- [x] Add updated info box hover mode for dependees view
+- [x] Show the info box under the top stats list
+- [x] "Has a dependency on these files" should show the total count (compile time)
+- [x] Click the selected node to keep it selected, and then be able to toggle the view mode
+  - [x] Also be able to see the route, or all routes between the selected file and the hovered file
+    - Shortest route only?
+    - Shortest route bold, others less bold, elide parts that are not part
+  - [x] The label for the selected node should go away (instead just rely on the info box)
+- [x] The selected node label is dissapearing on hover
+- [x] Selected node + hover: Reset the colors on mouseout
+- [x] Selected node + hover: Show the labels for every highlighted node
+- [x] Selected node + hover: Show the labels only for the shortest path (i.e. don't show the backwards path)
+- [x] Selected node + hover: Handle view mode toggled
+- [x] Selected node + hover is not restoring stroke colors
+- [x] Make the all files view the default
+- [x] When hovering over top stats, ensure that the view mode switches appropriately
 
 Maybe:
 - [ ] Create a "score" for the repository or the file
