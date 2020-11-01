@@ -1,5 +1,6 @@
 export const TRANSITION_SLOW = 600
 export const TRANSITION_FAST = 500
+export const TRANSITION_VERY_FAST = 250
 
 // TODO: Remove this color
 export const CAUSES_RECOMPILE_COLOR = '#da4bfa'

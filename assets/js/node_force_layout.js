@@ -12,10 +12,13 @@ import {
   findAllDependencies,
   findPaths
 } from './force_utils.js'
-import { renderSelectedNodeWithData } from './utils/render_utils.js'
+
+import {
+  renderSelectedNodeWithData
+} from './utils/render_utils.js'
 
 export const NODE_RADIUS = 5
-const HIGHLIGHTED_NODE_RADIUS = 8
+export const HIGHLIGHTED_NODE_RADIUS = 8
 
 const DEFAULT_STROKE_WIDTH = 0.3
 const HIGHLIGHTED_STROKE_WIDTH = 1.2
@@ -73,9 +76,10 @@ export class NodeForceLayout {
             .select('.nodes')
             .selectAll('circle')
 
+    this.highlightSelectedNode(id, nodes)
+
     nodes
       .transition().duration(duration)
-      .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
       .style('fill-opacity', d => hoverNodeOpacity(dependencyTypes, d))
       .style('fill', d => {
         const fill = hoverNodeFillNew(dependencyTypes, d, id)
@@ -117,11 +121,30 @@ export class NodeForceLayout {
     }
   }
 
+  highlightSelectedNode(id, nodes) {
+    const selectedNode = nodes.filter(d => d.id === id)
+
+    const _selectedNodeBg = d3.select('svg.main .selected-node-bgs')
+                             .selectAll('circle')
+                             .data(selectedNode.data())
+                             .enter()
+                             .call(renderSelectedNodeWithData)
+  }
+
   restoreGraph() {
     window.vizState.selectedNode = null
     this.restoreNodes()
+    this.restoreSelectedNodes()
     this.restoreLines()
     this.restoreLabels()
+  }
+
+  restoreSelectedNodes() {
+    d3.select('svg.main .selected-node-bgs')
+      .selectAll('circle')
+      .data([])
+      .exit()
+      .remove()
   }
 
   restoreNodes() {
@@ -259,10 +282,11 @@ export class NodeForceLayout {
             .select('.nodes')
             .selectAll('circle')
 
+    this.highlightSelectedNode(id, nodes)
+
     // Highlight and fade nodes
     nodes
       .transition().duration(duration)
-      .attr('r', d => d.id == id ? HIGHLIGHTED_NODE_RADIUS : NODE_RADIUS)
       .style('fill-opacity', d => hoverOpacity(matched, d.id))
       .style('fill', d => hoverNodeFill(matched, d, id, DEFAULT_NODE_COLOR))
 
@@ -352,6 +376,7 @@ function buildTicked(nodeData, linkData, force, nodeForceLayout, selectedNodeDet
   console.log('nodeData', nodeData);
   return () => {
     updateNodes(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails, tabBar)
+    updateSelectedNodes()
     updateLinks(linkData)
     updateLabelsPos()
   }
@@ -384,10 +409,10 @@ function updateLinks(linkData) {
 }
 
 function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDetails, tabBar) {
-  var u = d3.select('svg.main')
-            .select('.nodes')
-            .selectAll('circle')
-            .data(nodeData, d => d.id)
+  const u = d3.select('svg.main')
+              .select('.nodes')
+              .selectAll('circle')
+              .data(nodeData, d => d.id)
 
   u.enter()
     .append('circle')
@@ -468,6 +493,13 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
     d.fx = null
     d.fy = null
   }
+}
+
+function updateSelectedNodes() {
+  const u = d3.select('svg.main .selected-node-bgs')
+              .selectAll('circle')
+              .attr('cx', d => d.x)
+              .attr('cy', d => d.y)
 }
 
 function hoverLineStroke(matched, d) {

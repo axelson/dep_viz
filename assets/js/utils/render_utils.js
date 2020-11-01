@@ -1,10 +1,12 @@
 import {
   COMPILE_LINE_STROKE,
   EXPORT_LINE_STROKE,
-  RUNTIME_LINE_STROKE
+  RUNTIME_LINE_STROKE,
+  TRANSITION_VERY_FAST
 } from '../constants.js'
 
 import {
+  HIGHLIGHTED_NODE_RADIUS,
   NODE_RADIUS
 } from '../node_force_layout.js'
 
@@ -35,7 +37,7 @@ export function renderSelectedNode(g, cx, cy) {
    .attr('fill', 'black')
 
   g.append('circle')
-   .attr('r', NODE_RADIUS + 3)
+   .attr('r', HIGHLIGHTED_NODE_RADIUS)
    .attr('stroke', 'black')
    .attr('stroke-width', 1.5)
    .attr('cx', cx)
@@ -52,12 +54,14 @@ export function renderSelectedNodeWithData(g, color = 'black') {
   }
 
   g.append('circle')
-   .attr('r', NODE_RADIUS + 3)
    .attr('stroke', colorFn)
    .attr('stroke-width', 1.5)
    .attr('cx', d => d.x)
    .attr('cy', d => d.y)
    .attr('fill', 'white')
+   .attr('r', NODE_RADIUS)
+   .transition().duration(TRANSITION_VERY_FAST)
+   .attr('r', HIGHLIGHTED_NODE_RADIUS)
 
   g.append('circle')
    .attr('class', `dot`)

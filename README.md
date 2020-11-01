@@ -57,12 +57,13 @@ Questions:
   that it is needed)
 
 TODO:
-- [ ] Change the selected node to the new style
+- [x] Change the selected node to the new style
 - [x] When in highlight individual file mode from roll over, use selected file
       style but in the color of the node
 - [x] Selected file when switching away should reset the node force layout
 - [x] All files view default fix
   - Selected file view should replace all files view
+- [ ] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
 - [ ] Replace file-tree naming with selected file
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Searching should filter the top stats also

@@ -119,6 +119,7 @@
 
   <svg class="main">
     <g class="links"></g>
+    <g class="selected-node-bgs"></g>
     <g class="nodes"></g>
     <g class="selected-nodes"></g>
     <g class="labels"></g>
