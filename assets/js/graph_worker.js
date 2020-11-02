@@ -13,11 +13,9 @@ onmessage = function(e) {
 }
 
 function init(nodeData, targetObjects) {
-  console.log('targetObjects', targetObjects);
   const dependenciesMap = {}
 
   // TODO: Phase these out
-  const causeRecompileMap = {}
   const getsRecompiledMap = {}
 
   nodeData.forEach(node => {
@@ -26,18 +24,25 @@ function init(nodeData, targetObjects) {
 
     dependenciesMap[node.id] = dependencyTypes
     getsRecompiledMap[node.id] = Object.keys(deps).length
-
-    for (const depId of Object.keys(deps)) {
-      if (causeRecompileMap[depId]) {
-        causeRecompileMap[depId].push(node.id)
-      } else {
-        causeRecompileMap[depId] = [node.id]
-      }
-    }
   })
 
-  // This is working, although it's not distinguishing between export and
-  // compile dependencies
+  // dependenciesMap looks correct, so maybe the problem is in the rendering
+  // console.log('dependenciesMap', dependenciesMap);
+  // console.log('causeRecompileMap', causeRecompileMap);
+  // console.log('getsRecompiledMap', getsRecompiledMap);
+
+  const causeRecompileMap = {}
+  // for dependenciesMap
+  for (const [file, deps] of Object.entries(dependenciesMap)) {
+    for (const [depFile, depType] of Object.entries(deps)) {
+      if (depType === 'compile') {
+        const list = (causeRecompileMap[depFile] || [])
+        list.push(file)
+        causeRecompileMap[depFile] = list
+      }
+    }
+  }
+
   postMessage({
     causeRecompileMap: causeRecompileMap,
     getsRecompiledMap: getsRecompiledMap,

@@ -63,7 +63,7 @@ TODO:
 - [x] Selected file when switching away should reset the node force layout
 - [x] All files view default fix
   - Selected file view should replace all files view
-- [ ] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
+- [x] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
 - [ ] Replace file-tree naming with selected file
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Searching should filter the top stats also

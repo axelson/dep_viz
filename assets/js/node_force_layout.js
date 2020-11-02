@@ -367,7 +367,6 @@ function buildChargeStrength(numNodes) {
 }
 
 function buildTicked(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails, tabBar) {
-  console.log('nodeData', nodeData);
   return () => {
     updateNodes(nodeData, linkData, force, nodeForceLayout, selectedNodeDetails, tabBar)
     updateSelectedNodes()
