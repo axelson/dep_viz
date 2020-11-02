@@ -19,7 +19,7 @@ export class CauseRecompileList {
 
     const highestCount = topFiles[0].count
     // https://stackoverflow.com/a/14879700
-    const numDigits = Math.log(highestCount) * Math.LOG10E + 1 | 0
+    const numDigits = Math.log(highestCount - 1) * Math.LOG10E + 1 | 0
     const format = d3.format(`${numDigits}`)
 
     // recompile map shows which files the given id cause to recompile
@@ -30,7 +30,7 @@ export class CauseRecompileList {
     u.enter()
      .append('div')
      .attr('class', 'inline-item hover-bold pre')
-     .text(d => `${format(d.count)}: ${d.id}`)
+     .text(d => `${format(d.count - 1)}: ${d.id}`)
      .merge(u)
      .on('mouseover', (d) => {
        const viewMode = this.modeSwitcher.getViewMode()
