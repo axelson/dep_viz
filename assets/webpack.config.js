@@ -5,6 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+function maybeAnalyzeBundle(plugins) {
+  if (process.env.ANALYZE_WEBPACK === 'true') {
+    plugins.push(new BundleAnalyzerPlugin());
+  }
+  return plugins;
+}
 
 module.exports = (env, options) => {
   const devMode = options.mode !== 'production';
@@ -45,11 +53,11 @@ module.exports = (env, options) => {
         }
       ]
     },
-    plugins: [
+    plugins: maybeAnalyzeBundle([
       new MiniCssExtractPlugin({ filename: '../css/app.css' }),
       new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
       new CopyWebpackPlugin([{ from: 'node_modules/@hpcc-js/wasm/dist/graphvizlib.wasm', to: '../js/' }])
-    ]
+    ])
     .concat(devMode ? [new HardSourceWebpackPlugin()] : [])
   }
 };
