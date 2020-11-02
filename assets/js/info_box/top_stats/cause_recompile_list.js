@@ -15,7 +15,7 @@ export class CauseRecompileList {
   }
 
   initialize() {
-    const topFiles = this.allFiles.slice(0, 6)
+    const topFiles = this.allFiles.slice(0, 10)
 
     // recompile map shows which files the given id cause to recompile
     const u = d3.select('.highlight-box .cause-recompile-list')

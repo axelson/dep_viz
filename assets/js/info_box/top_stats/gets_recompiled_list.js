@@ -18,7 +18,7 @@ export class GetsRecompiledList {
 
   renderTopFilesThatGetRecompiled(getsRecompiledMap) {
     const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
-    const topFiles = allFiles.slice(0, 6)
+    const topFiles = allFiles.slice(0, 10)
 
     const u = d3.select('.highlight-box .gets-recompiled-list')
                 .selectAll('div')
