@@ -1,4 +1,4 @@
-import lodash from 'lodash'
+import lodashSortBy from 'lodash/sortBy'
 import TinyQueue from 'tinyqueue'
 
 import { depType } from './constants.js'
@@ -65,7 +65,7 @@ function doFindAllDependenciesTypes(graph, id, matched, topLevel, isCompileDep) 
     // dependencies first (so that we preferentially mark nodes as compile time
     // depdency, because if a node is both a compile time dependency and a
     // export/runtime dependency then we treat it as a compile time dependency)
-    const nodes = lodash.sortBy(graph[id], node => {
+    const nodes = lodashSortBy(graph[id], node => {
       switch (node.type) {
         case 'compile': return 0
         case 'export': return 1

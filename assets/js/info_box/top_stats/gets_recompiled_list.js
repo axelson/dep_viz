@@ -1,4 +1,4 @@
-import lodash from 'lodash'
+import lodashOrderBy from 'lodash/orderBy'
 
 const EXPECTED_VIEW_MODE = 'deps'
 
@@ -65,5 +65,5 @@ function calculateTopGetRecompiled(getsRecompiledMap) {
     allFiles.push({id: id, count: getsRecompiledMap[id]})
   }
 
-  return lodash.orderBy(allFiles, ['count'], ['desc'])
+  return lodashOrderBy(allFiles, ['count'], ['desc'])
 }

@@ -1,4 +1,4 @@
-import lodash from 'lodash'
+import lodashReduce from 'lodash/reduce'
 import jQuery from 'jquery'
 window.jQuery = jQuery
 
@@ -58,7 +58,7 @@ function render(data) {
   // console.log('nodeData', nodeData);
 
   const targets =
-        lodash.reduce(linkData, function(acc, link) {
+        lodashReduce(linkData, function(acc, link) {
           if (acc[link.source]) {
             acc[link.source].push(link.target)
           } else {
@@ -68,7 +68,7 @@ function render(data) {
         }, {})
 
   const targetObjects =
-        lodash.reduce(linkData, function (acc, link) {
+        lodashReduce(linkData, function (acc, link) {
           const obj = {id: link.target, type: linkType(link.label)}
           if (acc[link.source]) {
             acc[link.source].push(obj)

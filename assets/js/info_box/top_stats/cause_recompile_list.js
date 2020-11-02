@@ -1,4 +1,4 @@
-import lodash from 'lodash'
+import lodashSortBy from 'lodash/sortBy'
 
 const EXPECTED_VIEW_MODE = 'ancestors'
 
@@ -60,5 +60,5 @@ function calculateTopRecompiles(causeRecompileMap) {
     topFiles.push({id: id, count: causeRecompileMap[id].length})
   }
 
-  return lodash.sortBy(topFiles, d => d.count).reverse()
+  return lodashSortBy(topFiles, d => d.count).reverse()
 }

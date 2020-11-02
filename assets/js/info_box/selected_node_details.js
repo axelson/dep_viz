@@ -1,5 +1,5 @@
 import jQuery from 'jquery'
-import lodash from 'lodash'
+import lodashOrderBy from 'lodash/orderBy'
 
 import { findAllDependencies } from '../force_utils.js'
 import { colorFromDepType, renderSelectedNode } from '../utils/render_utils.js'
@@ -44,7 +44,7 @@ export class SelectedNodeDetails {
       }
     }
 
-    const deps = lodash.orderBy(this.targetObjects[id], [typeToOrder], ['desc'])
+    const deps = lodashOrderBy(this.targetObjects[id], [typeToOrder], ['desc'])
 
     this.renderSelectedHeader(id, deps)
     this.renderDirectDependenciesList(id, deps)
