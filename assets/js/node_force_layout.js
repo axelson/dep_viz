@@ -171,12 +171,6 @@ export class NodeForceLayout {
     updateLabels([])
   }
 
-  unHighlightFilesThisFileCausesToRecompile() {
-    this.restoreNodes()
-    this.restoreLines()
-    this.restoreLabels()
-  }
-
   filterHighlightSearch(searchText) {
     d3.select('svg.main')
       .select('.nodes')

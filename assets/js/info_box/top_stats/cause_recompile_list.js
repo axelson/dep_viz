@@ -48,7 +48,7 @@ export class CauseRecompileList {
          this.modeSwitcher.toggle()
        }
 
-       this.nodeForceLayout.unHighlightFilesThisFileCausesToRecompile()
+       this.nodeForceLayout.restoreGraph()
      })
   }
 }
