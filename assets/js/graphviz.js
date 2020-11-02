@@ -1,25 +1,9 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
-import "../css/app.scss"
-
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
-// Import deps with the dep name or local files with a relative path, for example:
-//
-//     import {Socket} from "phoenix"
-//     import socket from "./socket"
-//
-import "phoenix_html"
 import {Socket} from "phoenix"
 import NProgress from "nprogress"
 import {LiveSocket} from "phoenix_live_view"
 import * as d3 from "d3"
+import "d3-graphviz"
 window.d3 = d3
-
-import { forceLayout } from "./force_layout.js"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
@@ -37,5 +21,27 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-const forceData = d3.csv("/force_data")
-forceLayout(forceData)
+fetch('/dot', {})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(text => {
+    const graphEl = document.getElementById('graph');
+    if (graphEl) {
+      const graphviz = d3.select("#graph").graphviz()
+
+      graphviz
+        .transition(function() {
+          return d3.transition()
+                  .delay(100)
+                  .duration(1000);
+        })
+        .renderDot(text)
+    }
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });

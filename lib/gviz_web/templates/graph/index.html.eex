@@ -1,2 +1,3 @@
 Graph Index
+<script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/graphviz.js") %>"></script>
 <div id="graph" style="text-align: center;"></div>
