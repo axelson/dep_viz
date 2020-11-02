@@ -20,15 +20,20 @@ export class GetsRecompiledList {
     const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
     const topFiles = allFiles.slice(0, 10)
 
+    const highestCount = topFiles[0].count
+    // https://stackoverflow.com/a/14879700
+    const numDigits = Math.log(highestCount - 1) * Math.LOG10E + 1 | 0
+    const format = d3.format(`${numDigits}`)
+
     const u = d3.select('.highlight-box .gets-recompiled-list')
                 .selectAll('div')
                 .data(topFiles)
 
     u.enter()
      .append('div')
-     .attr('class', 'inline-item hover-bold')
-    // Subtract 1 to not count itself
-      .text(d => `${d.count - 1}: ${d.id}`)
+     .attr('class', 'inline-item hover-bold pre')
+      // Subtract 1 to not count itself
+      .text(d => `${format(d.count - 1)}: ${d.id}`)
       .merge(u)
       .on('mouseover', (d) => {
         const viewMode = this.modeSwitcher.getViewMode()
