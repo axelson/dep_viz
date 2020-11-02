@@ -61,7 +61,9 @@ defmodule GVizWeb.GraphController do
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "tiny.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "short.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "gviz_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "simple_sample_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "sample_xref_graph.dot"])
+    Path.join(:code.priv_dir(:gviz), ["sample_xref/", "sample_loop_xref_graph.dot"])
 
     # Applications
     # before
@@ -76,9 +78,10 @@ defmodule GVizWeb.GraphController do
 
     # Libraries and Tools
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "jason_xref_graph.dot"])
-    Path.join(:code.priv_dir(:gviz), ["sample_xref/", "membrane_core_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "membrane_core_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "phoenix_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "plausible_analytics_xref_graph.dot"])
+    # Good example of subsystems
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "scenic_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "contex_xref_graph.dot"])
 

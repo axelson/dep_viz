@@ -19,4 +19,15 @@ digraph "xref graph" {
   "b_runtime.ex" -> "b_runtime/c_runtime_comp.ex" [label="(compile)"]
   "b_runtime.ex" -> "b_runtime/c_runtime_export.ex" [label="(export)"]
   "b_runtime.ex" -> "b_runtime/c_runtime_runtime.ex"
+
+  # b_loop.ex
+  "a.ex" -> "b_loop.ex"
+  "b_loop.ex" -> "a.ex"
+
+  "b_loop.ex" -> "b_loop/c_loop_comp.ex" [label="(compile)"]
+  "b_loop/c_loop_comp.ex" -> "b_loop.ex" [label="(compile)"]
+  "b_loop.ex" -> "b_loop/c_loop_export.ex" [label="(export)"]
+  "b_loop/c_loop_export.ex" -> "b_loop.ex" [label="(export)"]
+  "b_loop.ex" -> "b_loop/c_loop_runtime.ex"
+  "b_loop/c_loop_runtime.ex" -> "b_loop.ex"
 }
