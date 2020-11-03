@@ -62,7 +62,7 @@ TODO:
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
 - [ ] Clean up bugs in search
-- [ ] Render graph at root
+- [x] Render graph at root
 - [ ] Add updated info box hover mode for dependers view
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?

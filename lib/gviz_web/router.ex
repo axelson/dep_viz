@@ -17,10 +17,8 @@ defmodule GVizWeb.Router do
   scope "/", GVizWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
-    get "/readme", GraphController, :readme
-    get "/graph", GraphController, :index
-    get "/force", GraphController, :force
+    get "/", GraphController, :force
+    get "/graph", GraphController, :graphviz
     get "/force_data", GraphController, :force_data
     get "/dot", GraphController, :dot
     get "/sample_dot_file_list", GraphController, :sample_dot_file_list
