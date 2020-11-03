@@ -23,6 +23,7 @@ defmodule GVizWeb.Router do
     get "/force", GraphController, :force
     get "/force_data", GraphController, :force_data
     get "/dot", GraphController, :dot
+    get "/sample_dot_file_list", GraphController, :sample_dot_file_list
   end
 
   # Other scopes may use custom stacks.

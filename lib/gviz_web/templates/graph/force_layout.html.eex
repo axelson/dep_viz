@@ -11,6 +11,8 @@
 
 <div class="initial-interface">
   <input type="file" id="file-selector" accept=".dot">
+  <div>Or choose a sample dot file:</div>
+  <div class="sample-dot-list"></div>
 </div>
 
 <div class="force-layout-container">

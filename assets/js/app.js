@@ -16,6 +16,7 @@ import "../css/app.scss"
 import * as d3 from "d3"
 window.d3 = d3
 import graphlibDot from "@dagrejs/graphlib-dot"
+import jQuery from 'jquery'
 
 import { render } from "./force_layout.js"
 
@@ -30,10 +31,23 @@ fileSelector.addEventListener('change', (event) => {
 
 if (fileName) {
   renderPresetFile(fileName)
-  fileSelector.style.display = 'none'
+} else {
+  const dataPr = d3.json("/sample_dot_file_list")
+  dataPr.then(function(fileList) {
+    d3.select('.sample-dot-list')
+      .selectAll('div')
+      .data(fileList)
+      .enter()
+      .append('div')
+      .text(d => d)
+      .on('click', function(d) {
+        renderPresetFile(d)
+      })
+  })
 }
 
 function renderPresetFile(fileName) {
+  jQuery('.initial-interface').hide()
   const dotData = d3.text(`/dot_files/${fileName}`)
   dotData.then(data => {
     renderDotFile(data)
@@ -41,6 +55,8 @@ function renderPresetFile(fileName) {
 }
 
 function renderSelectedFile(event) {
+  jQuery('.initial-interface').hide()
+
   const fileList = event.target.files
   for (const file of fileList) {
     const reader = new FileReader();
@@ -49,7 +65,6 @@ function renderSelectedFile(event) {
     });
     reader.readAsText(file);
   }
-  fileSelector.style.display = 'none'
 }
 
 function renderDotFile(data) {

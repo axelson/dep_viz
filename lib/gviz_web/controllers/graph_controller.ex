@@ -57,6 +57,10 @@ defmodule GVizWeb.GraphController do
     text(conn, sample_dot)
   end
 
+  def sample_dot_file_list(conn, _params) do
+    json(conn, sample_dot_files())
+  end
+
   defp sample_dot_path do
     Path.join(:code.priv_dir(:gviz), ["sample_xref/", "tiny.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "short.dot"])
@@ -94,5 +98,11 @@ defmodule GVizWeb.GraphController do
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "blue_heron_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "cachex_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "language_server_xref_graph.dot"])
+  end
+
+  defp sample_dot_files do
+    File.ls!(Path.join(:code.priv_dir(:gviz), "sample_xref"))
+    |> Enum.filter(& String.ends_with?(&1, ".dot"))
+    |> Enum.sort()
   end
 end

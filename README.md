@@ -60,7 +60,7 @@ TODO:
 - [x] New controller action that simply serves a `.dot` file
 - [x] Parse the `.dot` file in js
 - [x] Allow using a user-provided `.dot` file
-- [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
+- [x] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [x] Change the selected node to the new style
 - [x] When in highlight individual file mode from roll over, use selected file
       style but in the color of the node
