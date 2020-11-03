@@ -90,10 +90,11 @@ export function render(nodeData, linkData, graphLabel) {
   const selectedNodeDetails = new SelectedNodeDetails(targetObjects)
   const modeSwitcher = new ModeSwitcher(width)
   const getsRecompiledList = new GetsRecompiledList()
+  const causeRecompileList = new CauseRecompileList()
   const tabBar = new TabBar()
   const fileSearch = new FileSearch(nodeData)
 
-  fileSearch.initialize(nodeForceLayout)
+  fileSearch.initialize(nodeForceLayout, getsRecompiledList)
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
@@ -104,9 +105,9 @@ export function render(nodeData, linkData, graphLabel) {
     selectedNodeDetails.initialize(e.data.dependenciesMap, nodeForceLayout)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
     getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
+    causeRecompileList.initialize(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
     tabBar.initialize(nodeForceLayout, selectedNodeDetails)
 
-    renderHighlightsBox(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
     renderTotalFileCount(e.data.getsRecompiledMap)
   }
 
@@ -122,11 +123,6 @@ export function render(nodeData, linkData, graphLabel) {
     // showOnlyThisNodeAndCompileDeps(id, force, nodeData, linkData, targetObjects)
     // selectedNodeDetails.infoBoxShowSelectedFilesDependencies(id)
   }, 500)
-}
-
-function renderHighlightsBox(causeRecompileMap, nodeForceLayout, modeSwitcher) {
-  const causeRecompileList = new CauseRecompileList(causeRecompileMap, nodeForceLayout, modeSwitcher)
-  causeRecompileList.initialize()
 }
 
 function renderTotalFileCount(getsRecompiledMap) {
