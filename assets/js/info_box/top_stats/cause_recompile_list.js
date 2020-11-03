@@ -70,11 +70,8 @@ function calculateHighestCount(topFiles) {
 }
 
 function findMatchingFiles(allFiles, searchText) {
-  if (searchText === '') {
-    return allFiles
-  } else {
-    return allFiles.filter(d => d.id.indexOf(searchText) !== -1)
-  }
+  const fileList = searchText === '' ? allFiles : allFiles.filter(d => d.id.indexOf(searchText) !== -1)
+  return fileList.filter(d => d.count > 1)
 }
 
 function calculateTopRecompiles(causeRecompileMap) {

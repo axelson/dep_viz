@@ -64,6 +64,9 @@ TODO:
 - [ ] When searching and then hovering a node, need to restore the searched nodes
 - [x] When clearing a search need to restore the correct node colors
 - [ ] Clean up bugs in search
+- [x] Top Stats: don't show files that don't cause recompiles
+- [ ] Top Stats: don't show files that don't get recompiled
+- [ ] File search: when no files match top stats search, show an empty message
 - [x] Render graph at root
 - [ ] Add updated info box hover mode for dependers view
 - [ ] Selected node + hover: Show the compile path
