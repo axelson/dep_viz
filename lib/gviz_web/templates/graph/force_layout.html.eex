@@ -60,6 +60,9 @@
     <div class="info-box-file-list-container">
       <div id="info-box-header" class="info-box-section-header">All files:</div>
       <div class="info-box-file-list monospace"></div>
+      <div class="info-box-file-list-empty-message display-none">
+        No matches
+      </div>
     </div>
 
     <%# The file tree is shown on hover %>

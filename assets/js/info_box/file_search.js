@@ -1,3 +1,7 @@
+import jQuery from 'jquery'
+
+const $emptyMessage = jQuery('.info-box-file-list-empty-message')
+
 export class FileSearch {
   constructor(nodeData) {
     this.nodeData = nodeData
@@ -61,4 +65,10 @@ function filterInfoBoxFileList(nodeData, input) {
     .text(d => d.id)
 
   u.exit().remove()
+
+  if (u.size() === 0) {
+    $emptyMessage.show()
+  } else {
+    $emptyMessage.hide()
+  }
 }
