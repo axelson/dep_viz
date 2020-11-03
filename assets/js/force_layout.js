@@ -110,7 +110,7 @@ export function render(nodeData, linkData, graphLabel) {
   window.targets = targets
   window.targetObjects = targetObjects
 
-  renderInfoBox(nodeData, targets, targetObjects, nodeForceLayout)
+  renderInfoBox(nodeData, targets, nodeForceLayout)
   renderGlossary()
 
   findPaths(targetObjects, 'lib/demo_dep/a.ex', 'lib/demo_dep/b_runtime/c_runtime.ex')
@@ -132,7 +132,7 @@ function renderTotalFileCount(getsRecompiledMap) {
 }
 
 // Most of this should be split out into a new file
-function renderInfoBox(nodeData, _targets, targetObjects, nodeForceLayout) {
+function renderInfoBox(nodeData, _targets, nodeForceLayout) {
   const u = d3.select('.info-box-file-list')
     .selectAll('div')
     .data(nodeData, d => d.id)
