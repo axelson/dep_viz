@@ -5,19 +5,25 @@ const EXPECTED_VIEW_MODE = 'ancestors'
 // Manages the list that shows which files in the graph cause the most other
 // files to recompile
 export class CauseRecompileList {
-  constructor(causeRecompileMap, nodeForceLayout, modeSwitcher) {
+  constructor() {
+    this.modeSwitcherInitialMode = null
+    this.allFiles = null
+  }
+
+  initialize(causeRecompileMap, nodeForceLayout, modeSwitcher) {
     this.causeRecompileMap = causeRecompileMap
     this.nodeForceLayout = nodeForceLayout
     this.modeSwitcher = modeSwitcher
     this.allFiles = calculateTopRecompiles(causeRecompileMap)
 
-    this.modeSwitcherInitialMode = null
+    this.render('')
   }
 
-  initialize() {
-    const topFiles = this.allFiles.slice(0, 10)
+  render(searchText) {
+    const topFiles = findMatchingFiles(this.allFiles, searchText)
+          .slice(0, 10)
 
-    const highestCount = topFiles[0].count
+    const highestCount = calculateHighestCount(topFiles)
     // https://stackoverflow.com/a/14879700
     const numDigits = Math.log(highestCount - 1) * Math.LOG10E + 1 | 0
     const format = d3.format(`${numDigits}`)
@@ -31,7 +37,6 @@ export class CauseRecompileList {
      .append('div')
      .attr('class', 'inline-item hover-bold pre')
      .text(d => `${format(d.count - 1)}: ${d.id}`)
-     .merge(u)
      .on('mouseover', (d) => {
        const viewMode = this.modeSwitcher.getViewMode()
 
@@ -50,6 +55,25 @@ export class CauseRecompileList {
 
        this.nodeForceLayout.restoreGraph()
      })
+
+    u.exit()
+     .remove()
+  }
+}
+
+function calculateHighestCount(topFiles) {
+  if (topFiles.length === 0) {
+    return 0
+  } else {
+    return topFiles[0].count
+  }
+}
+
+function findMatchingFiles(allFiles, searchText) {
+  if (searchText === '') {
+    return allFiles
+  } else {
+    return allFiles.filter(d => d.id.indexOf(searchText) !== -1)
   }
 }
 

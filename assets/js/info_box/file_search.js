@@ -3,8 +3,11 @@ export class FileSearch {
     this.nodeData = nodeData
   }
 
-  initialize(nodeForceLayout) {
+  initialize(nodeForceLayout, causeRecompileList, getsRecompiledList) {
     this.nodeForceLayout = nodeForceLayout
+    this.causeRecompileList = causeRecompileList
+    this.getsRecompiledList = getsRecompiledList
+
     this.renderFileList()
   }
 
@@ -35,10 +38,10 @@ export class FileSearch {
         that.nodeForceLayout.restoreGraph()
       } else {
         $header.text(`Results for "${input}":`)
-        filterCauseRecompileList(input)
         that.nodeForceLayout.filterHighlightSearch(input)
       }
 
+      that.causeRecompileList.render(input)
       filterInfoBoxFileList(that.nodeData, input)
     })
   }
@@ -56,23 +59,5 @@ function filterInfoBoxFileList(nodeData, input) {
     .append('div')
     .text(d => d.id)
 
-  u.exit().remove()
-}
-
-function filterCauseRecompileList(input) {
-  // I need the source data for all files being recompiled...
-  // I should refactor to include a reference better
-  // Maybe make this class-based
-  const u =
-        d3.select('.cause-recompile-list')
-          .selectAll('div')
-          .filter(d => {
-            return d.id.indexOf(input) !== -1
-          })
-
-  console.log('u', u);
-  console.log('u.size()', u.size());
-
-  u.style('opacity', 0.1)
   u.exit().remove()
 }
