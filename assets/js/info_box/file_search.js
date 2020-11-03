@@ -42,6 +42,7 @@ export class FileSearch {
       }
 
       that.causeRecompileList.render(input)
+      that.getsRecompiledList.render(input)
       filterInfoBoxFileList(that.nodeData, input)
     })
   }

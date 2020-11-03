@@ -12,15 +12,16 @@ export class GetsRecompiledList {
     this.nodeForceLayout = nodeForceLayout
     this.selectedNodeDetails = selectedNodeDetails
     this.modeSwitcher = modeSwitcher
+    this.allFiles = calculateTopGetRecompiled(this.getsRecompiledMap)
 
-    this.renderTopFilesThatGetRecompiled(getsRecompiledMap)
+    this.render('')
   }
 
-  renderTopFilesThatGetRecompiled(getsRecompiledMap) {
-    const allFiles = calculateTopGetRecompiled(getsRecompiledMap)
-    const topFiles = allFiles.slice(0, 10)
+  render(searchText) {
+    const topFiles = findMatchingFiles(this.allFiles, searchText)
+          .slice(0, 10)
 
-    const highestCount = topFiles[0].count
+    const highestCount = calculateHighestCount(topFiles)
     // https://stackoverflow.com/a/14879700
     const numDigits = Math.log(highestCount - 1) * Math.LOG10E + 1 | 0
     const format = d3.format(`${numDigits}`)
@@ -55,7 +56,23 @@ export class GetsRecompiledList {
         this.nodeForceLayout.restoreGraph()
         this.selectedNodeDetails.unShowFileTree(false)
       })
+
+    u.exit()
+     .remove()
   }
+}
+
+function calculateHighestCount(topFiles) {
+  if (topFiles.length === 0) {
+    return 0
+  } else {
+    return topFiles[0].count
+  }
+}
+
+function findMatchingFiles(allFiles, searchText) {
+  const fileList = allFiles.filter(d => d.count > 1)
+  return searchText === '' ? fileList : fileList.filter(d => d.id.indexOf(searchText) !== -1)
 }
 
 function calculateTopGetRecompiled(getsRecompiledMap) {
