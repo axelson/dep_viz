@@ -36,6 +36,7 @@ export class CauseRecompileList {
     u.enter()
      .append('div')
      .attr('class', 'inline-item hover-bold pre')
+     .merge(u)
      .text(d => `${format(d.count - 1)}: ${d.id}`)
      .on('mouseover', (d) => {
        const viewMode = this.modeSwitcher.getViewMode()

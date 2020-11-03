@@ -33,9 +33,9 @@ export class GetsRecompiledList {
     u.enter()
      .append('div')
      .attr('class', 'inline-item hover-bold pre')
+      .merge(u)
       // Subtract 1 to not count itself
       .text(d => `${format(d.count - 1)}: ${d.id}`)
-      .merge(u)
       .on('mouseover', (d) => {
         const viewMode = this.modeSwitcher.getViewMode()
 
