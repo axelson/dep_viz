@@ -9,6 +9,7 @@ import {GetsRecompiledList} from './info_box/top_stats/gets_recompiled_list.js'
 import {NodeForceLayout} from './node_force_layout.js'
 import {ModeSwitcher} from './mode_switcher.js'
 import {SelectedNodeDetails} from './info_box/selected_node_details.js'
+import {FileSearch} from './info_box/file_search.js'
 
 import { findPaths } from './force_utils.js'
 import { renderGlossary } from './glossary.js'
@@ -90,6 +91,9 @@ export function render(nodeData, linkData, graphLabel) {
   const modeSwitcher = new ModeSwitcher(width)
   const getsRecompiledList = new GetsRecompiledList()
   const tabBar = new TabBar()
+  const fileSearch = new FileSearch(nodeData)
+
+  fileSearch.initialize(nodeForceLayout)
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
@@ -110,7 +114,6 @@ export function render(nodeData, linkData, graphLabel) {
   window.targets = targets
   window.targetObjects = targetObjects
 
-  renderInfoBox(nodeData, targets, nodeForceLayout)
   renderGlossary()
 
   findPaths(targetObjects, 'lib/demo_dep/a.ex', 'lib/demo_dep/b_runtime/c_runtime.ex')
@@ -129,73 +132,6 @@ function renderHighlightsBox(causeRecompileMap, nodeForceLayout, modeSwitcher) {
 function renderTotalFileCount(getsRecompiledMap) {
   const totalFileCount = Object.keys(getsRecompiledMap).length
   jQuery('.total-files-count').text(totalFileCount)
-}
-
-// Most of this should be split out into a new file
-function renderInfoBox(nodeData, _targets, nodeForceLayout) {
-  const u = d3.select('.info-box-file-list')
-    .selectAll('div')
-    .data(nodeData, d => d.id)
-
-  u.enter()
-   .append('div')
-   .attr('class', 'inline-item hover-bold')
-   .text(d => d.id)
-   .on('mouseover', function (nodeDatum) {
-     nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, true)
-   })
-   .on('mouseout', function (_nodeDatum) {
-     nodeForceLayout.restoreGraph()
-   })
-
-  const $input = jQuery('#info-box-input')
-  const $header = jQuery('#info-box-header')
-
-  $input.bind('input', function () {
-    const input = jQuery(this).val()
-    if (input == '') {
-      $header.text('All files:')
-    } else {
-      $header.text(`Results for "${input}":`)
-    }
-
-    filterInfoBoxFileList(nodeData, input)
-    filterCauseRecompileList(input)
-    nodeForceLayout.filterHighlightSearch(input)
-  })
-}
-
-function filterInfoBoxFileList(nodeData, input) {
-  const u =
-        d3.select('.info-box-file-list')
-          .selectAll('div')
-          .data(nodeData.filter(d => {
-            return d.id.indexOf(input) !== -1
-          }), d => d.id)
-
-  u.enter()
-    .append('div')
-    .text(d => d.id)
-
-  u.exit().remove()
-}
-
-function filterCauseRecompileList(input) {
-  // I need the source data for all files being recompiled...
-  // I should refactor to include a reference better
-  // Maybe make this class-based
-  const u =
-        d3.select('.cause-recompile-list')
-          .selectAll('div')
-          .filter(d => {
-            return d.id.indexOf(input) !== -1
-          })
-
-  console.log('u', u);
-  console.log('u.size()', u.size());
-
-  u.style('opacity', 0.1)
-  u.exit().remove()
 }
 
 function transformData(linkData) {
