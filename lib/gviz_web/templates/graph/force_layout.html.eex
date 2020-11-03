@@ -9,6 +9,10 @@
   window.svgHeight = <%= @svg_height %>
 </script>
 
+<div class="initial-interface">
+  <input type="file" id="file-selector" accept=".dot">
+</div>
+
 <div class="force-layout-container">
   <div class="info-box pointer-events-none">
     <div class="project-name m-b-2">

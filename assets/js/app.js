@@ -20,10 +20,39 @@ import graphlibDot from "@dagrejs/graphlib-dot"
 import { render } from "./force_layout.js"
 
 let searchParams = new URLSearchParams(window.location.search)
-const fileName = searchParams.get('file') || 'sample_xref_graph.dot'
+const fileName = searchParams.get('file')
 
-const dotData = d3.text(`/dot_files/${fileName}`)
-dotData.then(data => {
+const fileSelector = document.getElementById('file-selector')
+
+fileSelector.addEventListener('change', (event) => {
+  renderSelectedFile(event)
+})
+
+if (fileName) {
+  renderPresetFile(fileName)
+  fileSelector.style.display = 'none'
+}
+
+function renderPresetFile(fileName) {
+  const dotData = d3.text(`/dot_files/${fileName}`)
+  dotData.then(data => {
+    renderDotFile(data)
+  })
+}
+
+function renderSelectedFile(event) {
+  const fileList = event.target.files
+  for (const file of fileList) {
+    const reader = new FileReader();
+    reader.addEventListener('load', (event) => {
+      renderDotFile(event.target.result)
+    });
+    reader.readAsText(file);
+  }
+  fileSelector.style.display = 'none'
+}
+
+function renderDotFile(data) {
   const graph = graphlibDot.read(data)
 
   const nodes = graph.nodes().map(id => {
@@ -48,4 +77,4 @@ dotData.then(data => {
   })
 
   render(nodes, edges, graph.graph().id)
-})
+}

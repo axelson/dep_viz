@@ -59,6 +59,7 @@ Questions:
 TODO:
 - [x] New controller action that simply serves a `.dot` file
 - [x] Parse the `.dot` file in js
+- [x] Allow using a user-provided `.dot` file
 - [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [x] Change the selected node to the new style
 - [x] When in highlight individual file mode from roll over, use selected file
@@ -67,6 +68,7 @@ TODO:
 - [x] All files view default fix
   - Selected file view should replace all files view
 - [x] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
+- [ ] Handle bad dot files
 - [ ] Replace file-tree naming with selected file
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
