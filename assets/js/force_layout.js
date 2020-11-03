@@ -33,6 +33,8 @@ window.vizState = {
   selectedNode: null,
 }
 
+const $projectName = jQuery('.info-box .project-name')
+
 // Data
 // targetObjects - Map from files to list of file objects w/type that they are depdendencies
 // targets - Like targetObjects but just a plain list for each file
@@ -45,17 +47,20 @@ window.vizState = {
 
 export function forceLayout(dataPromise) {
   dataPromise.then(data => {
-    render(data)
+    const nodeData = data.filter(row => row.type == "node")
+    const linkData = data.filter(row => row.type == "edge")
+    render(nodeData, linkData, "xref graph")
   })
 }
 
-function render(data) {
-  const nodeData = data.filter(row => row.type == "node")
-  const linkData = data.filter(row => row.type == "edge")
+export function render(nodeData, linkData, graphLabel) {
+  console.log('graphLabel', graphLabel);
   transformData(linkData)
   window.linkData = linkData
   // console.log('linkData', linkData);
   // console.log('nodeData', nodeData);
+
+  $projectName.text(graphLabel)
 
   const targets =
         lodashReduce(linkData, function(acc, link) {

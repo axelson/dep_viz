@@ -18,8 +18,9 @@ import NProgress from "nprogress"
 import {LiveSocket} from "phoenix_live_view"
 import * as d3 from "d3"
 window.d3 = d3
+import graphlibDot from "@dagrejs/graphlib-dot"
 
-import { forceLayout } from "./force_layout.js"
+import { render } from "./force_layout.js"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
@@ -37,5 +38,33 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-const forceData = d3.csv("/force_data")
-forceLayout(forceData)
+let searchParams = new URLSearchParams(window.location.search)
+const fileName = searchParams.get('file') || 'sample_xref_graph.dot'
+
+const dotData = d3.text(`/dot_files/${fileName}`)
+dotData.then(data => {
+  const graph = graphlibDot.read(data)
+
+  const nodes = graph.nodes().map(id => {
+    return {
+      type: 'node',
+      id: id,
+      source: '',
+      target: '',
+      label: ''
+    }
+  })
+
+  const edges = graph.edges().map(edgeObj => {
+    const edge = graph.edge(edgeObj)
+    return {
+      type: 'edge',
+      id: '',
+      source: edgeObj.v,
+      target: edgeObj.w,
+      label: edge.label || ''
+    }
+  })
+
+  render(nodes, edges, graph.graph().id)
+})

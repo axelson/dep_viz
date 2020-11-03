@@ -58,12 +58,12 @@ defmodule GVizWeb.GraphController do
   end
 
   defp sample_dot_path do
-    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "tiny.dot"])
+    Path.join(:code.priv_dir(:gviz), ["sample_xref/", "tiny.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "short.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "gviz_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "simple_sample_xref_graph.dot"])
     # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "sample_xref_graph.dot"])
-    Path.join(:code.priv_dir(:gviz), ["sample_xref/", "sample_loop_xref_graph.dot"])
+    # Path.join(:code.priv_dir(:gviz), ["sample_xref/", "sample_loop_xref_graph.dot"])
 
     # Applications
     # before

@@ -57,6 +57,9 @@ Questions:
   that it is needed)
 
 TODO:
+- [x] New controller action that simply serves a `.dot` file
+- [x] Parse the `.dot` file in js
+- [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [x] Change the selected node to the new style
 - [x] When in highlight individual file mode from roll over, use selected file
       style but in the color of the node
@@ -64,9 +67,7 @@ TODO:
 - [x] All files view default fix
   - Selected file view should replace all files view
 - [x] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
-- [ ] New controller action that simply serves a `.dot` file
 - [ ] Replace file-tree naming with selected file
-- [ ] Allow choosing a preset xref_graph.dot to be shown via dropdown
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
 - [ ] Add updated info box hover mode for dependers view
@@ -175,6 +176,8 @@ Ideas:
 Compile dependency - The current file depends on this file at compile-time
 
 ## Other Notes
+
+https://github.com/dagrejs/graphlib-dot/wiki#api
 
 ### Drawing directional arrows
 Used a combination of:
