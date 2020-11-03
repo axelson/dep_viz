@@ -61,6 +61,8 @@ TODO:
 - [ ] Replace file-tree naming with selected file
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
+- [ ] When searching and then hovering a node, need to restore the searched nodes
+- [x] When clearing a search need to restore the correct node colors
 - [ ] Clean up bugs in search
 - [x] Render graph at root
 - [ ] Add updated info box hover mode for dependers view

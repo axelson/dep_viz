@@ -32,13 +32,14 @@ export class FileSearch {
       const input = jQuery(this).val()
       if (input == '') {
         $header.text('All files:')
+        that.nodeForceLayout.restoreGraph()
       } else {
         $header.text(`Results for "${input}":`)
+        filterCauseRecompileList(input)
+        that.nodeForceLayout.filterHighlightSearch(input)
       }
 
       filterInfoBoxFileList(that.nodeData, input)
-      filterCauseRecompileList(input)
-      that.nodeForceLayout.filterHighlightSearch(input)
     })
   }
 }
