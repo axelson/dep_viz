@@ -36,7 +36,6 @@ body.dark-mode {
 
 #info-box-input {
   width: 300px;
-  margin-bottom: 16px;
   border: 0;
   border-bottom: 1px solid #ccc;
   font-size: 16px;
@@ -55,6 +54,12 @@ body.dark-mode {
   font-weight: bold;
   letter-spacing: 0.4px;
   line-height: 1.6;
+}
+
+.info-box .total-files-container {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.3px;
 }
 
 .info-box-file-list-container {

@@ -37,7 +37,7 @@ export class FileSearch {
         $header.text('All files:')
         that.nodeForceLayout.restoreGraph()
       } else {
-        $header.text(`Results for "${input}":`)
+        $header.text(`Search results for "${input}":`)
         that.nodeForceLayout.filterHighlightSearch(input)
       }
 

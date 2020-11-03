@@ -20,7 +20,7 @@
     <div class="project-name m-b-2">
       xref graph
     </div>
-    <div class="m-b-4">
+    <div class="total-files-container m-b-4">
       Total Files:
       <span class="total-files-count"></span>
     </div>
@@ -28,7 +28,7 @@
     <input
       type="text"
       id="info-box-input"
-      class="pointer-events-auto"
+      class="pointer-events-auto m-b-6"
       placeholder="file search...">
 
     <div class="tab-bar m-b-4">
