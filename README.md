@@ -57,21 +57,12 @@ Questions:
   that it is needed)
 
 TODO:
-- [x] New controller action that simply serves a `.dot` file
-- [x] Parse the `.dot` file in js
-- [x] Allow using a user-provided `.dot` file
-- [x] Allow choosing a preset xref_graph.dot to be shown via dropdown
-- [x] Change the selected node to the new style
-- [x] When in highlight individual file mode from roll over, use selected file
-      style but in the color of the node
-- [x] Selected file when switching away should reset the node force layout
-- [x] All files view default fix
-  - Selected file view should replace all files view
-- [x] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
 - [ ] Handle bad dot files
 - [ ] Replace file-tree naming with selected file
 - [ ] Searching should filter the top stats also
   - And maybe show the search text as well
+- [ ] Clean up bugs in search
+- [ ] Render graph at root
 - [ ] Add updated info box hover mode for dependers view
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
@@ -135,6 +126,17 @@ Done:
 - [x] Selected node + hover is not restoring stroke colors
 - [x] Make the all files view the default
 - [x] When hovering over top stats, ensure that the view mode switches appropriately
+- [x] New controller action that simply serves a `.dot` file
+- [x] Parse the `.dot` file in js
+- [x] Allow using a user-provided `.dot` file
+- [x] Allow choosing a preset xref_graph.dot to be shown via dropdown
+- [x] Change the selected node to the new style
+- [x] When in highlight individual file mode from roll over, use selected file
+      style but in the color of the node
+- [x] Selected file when switching away should reset the node force layout
+- [x] All files view default fix
+  - Selected file view should replace all files view
+- [x] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
 
 Maybe:
 - [ ] Create a "score" for the repository or the file
