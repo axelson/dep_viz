@@ -1,6 +1,8 @@
+import jQuery from 'jquery'
 import lodashSortBy from 'lodash/sortBy'
 
 const EXPECTED_VIEW_MODE = 'ancestors'
+const $emptyMessage = jQuery('.cause-recompile-list-empty-message')
 
 // Manages the list that shows which files in the graph cause the most other
 // files to recompile
@@ -59,6 +61,12 @@ export class CauseRecompileList {
 
     u.exit()
      .remove()
+
+    if (topFiles.length == 0) {
+      $emptyMessage.show()
+    } else {
+      $emptyMessage.hide()
+    }
   }
 }
 

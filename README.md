@@ -66,6 +66,7 @@ TODO:
 - [ ] Clean up bugs in search
 - [x] Top Stats: don't show files that don't cause recompiles
 - [x] Top Stats: don't show files that don't get recompiled
+- [x] Top Stats: when no files match top stats search, show an empty message
 - [ ] File search: when no files match top stats search, show an empty message
 - [x] Render graph at root
 - [ ] Add updated info box hover mode for dependers view

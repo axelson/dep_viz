@@ -1,6 +1,8 @@
+import jQuery from 'jquery'
 import lodashOrderBy from 'lodash/orderBy'
 
 const EXPECTED_VIEW_MODE = 'deps'
+const $emptyMessage = jQuery('.gets-recompiled-list-empty-message')
 
 export class GetsRecompiledList {
   constructor() {
@@ -59,6 +61,12 @@ export class GetsRecompiledList {
 
     u.exit()
      .remove()
+
+    if (topFiles.length == 0) {
+      $emptyMessage.show()
+    } else {
+      $emptyMessage.hide()
+    }
   }
 }
 

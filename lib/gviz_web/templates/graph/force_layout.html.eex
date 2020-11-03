@@ -42,11 +42,17 @@
       <div class="p-4 p-r-0 p-l-0">
         <div class="info-box-section-header">Files that cause the most recompiles:</div>
         <div class="cause-recompile-list monospace"></div>
+        <div class="cause-recompile-list-empty-message display-none">
+          No matches
+        </div>
       </div>
 
       <div class="p-4 p-r-0 p-l-0">
         <div class="info-box-section-header">Files that get recompiled most often:</div>
         <div class="gets-recompiled-list monospace"></div>
+        <div class="gets-recompiled-list-empty-message display-none">
+          No matches
+        </div>
       </div>
     </div>
 
