@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Membrane Core" {
   "lib/membrane.ex"
   "lib/membrane.ex" -> "lib/membrane/log/router.ex"
   "lib/membrane/log/router.ex" -> "lib/membrane/log.ex"

@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Cachex" {
   "lib/cachex/actions/invoke.ex"
   "lib/cachex/actions/invoke.ex" -> "lib/cachex.ex"
   "lib/cachex.ex" -> "lib/cachex/errors.ex" [label="(compile)"]

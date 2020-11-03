@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "phoenix" {
   "lib/mix/phoenix.ex"
   "lib/mix/phoenix.ex" -> "lib/phoenix/naming.ex"
   "lib/mix/phoenix/context.ex"

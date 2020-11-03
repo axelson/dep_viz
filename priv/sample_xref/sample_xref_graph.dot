@@ -1,19 +1,19 @@
-digraph "xref graph" {
-  # b_comp.ex
+digraph "Example" {
+  // b_comp.ex
   "a.ex" -> "b_comp.ex" [label="(compile)"]
 
   "b_comp.ex" -> "b_comp/c_comp_compile.ex" [label="(compile)"]
   "b_comp.ex" -> "b_comp/c_comp_export.ex" [label="(export)"]
   "b_comp.ex" -> "b_comp/c_comp_runtime.ex"
 
-  # b_export.ex
+  // b_export.ex
   "a.ex" -> "b_export.ex" [label="(export)"]
 
   "b_export.ex" -> "b_export/c_export_comp.ex" [label="(compile)"]
   "b_export.ex" -> "b_export/c_export_export.ex" [label="(export)"]
   "b_export.ex" -> "b_export/c_export_runtime.ex"
 
-  # b_runtime.ex
+  // b_runtime.ex
   "a.ex" -> "b_runtime.ex"
 
   "b_runtime.ex" -> "b_runtime/c_runtime_comp.ex" [label="(compile)"]

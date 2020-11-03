@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Scenic" {
   "lib/mix/tasks/hash.ex"
   "lib/mix/tasks/hash.ex" -> "lib/scenic/cache/support/hash.ex" [label="(compile)"]
   "lib/mix/tasks/run.ex"

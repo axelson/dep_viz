@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "DepViz" {
   "lib/demo_dep/a.ex"
   "lib/demo_dep/a.ex" -> "lib/demo_dep/b_comp.ex" [label="(compile)"]
   "lib/demo_dep/b_comp.ex" -> "lib/demo_dep/b_comp/c_compile.ex" [label="(compile)"]

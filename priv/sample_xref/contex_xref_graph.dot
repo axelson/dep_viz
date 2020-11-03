@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Contex" {
   "lib/chart/axis.ex"
   "lib/chart/axis.ex" -> "lib/chart/scale.ex"
   "lib/chart/axis.ex" -> "lib/chart/svg_sanitize.ex"

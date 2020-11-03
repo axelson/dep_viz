@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Language Server" {
   "lib/language_server.ex"
   "lib/language_server.ex" -> "lib/language_server/json_rpc.ex"
   "lib/language_server/json_rpc.ex" -> "lib/language_server/server.ex" [label="(compile)"]

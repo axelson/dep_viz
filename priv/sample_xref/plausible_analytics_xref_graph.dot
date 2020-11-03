@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Plausible" {
   "lib/mix/tasks/check_overuse.ex"
   "lib/mix/tasks/check_overuse.ex" -> "lib/plausible/auth/user.ex"
   "lib/plausible/auth/user.ex" -> "lib/plausible/auth/password.ex"

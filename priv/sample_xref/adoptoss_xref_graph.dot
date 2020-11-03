@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "adoptoss" {
   "lib/adoptoposs.ex"
   "lib/adoptoposs/accounts.ex"
   "lib/adoptoposs/accounts.ex" -> "lib/adoptoposs/accounts/user.ex" [label="(export)"]

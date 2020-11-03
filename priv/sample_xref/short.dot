@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Short Example" {
   "lib/gviz_web/endpoint.ex" -> "lib/gviz_web.ex" [label="(compile)"]
   "lib/gviz_web/endpoint.ex" -> "lib/gviz_web/router.ex"
   "lib/gviz_web/router.ex" -> "lib/gviz_web.ex" [label="(compile)"]

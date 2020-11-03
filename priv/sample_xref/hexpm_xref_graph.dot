@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Hexpm" {
   "lib/hexpm/accounts/audit_log.ex"
   "lib/hexpm/accounts/audit_log.ex" -> "lib/hexpm/accounts/email.ex" [label="(export)"]
   "lib/hexpm/accounts/email.ex" -> "lib/hexpm/accounts/auth.ex"

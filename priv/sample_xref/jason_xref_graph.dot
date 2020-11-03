@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Jason" {
   "lib/codegen.ex"
   "lib/codegen.ex" -> "lib/encode.ex"
   "lib/encode.ex" -> "lib/codegen.ex" [label="(compile)"]

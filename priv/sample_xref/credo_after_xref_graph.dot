@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Credo" {
   "lib/credo.ex"
   "lib/credo.ex" -> "lib/credo/execution.ex"
   "lib/credo/execution.ex" -> "lib/credo.ex"

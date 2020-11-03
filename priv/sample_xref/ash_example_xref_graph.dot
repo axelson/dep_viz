@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Ash Example" {
   "lib/helpdesk.ex"
   "lib/helpdesk/accounts/api.ex"
   "lib/helpdesk/accounts/api.ex" -> "lib/helpdesk/accounts/resources/user.ex" [label="(compile)"]

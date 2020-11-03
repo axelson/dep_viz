@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "Absinthe" {
   "lib/absinthe.ex"
   "lib/absinthe.ex" -> "lib/absinthe/adapter.ex"
   "lib/absinthe.ex" -> "lib/absinthe/language/document.ex"

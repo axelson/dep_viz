@@ -1,4 +1,4 @@
-digraph "xref graph" {
+digraph "The ChangeLog" {
   "lib/changelog.ex"
   "lib/changelog/application.ex"
   "lib/changelog/application.ex" -> "lib/changelog/episode_tracker.ex"
