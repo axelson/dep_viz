@@ -357,10 +357,10 @@ export class NodeForceLayout {
     }
   }
 
-  highlightPathsToFile(targetObjects, sourceId, targetId) {
+  highlightPathsToFile(sourceId, targetId) {
     // Should probably change findPaths instead
-    const compilePath = findCompilePaths(targetObjects, sourceId, targetId)
-    const files = compilePath || findPaths(targetObjects, sourceId, targetId) || []
+    const compilePath = findCompilePaths(this.targetObjects, sourceId, targetId)
+    const files = compilePath || findPaths(this.targetObjects, sourceId, targetId) || []
     const matches = {}
     files.forEach(id => matches[id] = true)
 
@@ -476,9 +476,9 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
         }
       } else {
         if (viewMode === 'deps') {
-          nodeForceLayout.highlightPathsToFile(targetObjects, selectedNode, nodeDatum.id)
+          nodeForceLayout.highlightPathsToFile(selectedNode, nodeDatum.id)
         } else if (viewMode === 'ancestors') {
-          nodeForceLayout.highlightPathsToFile(targetObjects, nodeDatum.id, selectedNode)
+          nodeForceLayout.highlightPathsToFile(nodeDatum.id, selectedNode)
         }
       }
     })

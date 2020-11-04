@@ -18,8 +18,8 @@ export class SelectedNodeDetails {
 
   initialize(dependenciesMap, causeRecompileMap, nodeForceLayout) {
     this.dependenciesMap = dependenciesMap
-    this.nodeForceLayout = nodeForceLayout
     this.causeRecompileMap = causeRecompileMap
+    this.nodeForceLayout = nodeForceLayout
   }
 
   hide() {
@@ -78,7 +78,7 @@ export class SelectedNodeDetails {
     this.renderAncestors(id, ancestorsList)
   }
 
-  renderAncestors(_id, ancestorsList) {
+  renderAncestors(id, ancestorsList) {
     const u = d3.select('.info-box-file-tree .ancestor-list')
                 .selectAll('div')
                 .data(ancestorsList)
@@ -88,6 +88,12 @@ export class SelectedNodeDetails {
      .attr('class', 'inline-item hover-bold')
      .merge(u)
      .text(d => d)
+     .on('mouseover', nodeId => {
+       this.nodeForceLayout.highlightPathsToFile(nodeId, id)
+     })
+     .on('mouseout', d => {
+       this.nodeForceLayout.reconstructGraph()
+     })
 
     u.exit()
      .remove()

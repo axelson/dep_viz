@@ -63,7 +63,11 @@ TODO:
 - [ ] Selected node + hover: show the files in the path in the infobox
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Click on file in top stats to keep it highlighted
-- [ ] Hover over file in ancestors info box to see the path from that file to the selected file
+- [x] Hover over file in ancestors info box to see the path from that file to the selected file
+- [ ] Try to implement pan and zoom
+- [ ] Auto-size the main svg
+- [ ] Re-size the main svg when window size changes
+- [ ] Selected file mode should switch when view mode is toggled
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
 - [ ] Highlight two-way dependencies somehow
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
