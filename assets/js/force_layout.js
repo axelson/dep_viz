@@ -94,7 +94,7 @@ export function render(nodeData, linkData, graphLabel) {
   const tabBar = new TabBar()
   const fileSearch = new FileSearch(nodeData)
 
-  fileSearch.initialize(nodeForceLayout, causeRecompileList, getsRecompiledList)
+  fileSearch.initialize(nodeForceLayout, causeRecompileList, getsRecompiledList, tabBar)
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 
@@ -102,11 +102,11 @@ export function render(nodeData, linkData, graphLabel) {
   worker.postMessage({type: 'init', targetObjects: targetObjects, nodeData: nodeData})
   worker.onmessage = e => {
     nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails, tabBar)
-    selectedNodeDetails.initialize(e.data.dependenciesMap, nodeForceLayout)
+    selectedNodeDetails.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, nodeForceLayout)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
     getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
     causeRecompileList.initialize(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
-    tabBar.initialize(nodeForceLayout, selectedNodeDetails)
+    tabBar.initialize(nodeForceLayout, selectedNodeDetails, getsRecompiledList, causeRecompileList)
 
     renderTotalFileCount(e.data.getsRecompiledMap)
   }

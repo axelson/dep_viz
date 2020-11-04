@@ -7,18 +7,51 @@ export class FileSearch {
     this.nodeData = nodeData
   }
 
-  initialize(nodeForceLayout, causeRecompileList, getsRecompiledList) {
+  initialize(nodeForceLayout, causeRecompileList, getsRecompiledList, tabBar) {
     this.nodeForceLayout = nodeForceLayout
     this.causeRecompileList = causeRecompileList
     this.getsRecompiledList = getsRecompiledList
+    this.tabBar = tabBar
 
-    this.renderFileList()
+    const $input = jQuery('#info-box-input')
+    const $header = jQuery('#info-box-header')
+
+    const that = this
+    $input.bind('input', function () {
+      const input = jQuery(this).val()
+
+      that.causeRecompileList.render(input)
+      that.getsRecompiledList.render(input)
+
+      if (input == '') {
+        $header.text('All files:')
+        if (window.vizState.infoBoxMode === 'all-files') {
+          that.nodeForceLayout.restoreGraph()
+        } else if (window.vizState.infoBoxMode === 'top-stats') {
+          tabBar.highlightTopStats()
+        }
+      } else {
+        $header.text(`Search results for "${input}":`)
+        if (window.vizState.infoBoxMode === 'all-files') {
+          that.nodeForceLayout.filterHighlightSearch(input)
+        } else if (window.vizState.infoBoxMode === 'top-stats') {
+          tabBar.highlightTopStats()
+        }
+      }
+
+      that.render(input)
+    })
+
+    this.render('')
   }
 
-  renderFileList() {
-    const u = d3.select('.info-box-file-list')
-                .selectAll('div')
-                .data(this.nodeData, d => d.id)
+  render(searchText) {
+    const u =
+          d3.select('.info-box-file-list')
+            .selectAll('div')
+            .data(this.nodeData.filter(d => {
+              return d.id.indexOf(searchText) !== -1
+            }), d => d.id)
 
     u.enter()
      .append('div')
@@ -31,44 +64,13 @@ export class FileSearch {
        this.nodeForceLayout.restoreGraph()
      })
 
-    const $input = jQuery('#info-box-input')
-    const $header = jQuery('#info-box-header')
+    u.exit()
+     .remove()
 
-    const that = this
-    $input.bind('input', function () {
-      const input = jQuery(this).val()
-      if (input == '') {
-        $header.text('All files:')
-        that.nodeForceLayout.restoreGraph()
-      } else {
-        $header.text(`Search results for "${input}":`)
-        that.nodeForceLayout.filterHighlightSearch(input)
-      }
-
-      that.causeRecompileList.render(input)
-      that.getsRecompiledList.render(input)
-      filterInfoBoxFileList(that.nodeData, input)
-    })
-  }
-}
-
-function filterInfoBoxFileList(nodeData, input) {
-  const u =
-        d3.select('.info-box-file-list')
-          .selectAll('div')
-          .data(nodeData.filter(d => {
-            return d.id.indexOf(input) !== -1
-          }), d => d.id)
-
-  u.enter()
-    .append('div')
-    .text(d => d.id)
-
-  u.exit().remove()
-
-  if (u.size() === 0) {
-    $emptyMessage.show()
-  } else {
-    $emptyMessage.hide()
+    if (u.size() === 0) {
+      $emptyMessage.show()
+    } else {
+      $emptyMessage.hide()
+    }
   }
 }

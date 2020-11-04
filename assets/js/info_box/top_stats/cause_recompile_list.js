@@ -21,6 +21,12 @@ export class CauseRecompileList {
     this.render('')
   }
 
+  getTopFiles() {
+    return d3.select('.highlight-box .cause-recompile-list')
+             .selectAll('div')
+             .data()
+  }
+
   render(searchText) {
     const topFiles = findMatchingFiles(this.allFiles, searchText)
           .slice(0, 10)
@@ -56,7 +62,7 @@ export class CauseRecompileList {
          this.modeSwitcher.toggle()
        }
 
-       this.nodeForceLayout.restoreGraph()
+       this.nodeForceLayout.tabBar.highlightTopStats()
      })
 
     u.exit()

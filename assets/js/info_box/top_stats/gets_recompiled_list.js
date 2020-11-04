@@ -19,9 +19,19 @@ export class GetsRecompiledList {
     this.render('')
   }
 
+  calculateTopFiles(searchText) {
+    return findMatchingFiles(this.allFiles, searchText)
+      .slice(0, 10)
+  }
+
+  getTopFiles() {
+    return d3.select('.highlight-box .gets-recompiled-list')
+             .selectAll('div')
+             .data()
+  }
+
   render(searchText) {
-    const topFiles = findMatchingFiles(this.allFiles, searchText)
-          .slice(0, 10)
+    const topFiles = this.calculateTopFiles(searchText)
 
     const highestCount = calculateHighestCount(topFiles)
     // https://stackoverflow.com/a/14879700
@@ -55,7 +65,7 @@ export class GetsRecompiledList {
           this.modeSwitcher.toggle()
         }
 
-        this.nodeForceLayout.restoreGraph()
+        this.nodeForceLayout.tabBar.highlightTopStats()
         this.selectedNodeDetails.unShowFileTree(false)
       })
 

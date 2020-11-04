@@ -59,28 +59,32 @@ Questions:
 TODO:
 - [ ] Handle bad dot files
 - [ ] Replace file-tree naming with selected file
-- [ ] Searching should filter the top stats also
+- [x] Searching should filter the top stats also
   - And maybe show the search text as well
-- [ ] When searching and then hovering a node, need to restore the searched nodes
+- [x] When searching and then hovering a node, need to restore the searched nodes
 - [x] When clearing a search need to restore the correct node colors
-- [ ] Clean up bugs in search
+- [x] Clean up bugs in search
 - [x] Top Stats: don't show files that don't cause recompiles
 - [x] Top Stats: don't show files that don't get recompiled
 - [x] Top Stats: when no files match top stats search, show an empty message
 - [x] File search: when no files match top stats search, show an empty message
 - [x] Render graph at root
-- [ ] Add updated info box hover mode for dependers view
+- [x] Add updated info box hover mode for dependers view
+- [x] Fix top stats hovering and node force diagram interaction
+  - Change the top stats to use the same highlight style as the all files filter
+  - This will make it easy/understandable to switch between them
+  - After that keeping the top stats list filtered by the file search should feel pretty intuitive
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox
-- [ ] Selected node + hover over file tree: highlight the node hovered
-- [ ] Update info box for ancestors mode
-- [ ] Add the updated key
-- [ ] Add "Selected File" tab when in selected file mode
-- [ ] When in "Top Stats" mode: make all the top stats files highlighted
+- [x] Selected node + hover over file tree: highlight the node hovered
+- [x] Update info box for ancestors mode
+- [x] Add the updated key
+- [x] Add "Selected File" tab when in selected file mode
+- [x] When in "Top Stats" mode: make all the top stats files highlighted
 - [ ] Have a setting to not highlight runtime dependencies?
-- [ ] Parse `.dot` file in js without sending to server
-- [ ] Deploy to a server
+- [x] Parse `.dot` file in js without sending to server
+- [x] Deploy to a server
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
 - [ ] Highlight two-way dependencies somehow
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout

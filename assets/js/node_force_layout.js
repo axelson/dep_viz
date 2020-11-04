@@ -1,3 +1,4 @@
+import jQuery from 'jquery'
 import BrowserText from './utils/browser_text.js'
 
 import {
@@ -25,6 +26,8 @@ const HIGHLIGHTED_STROKE_WIDTH = 1.2
 
 export let DEFAULT_NODE_COLOR = '#777'
 const HIGHLIGHT_NODE_COLOR = 'black'
+
+const $searchInput = jQuery('#info-box-input')
 
 export class NodeForceLayout {
   constructor(nodeData, linkData, targetObjects, width, height) {
@@ -55,6 +58,7 @@ export class NodeForceLayout {
 
   highlightDependenciesOfNode(id, showLabels) {
     if (!this.dependenciesMap) return
+    this.restoreSelectedNodes()
 
     const dependencyTypes = this.dependenciesMap[id]
     const duration = TRANSITION_SLOW
@@ -121,6 +125,21 @@ export class NodeForceLayout {
     }
   }
 
+  highlightMultipleSelectedNodes(ids) {
+    const nodes =
+          d3.select('svg.main')
+            .select('.nodes')
+            .selectAll('circle')
+
+    const selectedNodes = nodes.filter(d => ids.indexOf(d.id) !== -1)
+
+    const _selectedNodeBg = d3.select('svg.main .selected-node-bgs')
+                             .selectAll('circle')
+                             .data(selectedNodes.data())
+                             .enter()
+                             .call(renderSelectedNodeWithData)
+  }
+
   highlightSelectedNode(id, nodes) {
     const selectedNode = nodes.filter(d => d.id === id)
 
@@ -171,6 +190,23 @@ export class NodeForceLayout {
     updateLabels([])
   }
 
+  filterHightlightNodes(ids) {
+    const matches = {}
+    ids.forEach(id => matches[id] = true)
+
+    d3.select('svg.main .nodes')
+      .selectAll('circle')
+      .transition().duration(TRANSITION_SLOW)
+      .style('fill-opacity', d => d.id in matches ? 1 : 0.1)
+      .style('fill', d => d.id in matches ? 'black' : DEFAULT_NODE_COLOR)
+
+    d3.select('svg.main .links')
+      .selectAll('circle')
+      .transition().duration(TRANSITION_SLOW)
+      .style('fill-opacity', d => d.id in matches ? 1 : 0.1)
+      .attr('stroke', d => d.id in matches ? d.stroke : DEFAULT_LINE_STROKE)
+  }
+
   filterHighlightSearch(searchText) {
     d3.select('svg.main')
       .select('.nodes')
@@ -185,6 +221,7 @@ export class NodeForceLayout {
       })
       .style('fill', d => {
         if (searchText == '') {
+          // This is wrong
           return 'black'
         } else if (d.id.indexOf(searchText) !== -1) {
           return HIGHLIGHT_NODE_COLOR
@@ -196,7 +233,7 @@ export class NodeForceLayout {
     d3.select('svg.main')
       .selectAll('line')
       .transition().duration(TRANSITION_SLOW)
-      .style('fill-opacity', d => {
+      .style('stroke-opacity', d => {
         if (d.source.id.indexOf(searchText) !== -1) {
           return 1
         } else {
@@ -240,6 +277,7 @@ export class NodeForceLayout {
   }
 
   highlightFilesThatDependOnSelectedFile(id, showLabels) {
+    this.restoreSelectedNodes()
     const duration = TRANSITION_SLOW
     const causeRecompileMap = this.causeRecompileMap
 
@@ -431,6 +469,8 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
           tabBar.switchTab('selected-file')
         } else if (viewMode === 'ancestors') {
           nodeForceLayout.highlightFilesThatDependOnSelectedFile(nodeDatum.id, true)
+          selectedNodeDetails.infoBoxShowSelectedFilesAncestors(nodeDatum.id)
+          tabBar.switchTab('selected-file')
         }
       } else {
         if (viewMode === 'deps') {
@@ -447,7 +487,19 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
         tabBar.restorePreviousTab()
       }
 
-      nodeForceLayout.reconstructGraph()
+      // NOTE: go back to filter by search here!
+
+      // Note: important to read vizState here because it may have been restored
+      if (window.vizState.infoBoxMode === 'top-stats') {
+        nodeForceLayout.tabBar.highlightTopStats()
+      } else if (window.vizState.infoBoxMode === 'all-files') {
+        nodeForceLayout.reconstructGraph()
+
+        const searchText = $searchInput.val()
+        if (searchText !== '') {
+          nodeForceLayout.filterHighlightSearch(searchText)
+        }
+      }
     })
     .call(d3.drag()
             .on('start', dragStarted)

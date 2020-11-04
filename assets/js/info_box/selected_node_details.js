@@ -7,6 +7,8 @@ import { colorFromDepType, renderSelectedNode } from '../utils/render_utils.js'
 const $topStats = jQuery('.highlight-box')
 const $allFilesContainer = jQuery('.info-box-file-list-container')
 const $selectedFileTabHeader = jQuery('.tab-bar .tab[data-name="selected-file"]')
+const $ancestorsList = jQuery('.info-box-file-tree .ancestor-list')
+const $fileTree = jQuery('.info-box-file-tree .file-tree')
 let selectedNodeRendered = false
 
 export class SelectedNodeDetails {
@@ -14,9 +16,10 @@ export class SelectedNodeDetails {
     this.targetObjects = targetObjects
   }
 
-  initialize(dependenciesMap, nodeForceLayout) {
+  initialize(dependenciesMap, causeRecompileMap, nodeForceLayout) {
     this.dependenciesMap = dependenciesMap
     this.nodeForceLayout = nodeForceLayout
+    this.causeRecompileMap = causeRecompileMap
   }
 
   hide() {
@@ -25,6 +28,8 @@ export class SelectedNodeDetails {
 
   infoBoxShowSelectedFilesDependencies(id, hideStatsAndFiles = true) {
     if (hideStatsAndFiles) doHideStatsAndFiles()
+    $ancestorsList.hide()
+    $fileTree.show()
 
     // This should be a call into the TabBar instance
     $selectedFileTabHeader.show()
@@ -46,8 +51,46 @@ export class SelectedNodeDetails {
 
     const deps = lodashOrderBy(this.targetObjects[id], [typeToOrder], ['desc'])
 
-    this.renderSelectedHeader(id, deps)
+    this.renderSelectedHeaderForDependencies(id, deps)
     this.renderDirectDependenciesList(id, deps)
+  }
+
+  infoBoxShowSelectedFilesAncestors(id, hideStatsAndFiles = true) {
+    if (hideStatsAndFiles) doHideStatsAndFiles()
+    $ancestorsList.show()
+    $fileTree.hide()
+
+    // This should be a call into the TabBar instance
+    $selectedFileTabHeader.show()
+    jQuery('.info-box-file-tree').show()
+
+    // For the current file render the file name
+    jQuery('.info-box-file-tree .current-file').text(id)
+
+    const ancestorsList = []
+    this.causeRecompileMap[id].forEach(nodeId => {
+      if (nodeId !== id) {
+        ancestorsList.push(nodeId)
+      }
+    })
+
+    this.renderSelectedHeaderForAncestors(ancestorsList)
+    this.renderAncestors(id, ancestorsList)
+  }
+
+  renderAncestors(_id, ancestorsList) {
+    const u = d3.select('.info-box-file-tree .ancestor-list')
+                .selectAll('div')
+                .data(ancestorsList)
+
+    u.enter()
+     .append('div')
+     .attr('class', 'inline-item hover-bold')
+     .merge(u)
+     .text(d => d)
+
+    u.exit()
+     .remove()
   }
 
   renderDirectDependenciesList(_id, deps) {
@@ -99,7 +142,22 @@ export class SelectedNodeDetails {
                      })
   }
 
-  renderSelectedHeader(id, directDependencies) {
+  renderSelectedHeaderForAncestors(ancestorsList) {
+    if (ancestorsList.length > 0) {
+      jQuery('.info-box-file-tree .info-line-1').text('These files have a compile or export dependency on the selected file:')
+      jQuery('.info-box-file-tree .info-line-2').text('')
+    } else {
+      jQuery('.info-box-file-tree .info-line-1').text('… has no files that depend on it')
+      jQuery('.info-box-file-tree .info-line-2').text('')
+    }
+
+    if (!selectedNodeRendered) {
+      renderSelectNodeIndicator()
+      selectedNodeRendered = true
+    }
+  }
+
+  renderSelectedHeaderForDependencies(id, directDependencies) {
     const dependenciesMap = this.dependenciesMap
     const allDependencies = dependenciesMap[id]
     const depsCount = Object.keys(allDependencies).length

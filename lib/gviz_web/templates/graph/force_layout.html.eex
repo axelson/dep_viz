@@ -73,6 +73,7 @@
       </div>
       <div class="info-line-1"></div>
       <div class="info-line-2"></div>
+      <div class="ancestor-list m-t-2"></div>
       <table class="file-tree m-t-2"></table>
     </div>
   </div>
