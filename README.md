@@ -58,33 +58,10 @@ Questions:
 
 TODO:
 - [ ] Handle bad dot files
-- [ ] Replace file-tree naming with selected file
-- [x] Searching should filter the top stats also
-  - And maybe show the search text as well
-- [x] When searching and then hovering a node, need to restore the searched nodes
-- [x] When clearing a search need to restore the correct node colors
-- [x] Clean up bugs in search
-- [x] Top Stats: don't show files that don't cause recompiles
-- [x] Top Stats: don't show files that don't get recompiled
-- [x] Top Stats: when no files match top stats search, show an empty message
-- [x] File search: when no files match top stats search, show an empty message
-- [x] Render graph at root
-- [x] Add updated info box hover mode for dependers view
-- [x] Fix top stats hovering and node force diagram interaction
-  - Change the top stats to use the same highlight style as the all files filter
-  - This will make it easy/understandable to switch between them
-  - After that keeping the top stats list filtered by the file search should feel pretty intuitive
 - [ ] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
 - [ ] Selected node + hover: show the files in the path in the infobox
-- [x] Selected node + hover over file tree: highlight the node hovered
-- [x] Update info box for ancestors mode
-- [x] Add the updated key
-- [x] Add "Selected File" tab when in selected file mode
-- [x] When in "Top Stats" mode: make all the top stats files highlighted
 - [ ] Have a setting to not highlight runtime dependencies?
-- [x] Parse `.dot` file in js without sending to server
-- [x] Deploy to a server
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
 - [ ] Highlight two-way dependencies somehow
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
@@ -147,10 +124,33 @@ Done:
 - [x] All files view default fix
   - Selected file view should replace all files view
 - [x] In sample, f.ex should depend on c_export.ex, yet it isn't highlighted in ancestors view
+- [x] Searching should filter the top stats also
+  - And maybe show the search text as well
+- [x] When searching and then hovering a node, need to restore the searched nodes
+- [x] When clearing a search need to restore the correct node colors
+- [x] Clean up bugs in search
+- [x] Top Stats: don't show files that don't cause recompiles
+- [x] Top Stats: don't show files that don't get recompiled
+- [x] Top Stats: when no files match top stats search, show an empty message
+- [x] File search: when no files match top stats search, show an empty message
+- [x] Render graph at root
+- [x] Add updated info box hover mode for dependers view
+- [x] Fix top stats hovering and node force diagram interaction
+  - Change the top stats to use the same highlight style as the all files filter
+  - This will make it easy/understandable to switch between them
+  - After that keeping the top stats list filtered by the file search should feel pretty intuitive
+- [x] Selected node + hover over file tree: highlight the node hovered
+- [x] Update info box for ancestors mode
+- [x] Add the updated key
+- [x] Add "Selected File" tab when in selected file mode
+- [x] When in "Top Stats" mode: make all the top stats files highlighted
+- [x] Parse `.dot` file in js without sending to server
+- [x] Deploy to a server
 
 Maybe:
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
+- [ ] Replace file-tree naming with selected file
 
 Future:
 - Configurable node coloring based on filename prefix
@@ -171,6 +171,8 @@ Future:
     stats for ALL nodes. Because we cannot just check the compile dependencies,
     need to check export and runtime deps as well (because a compile dep causes
     transitive dependencies with runtime deps)
+- Integrate `mix compile --profile=time` output
+- Add possibility for grouping or coloring based on boundary boundaries
 
 Ideas:
 - can you click on a node and give it gravity
