@@ -499,6 +499,8 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
         if (searchText !== '') {
           nodeForceLayout.filterHighlightSearch(searchText)
         }
+      } else if (window.vizState.infoBoxMode === 'selected-file') {
+        nodeForceLayout.reconstructGraph()
       }
     })
     .call(d3.drag()
