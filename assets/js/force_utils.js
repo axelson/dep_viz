@@ -154,15 +154,57 @@ export function findPaths(graph, sourceId, targetId) {
 
   while (cur.length > 0 || next.length > 0) {
     const node = cur.pop()
-    if (visited[node.id] && visited[node.id].depth < node.depth) {
-      continue
+    if (visited[node.id]) {
+      if (node.depth < visited[node.id].depth) {
+        visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
+      }
+    } else {
+      visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
     }
-    visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
 
     const deps = graph[node.id] || []
     deps.forEach(childNode => {
       if(!(childNode.id in visited)) {
         next.push({id: childNode.id, parent: node.id, depth: node.depth + 1})
+      }
+    })
+
+    if (cur.length === 0) {
+      cur = next
+      next = new TinyQueue([], d => d.depth)
+    }
+  }
+
+  const shortest = calculateShortestPath(visited, sourceId, targetId)
+  return shortest
+}
+
+export function findCompilePaths(graph, sourceId, targetId) {
+  const visited = {}
+  let cur = new TinyQueue([{id: sourceId, depth: 0}], d => d.depth)
+  let next = new TinyQueue([], d => d.depth)
+
+  while (cur.length > 0 || next.length > 0) {
+    const node = cur.pop()
+    if (visited[node.id]) {
+      if (node.depth < visited[node.id].depth) {
+        visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
+      }
+    } else {
+      visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
+    }
+
+    const deps = graph[node.id] || []
+    deps.forEach(childNode => {
+      if(!(childNode.id in visited)) {
+        if (node.depth === 0) {
+          // Only find compile dependency paths
+          if (childNode.type === 'compile') {
+            next.push({id: childNode.id, parent: node.id, depth: node.depth + 1})
+          }
+        } else {
+          next.push({id: childNode.id, parent: node.id, depth: node.depth + 1})
+        }
       }
     })
 

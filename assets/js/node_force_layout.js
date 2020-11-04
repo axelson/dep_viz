@@ -11,6 +11,7 @@ import {
 
 import {
   findAllDependencies,
+  findCompilePaths,
   findPaths
 } from './force_utils.js'
 
@@ -358,7 +359,8 @@ export class NodeForceLayout {
 
   highlightPathsToFile(targetObjects, sourceId, targetId) {
     // Should probably change findPaths instead
-    const files = findPaths(targetObjects, sourceId, targetId) || []
+    const compilePath = findCompilePaths(targetObjects, sourceId, targetId)
+    const files = compilePath || findPaths(targetObjects, sourceId, targetId) || []
     const matches = {}
     files.forEach(id => matches[id] = true)
 
