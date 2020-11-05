@@ -119,7 +119,7 @@ export function render(nodeData, linkData, graphLabel) {
   const tabBar = new TabBar()
   const fileSearch = new FileSearch(nodeData)
 
-  fileSearch.initialize(nodeForceLayout, causeRecompileList, getsRecompiledList, tabBar)
+  fileSearch.initialize(nodeForceLayout, causeRecompileList, getsRecompiledList, tabBar, selectedNodeDetails)
 
   if (!window.Worker) alert("ERROR: Web Workers not supported")
 

@@ -65,6 +65,8 @@ TODO:
 - [x] Hover over file in ancestors info box to see the path from that file to the selected file
 - [x] Try to implement pan and zoom
 - [x] Auto-size the main svg
+- [x] Allow clicking on files in the "All Files" list to select them
+- [ ] Don't show completely disconnected files (but still count them in the total file count)
 - [ ] Re-size the main svg when window size changes
 - [x] Selected file mode should switch when view mode is toggled
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)

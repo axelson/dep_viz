@@ -8,11 +8,12 @@ export class FileSearch {
     this.nodeData = nodeData
   }
 
-  initialize(nodeForceLayout, causeRecompileList, getsRecompiledList, tabBar) {
+  initialize(nodeForceLayout, causeRecompileList, getsRecompiledList, tabBar, selectedNodeDetails) {
     this.nodeForceLayout = nodeForceLayout
     this.causeRecompileList = causeRecompileList
     this.getsRecompiledList = getsRecompiledList
     this.tabBar = tabBar
+    this.selectedNodeDetails = selectedNodeDetails
 
     const $input = jQuery('#info-box-input')
     const $header = jQuery('#info-box-header')
@@ -63,11 +64,25 @@ export class FileSearch {
      .append('div')
      .attr('class', 'inline-item hover-bold')
      .text(d => d.id)
-     .on('mouseover', (nodeDatum) => {
-       this.nodeForceLayout.highlightDependenciesOfNode(nodeDatum.id, true)
+     .on('mouseover', d => {
+       this.nodeForceLayout.highlightDependenciesOfNode(d.id, true)
      })
-     .on('mouseout', (_nodeDatum) => {
+     .on('mouseout', _d => {
        this.nodeForceLayout.restoreGraph()
+     })
+     .on('click', d => {
+       window.vizState.selectedNode = d.id
+
+       const viewMode = window.vizState.viewMode
+       // TODO: This logic is now replicated in three places, should be centralized somewhere
+       // maybe in the tab bar. And maybe in a new InfoBox class
+       if (viewMode === 'deps') {
+         this.selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id)
+         this.tabBar.switchTab('selected-file')
+       } else {
+         this.selectedNodeDetails.infoBoxShowSelectedFilesAncestors(d.id)
+         this.tabBar.switchTab('selected-file')
+       }
      })
 
     u.exit()
