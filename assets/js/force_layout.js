@@ -35,6 +35,7 @@ window.vizState = {
 }
 
 const $projectName = jQuery('.info-box .project-name')
+const $nav = jQuery('nav[role="navigation"]')
 
 // Data
 // targetObjects - Map from files to list of file objects w/type that they are depdendencies
@@ -84,7 +85,31 @@ export function render(nodeData, linkData, graphLabel) {
           return acc
         }, {})
 
-  const width = window.svgWidth, height = window.svgHeight
+  const topPadding = 12
+  // Add buffer mainly to get rid of the scroll bars
+  const widthBuffer = 20
+  const heightBuffer = 10
+  const width = window.innerWidth - widthBuffer
+  const height = window.innerHeight - $nav.outerHeight() - topPadding - heightBuffer
+  console.log('height', height);
+
+  const svg = d3.select('svg.main')
+                .style('width', width)
+                .style('height', height)
+
+  const background = svg.select('g.bg')
+
+  const zoomed = () => {
+    // Note: If upgrading to d3 v6 the event will be passed into this function
+    background.attr('transform', d3.event.transform)
+  }
+
+  svg
+    .attr("viewBox", [0, 0, width, height])
+    .call(d3.zoom()
+             .extent([[0, 0], [width, height]])
+             .scaleExtent([1, 8])
+             .on('zoom', zoomed))
 
   const nodeForceLayout = new NodeForceLayout(nodeData, linkData, targetObjects, width, height)
   const selectedNodeDetails = new SelectedNodeDetails(targetObjects)

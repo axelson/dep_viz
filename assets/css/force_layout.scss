@@ -19,8 +19,6 @@ body.dark-mode {
   top: 0px;
   left: 20px;
   z-index: 2;
-  max-height: 80vh;
-  overflow: hidden;
   font-size: 12px;
 }
 
@@ -97,7 +95,6 @@ body.dark-mode {
 svg.main {
   position: relative;
   z-index: 1;
-  left: 150px;
   // border: 1px solid #eee;
 
   body.dark-mode & {
@@ -106,12 +103,6 @@ svg.main {
 }
 
 svg line {
-}
-
-.tooltip {
-  position: absolute;
-  z-index: 999;
-  max-width: 85%;
 }
 
 .node-type-view {

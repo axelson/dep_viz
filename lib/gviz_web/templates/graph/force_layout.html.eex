@@ -1,9 +1,3 @@
-<style>
-  svg.main {
-    width: <%= @svg_width %>px;
-    height: <%= @svg_height %>px;
-  }
-</style>
 <script>
   window.svgWidth = <%= @svg_width %>
   window.svgHeight = <%= @svg_height %>
@@ -148,11 +142,13 @@
   </div>
 
   <svg class="main">
-    <g class="links"></g>
-    <g class="selected-node-bgs"></g>
-    <g class="nodes"></g>
-    <g class="selected-nodes"></g>
-    <g class="labels"></g>
+    <g class="bg">
+      <g class="links"></g>
+      <g class="selected-node-bgs"></g>
+      <g class="nodes"></g>
+      <g class="selected-nodes"></g>
+      <g class="labels"></g>
+    </g>
     <g class="mode-switcher"></g>
   </svg>
 </div>

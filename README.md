@@ -63,8 +63,8 @@ TODO:
 - [x] Selected node + hover: show the files in the path in the infobox
 - [x] Click on file in top stats to keep it highlighted
 - [x] Hover over file in ancestors info box to see the path from that file to the selected file
-- [ ] Try to implement pan and zoom
-- [ ] Auto-size the main svg
+- [x] Try to implement pan and zoom
+- [x] Auto-size the main svg
 - [ ] Re-size the main svg when window size changes
 - [x] Selected file mode should switch when view mode is toggled
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
