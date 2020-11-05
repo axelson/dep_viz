@@ -47,10 +47,10 @@ function compileDependencies(graph, id, matched, isCompileDep) {
 }
 
 export function findAllDependenciesTypes(graph, id) {
-  return doFindAllDependenciesTypes(graph, id, {[id]: depType.compile}, true, false)
+  return doFindAllDependenciesTypes(graph, id, {[id]: depType.compile}, true, false, id)
 }
 
-function doFindAllDependenciesTypes(graph, id, matched, topLevel, isCompileDep) {
+function doFindAllDependenciesTypes(graph, id, matched, topLevel, isCompileDep, selfVisitId) {
   // A file that has an export dependency
   // Compilation dependencies are any dependency that is directly a compilation
   // dependency and any dependency of a compilation dependency
@@ -74,16 +74,22 @@ function doFindAllDependenciesTypes(graph, id, matched, topLevel, isCompileDep) 
     })
 
     nodes.forEach(node => {
-      if (!matched[node.id]) {
+      // This is needed do avoid a subtle bug. If the current node has a compile
+      // dependency back on itself, then we need to treat all of it's runtime
+      // dependencies as compile dependencies also, even though we may have
+      // 'visited' the node already
+      const needsSelfVisit = isCompileDep && selfVisitId === node.id
+      if (!matched[node.id] || needsSelfVisit) {
+        if (needsSelfVisit) selfVisitId = null
         if (isCompileDep) {
           matched[node.id] = depType.compile
-          doFindAllDependenciesTypes(graph, node.id, matched, false, true)
+          doFindAllDependenciesTypes(graph, node.id, matched, false, true, selfVisitId)
         } else {
           switch (node.type) {
             case 'compile':
               if (topLevel) {
                 matched[node.id] = depType.compile
-                doFindAllDependenciesTypes(graph, node.id, matched, false, true)
+                doFindAllDependenciesTypes(graph, node.id, matched, false, true, selfVisitId)
               } else {
                 matched[node.id] = depType.runtime
                 doFindAllDependenciesTypes(graph, node.id, matched, false, false)
@@ -175,7 +181,7 @@ export function findPaths(graph, sourceId, targetId) {
     }
   }
 
-  const shortest = calculateShortestPath(visited, sourceId, targetId)
+  const shortest = calculateShortestPath(visited, targetId)
   return shortest
 }
 
@@ -191,7 +197,11 @@ export function findCompilePaths(graph, sourceId, targetId) {
         visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
       }
     } else {
-      visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
+      // Don't store the original node so that we can visit it later if we need
+      // to (in case it is a compile dep of itself)
+      if (node.depth > 0) {
+        visited[node.id] = {depth: node.depth, node: node.id, parent: node.parent}
+      }
     }
 
     const deps = graph[node.id] || []
@@ -214,20 +224,27 @@ export function findCompilePaths(graph, sourceId, targetId) {
     }
   }
 
-  const shortest = calculateShortestPath(visited, sourceId, targetId)
+  const shortest = calculateShortestPath(visited, targetId)
   return shortest
 }
 
-function calculateShortestPath(visited, sourceId, targetId) {
+// Need to detect when there isn't a matching path
+function calculateShortestPath(visited, targetId) {
   const nodesInPath = [targetId]
   let next = targetId
-  while (next !== sourceId) {
+
+  // TODO: This could use a refactoring
+  let depth = visited[next] ? visited[next].depth + 1 : 0
+  if (!visited[next]) return null
+
+  while (visited[next] && visited[next].depth < depth) {
     const node = visited[next]
     if (!node) return null
     const parentId = node.parent
 
     nodesInPath.push(parentId)
     next = parentId
+    depth = node.depth
   }
 
   return nodesInPath.reverse()

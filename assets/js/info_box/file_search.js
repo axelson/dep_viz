@@ -67,7 +67,7 @@ export class FileSearch {
     u.exit()
      .remove()
 
-    if (u.size() === 0) {
+    if (u.enter().merge(u).size() === 0) {
       $emptyMessage.show()
     } else {
       $emptyMessage.hide()

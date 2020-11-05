@@ -374,8 +374,11 @@ export class NodeForceLayout {
 
     const onPath = d => {
       if (d.source.id in matches) {
-        const index = files.indexOf(d.source.id)
-        return files.indexOf(d.target.id) == index + 1
+        // The source node may be in this list multiple times so check for the first and last indexes
+        const firstIndex = files.indexOf(d.source.id)
+        const lastIndex = files.lastIndexOf(d.source.id)
+        const targetIndex = files.indexOf(d.target.id)
+        return targetIndex == firstIndex + 1 || targetIndex == lastIndex + 1
       } else {
         return false
       }
@@ -390,6 +393,8 @@ export class NodeForceLayout {
       .attr('class', d => onPath(d) ? 'direction-animate' : '')
 
     showMatchingLabels(nodes, matches, targetId)
+
+    return files
   }
 }
 
@@ -476,9 +481,11 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
         }
       } else {
         if (viewMode === 'deps') {
-          nodeForceLayout.highlightPathsToFile(selectedNode, nodeDatum.id)
+          const files = nodeForceLayout.highlightPathsToFile(selectedNode, nodeDatum.id)
+          selectedNodeDetails.infoBoxShowSelectedDependencyPath(files)
         } else if (viewMode === 'ancestors') {
-          nodeForceLayout.highlightPathsToFile(nodeDatum.id, selectedNode)
+          const files = nodeForceLayout.highlightPathsToFile(nodeDatum.id, selectedNode)
+          selectedNodeDetails.infoBoxShowSelectedDependencyPath(files)
         }
       }
     })
@@ -488,8 +495,6 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
       if (selectedNode === null) {
         tabBar.restorePreviousTab()
       }
-
-      // NOTE: go back to filter by search here!
 
       // Note: important to read vizState here because it may have been restored
       if (window.vizState.infoBoxMode === 'top-stats') {
@@ -503,6 +508,7 @@ function updateNodes(nodeData, _linkData, force, nodeForceLayout, selectedNodeDe
         }
       } else if (window.vizState.infoBoxMode === 'selected-file') {
         nodeForceLayout.reconstructGraph()
+        selectedNodeDetails.restoreInfoBox()
       }
     })
     .call(d3.drag()

@@ -12,10 +12,13 @@ export class CauseRecompileList {
     this.allFiles = null
   }
 
-  initialize(causeRecompileMap, nodeForceLayout, modeSwitcher) {
+  initialize(causeRecompileMap, nodeForceLayout, modeSwitcher, selectedNodeDetails, tabBar) {
     this.causeRecompileMap = causeRecompileMap
     this.nodeForceLayout = nodeForceLayout
     this.modeSwitcher = modeSwitcher
+    this.selectedNodeDetails = selectedNodeDetails
+    this.tabBar = tabBar
+
     this.allFiles = calculateTopRecompiles(causeRecompileMap)
 
     this.render('')
@@ -57,12 +60,33 @@ export class CauseRecompileList {
        this.nodeForceLayout.highlightFilesThatDependOnSelectedFile(d.id, true)
      })
      .on('mouseout', (_d) => {
-       if (this.modeSwitcherInitialMode) {
-         this.modeSwitcherInitialMode = null
-         this.modeSwitcher.toggle()
-       }
+       if (window.vizState.selectedNode) {
+       } else {
+         if (this.modeSwitcherInitialMode) {
+           this.modeSwitcherInitialMode = null
+           this.modeSwitcher.toggle()
+         }
 
-       this.nodeForceLayout.tabBar.highlightTopStats()
+         this.nodeForceLayout.tabBar.highlightTopStats()
+       }
+     })
+     .on('click', d => {
+       console.log('handle click on', d.id)
+       if (window.vizState.selectedNode) {
+         window.vizState.selectedNode = null
+         this.nodeForceLayout.restoreGraph()
+       } else {
+         window.vizState.selectedNode = d.id
+
+         const viewMode = window.vizState.viewMode
+         if (viewMode === 'deps') {
+           this.selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id)
+           this.tabBar.switchTab('selected-file')
+         } else if (viewMode === 'ancestors') {
+           this.selectedNodeDetails.infoBoxShowSelectedFilesAncestors(d.id)
+           this.tabBar.switchTab('selected-file')
+         }
+       }
      })
 
     u.exit()

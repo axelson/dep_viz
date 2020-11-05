@@ -14,6 +14,9 @@ digraph "DepViz" {
   "lib/demo_dep/b_runtime.ex" -> "lib/demo_dep/b_runtime/c_comp.ex" [label="(compile)"]
   "lib/demo_dep/b_runtime.ex" -> "lib/demo_dep/b_runtime/c_export.ex" [label="(export)"]
   "lib/demo_dep/b_runtime.ex" -> "lib/demo_dep/b_runtime/c_runtime.ex"
+  "lib/demo_dep/a.ex" -> "lib/demo_dep/loop.ex" [label="(compile)"]
+  "lib/demo_dep/loop.ex" -> "lib/demo_dep/loop_a.ex"
+  "lib/demo_dep/loop_a.ex" -> "lib/demo_dep/a.ex" [label="(compile)"]
   "lib/demo_dep/b_comp.ex"
   "lib/demo_dep/b_comp/c_comp/d_runtime.ex"
   "lib/demo_dep/b_comp/c_comp/d_runtime/e_runtime.ex"
@@ -28,6 +31,8 @@ digraph "DepViz" {
   "lib/demo_dep/b_runtime/c_comp.ex"
   "lib/demo_dep/b_runtime/c_export.ex"
   "lib/demo_dep/b_runtime/c_runtime.ex"
+  "lib/demo_dep/loop.ex"
+  "lib/demo_dep/loop_a.ex"
   "lib/gviz.ex"
   "lib/gviz/application.ex"
   "lib/gviz/application.ex" -> "lib/gviz/configuration.ex"
@@ -68,6 +73,7 @@ digraph "DepViz" {
   "lib/gviz_web/views/graph_view.ex"
   "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web.ex" [label="(compile)"]
   "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web/gettext.ex" [label="(export)"]
+  "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web/router.ex"
   "lib/gviz_web/views/graph_view.ex" -> "lib/gviz_web/views/error_helpers.ex" [label="(export)"]
   "lib/gviz_web/views/layout_view.ex"
 }

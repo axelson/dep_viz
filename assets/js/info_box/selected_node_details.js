@@ -7,8 +7,11 @@ import { colorFromDepType, renderSelectedNode } from '../utils/render_utils.js'
 const $topStats = jQuery('.highlight-box')
 const $allFilesContainer = jQuery('.info-box-file-list-container')
 const $selectedFileTabHeader = jQuery('.tab-bar .tab[data-name="selected-file"]')
-const $ancestorsList = jQuery('.info-box-file-tree .ancestor-list')
-const $fileTree = jQuery('.info-box-file-tree .file-tree')
+
+const $ancestorsListContainer = jQuery('.info-box-file-tree .ancestor-container')
+const $fileTreeContainer = jQuery('.info-box-file-tree .file-tree-container')
+const $dependencyPathContainer = jQuery('.info-box-file-tree .dependency-path-container')
+
 let selectedNodeRendered = false
 
 export class SelectedNodeDetails {
@@ -28,11 +31,13 @@ export class SelectedNodeDetails {
 
   infoBoxShowSelectedFilesDependencies(id, hideStatsAndFiles = true) {
     if (hideStatsAndFiles) doHideStatsAndFiles()
-    $ancestorsList.hide()
-    $fileTree.show()
+    $ancestorsListContainer.hide()
+    $fileTreeContainer.show()
 
     // This should be a call into the TabBar instance
-    $selectedFileTabHeader.show()
+    if (hideStatsAndFiles) {
+      $selectedFileTabHeader.show()
+    }
     jQuery('.info-box-file-tree').show()
 
     // For the current file render the file name
@@ -57,11 +62,13 @@ export class SelectedNodeDetails {
 
   infoBoxShowSelectedFilesAncestors(id, hideStatsAndFiles = true) {
     if (hideStatsAndFiles) doHideStatsAndFiles()
-    $ancestorsList.show()
-    $fileTree.hide()
+    $ancestorsListContainer.show()
+    $fileTreeContainer.hide()
 
     // This should be a call into the TabBar instance
-    $selectedFileTabHeader.show()
+    if (hideStatsAndFiles) {
+      $selectedFileTabHeader.show()
+    }
     jQuery('.info-box-file-tree').show()
 
     // For the current file render the file name
@@ -76,6 +83,27 @@ export class SelectedNodeDetails {
 
     this.renderSelectedHeaderForAncestors(ancestorsList)
     this.renderAncestors(id, ancestorsList)
+  }
+
+  infoBoxShowSelectedDependencyPath(fileList) {
+    $ancestorsListContainer.hide()
+    $fileTreeContainer.hide()
+    $dependencyPathContainer.show()
+
+    this.renderSelectedHeaderForDependencyPath(fileList)
+    this.renderDependencyPath(fileList)
+  }
+
+  restoreInfoBox() {
+    const {viewMode} = window.vizState
+    $dependencyPathContainer.hide()
+    if (viewMode === 'deps') {
+      $ancestorsListContainer.hide()
+      $fileTreeContainer.show()
+    } else if (viewMode === 'ancestors') {
+      $ancestorsListContainer.show()
+      $fileTreeContainer.hide()
+    }
   }
 
   renderAncestors(id, ancestorsList) {
@@ -99,7 +127,7 @@ export class SelectedNodeDetails {
      .remove()
   }
 
-  renderDirectDependenciesList(_id, deps) {
+  renderDirectDependenciesList(id, deps) {
     const u = d3.select('.info-box-file-tree .file-tree')
                 .selectAll('tr')
                 .data(deps)
@@ -142,19 +170,44 @@ export class SelectedNodeDetails {
                      .html(d => {
                        const matched = findAllDependencies(this.targetObjects, d.id)
                        // Show count of files that this compile dependency depends on
-                       const count = Object.keys(matched).length
+                       // This count could be off by one, need to check if id is included
+                       const count = Object.keys(matched).filter(fileId => fileId !== id).length
                        // Subtract 1 to not include itself
                        return `this causes a compile dependency on <span class="compile-red">${count - 1}</span> additional files`
                      })
   }
 
+  renderDependencyPath(fileList) {
+    const u = d3.select('.info-box-file-tree .dependency-path')
+                .selectAll('div')
+                .data(fileList)
+
+    u.enter()
+     .append('div')
+     .merge(u)
+     .text(d => d)
+
+    u.exit()
+     .remove()
+  }
+
+  renderSelectedHeaderForDependencyPath(fileList) {
+    if (fileList.length > 0) {
+      $dependencyPathContainer.find('.info-line-1').text('Dependency path:')
+      $dependencyPathContainer.find('.info-line-2').text('')
+    } else {
+      $dependencyPathContainer.find('.info-line-1').text('')
+      $dependencyPathContainer.find('.info-line-2').text('')
+    }
+  }
+
   renderSelectedHeaderForAncestors(ancestorsList) {
     if (ancestorsList.length > 0) {
-      jQuery('.info-box-file-tree .info-line-1').text('These files have a compile or export dependency on the selected file:')
-      jQuery('.info-box-file-tree .info-line-2').text('')
+      $ancestorsListContainer.find('.info-line-1').text('These files have a compile or export dependency on the selected file:')
+      $ancestorsListContainer.find('.info-line-2').text('')
     } else {
-      jQuery('.info-box-file-tree .info-line-1').text('… has no files that depend on it')
-      jQuery('.info-box-file-tree .info-line-2').text('')
+      $ancestorsListContainer.find('.info-line-1').text('… has no files that depend on it')
+      $ancestorsListContainer.find('.info-line-2').text('')
     }
 
     if (!selectedNodeRendered) {
@@ -169,16 +222,18 @@ export class SelectedNodeDetails {
     const depsCount = Object.keys(allDependencies).length
 
     let compileDepCount = 0
+    let exportDepCount = 0
     Object.values(allDependencies).forEach(type => {
-      if(type === 'compile' || type === 'export') compileDepCount++
+      if(type === 'compile') compileDepCount++
+      if(type === 'export') exportDepCount++
     })
 
     if (directDependencies.length > 0) {
-      jQuery('.info-box-file-tree .info-line-1').text(`… has ${depsCount - 1} dependencies (${compileDepCount - 1} compile time dependencies)`)
-      jQuery('.info-box-file-tree .info-line-2').text('… has a direct dependency on these files:')
+      $fileTreeContainer.find('.info-line-1').text(`… has ${depsCount - 1} dependencies (${compileDepCount - 1} compile dependencies, ${exportDepCount} export dependencies)`)
+      $fileTreeContainer.find('.info-line-2').text('… has a direct dependency on these files:')
     } else {
-      jQuery('.info-box-file-tree .info-line-1').text('… has no dependencies')
-      jQuery('.info-box-file-tree .info-line-2').text('')
+      $fileTreeContainer.find('.info-line-1').text('… has no dependencies')
+      $fileTreeContainer.find('.info-line-2').text('')
     }
 
     if (!selectedNodeRendered) {

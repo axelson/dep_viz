@@ -104,8 +104,8 @@ export function render(nodeData, linkData, graphLabel) {
     nodeForceLayout.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, selectedNodeDetails, tabBar)
     selectedNodeDetails.initialize(e.data.dependenciesMap, e.data.causeRecompileMap, nodeForceLayout)
     modeSwitcher.initialize(nodeForceLayout, selectedNodeDetails)
-    getsRecompiledList.initialize(e.data.getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher)
-    causeRecompileList.initialize(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher)
+    getsRecompiledList.initialize(e.data.dependenciesMap, nodeForceLayout, selectedNodeDetails, modeSwitcher, tabBar)
+    causeRecompileList.initialize(e.data.causeRecompileMap, nodeForceLayout, modeSwitcher, selectedNodeDetails, tabBar)
     tabBar.initialize(nodeForceLayout, selectedNodeDetails, getsRecompiledList, causeRecompileList)
 
     renderTotalFileCount(e.data.getsRecompiledMap)

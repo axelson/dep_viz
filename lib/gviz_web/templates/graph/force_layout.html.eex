@@ -10,8 +10,12 @@
 </script>
 
 <div class="initial-interface">
+  <div>
+    Welcome to DepViz, you can use this tool to explore and understand the inter-file dependencies of your Elixir project.
+  </div>
   <input type="file" id="file-selector" accept=".dot">
-  <div>Or choose a sample dot file:</div>
+  <div>In the root of your project generate a `.dot` file by running `mix xref graph --format dot`, then upload it here to analyze it (optionally changing the name on the first line of the file)</div>
+  <div>Or view an example from an open source project:</div>
   <div class="sample-dot-list"></div>
 </div>
 
@@ -71,10 +75,20 @@
         <svg class="selected-node-indicator m-r-2"></svg>
         <div class="current-file text-large"></div>
       </div>
-      <div class="info-line-1"></div>
-      <div class="info-line-2"></div>
-      <div class="ancestor-list m-t-2"></div>
-      <table class="file-tree m-t-2"></table>
+      <div class="ancestor-container">
+        <div class="info-line-1"></div>
+        <div class="info-line-2"></div>
+        <div class="ancestor-list m-t-2"></div>
+      </div>
+      <div class="file-tree-container">
+        <div class="info-line-1"></div>
+        <div class="info-line-2"></div>
+        <table class="file-tree m-t-2"></table>
+      </div>
+      <div class="dependency-path-container">
+        <div class="info-line-1"></div>
+        <div class="dependency-path m-t-2"></div>
+      </div>
     </div>
   </div>
 

@@ -47,6 +47,7 @@ function toggleMode(nodeForceLayout, selectedNodeDetails) {
       selectedNodeDetails.infoBoxShowSelectedFilesDependencies(selectedNode)
     } else if (newViewMode === 'ancestors') {
       nodeForceLayout.highlightFilesThatDependOnSelectedFile(selectedNode, false)
+      selectedNodeDetails.infoBoxShowSelectedFilesAncestors(selectedNode)
     }
   }
 }

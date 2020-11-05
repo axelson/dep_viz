@@ -57,17 +57,16 @@ Questions:
   that it is needed)
 
 TODO:
-- [ ] Handle bad dot files
+- [x] Handle bad dot files
 - [x] Selected node + hover: Show the compile path
   - Should this depend on the view mode?
-- [ ] Selected node + hover: show the files in the path in the infobox
-- [ ] Have a setting to not highlight runtime dependencies?
-- [ ] Click on file in top stats to keep it highlighted
+- [x] Selected node + hover: show the files in the path in the infobox
+- [x] Click on file in top stats to keep it highlighted
 - [x] Hover over file in ancestors info box to see the path from that file to the selected file
 - [ ] Try to implement pan and zoom
 - [ ] Auto-size the main svg
 - [ ] Re-size the main svg when window size changes
-- [ ] Selected file mode should switch when view mode is toggled
+- [x] Selected file mode should switch when view mode is toggled
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
 - [ ] Highlight two-way dependencies somehow
 - [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
@@ -154,6 +153,7 @@ Done:
 - [x] Deploy to a server
 
 Maybe:
+- [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
 - [ ] Replace file-tree naming with selected file
@@ -205,3 +205,8 @@ https://github.com/dagrejs/graphlib-dot/wiki#api
 Used a combination of:
 * https://stackoverflow.com/questions/11121465/scaling-an-arrowhead-on-a-d3-force-layout-link-marker
 * https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end
+
+## FAQ
+
+* Is this usable with other graphs?
+  - A: Not really, for example the graph algorithms needs to revisit the starting node if the starting node is itself part of a transitive compile time dependency chain

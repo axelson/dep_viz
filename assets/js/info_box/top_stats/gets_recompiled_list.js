@@ -9,12 +9,14 @@ export class GetsRecompiledList {
     this.modeSwitcherInitialMode = null
   }
 
-  initialize(getsRecompiledMap, nodeForceLayout, selectedNodeDetails, modeSwitcher) {
-    this.getsRecompiledMap = getsRecompiledMap
+  initialize(dependenciesMap, nodeForceLayout, selectedNodeDetails, modeSwitcher, tabBar) {
+    this.dependenciesMap = dependenciesMap
     this.nodeForceLayout = nodeForceLayout
     this.selectedNodeDetails = selectedNodeDetails
     this.modeSwitcher = modeSwitcher
-    this.allFiles = calculateTopGetRecompiled(this.getsRecompiledMap)
+    this.tabBar = tabBar
+
+    this.allFiles = calculateTopGetRecompiled(this.dependenciesMap)
 
     this.render('')
   }
@@ -60,13 +62,33 @@ export class GetsRecompiledList {
         this.selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id, false)
       })
       .on('mouseout', (_d) => {
-        if (this.modeSwitcherInitialMode) {
-          this.modeSwitcherInitialMode = null
-          this.modeSwitcher.toggle()
-        }
+        if (window.vizState.selectedNode) {
+        } else {
+          if (this.modeSwitcherInitialMode) {
+            this.modeSwitcherInitialMode = null
+            this.modeSwitcher.toggle()
+          }
 
-        this.nodeForceLayout.tabBar.highlightTopStats()
-        this.selectedNodeDetails.unShowFileTree(false)
+          this.nodeForceLayout.tabBar.highlightTopStats()
+          this.selectedNodeDetails.unShowFileTree(false)
+        }
+      })
+      .on('click', d => {
+        if (window.vizState.selectedNode) {
+          window.vizState.selectedNode = null
+          this.nodeForceLayout.restoreGraph()
+        } else {
+          window.vizState.selectedNode = d.id
+
+          const viewMode = window.vizState.viewMode
+          if (viewMode === 'deps') {
+            this.selectedNodeDetails.infoBoxShowSelectedFilesDependencies(d.id)
+            this.tabBar.switchTab('selected-file')
+          } else if (viewMode === 'ancestors') {
+            this.selectedNodeDetails.infoBoxShowSelectedFilesAncestors(d.id)
+            this.tabBar.switchTab('selected-file')
+          }
+        }
       })
 
     u.exit()
@@ -93,11 +115,16 @@ function findMatchingFiles(allFiles, searchText) {
   return searchText === '' ? fileList : fileList.filter(d => d.id.indexOf(searchText) !== -1)
 }
 
-function calculateTopGetRecompiled(getsRecompiledMap) {
+function calculateTopGetRecompiled(dependenciesMap) {
   const allFiles = []
-
-  for (const id of Object.keys(getsRecompiledMap)) {
-    allFiles.push({id: id, count: getsRecompiledMap[id]})
+  for (const [file, deps] of Object.entries(dependenciesMap)) {
+    let count = 0
+    for (const [_depFile, depType] of Object.entries(deps)) {
+      if (depType === 'compile' || depType === 'export') {
+        count += 1
+      }
+    }
+    allFiles.push({id: file, count: count})
   }
 
   return lodashOrderBy(allFiles, ['count'], ['desc'])

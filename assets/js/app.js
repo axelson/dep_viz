@@ -68,7 +68,14 @@ function renderSelectedFile(event) {
 }
 
 function renderDotFile(data) {
-  const graph = graphlibDot.read(data)
+  let graph = null
+  try {
+    graph = graphlibDot.read(data)
+  } catch(e) {
+    console.error(e)
+    alert("Unable to parse dot file: " + e.message)
+  }
+  if (!graph) return
 
   const nodes = graph.nodes().map(id => {
     return {
