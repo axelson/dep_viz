@@ -1,4 +1,5 @@
 import jQuery from 'jquery'
+import lodashSortBy from 'lodash/sortBy'
 
 const $emptyMessage = jQuery('.info-box-file-list-empty-message')
 
@@ -46,12 +47,17 @@ export class FileSearch {
   }
 
   render(searchText) {
+    const dataUnsorted =
+          this.nodeData.filter(d => {
+            return d.id.indexOf(searchText) !== -1
+          })
+
+    const data = lodashSortBy(dataUnsorted, 'id')
+
     const u =
           d3.select('.info-box-file-list')
             .selectAll('div')
-            .data(this.nodeData.filter(d => {
-              return d.id.indexOf(searchText) !== -1
-            }), d => d.id)
+            .data(data, d => d.id)
 
     u.enter()
      .append('div')
