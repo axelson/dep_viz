@@ -20,7 +20,7 @@ Now visit [`localhost:4000`](http://localhost:4000) from your browser.
 ## Screenshots
 
 ![Screenshot of Credo](contrib/screenshot_credo.png)
-[Screenshot of Credo while hovering over a node](contrib/screenshot_highlight_credo.png)
+![Screenshot of Credo while hovering over a node](contrib/screenshot_highlight_credo.png)
 
 ## FAQ
 
