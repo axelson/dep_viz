@@ -2,18 +2,25 @@
   window.svgWidth = <%= @svg_width %>
   window.svgHeight = <%= @svg_height %>
 </script>
+<div></div>
 
 <div class="initial-interface">
-  <div>
-    Welcome to DepViz, you can use this tool to explore and understand the inter-file dependencies of your Elixir project.
+  <div class="content">
+    <h1 class="ui-purple">Welcome to DepViz!</h1>
+    <p class="m-b-2">
+      You can use this tool to explore and understand the inter-file dependencies of your Elixir project.
+    </p>
+    <input type="file" id="file-selector" accept=".dot">
+    <p class="m-b-4">
+      In the root of your project generate a `.dot` file by running `mix xref graph --format dot`, then upload it here to analyze it (optionally changing the name on the first line of the file)
+    </p>
+    <hr class="m-b-4">
+    <div>Or view an example from an open source project:</div>
+    <div class="sample-dot-list"></div>
   </div>
-  <input type="file" id="file-selector" accept=".dot">
-  <div>In the root of your project generate a `.dot` file by running `mix xref graph --format dot`, then upload it here to analyze it (optionally changing the name on the first line of the file)</div>
-  <div>Or view an example from an open source project:</div>
-  <div class="sample-dot-list"></div>
 </div>
 
-<div class="force-layout-container">
+<div class="force-layout-container display-none">
   <div class="info-box pointer-events-none">
     <div class="project-name m-b-2">
       xref graph

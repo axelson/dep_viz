@@ -57,6 +57,10 @@ Questions:
   that it is needed)
 
 TODO:
+- [x] Implement new initial screen
+- [x] Add new logo
+- [ ] Link from logo back to initial screen
+- [ ] When choosing a sample file, change the url
 - [x] Handle bad dot files
 - [x] Selected node + hover: Show the compile path
   - Should this depend on the view mode?

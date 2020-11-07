@@ -9,11 +9,12 @@
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body>
+  <body class="initial">
     <header>
       <section class="container">
         <nav role="navigation">
           <div class="flex flex-align-center">
+            <img class="logo" src="<%= Routes.static_path(@conn, "/images/depviz_logo_reverse.png") %>">
             <h1 class="m-r-4">DepViz</h1>
             <div>
               A visual tool to understand Elixir recompilation.

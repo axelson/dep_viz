@@ -14,6 +14,8 @@ defmodule A do
     export()
   end
 
+  defdelegate del, to: DefDelegateExample
+
   @comp BComp.list()
   def comp, do: @comp
 

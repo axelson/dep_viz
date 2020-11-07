@@ -39,7 +39,8 @@ if (fileName) {
       .data(fileList)
       .enter()
       .append('div')
-      .text(d => d)
+      .attr('class', 'sample-dot inline-item')
+      .text(d => "- " + d)
       .on('click', function(d) {
         renderPresetFile(d)
       })
@@ -68,6 +69,9 @@ function renderSelectedFile(event) {
 }
 
 function renderDotFile(data) {
+  jQuery('.force-layout-container').show()
+  jQuery('body').removeClass('initial')
+
   let graph = null
   try {
     graph = graphlibDot.read(data)

@@ -1,4 +1,4 @@
-digraph "DepViz" {
+digraph "xref graph" {
   "lib/demo_dep/a.ex"
   "lib/demo_dep/a.ex" -> "lib/demo_dep/b_comp.ex" [label="(compile)"]
   "lib/demo_dep/b_comp.ex" -> "lib/demo_dep/b_comp/c_compile.ex" [label="(compile)"]
@@ -14,6 +14,7 @@ digraph "DepViz" {
   "lib/demo_dep/b_runtime.ex" -> "lib/demo_dep/b_runtime/c_comp.ex" [label="(compile)"]
   "lib/demo_dep/b_runtime.ex" -> "lib/demo_dep/b_runtime/c_export.ex" [label="(export)"]
   "lib/demo_dep/b_runtime.ex" -> "lib/demo_dep/b_runtime/c_runtime.ex"
+  "lib/demo_dep/a.ex" -> "lib/demo_dep/def_delegate_example.ex"
   "lib/demo_dep/a.ex" -> "lib/demo_dep/loop.ex" [label="(compile)"]
   "lib/demo_dep/loop.ex" -> "lib/demo_dep/loop_a.ex"
   "lib/demo_dep/loop_a.ex" -> "lib/demo_dep/a.ex" [label="(compile)"]
@@ -31,6 +32,7 @@ digraph "DepViz" {
   "lib/demo_dep/b_runtime/c_comp.ex"
   "lib/demo_dep/b_runtime/c_export.ex"
   "lib/demo_dep/b_runtime/c_runtime.ex"
+  "lib/demo_dep/def_delegate_example.ex"
   "lib/demo_dep/loop.ex"
   "lib/demo_dep/loop_a.ex"
   "lib/gviz.ex"
@@ -52,6 +54,7 @@ digraph "DepViz" {
   "lib/gviz_web/views/error_helpers.ex" -> "lib/gviz_web/gettext.ex"
   "lib/gviz/application.ex" -> "lib/gviz_web/telemetry.ex"
   "lib/gviz/configuration.ex"
+  "lib/gviz/file_watcher.ex"
   "lib/gviz_web.ex"
   "lib/gviz_web/channels/user_socket.ex"
   "lib/gviz_web/controllers/graph_controller.ex"

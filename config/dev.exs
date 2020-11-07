@@ -50,6 +50,7 @@ config :gviz, GVizWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/sample_xref/.*(dot)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/gviz_web/(live|views)/.*(ex)$",
       ~r"lib/gviz_web/templates/.*(eex)$"

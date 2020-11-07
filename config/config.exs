@@ -18,6 +18,8 @@ config :gviz, GVizWeb.Endpoint,
   pubsub_server: GViz.PubSub,
   live_view: [signing_salt: "atPPIhiP"]
 
+config :gviz, :phoenix_endpoint, GVizWeb.Endpoint
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

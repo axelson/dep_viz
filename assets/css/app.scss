@@ -2,6 +2,7 @@
 @import "../node_modules/nprogress/nprogress.css";
 @import "colors";
 @import "force_layout";
+@import "initial_interface";
 
 // https://fonts.google.com/specimen/Fira+Mono
 @font-face {
@@ -48,6 +49,10 @@ body .monospace {
   font-family: 'Fira Mono', monospace;
 }
 
+body.initial {
+  background: #eee;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -64,6 +69,12 @@ nav {
   a {
     color: white;
     &:hover { color: white }
+  }
+
+  .logo {
+    max-width: 40px;
+    max-height: 40px;
+    margin-right: 10px;
   }
 }
 

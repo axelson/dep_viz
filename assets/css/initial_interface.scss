@@ -1,0 +1,20 @@
+.initial-interface {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+
+  .content {
+    max-width: 400px;
+  }
+}
+
+.sample-dot-list {
+  .sample-dot {
+    background: none;
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

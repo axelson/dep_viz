@@ -15,8 +15,7 @@ defmodule GViz.Application do
       {Phoenix.PubSub, name: GViz.PubSub},
       # Start the Endpoint (http/https)
       GVizWeb.Endpoint
-      # Start a worker by calling: GViz.Worker.start_link(arg)
-      # {GViz.Worker, arg}
+      # {GViz.FileWatcher, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
