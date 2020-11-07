@@ -2,6 +2,8 @@
 
 DepViz is a visual tool to understand Elixir recompilation.
 
+It is accessible online at: [https://dep-viz.herokuapp.com/](https://dep-viz.herokuapp.com/)
+
 The intent is to help developers rapidly understand what compilation dependencies they have in their project. Then they can take steps to minimize them to reduce the feedback loop between writing code and seeing results.
 
 Helps you answer questions about the Elixir code base:
