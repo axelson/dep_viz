@@ -14,7 +14,8 @@ defmodule GViz.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: GViz.PubSub},
       # Start the Endpoint (http/https)
-      GVizWeb.Endpoint
+      # GVizWeb.Endpoint
+      {SiteEncrypt.Phoenix, GVizWeb.Endpoint}
       # {GViz.FileWatcher, []}
     ]
 

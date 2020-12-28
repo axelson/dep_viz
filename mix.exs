@@ -47,7 +47,8 @@ defmodule GViz.MixProject do
       {:nimble_csv, "~> 1.1"},
       {:dotx, "~> 0.3.1"},
       {:skogsra, "~> 2.3"},
-      {:file_system, "~> 0.2"}
+      {:file_system, "~> 0.2"},
+      {:site_encrypt, ">= 0.4.0"}
     ]
   end
 

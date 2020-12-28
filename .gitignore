@@ -34,5 +34,6 @@ npm-debug.log
 /priv/static/
 
 /priv/sample_xref/extra/
+/priv/site_encrypt/
 
 .env

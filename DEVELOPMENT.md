@@ -163,6 +163,9 @@ Maybe:
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
 - [ ] Replace file-tree naming with selected file
+- [ ] Add an edge bundling mode
+  - https://www.data-to-viz.com/graph/edge_bundling.html
+  - https://www.youtube.com/watch?v=LkGx33Suzsk
 
 Future:
 - Configurable node coloring based on filename prefix
