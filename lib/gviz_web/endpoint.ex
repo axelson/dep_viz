@@ -1,6 +1,5 @@
 defmodule GVizWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :gviz
-  use SiteEncrypt.Phoenix
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -56,31 +55,4 @@ defmodule GVizWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug GVizWeb.Router
-
-  @impl Phoenix.Endpoint
-  def init(_key, config) do
-    # Merge SiteEncrypt configuration
-    {:ok, SiteEncrypt.Phoenix.configure_https(config)}
-  end
-
-  @impl SiteEncrypt
-  def certification do
-    SiteEncrypt.configure(
-      client: :native,
-      domains: ["pham.jasonaxelson.com", "depviz.jasonaxelson.com"],
-      emails: ["contact@jasonaxelson.com"],
-      db_folder:
-        Application.get_env(
-          :gviz,
-          :site_encrypt_db_folder,
-          Application.app_dir(:gviz, Path.join(~w/priv site_encrypt/))
-        ),
-      directory_url:
-        case Application.get_env(:gviz, :cert_mode, "local") do
-          "local" -> {:internal, port: 4002}
-          "staging" -> "https://acme-staging-v02.api.letsencrypt.org/directory"
-          "production" -> "https://acme-v02.api.letsencrypt.org/directory"
-        end
-    )
-  end
 end
