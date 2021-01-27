@@ -8,7 +8,7 @@ use Mix.Config
 # with webpack to recompile .js and .css sources.
 config :gviz, GVizWeb.Endpoint,
   url: [host: "gviz.home.lan"],
-  https: [port: 4040],
+  http: [port: 4040],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
