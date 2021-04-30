@@ -12,7 +12,10 @@
     </p>
     <input type="file" id="file-selector" accept=".dot">
     <p class="m-b-4">
-      In the root of your project generate a `.dot` file by running `mix xref graph --format dot`, then upload it here to analyze it (optionally changing the name on the first line of the file)
+      In the root of your project generate a `.dot` file by running `mix xref graph --format dot`, then upload it here to analyze it (optionally changing the name on the first line of the file).
+    </p>
+    <p class="m-b-4 text-xs">
+      DepViz does not upload your `.dot` file to a remote server. Code is available on <a href="https://github.com/axelson/dep_viz">GitHub</a>.
     </p>
     <hr class="m-b-4">
     <div>Or view an example from an open source project:</div>
