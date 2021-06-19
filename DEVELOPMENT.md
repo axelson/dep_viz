@@ -1,5 +1,15 @@
 ## Notes
 
+TODO:
+- [x] Add a button on the main page that brings up a wx file dialog
+- [ ] Generate `xref_graph.dot` file locally
+- [ ] Link the profiling to the main depviz js
+  - Maybe via phoenix channels push
+  - Maybe a new page that takes the local file path as a param?
+  - Maybe launch wx from the main page?
+- [ ] Create a `xref_graph.dot` via erlexec
+- [ ] Disable profiling support in production
+
 Other interesting links:
 * https://gist.github.com/unixod/e932a181c1125921fa638f702376c295
   * Some other means of using graphviz for visualizing larger graphs
@@ -16,6 +26,13 @@ Top annoyances with current implementation:
   - i.e. if a file has 3 compilation dependencies it's hard to see how many
     files each of those dependencies is contributing
   - Or hard to tell which files are behind the compilation dependency
+
+## Architecture
+
+When running in my production setup (https://depviz.jasonaxelson.com), only
+allow analyzing pre-generated files (either `.dot` or a built json file). In
+development/when running locally LiveView is used to facilitate analyzing
+another project directly.
 
 ## Meta
 
@@ -65,7 +82,7 @@ TODO:
 - [x] Selected file mode should switch when view mode is toggled
 - [ ] Bug: a label gets rendered over the current node (interfering with rendering and mouse focus)
 - [ ] Highlight two-way dependencies somehow
-- [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
+- [ ] Parse `mix compile --profile time`
 
 Done:
 - [x] Show a list of files on the left
@@ -149,6 +166,7 @@ Done:
 - [x] Deploy to a server
 
 Maybe:
+- [ ] Intro animation: Start all files in a regular grid, then add the relations and start the force layout
 - [ ] Have a setting to not highlight runtime dependencies?
 - [ ] Create a "score" for the repository or the file
   - Based on the number of files that cause the top files to get recompiled
