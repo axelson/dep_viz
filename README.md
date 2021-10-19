@@ -11,13 +11,7 @@ Helps you answer questions about the Elixir code base:
   * Investigate: What files will **cause this** file to recompile?
   * Investigate: What files does **this file cause** to recompile?
 
-To start the server:
-
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now visit [`localhost:4000`](http://localhost:4000) from your browser.
+To better understand how to use DepViz and why recompilation happens check out my Code BEAM BR talk: [https://www.codebeambr.com/video/12](https://www.codebeambr.com/video/12)
 
 ## Screenshots
 
@@ -28,3 +22,13 @@ Now visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 * Is this usable with other graphs?
   - A: Not really, for example the graph algorithms needs to revisit the starting node if the starting node is itself part of a transitive compile time dependency chain
+
+## Running locally
+
+To start the server:
+
+  * Install dependencies with `mix deps.get`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Start Phoenix endpoint with `mix phx.server`
+
+Now visit [`localhost:4000`](http://localhost:4000) from your browser.
