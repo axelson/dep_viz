@@ -10,6 +10,9 @@ TODO:
 - [ ] Create a `xref_graph.dot` via erlexec
 - [ ] Disable profiling support in production
 
+Should I create a 2-d graph of compilation time, vs frequency of recompilation?
+This will show an "impact" score, an amalgamation of how long you have been waiting for a specific 
+
 Other interesting links:
 * https://gist.github.com/unixod/e932a181c1125921fa638f702376c295
   * Some other means of using graphviz for visualizing larger graphs

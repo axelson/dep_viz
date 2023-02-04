@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "DepViz", suffix: "" %>
-    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <.live_title>
+      <%= assigns[:page_title] || "DepViz" %>
+    </.live_title>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/js/app.js")}></script>
     <meta property="og:description" content="A visual tool to help developers understand Elixir recompilation in their projects." />
     <meta property="og:image" content="/images/depviz_logo.png" />
     <meta property="og:image:width" content="685" />
@@ -18,7 +20,7 @@
       <section class="container">
         <nav role="navigation">
           <div class="flex flex-align-center">
-            <img class="logo" src="<%= Routes.static_path(@conn, "/images/depviz_logo_reverse.png") %>">
+            <img class="logo" src={Routes.static_path(@conn, "/images/depviz_logo_reverse.png")}>
             <h1 class="m-r-4">DepViz</h1>
             <div>
               A visual tool to understand Elixir recompilation.

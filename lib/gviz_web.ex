@@ -35,7 +35,7 @@ defmodule GVizWeb do
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
-        only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
+        only: [view_module: 1, view_template: 1]
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
@@ -45,7 +45,7 @@ defmodule GVizWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {GVizWeb.LayoutView, "live.html"}
+        layout: {GVizWeb.LayoutView, :live}
 
       unquote(view_helpers())
     end
@@ -82,7 +82,7 @@ defmodule GVizWeb do
       use Phoenix.HTML
 
       # Import LiveView helpers (live_render, live_component, live_patch, etc)
-      import Phoenix.LiveView.Helpers
+      import Phoenix.Component
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
