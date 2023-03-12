@@ -32,7 +32,7 @@ defmodule GViz.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "1.7.0-rc.2", override: true},
+      {:phoenix, "~> 1.7"},
       {:phoenix_live_view, "~> 0.18.3"},
       {:phoenix_view, "~> 2.0"},
       {:floki, ">= 0.0.0", only: :test},
