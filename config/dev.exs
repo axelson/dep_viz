@@ -30,7 +30,7 @@ config :esbuild,
   version: "0.14.41",
   default: [
     args:
-      ~w(js/app.js --bundle --minify --sourcemap=external --target=es2020 --outdir=../dist/js),
+      ~w(js/app.js --bundle --minify --sourcemap=external --target=es2020 --outdir=../priv/static/js),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
@@ -38,7 +38,7 @@ config :esbuild,
 config :dart_sass,
   version: "1.61.0",
   default: [
-    args: ~w(--load-path=node_modules --no-source-map css/app.scss ../dist/css/app.css),
+    args: ~w(--load-path=node_modules --no-source-map css/app.scss ../priv/static/css/app.css),
     cd: Path.expand("../assets", __DIR__)
   ]
 

@@ -1,8 +1,23 @@
+body.initial {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  main.container {
+    display: flex;
+    padding-top: 12px;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0;
+    flex: 1;
+  }
+}
+
 .initial-interface {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px);
+  flex: 1;
 
   .content {
     max-width: 400px;
