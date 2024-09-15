@@ -33,13 +33,13 @@ defmodule GViz.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.7"},
-      {:phoenix_live_view, "~> 0.18.3"},
+      {:phoenix_live_view, "~> 0.20.17"},
       {:phoenix_view, "~> 2.0"},
       {:floki, ">= 0.0.0", only: :test},
-      {:phoenix_html, "~> 3.0"},
+      {:phoenix_html, "~> 4.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_dashboard, "~> 0.7.2"},
-      {:telemetry_metrics, "~> 0.6"},
+      {:phoenix_live_dashboard, "~> 0.8.4"},
+      {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
@@ -47,7 +47,9 @@ defmodule GViz.MixProject do
       {:nimble_csv, "~> 1.1"},
       {:dotx, "~> 0.3.1"},
       {:skogsra, "~> 2.3"},
-      {:file_system, "~> 0.2"}
+      {:file_system, "~> 1.0"},
+      {:esbuild, "~> 0.5", only: :dev},
+      {:dart_sass, "~> 0.7", only: :dev}
     ]
   end
 
@@ -59,7 +61,11 @@ defmodule GViz.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "cmd npm install --prefix assets"]
+      setup: ["deps.get", "cmd --cd assets npm install"],
+      "assets.build": [
+        "esbuild default --minify",
+        "sass default --no-source-map --style=compressed"
+      ]
     ]
   end
 end

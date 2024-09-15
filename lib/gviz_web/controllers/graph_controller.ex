@@ -45,7 +45,7 @@ defmodule GVizWeb.GraphController do
   end
 
   defp label(%Dotx.Edge{attrs: %{"label" => label}}), do: label
-  defp label(%Dotx.Edge{}), do: ''
+  defp label(%Dotx.Edge{}), do: ""
 
   def dot(conn, _params) do
     sample_dot = File.read!(sample_dot_path())

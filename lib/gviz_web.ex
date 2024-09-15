@@ -20,9 +20,9 @@ defmodule GVizWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: GVizWeb
+      use Gettext, backend: GVizWeb.Gettext
 
       import Plug.Conn
-      import GVizWeb.Gettext
       alias GVizWeb.Router.Helpers, as: Routes
     end
   end
@@ -72,14 +72,13 @@ defmodule GVizWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import GVizWeb.Gettext
+      use Gettext, backend: GVizWeb.Gettext
     end
   end
 
   defp view_helpers do
     quote do
-      # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      use Gettext, backend: GVizWeb.Gettext
 
       # Import LiveView helpers (live_render, live_component, live_patch, etc)
       import Phoenix.Component
@@ -87,8 +86,6 @@ defmodule GVizWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import GVizWeb.ErrorHelpers
-      import GVizWeb.Gettext
       alias GVizWeb.Router.Helpers, as: Routes
     end
   end
